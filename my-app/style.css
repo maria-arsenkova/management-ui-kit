@@ -191,7 +191,7 @@ body {
     -khtml-border-radius: 50%;
 }
 
-.circle__elem:last-child{
+.circle div:last-child{
     margin-right: 0;
 }
 /* User Info End */
