@@ -1,0 +1,67 @@
+.UserInfo {
+    position: absolute;
+    width: 270px;
+    height: 80px;
+    left: 0px;
+    top: 84px;
+    background: red;
+    
+}
+
+.Userpic {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    left: 30px;
+    top: 16px; 
+}
+
+.Name {
+    position: absolute;
+    width: 117px;
+    height: 39px;
+    left: 93px;
+    top: 20px;
+    background: rgb(184, 245, 197);
+}
+
+.T {
+    position: absolute;
+height: 21px;
+left: 0%;
+right: 0%;
+top: calc(50% - 21px/2 - 9px);
+
+font-family: Heebo;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 21px;
+/* identical to box height */
+
+
+color: #FFFFFF;
+
+}
+
+.T2 {
+   /* Product Owner */
+
+
+position: absolute;
+height: 18px;
+left: 0%;
+right: 0%;
+top: calc(50% - 18px/2 + 10.5px);
+
+font-family: Heebo;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 18px;
+/* identical to box height */
+
+
+color: #9B9B9B;
+
+}

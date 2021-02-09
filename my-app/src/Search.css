@@ -1,0 +1,11 @@
+.Search {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 234px;
+    top: 33px;
+    
+    mix-blend-mode: normal;
+    opacity: 0.5;
+    border: 1px solid #000000;
+}

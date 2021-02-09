@@ -1,0 +1,35 @@
+.Logo {
+  
+    width: 128px;
+    height: 24px;
+    left: 30px;
+    top: 30px;
+      background: red;
+  }
+.LogoImg {
+    position: absolute;
+    left: 0.32%;
+    right: 82.8%;
+    top: 10.6%;
+    bottom: 10.6%;
+    background: red;
+  }
+  
+.CompanyName {
+  position: absolute;
+  width: 92px;
+  height: 24px;
+  left: 35px;
+  top: 0px;
+
+  font-family:'Heebo', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+
+  color: #FFFFFF;
+  background: red;
+  }
