@@ -113,8 +113,8 @@ body {
 }
 
 
-/* Top Start */
-.top {
+/* Project header */
+.project_header {
     margin-bottom: 30px;
 }
 .top__wrapper {
@@ -150,7 +150,7 @@ body {
     letter-spacing: 0px;
     text-align: left;
 }   
-/* Top End */
+/* Project header  */
 
 /* User Info Start */
 .user-info {
