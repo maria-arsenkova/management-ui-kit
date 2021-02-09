@@ -179,7 +179,7 @@ body {
     display: flex;
     flex-wrap: nowrap;
 }
-.circle__elem {
+.circle div {
     height: 4px;
     width: 4px;
     border-radius: 50%;
