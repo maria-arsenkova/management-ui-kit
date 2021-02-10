@@ -348,12 +348,12 @@ body {
 }
 
 /* Project Header Block */
-.top-header {
+.header {
     background: #FFFFFF;
     height: 136px;
 }
 
-.top-header {
+.header {
     display: flex;
     flex-direction: column;
     padding-left: 30px;
@@ -362,30 +362,30 @@ body {
 
 }
 
-.project-header {
+.header__cap {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 16px;
 }
 
-.project-header__logo {
+.header__cap-logo {
     display: flex;
     align-items: center;
 }
 
-.project-header__logo-img {
-    margin-right: 12px;
-}
-
-.project-header__logo-link {
+.header__cap-logo a {
     display: flex;
     min-width: 316px;
     margin-right: 15px;
     align-items: center;
     text-decoration: none;
 }
-.project-header__logo-text {
+
+.header__cap-logo img {
+    margin-right: 12px;
+}
+.header__cap-logo-name {
     font-family: 'Heebo';
     font-style: normal;
     font-weight: 900;
@@ -395,7 +395,7 @@ body {
     color: #131313;
 }
 
-.circle-button {
+.header__cap-button {
     align-items: center;
     justify-content: center;
     width: 30px;
@@ -405,7 +405,7 @@ body {
     background:  #EAEAEA;
 }
 
-.circle-button div  {
+.header__cap-button div  {
     background: #9B9B9B;
 }
 
