@@ -414,55 +414,56 @@ body {
 
 }
 
-.members__pics {
+.users {
     display: flex;
     flex-wrap: nowrap;
     margin-right: 15px;
 }
 
-.members__pics a {
+.users a {
     margin-right: 5px;
     text-decoration: none;
 }
-.members__pics a:last-child {
+.users a:last-child {
     margin: 0px;
 }
 
-.members__pics-pic {
+.users a img {
     border-radius: 50%;
     width: 30px;
     height: 30px;
 }
 
-.members__button {
+.members__сhat {
+    height: 30px;
+    width: 81px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 15px;
-}
-
-.members_button-сhat {
-    height: 30px;
-    width: 81px;
     background: #FFF8DD;
 }
 
-.members_button-сhat p {
+.members__сhat p {
     color: #FFC200;
 }
 
-.members_button-share {
+.members__share{
     height: 30px;
     width: 67px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
     background: #EAEAEA;
     margin-right: 15px;
 }
 
-.members_button-share p {
+.members__share p {
     color: #131313;
 }
 
-.members__button-text {
+.members__name {
     font-family: 'Heebo';
     font-style: normal;
     font-weight: bold;
