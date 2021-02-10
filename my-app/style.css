@@ -190,23 +190,32 @@ body {
 
 /* Stats Start */
 .stats {
-    margin-bottom: 30px;
-}
-
-.stats-wrapper {
     display: flex;
     width: 100%;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    padding-left: 30px;
-    padding-right: 62px;
+    padding: 0px 62px 0px 30px;
+    margin-bottom: 30px;
 }
 
-.stats_text-size {
+.stats__counter {
+    font-family: 'Heebo';
+    font-style: normal;
+    font-weight: bold;
     font-size: 20px;
     line-height: 29px;
+    color: #FFFFFF;
 }
+.stats__name-counter {
+    font-family: 'Heebo';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 18px;
+    color: #9B9B9B;
+}
+
 /* Stats End */
 
 /* Menu and Projects Start*/
