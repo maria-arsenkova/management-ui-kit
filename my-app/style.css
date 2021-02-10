@@ -395,8 +395,7 @@ body {
     color: #131313;
 }
 
-.oval {
-    display: flex;
+.circle-button {
     align-items: center;
     justify-content: center;
     width: 30px;
@@ -406,7 +405,7 @@ body {
     background:  #EAEAEA;
 }
 
-.oval div div {
+.circle-button div  {
     background: #9B9B9B;
 }
 
