@@ -113,11 +113,11 @@ body {
 }
 
 
-/* Project header */
-.project_header {
+/* Brand */
+.brand {
     margin-bottom: 30px;
 }
-.top__wrapper {
+.brand__wrapper {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -127,7 +127,7 @@ body {
     padding-top: 30px;
     padding-right: 20px;
 }
-.top__logo{
+.brand__logo{
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -135,20 +135,19 @@ body {
     color: seashell;
 }
 
-.top__logo-pic {
+.brand__logo-pic {
     max-width: 100%;
     height: auto;
     margin-right: 12px;
 }    
 
-.top__logo-text {
-    font-family: Heebo;
+.brand__logo-name {
+    font-family: 'Heebo';
     font-size: 16px;
     font-style: normal;
     font-weight: 900;
     line-height: 24px;
     letter-spacing: 0px;
-    text-align: left;
 }   
 /* Project header  */
 
