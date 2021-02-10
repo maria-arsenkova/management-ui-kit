@@ -94,25 +94,6 @@ body {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }  
 
-.navigation_text-white {
-    font-family: 'Heebo';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 21px;
-    color: #FFFFFF;
-}
-
-.navigation_text-grey {
-    font-family: 'Heebo';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 18px;
-    color: #9B9B9B;
-}
-
-
 /* Brand */
 .brand {
     display: flex;
@@ -144,34 +125,51 @@ body {
     margin-left: auto;
     margin-right: 0;
 }
-/* Brand header  */
+/* Brand end  */
 
 /* User Info Start */
 .user-info {
-    background: #202020;
-    margin-bottom: 20px;
-}
-.user-info_wrapper {
     display: flex;
     width: 100%;
     flex-wrap: nowrap;
-    justify-content: space-between;
     align-items: center;
-    padding-left: 30px;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    padding-right: 20px;
+    padding: 16px 20px 16px 30px;
+    background: #202020;
+    margin-bottom: 20px;
 }
 
-.user-info__pic {
+.user-info__user-pic {
+    margin-right: 15px;
+}
+
+.user-info__user-pic img{
     border-radius: 50%;
     width: 48px;
     height: 48px;
+}
+.user-info__initials {
+    font-family: 'Heebo';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+    color: #FFFFFF;
+}
+
+.user-info__position {
+    font-family: 'Heebo';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 18px;
+    color: #9B9B9B;
 }
 
 .circle {
     display: flex;
     flex-wrap: nowrap;
+    margin-left: auto;
+    margin-right: 0;
 }
 .circle div {
     height: 4px;
@@ -191,7 +189,7 @@ body {
 /* User Info End */
 
 /* Stats Start */
-.stats{
+.stats {
     margin-bottom: 30px;
 }
 
