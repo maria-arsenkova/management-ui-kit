@@ -51,9 +51,9 @@ body {
     grid-template-rows: 136px auto auto;
 }   
 
-/* Navigation Start block */
+/* sidebar */
  
-/* Brand */
+/* brand */
 .brand {
     display: flex;
     flex-wrap: nowrap;
@@ -84,9 +84,9 @@ body {
     margin-left: auto;
     margin-right: 0;
 }
-/* Brand end  */
+/* brand end  */
 
-/* User Info Start */
+/* user info start */
 .userInfo {
     display: flex;
     width: 100%;
@@ -132,9 +132,9 @@ body {
     margin-right: 0;
 }
 
-/* User Info End */
+/* user info end */
 
-/* Stats Start */
+/* stats start */
 .stats {
     display: flex;
     width: 100%;
@@ -158,9 +158,9 @@ body {
     color: #9B9B9B;
 }
 
-/* Stats End */
+/* stats end */
 
-/* Menu and Projects Start*/
+/* menu, projects, teams list start*/
 .menuIndent {
     margin-bottom: 30px;
 }
@@ -270,7 +270,6 @@ body {
     margin-right: 0px;
 }
 
-/* отступ внизу navigation block*/
 .sidebar-footer {
     padding-left: 30px; 
     padding-right: 20px;
@@ -289,8 +288,9 @@ body {
     line-height: 22px;
     color:#FFFFFF;
 }
+/* menu, projects, teams list end*/
 
-/* Project Header Block */
+/* header start*/
 
 .header-cap {
     display: flex;
@@ -423,4 +423,4 @@ body {
     border-bottom: 2px solid rgba(255,194,0,1);
 }
 
-/* Project Header Block End */
+/* header end */
