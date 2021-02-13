@@ -7,131 +7,115 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="grid-container">
-        <!-- Navigation Start block start -->
-        <div class="navigation-elem-grid">
-            <div class="navigation">
-
-                <!-- Brand Start-->
+    <div class="wrapper">
+        <!-- sidebar start -->
+        <div class="sidebar">
+                <!-- brand start-->
                     <div class="brand">
                         <a href="/">
-                            <img src="./img/logo.png" alt="PROJECTUS" class="brand__pic">
+                            <img src="./img/logo.png" alt="PROJECTUS" class="brand-icon">
                         </a>
-                        <span class="brand__name">PROJECTUS</span>
-                        <a href="/" class="brand__pic-search">
+                        <span class="brand-name">PROJECTUS</span>
+                        <a href="/" class="brand-search">
                             <img src="./img/search.png" alt="search">
                         </a>
                     </div>
-                <!-- Brand End -->
+                <!-- brand end -->
 
-                <!-- User Info  Start-->
-                    <div class="user-info">
-                        <a href="/" class="user-info__user-pic">
+                <!-- userInfo start-->
+                    <div class="userInfo">
+                        <a href="/" class="userInfo-photo">
                             <img src="./img/userpic.png" alt="userpic">
                         </a>
                         <div>
-                            <span class="user-info__initials">Emilee Simchenko</span>
-                            <span class="user-info__position">Product Owner</span>
-                        </div>
-                        <div class="circle">
-                            <div></div>
-                            <div></div>
-                            <div></div>
+                            <span class="userInfo-initials">Emilee Simchenko</span>
+                            <span class="userInfo-position">Product Owner</span>
                         </div>
                     </div>
-                <!-- User Info End-->
+                <!-- userInfo End-->
 
-                <!-- Stats Start-->
+                <!-- stats start-->
                     <div class="stats">
                         <div>
-                            <div class="stats__counter">372</div>
-                            <div class="stats__name-counter">Completed Tasks</div>
+                            <div class="stats-counter">372</div>
+                            <div class="stats-name">Completed Tasks</div>
                         </div>
                         <div>
-                            <div class="stats__counter">11</div>
-                            <div class="stats__name-counter">Open Tasks</div>
+                            <div class="stats-counter">11</div>
+                            <div class="stats-name">Open Tasks</div>
                         </div>
                     </div>
-                <!-- Stats End -->
-
-                <!-- Menu  Start-->
-                <nav class="list list_menu-indent-bottom">
+                <!-- stats end -->
+               
+                <!-- menu list start-->
+                <nav class="list list_menu">
                     <ul>
                         <li>
-                            <a href="/" class="list__name">Menu</a>
+                            <a href="/">Menu</a>
                         </li>
-                        <li>
+                        <li class="list-item">
                             <a href="/">Home</a>
                         </li>
-                        <li>
+                        <li class="list-item">
                             <a href="/">My Tasks</a>
                         </li>
-                        <li>
-                            <a href="/" class="counter">
-                                <span>Notifications</span>
-                                <span class="counter__sum">3</span>
+                        <li class="list-item">
+                            <a href="/" class="list-group counter_indent">
+                                 Notifications
+                                <span class="counter">3</span>
                             </a>
                         </li>
                     </ul>
-                  </nav>
-                <!-- Menu End-->
-                 <!-- Projects  Start-->
-                 <nav class="list list_projects-indent-bottom">
-                    <ul>
-                        <li>
-                            <a href="/">
-                                <span class="list__name">Projects</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/" class="list_item-wrapper">
-                                <img src="./img/dashboard.png" alt="Dashboard" class="list__pic">
-                                <span>Dashboard UI Kit</span>
-                            </a>
-                        </li>
-                        <li class="list__inactive-section">
-                            <a href="/" class="list_item-wrapper">
-                                <img src="./img/crm.png" alt="CRM" class="list__pic">
-                                <span>CRM System</span>
-                            </a>
-                        </li>
-                        <li class="list__active-section" style="padding-left: 25px;">
-                            <a href="/" class="list_item-wrapper">
-                                <img src="./img/website.png" alt="Website" class="list__pic">
-                                <span>Website Redesign</span>
-                                <div class="circle">
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/" class="list_item-wrapper">
-                                <img src="./img/communication.png" alt="Communication" class="list__pic">
-                                <span>Communication Tool</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/" class="list_color-yellow">
-                                <span class="list_color-yellow">+ Add a Project</span>
-                            </a>
-                        </li>
-                    </ul>
-                  </nav>
-                <!-- Projects End-->
+                </nav>
+                <!-- menu list end-->
 
-                <!-- Teams End -->
-                <nav class="list list_teams-indent-bottom">
+                 <!-- projects list start-->
+                 <nav class="list list_projects">
                     <ul>
                         <li>
-                            <a href="/">
-                                <span class="list__name">Teams</span>
+                            <a href="/">Projects</a>
+                        </li>
+                        <li class="list-item">
+                            <a href="/" class="list-group">
+                                <img src="./img/dashboard.png" alt="Dashboard" class="list-icon">
+                                Dashboard UI Kit
                             </a>
                         </li>
+                        <li class="list-item">
+                            <a href="/" class="list-group">
+                                <img src="./img/crm.png" alt="CRM" class="list-icon">
+                                CRM System
+                            </a>
+                        </li>
+                        <li class="list-itemActive">
+                            <a href="/" class="list-group">
+                                <img src="./img/website.png" alt="Website" class="list-icon">
+                                 Website Redesign
+                                <div class="circle"></div>
+                            </a>
+                        </li>
+                        <li class="list-item">
+                            <a href="/">
+                                <img src="./img/communication.png" alt="Communication" class="list-icon">
+                                Communication Tool
+                            </a>
+                        </li>
+                        <li class="list-item">
+                            <a href="/" id="list-footer">+ Add a Project</a>
+                        </li>
+                    </ul>
+                  </nav>
+                <!-- projects list end-->
+
+                <!-- teams list start -->
+                <nav class="list list_teams">
+                    <ul>
                         <li>
-                            <a href="/" class="list_item-wrapper">
-                                <span>Designers</span>
+                            <a href="/">Teams</a>
+                        </li>
+                        <li class="list-item">
+                            <a href="/" class="list-group">
+                                Designers
                                 <span class="list-img">
                                     <img src="./img/userZ.png" alt="Designers">
                                     <img src="./img/userO.png" alt="Designers">
@@ -140,8 +124,8 @@
                             </a>
                         </li>
                         
-                        <li>
-                            <a href="/" class="list_item-wrapper">
+                        <li class="list-item">
+                            <a href="/" class="list-group">
                                 <span>Backend</span>
                                 <span class="list-img">
                                     <img src="./img/userF.png" alt="Backend">
@@ -149,8 +133,8 @@
                                 </span>
                             </a>
                         </li>
-                        <li>
-                            <a href="/" class="list_item-wrapper">
+                        <li class="list-item">
+                            <a href="/" class="list-group">
                                 <span>Frontend</span>
                                 <span class="list-img">
                                     <img src="./img/userFa.png" alt="Frontend">
@@ -160,39 +144,37 @@
                                 </span>
                             </a>
                         </li>
-                        <li>
-                            <a href="/">
-                                <span class="list_color-yellow">+ Add a Team</span>
-                            </a>
+                        <li class="list-item">
+                            <a href="/" id="list-footer">+ Add a Team</a>
                         </li>
                     </ul>
                   </nav>
+                  <!-- teams list end -->
 
-               <div class="footer-navigation">
-                        <p><span>Invite your team</span> and start collaborating!</p>
-               </div>
-            </div>
+               <div class="sidebar-footer"><span>Invite your team</span> and start collaborating!</div>
         </div>
-        <!-- Navigation End-->
+        <!-- sidebar end-->
         
-        <!-- Project Header Block start-->
-        <div class="top-elem-grid">
+        <!-- header start-->
             <div class="header">
-                <!-- Project Header  start-->
-                <div class="header__cap">
-                    <div class="header__cap-logo">
+                <!-- header-cap start-->
+                <div class="header-cap">
+                    <!-- header-logo start-->
+                    <div class="header-logo">
                         <a href="/">
                             <img src="./img/logoWeb.png" alt="Logo">
-                            <span class="header__cap-logo-name">Website</span>
+                            <span class="header-name">Website</span>
                         </a>
-                        <div class="header__cap-button circle">
+                        <!-- отключила пока не найду верное решение  -->
+                        <!-- <div class="header__cap-button circle">
                             <div></div>
                             <div></div>
                             <div></div>
-                        </div>
+                        </div> -->
                     </div>
-                    
-                    <!-- Members  Start-->
+                    <!-- header-logo end-->
+
+                    <!-- members start-->
                     <div class="members">
                         <div  class="users">
                             <a href="/">
@@ -205,32 +187,31 @@
                                 <img src="./img/userEl.png" alt="Logo">
                             </a>
                         </div>
-                        <div class="members__share">
-                            <span class="members__name">Share</span>
+                        <div class="members-share">
+                            <span class="members-name">Share</span>
                         </div>
-                        <div class="members__сhat">
+                        <div class="members-сhat">
                             <a href="/">
                               <img src="./img/chat.png" alt="chat">
                             </a>
-                            <span class="members__name">Chat</span>
+                            <span class="members-name">Chat</span>
                         </div>
                     </div>
-                    <!--Members End --> 
+                    <!-- members end-->
                 </div>
-                <!-- Project Header End -->
-                <!-- Tabs  start-->
+                <!-- header-cap end -->
+                <!-- tabs  start-->
                 <div class="tabs">
-                    <a href="/" class="tabs_active">Tasks</a>
-                    <a href="/" class="tabs_inactive">Kanban</a>
-                    <a href="/" class="tabs_inactive">Activity</a>
-                    <a href="/" class="tabs_inactive">Calendar</a>
-                    <a href="/" class="tabs_inactive">Files</a>
+                    <a href="/" class="tabs-active">Tasks</a>
+                    <a href="/" class="tabs-inactive">Kanban</a>
+                    <a href="/" class="tabs-inactive">Activity</a>
+                    <a href="/" class="tabs-inactive">Calendar</a>
+                    <a href="/" class="tabs-inactive">Files</a>
                 </div>
-                <!-- Tabs End -->
+                <!-- tabs end -->
             </div>
-        </div>
-         <!-- Project Header Block End-->
-        <div class="elem3" style="background: rgb(249, 243, 255);"> в разработке...Task List</div>  
-        <div class="elem4" style="background: rgb(252, 197, 231);">в разработке...Task Opened</div>
+         <!-- header end-->
+        <div class="contentLeft" style="background: rgb(249, 243, 255);"> main в разработке...Task List</div>  
+        <div class="contentRight" style="background: rgb(252, 197, 231);">в разработке...Task Opened</div>
   </div>
 </body>

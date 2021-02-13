@@ -15,23 +15,36 @@ body {
     font-weight: normal;
 }
 
-.navigation-elem-grid {
-    grid-area: navigation;
+.sidebar {
+    grid-area: sidebar;
+    display: flex;
+    flex-flow: column;
+    max-width: 270px;
+    padding-bottom: 35px;
+    background: #000000;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }    
     
-.top-elem-grid { 
-    grid-area: top; 
+.header { 
+    grid-area: header; 
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 35px;
+    background: #FFFFFF;
+    height: 136px;
 }   
-.elem3 { grid-area: taskList;}
+.contentLeft { grid-area: contentLeft;}
     
-.elem4 { grid-area: taskOpened;}
+.contentRight { grid-area: contentRight;}
     
-.grid-container{
+.wrapper {
     display: grid;
     grid-template-areas:
-    'navigation top top'
-    'navigation taskList taskOpened'
-    'navigation taskList taskOpened';
+    'sidebar header header'
+    'sidebar contentLeft contentRight'
+    'sidebar contentLeft contentRight';
     /* grid-template-columns: 270px 1fr 1fr; */
     grid-template-columns: 270px auto auto;
     /* не авто и не 1F - указывать пиксили */
@@ -39,15 +52,7 @@ body {
 }   
 
 /* Navigation Start block */
-.navigation {
-    display: flex;
-    flex-flow: column;
-    max-width: 270px;
-    padding-bottom: 35px;
-    background: #000000;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}  
-
+ 
 /* Brand */
 .brand {
     display: flex;
@@ -60,13 +65,13 @@ body {
     color: seashell;
 }
 
-.brand__pic {
+.brand-icon {
     max-width: 100%;
     height: auto;
     margin-right: 12px;
 }    
 
-.brand__name {
+.brand-name {
     font-family: 'Heebo';
     font-size: 16px;
     font-style: normal;
@@ -75,14 +80,14 @@ body {
     letter-spacing: 0px;
 }   
 
-.brand__pic-search {
+.brand-search {
     margin-left: auto;
     margin-right: 0;
 }
 /* Brand end  */
 
 /* User Info Start */
-.user-info {
+.userInfo {
     display: flex;
     width: 100%;
     flex-wrap: nowrap;
@@ -92,23 +97,23 @@ body {
     margin-bottom: 20px;
 }
 
-.user-info__user-pic {
+.userInfo-photo {
     margin-right: 15px;
 }
 
-.user-info__user-pic img{
+.userInfo-photo img{
     border-radius: 50%;
     width: 48px;
     height: 48px;
 }
-.user-info__initials {
+.userInfo-initials {
     font-weight: bold;
     font-size: 14px;
     line-height: 21px;
     color: #FFFFFF;
 }
 
-.user-info__position {
+.userInfo-position {
     font-weight: bold;
     font-size: 12px;
     line-height: 18px;
@@ -116,26 +121,17 @@ body {
 }
 
 .circle {
-    display: flex;
-    flex-wrap: nowrap;
+    background:
+    radial-gradient(4px 4px at 65% 50%, #D8D8D8 50%, transparent 50%),
+    radial-gradient(4px 4px at 80% 50%, #D8D8D8 50%, transparent 50%),
+    radial-gradient(4px 4px at 95% 50%, #D8D8D8 50%, transparent 50%);
+    background-repeat: no-repeat;
+    width: 40px;
+    height:  10px;
     margin-left: auto;
     margin-right: 0;
 }
-.circle div {
-    height: 4px;
-    width: 4px;
-    border-radius: 50%;
-    border-radius: 0px;    
-    background: #D8D8D8;    
-    margin-right: 2px;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -khtml-border-radius: 50%;
-}
 
-.circle div:last-child{
-    margin-right: 0;
-}
 /* User Info End */
 
 /* Stats Start */
@@ -149,13 +145,13 @@ body {
     margin-bottom: 30px;
 }
 
-.stats__counter {
+.stats-counter {
     font-weight: bold;
     font-size: 20px;
     line-height: 29px;
     color: #FFFFFF;
 }
-.stats__name-counter {
+.stats-name {
     font-weight: bold;
     font-size: 12px;
     line-height: 18px;
@@ -165,27 +161,21 @@ body {
 /* Stats End */
 
 /* Menu and Projects Start*/
-.list_menu-indent-bottom {
+.menuIndent {
     margin-bottom: 30px;
 }
 
-.list_projects-indent-bottom {
+.projectsIndent {
     margin-bottom: 30px;
 }
 
-.list_teams-indent-bottom {
+.list_teams {
     margin-bottom: 202px;
 }
 
-.list li {
-    padding-left: 30px; 
-    padding-right: 20px;
-    padding-top: 10px;   
-    padding-bottom: 8px;
+.teamsIndent {
+    margin-bottom: 202px;
 }
-.list li:first-child {
-    padding-top: 0px;  
-} 
 
 .list a {
     text-decoration: none;
@@ -195,56 +185,70 @@ body {
     color: #FFFFFF;
 }
 
-.list__name {
+
+.list-item {
+    padding-left: 30px; 
+    padding-right: 20px;
+    padding-top: 10px;   
+    padding-bottom: 10px;
+}
+.list li:first-child a {
     font-weight: bold;
     font-size: 12px;
     text-transform: uppercase;
     color: #878787;
+    padding-top: 0px;
+    padding-left: 30px; 
+    padding-right: 20px
+}
+
+
+.list_menu {
+    margin-bottom: 30px;
+}
+
+.list_projects {
+    margin-bottom: 30px;
+}
+
+.list-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
 }
 
 .counter {
-    display: flex;
-}
-
-.counter span {
-    margin-right: 10px;
-}
-
-.counter__sum {
     width: 20px;
     height: 20px;
     line-height: 20px;
     background: #FFC200;
     border-radius: 50%;
     text-align: center;
+    margin-left: 10px;
 
     font-weight: bold;
     font-size: 13px;
     color: #131313;   
 }
 
-.list_item-wrapper {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-}
 
-.list__pic {
+.list-icon {
     height: 20px;
     width: 20px;
     margin-right: 10px;
 }
 
-.list__active-section {
+.list-itemActive {
     border-left: 5px solid #FFC200;
     background: #202020;
-    /* вопрсо илье */
     box-sizing: border-box;
     padding-left: 25px;
     padding-right: 20px;
-}
+    padding-top: 10px;   
+    padding-bottom: 10px;
+} 
 
-.list_color-yellow {
+#list-footer {
     color: #FFC200;
 }
 
@@ -267,19 +271,19 @@ body {
 }
 
 /* отступ внизу navigation block*/
-.footer-navigation {
+.sidebar-footer {
     padding-left: 30px; 
     padding-right: 20px;
 }
 
-.footer-navigation span {
+.sidebar-footer span {
     color: #FFC200;
     line-height: 22px;
     padding-bottom: 2px;
     border-bottom: 1px solid rgba(255,194,0, 0.25);
 }
 
-.footer-navigation p {
+.sidebar-footer {
     font-weight: bold;
     font-size: 14px;
     line-height: 22px;
@@ -287,33 +291,20 @@ body {
 }
 
 /* Project Header Block */
-.header {
-    background: #FFFFFF;
-    height: 136px;
-}
 
-.header {
-    display: flex;
-    flex-direction: column;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 35px;
-
-}
-
-.header__cap {
+.header-cap {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.header__cap-logo {
+.header-logo {
     display: flex;
     align-items: center;
 }
 
-.header__cap-logo a {
+.header-logo a {
     display: flex;
     min-width: 316px;
     margin-right: 15px;
@@ -321,10 +312,10 @@ body {
     text-decoration: none;
 }
 
-.header__cap-logo img {
+.header-logo img {
     margin-right: 12px;
 }
-.header__cap-logo-name {
+.header-name {
     font-weight: 900;
     font-size: 32px;
     line-height: 47px;
@@ -371,7 +362,7 @@ body {
     height: 30px;
 }
 
-.members__сhat {
+.members-сhat {
     height: 30px;
     width: 81px;
     display: flex;
@@ -381,11 +372,11 @@ body {
     background: #FFF8DD;
 }
 
-.members__сhat p {
+.members-сhat p {
     color: #FFC200;
 }
 
-.members__share{
+.members-share{
     height: 30px;
     width: 67px;
     display: flex;
@@ -396,11 +387,11 @@ body {
     margin-right: 15px;
 }
 
-.members__share p {
+.members-share p {
     color: #131313;
 }
 
-.members__name {
+.members-name {
     font-weight: bold;
     font-size: 14px;
     line-height: 21px;
@@ -422,12 +413,12 @@ body {
 
 }
 
-.tabs_inactive {
+.tabs-inactive {
     margin-right: 30px;
     color: rgba(19,19,19,0.7); 
 }
 
-.tabs_active {
+.tabs-active {
     color: rgba(19,19,19,1); 
     border-bottom: 2px solid rgba(255,194,0,1);
 }
