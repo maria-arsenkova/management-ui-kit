@@ -1,13 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import './style.css';
-import './reset.css';
-import ProjectApp from './ProjectApp';
+import App from './App';
 
 ReactDOM.render(
-  <ProjectApp />,
+  <App />,
   document.getElementById('root')
 );
-
-
