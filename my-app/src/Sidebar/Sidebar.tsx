@@ -1,12 +1,14 @@
 import React from 'react'
-import './style.css';
+import '../style.css';
 import Brand from './Brand';
+import UserInfo from './UserInfo';
 
     function Sidebar () {
         return (
         <div className="sidebar">
           <Brand />
-        </div>
+          <UserInfo />
+        </div>  
         )
     }
 export default Sidebar;
