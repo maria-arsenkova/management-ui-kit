@@ -1,6 +1,7 @@
 import React from 'react';
+import './reset.css';
 import './style.css';
-import Sidebar from './Sidebar/Sidebar';
+import Sidebar from './Components/Sidebar';
 
 
 function App() {
