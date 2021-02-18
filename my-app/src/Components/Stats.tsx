@@ -1,7 +1,6 @@
 import React from 'react'
 import '../style.css';
 
-
 function Stats(props: any){
     return( 
         <div className="stats">

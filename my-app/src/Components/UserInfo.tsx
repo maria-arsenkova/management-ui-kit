@@ -7,16 +7,16 @@ function UserInfo(props: any){
         <div className="userInfo">
             <a href="/" className="userInfo-photo">
                 <img 
-                src={props.avatar}
-                alt={props.initials}
+                src={props.user.avatar}
+                alt={props.user.initials}
                 />
             </a>
             <div>
                 <div className="userInfo-initials">
-                    {props.initials}
+                    {props.user.initials}
                     </div>
                 <div className="userInfo-position">
-                    {props.position}
+                    {props.user.position}
                     </div>
             </div>
         </div>

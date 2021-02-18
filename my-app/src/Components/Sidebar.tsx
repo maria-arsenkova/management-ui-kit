@@ -3,10 +3,10 @@ import '../style.css';
 import Brand from './Brand';
 import UserInfo from './UserInfo';
 import Stats from './Stats';
-import userpic from '../img/userpic.png';
+import Userpic from '../img/userpic.png';
 
 const user = {
-  avatar: userpic,
+  avatar: Userpic,
   initials: 'Emilee Simchenko',
   position: 'Product Owner'
 }
@@ -26,9 +26,7 @@ const tasks = {
         <div className="sidebar">
           <Brand />
           <UserInfo
-            avatar={user.avatar}
-            initials={user.initials}
-            position={user.position}
+            user={user}
            />
           <Stats 
             completed={tasks.completed}
