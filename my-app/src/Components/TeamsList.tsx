@@ -6,7 +6,7 @@ import userT from './img/userT.png'
 
 
 
-function TeamsList (proms:any) {
+function TeamsList (props:any) {
     return (
         <div className="list list_teams">
             <ul>
@@ -18,16 +18,16 @@ function TeamsList (proms:any) {
                     Designers
                     <span className="list-img">
                         <img 
-                        src={proms.teams.designers[0].avatar} 
-                        alt={proms.teams.designers[0].name}
+                        src={props.teams.designers[0].avatar} 
+                        alt={props.teams.designers[0].name}
                         />
                         <img 
-                        src={proms.teams.designers[1].avatar} 
-                        alt={proms.teams.designers[1].name}
+                        src={props.teams.designers[1].avatar} 
+                        alt={props.teams.designers[1].name}
                         />
                         <img 
-                        src={proms.teams.designers[2].avatar} 
-                        alt={proms.teams.designers[2].name}
+                        src={props.teams.designers[2].avatar} 
+                        alt={props.teams.designers[2].name}
                         />
                     </span>
                     </a>
@@ -37,12 +37,12 @@ function TeamsList (proms:any) {
                     Backend
                     <span className="list-img">
                         <img 
-                        src={proms.teams.backend[0].avatar} 
-                        alt={proms.teams.backend[0].name}
+                        src={props.teams.backend[0].avatar} 
+                        alt={props.teams.backend[0].name}
                         />
                         <img 
-                        src={proms.teams.backend[1].avatar} 
-                        alt={proms.teams.backend[1].name}
+                        src={props.teams.backend[1].avatar} 
+                        alt={props.teams.backend[1].name}
                         />
                     </span>
                     </a>
@@ -52,20 +52,20 @@ function TeamsList (proms:any) {
                     Frontend
                     <span className="list-img">
                         <img 
-                        src={proms.teams.frontend[0].avatar} 
-                        alt={proms.teams.frontend[0].name}
+                        src={props.teams.frontend[0].avatar} 
+                        alt={props.teams.frontend[0].name}
                         />
                         <img 
-                        src={proms.teams.frontend[1].avatar} 
-                        alt={proms.teams.frontend[1].name}
+                        src={props.teams.frontend[1].avatar} 
+                        alt={props.teams.frontend[1].name}
                         />
                         <img 
-                        src={proms.teams.frontend[2].avatar} 
-                        alt={proms.teams.frontend[2].name}
+                        src={props.teams.frontend[2].avatar} 
+                        alt={props.teams.frontend[2].name}
                         />
                         <img 
-                        src={proms.teams.frontend[3].avatar} 
-                        alt={proms.teams.frontend[3].name}
+                        src={props.teams.frontend[3].avatar} 
+                        alt={props.teams.frontend[3].name}
                         />
                     </span>
                     </a>

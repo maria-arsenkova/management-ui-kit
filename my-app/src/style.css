@@ -292,7 +292,7 @@ body {
 
 /* header start*/
 
-.header-cap {
+.header-title{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -315,6 +315,30 @@ body {
 .header-logo img {
     margin-right: 12px;
 }
+.icon {
+    background: #EAEAEA; 
+    width: 30px;
+    height: 30px; 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;                      
+}
+
+/* .icon span {
+    background:
+    radial-gradient(4px 4px at 25% 50%, #D8D8D8 50%, transparent 50%),
+    radial-gradient(4px 4px at 40% 50%, #D8D8D8 50%, transparent 50%),
+    radial-gradient(4px 4px at 55% 50%, #D8D8D8 50%, transparent 50%);
+    background-repeat: no-repeat;
+    width: 30px;
+    height:  30px;
+    margin-left: auto;
+    margin-right: 0;
+} */
+
+/* Спец. закомитела вернусь к нему позже */
+
 .header-name {
     font-weight: 900;
     font-size: 32px;

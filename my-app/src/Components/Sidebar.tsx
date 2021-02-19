@@ -60,7 +60,7 @@ const teams = {
   ]
 }
 
-    function Sidebar () {
+function Sidebar () {
         return (
         <div className="sidebar">
           <Brand />
@@ -81,5 +81,6 @@ const teams = {
           <SidebarFooter/>
         </div>
         )
-    }
+}
+
 export default Sidebar;
