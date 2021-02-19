@@ -2,11 +2,15 @@ import React from 'react'
 import '../style.css';
 import Brand from './Brand';
 import UserInfo from './UserInfo';
+import userpic from '../img/userpic.png';
 import Stats from './Stats';
-import Userpic from '../img/userpic.png';
+import MenuList from './MenuList';
+import ProjectsList from './ProjectsList';
+import SidebarFooter from './Sidebar'
+
 
 const user = {
-  avatar: Userpic,
+  avatar: userpic,
   initials: 'Emilee Simchenko',
   position: 'Product Owner'
 }
@@ -21,6 +25,11 @@ const tasks = {
     counter: '11'
   },
 }
+
+const counter = {
+  amount: '3'
+}
+
     function Sidebar () {
         return (
         <div className="sidebar">
@@ -32,6 +41,11 @@ const tasks = {
             completed={tasks.completed}
             open={tasks.open}
           />
+          <MenuList 
+           amount={counter.amount}
+          />
+          <ProjectsList />
+          < SidebarFooter/>
         </div>
         )
     }
