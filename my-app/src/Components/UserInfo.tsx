@@ -1,7 +1,6 @@
 import React from 'react'
 import '../style.css';
 
-
 function UserInfo(props: any){
     return( 
         <div className="userInfo">

@@ -4,8 +4,6 @@ import userZ from './img/userZ.png'
 import userO from './img/userO.png'
 import userT from './img/userT.png'
 
-
-
 function TeamsList (props:any) {
     return (
         <div className="list list_teams">
@@ -74,4 +72,5 @@ function TeamsList (props:any) {
         </div>
     )
 }
+
 export default TeamsList
