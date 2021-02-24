@@ -1,21 +1,22 @@
 import React from 'react'
 import '../style.css';
 
-function UserInfo(props: any){
-    return( 
+function UserInfo({user}: any){
+
+    return(
         <div className="userInfo">
             <a href="/" className="userInfo-photo">
                 <img 
-                src={props.user.avatar}
-                alt={props.user.initials}
+                src={user.avatar}
+                alt={user.initials}
                 />
             </a>
             <div>
                 <div className="userInfo-initials">
-                    {props.user.initials}
+                    {user.initials}
                     </div>
                 <div className="userInfo-position">
-                    {props.user.position}
+                    {user.position}
                     </div>
             </div>
         </div>
