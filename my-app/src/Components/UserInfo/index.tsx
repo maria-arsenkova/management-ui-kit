@@ -4,7 +4,7 @@ import '../../style.css';
 export type UserType = {
     avatar: string
     initials: string
-    position: string
+    position?: string
 }
 
 interface UserInfoProps {
@@ -25,9 +25,11 @@ function UserInfo({user}: UserInfoProps){
                 <div className="userInfo-initials">
                     {user.initials}
                     </div>
-                <div className="userInfo-position">
-                    {user.position}
+                {user?.position && (
+                    <div className="userInfo-position">
+                        {user.position}
                     </div>
+                )}
             </div>
         </div>
     );  
