@@ -2,7 +2,7 @@ import React from 'react'
 import '../style.css';
 import Brand from './Brand';
 
-import UserInfo from './UserInfo';
+import UserInfo, {UserType} from './UserInfo';
 import userpic from '../img/userpic.png';
 
 import Stats from './Stats';
@@ -21,7 +21,7 @@ import userSi from '../img/userSi.png'
 import userSe from '../img/userSe.png'
 import userEt from '../img/userEt.png'
 
-const user = {
+const user: UserType = {
   avatar: userpic,
   initials: 'Emilee Simchenko',
   position: 'Product Owner'
@@ -64,9 +64,7 @@ function Sidebar () {
         return (
         <div className="sidebar">
           <Brand />
-          <UserInfo
-            user={user}
-           />
+          <UserInfo user={user}/>
           <Stats 
             completed={tasks.completed}
             open={tasks.open}

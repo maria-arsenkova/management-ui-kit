@@ -1,7 +1,17 @@
 import React from 'react'
-import '../style.css';
+import 'src/style.css';
 
-function UserInfo({user}: any){
+export type UserType = {
+    avatar: string
+    initials: string
+    position: string
+}
+
+interface UserInfoProps {
+    user: UserType
+}
+
+function UserInfo({user}: UserInfoProps){
 
     return(
         <div className="userInfo">
