@@ -10,7 +10,7 @@ import MenuList from './MenuList';
 import ProjectsList from './ProjectsList';
 import SidebarFooter from './SidebarFooter'
 
-import TeamsList from './TeamsList'
+import TeamsList, {TeamType} from './TeamsList'
 import userZ from '../img/userZ.png'
 import userO from '../img/userO.png'
 import userT from '../img/userT.png'
@@ -42,29 +42,36 @@ const counter = {
   amount: '3'
 }
 
-const teams = {
-  designers: [
-    {name: 'userZ', avatar: userZ},
-    {name: 'userO', avatar: userO},
-    {name: 'userT', avatar: userT}
-  ],
-  backend: [
-    {name: 'userF', avatar: userF},
-    {name: 'userFo', avatar: userFo}
-  ],
-  frontend: [
+const teams: TeamType[] = [
+  {
+    name: 'Designers',
+    items: [
+      {name: 'userZ', avatar: userZ},
+      {name: 'userO', avatar: userO},
+      {name: 'userT', avatar: userT}
+    ]
+  }, {
+    name: 'backend',
+    items: [
+      {name: 'userF', avatar: userF},
+      {name: 'userFo', avatar: userFo}
+    ]
+  }, {
+  name: 'frontend',
+  items: [
     {name: 'userFa', avatar: userFa},
     {name: 'userSi', avatar: userSi},
     {name: 'userSe', avatar: userSe},
     {name: 'userEt', avatar: userEt}
   ]
-}
+  }
+]
 
 function Sidebar () {
         return (
         <div className="sidebar">
           <Brand />
-          <UserInfo user={user}/>
+          <UserInfo user={user} />
           <Stats 
             completed={tasks.completed}
             open={tasks.open}
@@ -73,9 +80,7 @@ function Sidebar () {
             amount={counter.amount}
           />
           <ProjectsList />
-          <TeamsList 
-            teams={teams}
-          />
+          <TeamsList teams={teams} />
           <SidebarFooter/>
         </div>
         )
