@@ -13,18 +13,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.navigation {
-  background: rgb(0, 0, 0);
-  height: 500px;
-}
-
-.top {
-  background: red;
-}
-
-.search {
-  background: rgb(58, 212, 27);
-
-}
-
