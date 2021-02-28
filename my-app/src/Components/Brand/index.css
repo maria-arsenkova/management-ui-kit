@@ -1,0 +1,30 @@
+.brand {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    padding: 30px 20px 0px 30px;
+    margin-bottom: 30px;
+    text-decoration: none;
+    color: seashell;
+}
+
+.brand-icon {
+    max-width: 100%;
+    height: auto;
+    margin-right: 12px;
+}    
+
+.brand-name {
+    font-family: 'Heebo';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 24px;
+    letter-spacing: 0px;
+}   
+
+.brand-search {
+    margin-left: auto;
+    margin-right: 0;
+}
