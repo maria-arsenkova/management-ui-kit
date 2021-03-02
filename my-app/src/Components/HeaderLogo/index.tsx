@@ -1,6 +1,7 @@
 import React from 'react'
-import '../style.css';
-import logoWeb from '../img/logoWeb.png'
+import './index.css';
+import logoWeb from './img/logoWeb.png'
+import circle from './img/circle.png'
 
 function HeaderLogo() {
     return (  
@@ -9,7 +10,9 @@ function HeaderLogo() {
                 <img src={logoWeb} alt="Logo"/>
                 <span className="header-name">Website</span>
                 </a>
-                <span className="icon"></span>
+                <span className="icon">
+                    <img src={circle} alt="Сircle"/>
+                </span>
         </div>
     )
 }

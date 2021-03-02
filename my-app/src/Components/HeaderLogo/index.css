@@ -1,0 +1,30 @@
+.header-name {
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 47px;
+
+    color: #131313;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo a {
+    display: flex;
+    min-width: 316px;
+    margin-right: 15px;
+    align-items: center;
+    text-decoration: none;
+}
+
+.icon {
+    background: #EAEAEA; 
+    width: 30px;
+    height: 30px; 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;                      
+}

@@ -1,0 +1,18 @@
+.sidebar-footer {
+    padding-left: 30px; 
+    padding-right: 20px;
+}
+
+.sidebar-footer span {
+    color: #FFC200;
+    line-height: 22px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid rgba(255,194,0, 0.25);
+}
+
+.sidebar-footer {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 22px;
+    color:#FFFFFF;
+}

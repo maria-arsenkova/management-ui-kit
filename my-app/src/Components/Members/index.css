@@ -1,0 +1,59 @@
+.members {
+    display: flex;
+
+}
+
+.users {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-right: 15px;
+}
+
+.users a {
+    margin-right: 5px;
+    text-decoration: none;
+}
+.users a:last-child {
+    margin: 0px;
+}
+
+.users a img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.members-сhat {
+    height: 30px;
+    width: 81px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background: #FFF8DD;
+}
+
+.members-сhat p {
+    color: #FFC200;
+}
+
+.members-share{
+    height: 30px;
+    width: 67px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background: #EAEAEA;
+    margin-right: 15px;
+}
+
+.members-share p {
+    color: #131313;
+}
+
+.members-name {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+}

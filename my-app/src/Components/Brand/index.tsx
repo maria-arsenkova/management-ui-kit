@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css';
-import logo from './logo.png';
-import search from './search.png';
+import logo from './img/logo.png';
+import search from './img/search.png';
 
 function Brand(){
     return( 

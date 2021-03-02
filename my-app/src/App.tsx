@@ -1,6 +1,6 @@
 import React from 'react';
 import './reset.css';
-import './style.css';
+import './App.css';
 import Sidebar from './Components/Sidebar';
 import Header from './Components/Header';
 

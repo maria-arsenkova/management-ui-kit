@@ -1,0 +1,10 @@
+.header { 
+    grid-area: header; 
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 35px;
+    background: #FFFFFF;
+    height: 136px;
+}   
