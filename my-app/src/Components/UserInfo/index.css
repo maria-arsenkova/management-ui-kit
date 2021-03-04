@@ -8,30 +8,28 @@
     margin-bottom: 20px;
 }
 
-.userInfo-photo {
+.userInfo__avatar {
     margin-right: 15px;
-}
-
-.userInfo-photo img{
     border-radius: 50%;
     width: 48px;
     height: 48px;
 }
-.userInfo-initials {
+
+.userInfo__initials {
     font-weight: bold;
     font-size: 14px;
     line-height: 21px;
     color: #FFFFFF;
 }
 
-.userInfo-position {
+.userInfo__position {
     font-weight: bold;
     font-size: 12px;
     line-height: 18px;
     color: #9B9B9B;
 }
 
-.circle {
+.circleIcon {
     margin-left: auto;
     margin-right: 0;
 }

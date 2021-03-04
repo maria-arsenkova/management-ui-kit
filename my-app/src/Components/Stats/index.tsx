@@ -17,8 +17,8 @@ function Stats({tasks}: StatsProps){
                 return(
                     task?.counter  && (
                         <div>
-                            <div className="stats-counter">{task.counter}</div>
-                            <div className="stats-name">{task.name}</div>
+                            <div className="stats__counter">{task.counter}</div>
+                            <div className="stats__name">{task.name}</div>
                         </div>
                     )
                 )

@@ -1,70 +1,34 @@
-
-.sidebarMenu {
+.sidebar__menu {
     margin-bottom: 20px;
 }
 
-.sidebarMenu a {
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 22px;
-    color: #FFFFFF;
-}
-
-
-.sidebarMenu-item {
+.sidebar__menu-item {
     padding-left: 30px; 
     padding-right: 20px;
     padding-top: 10px;   
     padding-bottom: 10px;
 }
-.sidebarMenu li:first-child a {
+
+.sidebar__menu-title {
     font-weight: bold;
+    text-decoration: none;
     font-size: 12px;
     text-transform: uppercase;
     color: #878787;
-    padding-top: 0px;
-    padding-left: 30px; 
-    padding-right: 20px
 }
 
-
-.sidebarMenu_menu {
-    margin-bottom: 30px;
-}
-
-.sidebarMenu_projects {
-    margin-bottom: 30px;
-}
-
-.sidebarMenu-group {
+.sidebar__menu-link {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 22px;
+    color: #FFFFFF;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
 }
 
-.counter {
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    background: #FFC200;
-    border-radius: 50%;
-    text-align: center;
-    margin-left: 10px;
-
-    font-weight: bold;
-    font-size: 13px;
-    color: #131313;   
-}
-
-
-.sidebarMenu-icon {
-    height: 20px;
-    width: 20px;
-    margin-right: 10px;
-}
-
-.sidebarMenu-itemActive {
+.sidebarMenu__menu-link_active {
     border-left: 5px solid #FFC200;
     background: #202020;
     box-sizing: border-box;
@@ -74,20 +38,40 @@
     padding-bottom: 10px;
 } 
 
-.sidebarMenu-img {
+.sidebar__menu-preview {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+}
+
+.sidebar__menu-avatars {
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
     margin-left: auto;
     margin-right: 0;
 }
-.sidebarMenu-img img {
+
+.sidebar__menu-avatars img:last-child {
+    margin-right: 0px;
+}
+
+.sidebar__menu-avatar {
     height: 20px;
     width: 20px;
     border-radius: 50%;
     margin-right: 5px;
 }
 
-.sidebarMenu-img img:last-child {
-    margin-right: 0px;
+.sidebar__menu-сounter {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    background: #FFC200;
+    border-radius: 50%;
+    text-align: center;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 13px;
+    color: #131313;   
 }

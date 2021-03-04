@@ -19,17 +19,17 @@ interface SidebarMenuProps {
 
 function SidebarMenu ({content}: SidebarMenuProps) {
     return (
-        <div className="sidebarMenu">
+        <div className="sidebar__menu">
             <ul>
-                <li>
-                    <a  href="/">Teams</a>
+                <li className="sidebar__menu-item">
+                    <a  href="/" className="sidebar__menu-title">Teams</a>
                 </li>
                 {content.map((team) => {
                     return (
-                        <li className="sidebarMenu-item">
-                            <a href="/" className="sidebarMenu-group">
+                        <li className="sidebar__menu-item">
+                            <a href="/" className="sidebar__menu-link">
                                 {team?.preview && (
-                                    <img className="sidebarMenu-icon"
+                                    <img className="sidebar__menu-preview"
                                     key={`${team.preview}_${team.name}`}
                                     src={team.preview}
                                     alt={team.name}
@@ -37,10 +37,10 @@ function SidebarMenu ({content}: SidebarMenuProps) {
                                 )}
                                 {team.name}
                                 {team?.items && (
-                                    <span className="sidebarMenu-img">
+                                    <span className="sidebar__menu-avatars">
                                         {team.items.map((user) => {
                                             return (
-                                                <img
+                                                <img className="sidebar__menu-avatar"
                                                     key={`${user.name}_${user.avatar}`}
                                                     src={user.avatar}
                                                     alt={user.name}
@@ -50,7 +50,7 @@ function SidebarMenu ({content}: SidebarMenuProps) {
                                     </span>
                                 )}
                                 {team?.counter && (
-                                <span className="counter">{team.counter}</span>
+                                <span className="sidebar__menu-сounter">{team.counter}</span>
                                 )}
                             </a>
                         </li>

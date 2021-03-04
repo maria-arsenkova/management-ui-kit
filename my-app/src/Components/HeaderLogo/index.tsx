@@ -5,13 +5,13 @@ import circle from './img/circle.png'
 
 function HeaderLogo() {
     return (  
-        <div className="header-logo">
-                <a href="/">
-                <img src={logoWeb} alt="Logo"/>
-                <span className="header-name">Website</span>
+        <div className="header__logo">
+                <a href="/" className="header__logo-item">
+                <img src={logoWeb} alt="logo"/>
+                <span className="header__logo-name">Website</span>
                 </a>
-                <span className="icon">
-                    <img src={circle} alt="Сircle"/>
+                <span className="header__logo-icon">
+                    <img src={circle} alt="circle"/>
                 </span>
         </div>
     )

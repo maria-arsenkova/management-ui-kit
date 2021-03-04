@@ -1,7 +1,6 @@
 import React from 'react'
 import './index.css';
 import HeaderLogo from '../HeaderLogo'
-
 import Members, {MembersType} from '../Members'
 import userN from '../Members/img/userN.png'
 import userTen from '../Members/img/userTen.png'
@@ -13,13 +12,13 @@ const members: MembersType [] = [
     {name: 'userEl', avatar: userEl}
 ]
 
-function HeaderTitle() {
+function HeaderСontent() {
     return (  
-        <div className="header-title">
+        <div className="header__сontent">
                 <HeaderLogo />
                 <Members members={members} />
         </div>
     )
 }
 
-export default HeaderTitle;
+export default HeaderСontent;

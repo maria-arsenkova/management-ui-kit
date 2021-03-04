@@ -8,13 +8,13 @@
     margin-bottom: 30px;
 }
 
-.stats-counter {
+.stats__counter {
     font-weight: bold;
     font-size: 20px;
     line-height: 29px;
     color: #FFFFFF;
 }
-.stats-name {
+.stats__name {
     font-weight: bold;
     font-size: 12px;
     line-height: 18px;

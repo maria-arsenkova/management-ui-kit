@@ -7,20 +7,19 @@ export type MembersType = {
     avatar: string
 }
 
-
 interface MembersProms {
     members: MembersType []
 }
 
 function Members({members}: MembersProms) {
     return (  
-        <div className="members">
-                <div className="users">
+        <div className="members_wrapper">
+                <div className="members">
                     {members.map((member) => {
                        return (
                            member?.avatar  && (
-                            <a href="/">
-                                <img
+                            <a href="/" className="members__link">
+                                <img className="members__avatar"
                                 key={`${member.avatar}_${member.name}`}
                                 src= {member.avatar}
                                 alt={member.name}
@@ -30,14 +29,14 @@ function Members({members}: MembersProms) {
                        )
                     })}
                 </div>
-                <div className="members-share">
-                     <span className="members-name">Share</span>
+                <div className="members__share">
+                     <span className="members__share-name">Share</span>
                 </div>
-                <div className="members-сhat">
+                <div className="members__сhat">
                     <a href="/">
                     <img src={chat} alt="chat"/>
                     </a>
-                    <span className="members-name">Chat</span>
+                    <span className="members__сhat-name">Chat</span>
                 </div>
         </div>
     )

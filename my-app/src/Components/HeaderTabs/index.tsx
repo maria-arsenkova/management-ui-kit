@@ -9,13 +9,13 @@ interface TabsProps {
     items: TapsType []
 }
 
-function Tabs({items}: TabsProps) {
+function HeaderTabs({items}: TabsProps) {
     return (
         <div className="tabs">
              {items.map((item) => {
                 return(
                     item?.name  && (
-                        <a href="/" className="tabs-inactive">{item.name}</a>
+                        <a href="/" className="tabs__item tabs_inactive">{item.name}</a>
                     )
                 )
             })}
@@ -23,4 +23,4 @@ function Tabs({items}: TabsProps) {
     )
 }
 
-export default Tabs;
+export default HeaderTabs;

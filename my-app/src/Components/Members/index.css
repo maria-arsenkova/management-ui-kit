@@ -1,43 +1,29 @@
-.members {
+.members_wrapper {
     display: flex;
-
 }
 
-.users {
+.members {
     display: flex;
     flex-wrap: nowrap;
     margin-right: 15px;
 }
 
-.users a {
+.members__link {
     margin-right: 5px;
     text-decoration: none;
 }
-.users a:last-child {
+
+.members__link:last-child {
     margin: 0px;
 }
 
-.users a img {
+.members__avatar {
     border-radius: 50%;
     width: 30px;
     height: 30px;
 }
 
-.members-сhat {
-    height: 30px;
-    width: 81px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-    background: #FFF8DD;
-}
-
-.members-сhat p {
-    color: #FFC200;
-}
-
-.members-share{
+.members__share {
     height: 30px;
     width: 67px;
     display: flex;
@@ -48,11 +34,25 @@
     margin-right: 15px;
 }
 
-.members-share p {
+.members__share-name {
     color: #131313;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
 }
 
-.members-name {
+.members__сhat {
+    height: 30px;
+    width: 81px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background: #FFF8DD;
+}
+
+.members__сhat-name {
+    color: #FFC200;
     font-weight: bold;
     font-size: 14px;
     line-height: 21px;

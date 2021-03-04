@@ -1,13 +1,9 @@
 import React from 'react'
 import './index.css';
-
 import Brand from '../Brand';
-
 import UserInfo, {UserType} from '../UserInfo';
 import userpic from '../UserInfo/img/userpic.png';
-
 import Stats, {StatsType} from '../Stats';
-
 import SidebarMenu, {ContentType} from '../SidebarMenu'
 import dashboard from '../SidebarMenu/img/dashboard.png';
 import crm from '../SidebarMenu/img/crm.png';
@@ -22,7 +18,6 @@ import userFa from '../SidebarMenu/img/userFa.png'
 import userSi from '../SidebarMenu/img/userSi.png'
 import userSe from '../SidebarMenu/img/userSe.png'
 import userEt from '../SidebarMenu/img/userEt.png'
-
 import SidebarFooter from '../SidebarFooter'
 
 const user: UserType = {
@@ -35,7 +30,6 @@ const tasks: StatsType[] = [
   {name: 'Completed Tasks', counter: 372},
   {name: 'Open Tasks', counter: 11}
 ]
-
 
 const menu: ContentType[] = [
   {name: 'Home'},
