@@ -41,5 +41,5 @@ function UserInfo({user}: UserInfoProps){
         </div>
     );  
   }
-
+  
 export default UserInfo;
