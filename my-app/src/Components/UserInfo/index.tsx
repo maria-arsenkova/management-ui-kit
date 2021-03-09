@@ -14,8 +14,8 @@ interface UserInfoProps {
 
 function UserInfo({ user }: UserInfoProps) {
   return (
-    <div className="userInfo">
-      <a href="/" className="userInfo__avatar">
+    <div className='userInfo'>
+      <a href='/' className='userInfo__avatar'>
         <img
           key={`${user.initials}_${user.avatar}`}
           src={user.avatar}
@@ -23,13 +23,13 @@ function UserInfo({ user }: UserInfoProps) {
         />
       </a>
       <div>
-        <div className="userInfo__initials">{user.initials}</div>
+        <div className='userInfo__initials'>{user.initials}</div>
         {user?.position && (
-          <div className="userInfo__position">{user.position}</div>
+          <div className='userInfo__position'>{user.position}</div>
         )}
       </div>
-      <a href="/" className="circleIcon">
-        <img src={circle} alt="circle" />
+      <a href='/' className='circleIcon'>
+        <img src={circle} alt='circle' />
       </a>
     </div>
   );

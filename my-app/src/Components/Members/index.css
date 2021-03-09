@@ -1,59 +1,59 @@
 .members_wrapper {
-    display: flex;
+  display: flex;
 }
 
 .members {
-    display: flex;
-    flex-wrap: nowrap;
-    margin-right: 15px;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-right: 15px;
 }
 
 .members__link {
-    margin-right: 5px;
-    text-decoration: none;
+  margin-right: 5px;
+  text-decoration: none;
 }
 
 .members__link:last-child {
-    margin: 0px;
+  margin: 0px;
 }
 
 .members__avatar {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
 }
 
 .members__share {
-    height: 30px;
-    width: 67px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-    background: #EAEAEA;
-    margin-right: 15px;
+  height: 30px;
+  width: 67px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background: #eaeaea;
+  margin-right: 15px;
 }
 
 .members__share-name {
-    color: #131313;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 21px;
+  color: #131313;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
 }
 
 .members__сhat {
-    height: 30px;
-    width: 81px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-    background: #FFF8DD;
+  height: 30px;
+  width: 81px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background: #fff8dd;
 }
 
 .members__сhat-name {
-    color: #FFC200;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 21px;
+  color: #ffc200;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
 }

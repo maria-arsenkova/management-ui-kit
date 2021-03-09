@@ -1,26 +1,28 @@
-import React from 'react'
+import React from 'react';
 import './index.css';
 
 export type TapsType = {
-    name: string
-}
+  name: string;
+};
 
 interface TabsProps {
-    items: TapsType []
+  items: TapsType[];
 }
 
-function HeaderTabs({items}: TabsProps) {
-    return (
-        <div className="tabs">
-             {items.map((item) => {
-                return(
-                    item?.name  && (
-                        <a href="/" className="tabs__item tabs_inactive">{item.name}</a>
-                    )
-                )
-            })}
-        </div>
-    )
+function HeaderTabs({ items }: TabsProps) {
+  return (
+    <div className='tabs'>
+      {items.map((item) => {
+        return (
+          item?.name && (
+            <a href='/' className='tabs__item tabs_inactive'>
+              {item.name}
+            </a>
+          )
+        );
+      })}
+    </div>
+  );
 }
 
 export default HeaderTabs;

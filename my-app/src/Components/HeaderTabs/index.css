@@ -1,25 +1,24 @@
 .tabs {
-    display: flex;
+  display: flex;
 }
 
 .tabs__item {
-    font-family: 'Heebo';
-    margin-right: 30px;
-    text-decoration: none;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 23px;
-    padding-bottom: 8px;   
-
+  font-family: 'Heebo';
+  margin-right: 30px;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 23px;
+  padding-bottom: 8px;
 }
 
 .tabs_inactive {
-    margin-right: 30px;
-    color: rgba(19,19,19,0.7); 
+  margin-right: 30px;
+  color: rgba(19, 19, 19, 0.7);
 }
 
 .tabs_active {
-    color: rgba(19,19,19,1); 
-    border-bottom: 2px solid rgba(255,194,0,1);
+  color: rgba(19, 19, 19, 1);
+  border-bottom: 2px solid rgba(255, 194, 0, 1);
 }

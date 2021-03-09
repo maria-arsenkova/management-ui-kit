@@ -1,15 +1,15 @@
 .sidebar__footer {
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 22px;
-    color:#FFFFFF;
-    padding-left: 30px; 
-    padding-right: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ffffff;
+  padding-left: 30px;
+  padding-right: 20px;
 }
 
 .sidebar__footer-link {
-    color: #FFC200;
-    line-height: 22px;
-    padding-bottom: 2px;
-    border-bottom: 1px solid rgba(255,194,0, 0.25);
+  color: #ffc200;
+  line-height: 22px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(255, 194, 0, 0.25);
 }
