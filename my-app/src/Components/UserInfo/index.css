@@ -1,0 +1,35 @@
+.userInfo {
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 16px 20px 16px 30px;
+  background: #202020;
+  margin-bottom: 20px;
+}
+
+.userInfo__avatar {
+  margin-right: 15px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+
+.userInfo__initials {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  color: #ffffff;
+}
+
+.userInfo__position {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 18px;
+  color: #9b9b9b;
+}
+
+.circleIcon {
+  margin-left: auto;
+  margin-right: 0;
+}

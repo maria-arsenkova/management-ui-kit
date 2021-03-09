@@ -1,0 +1,68 @@
+import React from 'react';
+import './index.css';
+
+type ContentItemType = {
+  name: string;
+  avatar: string;
+};
+
+export type ContentType = {
+  name: string;
+  items?: ContentItemType[];
+  counter?: number;
+  preview?: string;
+};
+
+interface SidebarMenuProps {
+  content: ContentType[];
+}
+
+function SidebarMenu({ content }: SidebarMenuProps) {
+  return (
+    <div className='sidebar__menu'>
+      <ul>
+        <li className='sidebar__menu-item'>
+          <a href='/' className='sidebar__menu-title'>
+            Teams
+          </a>
+        </li>
+        {content.map((team) => {
+          return (
+            <li className='sidebar__menu-item'>
+              <a href='/' className='sidebar__menu-link'>
+                {team?.preview && (
+                  <img
+                    className='sidebar__menu-preview'
+                    key={`${team.preview}_${team.name}`}
+                    src={team.preview}
+                    alt={team.name}
+                  />
+                )}
+                {team.name}
+                {team?.items && (
+                  <span className='sidebar__menu-avatars'>
+                    {team.items.map((user) => {
+                      return (
+                        <img
+                          className='sidebar__menu-avatar'
+                          key={`${user.name}_${user.avatar}`}
+                          src={user.avatar}
+                          alt={user.name}
+                        />
+                      );
+                    })}
+                  </span>
+                )}
+                {team?.counter && (
+                  <span className='sidebar__menu-сounter'>{team.counter}</span>
+                )}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
+export default SidebarMenu;
