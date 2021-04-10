@@ -1,0 +1,41 @@
+.discussion__title {
+  font-family: 'Heebo';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 23px;
+  text-transform: uppercase;
+  color: #131313;
+  margin-bottom: 20px;
+}
+
+.comment__add {
+  margin-bottom: 20px;
+}
+
+.comment__add-text {
+  width: 517px;
+  height: 40px;
+  border-radius: 4px 4px 4px 4px;
+  background: #eaeaea;
+  border-color: transparent;
+  padding: 10px 15px;
+}
+
+.comment__add-text::-webkit-input-placeholder {
+  font-family: 'Heebo';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  color: #131313;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+.comment__add-authorPhoto {
+  border-radius: 50px;
+  width: 48px;
+  height: 48px;
+  margin-right: 10px;
+}

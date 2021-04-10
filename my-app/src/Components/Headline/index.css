@@ -1,0 +1,66 @@
+.headline {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.headline__name {
+  font-family: 'Heebo';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 38px;
+  color: #131313;
+}
+
+.headline__creator {
+  font-family: Heebo;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 23px;
+  color: #131313;
+}
+
+.headline__selector {
+  display: flex;
+  justify-content: baseline;
+}
+
+.headline__selector-hidden {
+  display: none;
+}
+
+.headline__selector-tick {
+  color: #000;
+  cursor: default;
+  font-weight: normal;
+  line-height: 40px;
+  vertical-align: middle;
+}
+
+.headline__selector-tick:before {
+  content: url(./img/checkTask.png);
+  color: #000;
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+  text-align: center;
+  text-indent: 0px;
+  width: 40px;
+  height: 40px;
+  background: #eaeaea;
+  border-radius: 4px;
+  border-image: initial;
+  vertical-align: middle;
+}
+
+.headline__selector-more {
+  background: #eaeaea;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
