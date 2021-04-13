@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './style.css';
 import chat from './img/chat.png';
 
 export type MembersType = {

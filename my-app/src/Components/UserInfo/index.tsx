@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './style.css';
 import circle from './img/circle.png';
 
 export type UserType = {
@@ -17,7 +17,6 @@ function UserInfo({ user }: UserInfoProps) {
     <div className='userInfo'>
       <a href='/' className='userInfo__avatar'>
         <img
-          key={`${user.initials}_${user.avatar}`}
           src={user.avatar}
           alt={user.initials}
         />

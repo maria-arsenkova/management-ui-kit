@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './style.css';
 import logoWeb from './img/logoWeb.png';
 import circle from './img/circle.png';
 

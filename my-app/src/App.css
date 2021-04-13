@@ -2,30 +2,36 @@ html {
   box-sizing: border-box;
 }
 
-*, *::before, ::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
 body {
-  background: #F2F2F2;
+  background: #f2f2f2;
   font-family: 'Heebo';
   font-style: normal;
+  font-weight: normal;
   font-size: 14px;
   line-height: 1.2;
-  font-weight: normal;
 }
-.contentLeft { grid-area: contentLeft;}
-    
-.contentRight { grid-area: contentRight;}
-    
+
+.app__content {
+  grid-area: content;
+}
+
+.app__sidebar {
+  grid-area: sidebar;
+}
+
 .wrapper {
-    display: grid;
-    grid-template-areas:
-    'sidebar header header'
-    'sidebar contentLeft contentRight'
-    'sidebar contentLeft contentRight';
-    /* grid-template-columns: 270px 1fr 1fr; */
-    grid-template-columns: 270px auto auto;
-    /* не авто и не 1F - указывать пиксили */
-    grid-template-rows: 136px auto auto;
-}   
+  display: grid;
+  grid-template-areas:
+    'sidebar header'
+    'sidebar content'
+    'sidebar content';
+  grid-template-columns: 270px auto;
+  /* не авто и не 1F - указывать пиксили */
+  grid-template-rows: 136px auto;
+}
