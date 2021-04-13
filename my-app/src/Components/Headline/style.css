@@ -5,8 +5,6 @@
 }
 
 .headline__name {
-  font-family: 'Heebo';
-  font-style: normal;
   font-weight: bold;
   font-size: 26px;
   line-height: 38px;
@@ -14,9 +12,6 @@
 }
 
 .headline__creator {
-  font-family: Heebo;
-  font-style: normal;
-  font-weight: normal;
   font-size: 16px;
   line-height: 23px;
   color: #131313;
@@ -40,7 +35,7 @@
 }
 
 .headline__selector-tick:before {
-  content: url(./img/checkTask.png);
+  content: url('./img/checkTask.png');
   color: #000;
   display: inline-block;
   margin-right: 20px;

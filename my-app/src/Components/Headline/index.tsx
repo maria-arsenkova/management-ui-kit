@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './style.css';
 import circle from './img/circle.png';
 
 export type HeadlineType = {

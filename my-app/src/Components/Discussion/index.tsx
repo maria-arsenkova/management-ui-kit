@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './style.css';
 import userY from './img/userY.png';
 import userT from './img/userT.png';
 import userU from './img/userU.png';

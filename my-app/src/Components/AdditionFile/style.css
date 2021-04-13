@@ -1,41 +1,31 @@
-.addition__faile {
+.addition__file {
   display: flex;
   margin-right: 30px;
 }
 
-.addition__faile-preview {
-  background: url(../AdditionFaile/img/header.png);
+.addition__file-preview {
+  background: url('../AdditionFile/img/header.png');
   border-radius: 8px;
   width: 40px;
   height: 40px;
   margin-right: 10px;
 }
 
-.addition__faile-name {
-  font-family: 'Heebo';
-  font-style: normal;
+.addition__file-name {
   font-weight: bold;
-  font-size: 14px;
   line-height: 21px;
   color: #131313;
 }
 
-.addition__faile-size {
-  font-family: 'Heebo';
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
+.addition__file-size {
   line-height: 21px;
   color: #131313;
   opacity: 0.7;
   margin-right: 15px;
 }
 
-.addition__faile-delete {
-  font-family: 'Heebo';
-  font-style: normal;
+.addition__file-delete {
   font-weight: bold;
-  font-size: 14px;
   line-height: 21px;
   color: #ff1000;
   background: transparent;

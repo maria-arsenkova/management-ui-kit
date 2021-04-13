@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './style.css';
 import HeaderСontent from '../HeaderСontent';
 import HeaderTabs, { TapsType } from '../HeaderTabs';
 

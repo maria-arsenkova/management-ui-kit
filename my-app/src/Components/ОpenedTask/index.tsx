@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './style.css';
 import Headline, { HeadlineType } from '../Headline';
 import user from '../InfoBlock/img/user.png';
 import userO from '../InfoBlock/img/userO.png';

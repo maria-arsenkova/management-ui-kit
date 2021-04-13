@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './style.css';
 import addIcon from './img/addIcon.png';
 
 type InfoBlockExecutorType = {
@@ -32,7 +32,6 @@ function InfoBlock({ content }: InfoBlockProps) {
         {content?.executor && (
           <a className='executor'>
             <img
-              key={`${content.executor.avatar}_${content.executor.name}`}
               src={content.executor.avatar}
               alt={content.executor.name}
               className='infoBlock_icon'

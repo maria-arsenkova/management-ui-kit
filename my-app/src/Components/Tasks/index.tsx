@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './style.css';
 import TasksList, { TasksListType } from '../TasksList';
 import user from '../TasksList/img/user.png';
 import userOne from '../TasksList/img/userOne.png';
@@ -65,8 +65,8 @@ const toDo: TasksListType[] = [
 function Tasks() {
   return (
     <div className='tasks'>
-      <div className='tasks_scrollBar'>
-        <div className='tasks_wrapper'>
+      <div className='tasks__scrollBar'>
+        <div className='tasks__group'>
           <TasksList content={backlog} />
           <TasksList content={toDo} />
         </div>

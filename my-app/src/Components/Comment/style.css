@@ -16,9 +16,9 @@
   padding-left: 40px;
   position: absolute;
   left: 4.17%;
-  right: 0%;
-  top: 0%;
-  bottom: 0%;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 .comment__author-photo {
@@ -27,7 +27,7 @@
   height: 48px;
   margin-right: 10px;
   position: absolute;
-  left: 0%;
+  left: 0;
   right: 91.65%;
   top: 17.86%;
   bottom: 39.29%;
@@ -40,8 +40,6 @@
 }
 
 .comment__author-name {
-  font-family: 'Heebo';
-  font-style: normal;
   font-weight: bold;
   font-size: 16px;
   line-height: 23px;
@@ -49,18 +47,12 @@
 }
 
 .comment__author-position {
-  font-family: 'Heebo';
-  font-style: normal;
-  font-weight: normal;
   font-size: 16px;
   line-height: 23px;
   color: #131313;
 }
 
 .comment__date {
-  font-family: Heebo;
-  font-style: normal;
-  font-weight: normal;
   font-size: 12px;
   line-height: 18px;
   text-align: right;
@@ -69,9 +61,6 @@
 }
 
 .comment__text {
-  font-family: 'Heebo';
-  font-style: normal;
-  font-weight: normal;
   font-size: 15px;
   line-height: 22px;
   color: #131313;

@@ -1,6 +1,4 @@
 .discussion__title {
-  font-family: 'Heebo';
-  font-style: normal;
   font-weight: bold;
   font-size: 16px;
   line-height: 23px;
@@ -23,8 +21,6 @@
 }
 
 .comment__add-text::-webkit-input-placeholder {
-  font-family: 'Heebo';
-  font-style: normal;
   font-weight: bold;
   font-size: 14px;
   line-height: 21px;

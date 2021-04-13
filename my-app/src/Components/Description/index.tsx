@@ -1,16 +1,16 @@
 import React from 'react';
-import './index.css';
-import AdditionFaile, { AdditionFaileType } from '../AdditionFaile';
-import headerIcon from '../AdditionFaile/img/header.png';
-import pdfIcon from '../AdditionFaile/img/pdfIcon.png';
+import './style.css';
+import AdditionFile, { AdditionFileType } from '../AdditionFile'
+import headerIcon from '../AdditionFile/img/header.png';
+import pdfIcon from '../AdditionFile/img/pdfIcon.png';
 
-const redesign: AdditionFaileType = {
+const redesign: AdditionFileType = {
   preview: pdfIcon,
   name: 'Redesign Brief 2019.pdf',
   size: 159,
 };
 
-const header: AdditionFaileType = {
+const header: AdditionFileType = {
   preview: headerIcon,
   name: 'Header.png',
   size: 129,
@@ -30,8 +30,8 @@ function Description({ description }: DescriptionProms) {
       <div className='description__title'>Description</div>
       <div className='description__text'>{description.text}</div>
       <div className='addition'>
-        <AdditionFaile content={redesign} />
-        <AdditionFaile content={header} />
+        <AdditionFile content={redesign} />
+        <AdditionFile content={header} />
       </div>
     </div>
   );

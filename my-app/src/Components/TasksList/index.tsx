@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './style.css';
 
 type TasksItemType = {
   name: string;
@@ -25,7 +25,7 @@ function TaskList({ content }: TasksListProps) {
           <ul className='tasks__list'>
             <li className='tasks__title'>
               <span className='tasks__title-text'>{list.name}</span>
-              <button type='button' className='tasks__title-addTask'>
+              <button type='button' className='tasks__add-task'>
                 + Add Task
               </button>
             </li>
@@ -36,11 +36,11 @@ function TaskList({ content }: TasksListProps) {
                     <input
                       type='checkbox'
                       id='checkbox'
-                      className='tasks__checkboxHidden'
+                      className='tasks__checkbox-hidden'
                     />
                     <label
                       htmlFor='checkbox'
-                      className='tasks__checkboxNew'
+                      className='tasks__checkbox-new'
                     ></label>
                     <div>
                       <div className='tasks__item-name'>{task.name}</div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './style.css';
 import Brand from '../Brand';
 import UserInfo, { UserType } from '../UserInfo';
 import userpic from '../UserInfo/img/userpic.png';

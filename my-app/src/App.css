@@ -4,7 +4,7 @@ html {
 
 *,
 *::before,
-::after {
+*::after {
   box-sizing: inherit;
 }
 
@@ -12,12 +12,17 @@ body {
   background: #f2f2f2;
   font-family: 'Heebo';
   font-style: normal;
+  font-weight: normal;
   font-size: 14px;
   line-height: 1.2;
-  font-weight: normal;
 }
-.contentLeft {
+
+.app__content {
   grid-area: content;
+}
+
+.app__sidebar {
+  grid-area: sidebar;
 }
 
 .wrapper {

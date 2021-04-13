@@ -1,6 +1,5 @@
-import { type } from 'os';
 import React from 'react';
-import './index.css';
+import './style.css';
 
 type CommentAuthorType = {
   name: string;
@@ -22,7 +21,6 @@ function Comment({ content }: CommentProps) {
   return (
     <div className='comment'>
       <img
-        key={`${content.author.photo}_${content.author.name}`}
         src={content.author.photo}
         alt={content.author.name}
         className='comment__author-photo'

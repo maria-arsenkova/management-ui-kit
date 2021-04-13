@@ -1,0 +1,29 @@
+.tasks {
+  display: flex;
+  justify-content: baseline;
+}
+
+.tasks__scrollBar {
+  overflow-y: scroll;
+  overflow: auto;
+  padding-right: 12px;
+  margin-right: 12px;
+}
+
+.tasks__scrollBar::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f9f9fd;
+  margin: 10px;
+}
+
+.tasks__scrollBar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #dcd9d3;
+}
+
+.tasks__group {
+  padding: 30px;
+  width: 445px;
+  background: #ffffff;
+  border-radius: 8px;
+}

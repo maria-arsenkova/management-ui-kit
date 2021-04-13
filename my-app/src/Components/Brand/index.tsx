@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './style.css';
 import list from './img/list.png';
 import search from './img/search.png';
 

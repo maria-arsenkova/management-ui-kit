@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './style.css';
 import HeaderLogo from '../HeaderLogo';
 import Members, { MembersType } from '../Members';
 import userN from '../Members/img/userN.png';

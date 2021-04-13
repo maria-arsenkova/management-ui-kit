@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './style.css';
 import Tasks from '../Tasks';
 
 function Content() {
