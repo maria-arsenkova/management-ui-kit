@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import Headline, { HeadlineType } from '../Headline';
+import {TaskHeader, TaskHeaderProps } from '../TaskHeader';
 import user from '../InfoBlock/img/user.png';
 import userO from '../InfoBlock/img/userO.png';
 import userY from '../InfoBlock/img/userY.png';
@@ -8,12 +8,6 @@ import userS from '../InfoBlock/img/userS.png';
 import InfoBlock, { InfoBlockType } from '../InfoBlock';
 import Description, { DescriptionType } from '../Description';
 import Discussion from '../Discussion';
-
-const header: HeadlineType = {
-  name: 'Find top 5 customer requests',
-  creator: 'Kristin A.',
-  data: 'yesterday at 12:41pm',
-};
 
 const asignTo: InfoBlockType = {
   title: 'Asign To',
@@ -25,7 +19,7 @@ const dueOn: InfoBlockType = {
   date: 'Tue, Dec 25',
 };
 
-const tag: InfoBlockType = {
+const myTag: InfoBlockType = {
   title: 'Tag',
   department: 'Marketing',
 };
@@ -44,14 +38,29 @@ const description: DescriptionType = {
     'Task Descriptions are used during project planning, project execution and project control. During project planning the task descriptions are used for scope planning and creating estimates. During project execution the task description is used by those doing the activities to ensure they are doing the work correctly.',
 };
 
-function OpenTask() {
+export interface TaskProps {
+  title: string,
+  assigner: string
+  createdAt: string
+  // TODO: complete other props
+}
+
+
+function Task({title, assigner, createdAt}: TaskProps) {
+
+  const taskHeader: TaskHeaderProps = {
+    name: title,
+    creator: assigner,
+    data: createdAt,
+  };
+
   return (
     <div className='openedTask'>
-      <Headline header={header} />
+      <TaskHeader data={taskHeader.data} creator={taskHeader.creator} name={taskHeader.name}/>
       <div className='infoBlocks'>
         <InfoBlock content={asignTo} />
         <InfoBlock content={dueOn} />
-        <InfoBlock content={tag} />
+        <InfoBlock content={myTag} />
         <InfoBlock content={followers} />
       </div>
       <Description description={description} />
@@ -60,4 +69,4 @@ function OpenTask() {
   );
 }
 
-export default OpenTask;
+export { Task };

@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css';
+import {TaskProps} from '../Task'
 
 type TasksItemType = {
   name: string;
@@ -15,9 +16,10 @@ export type TasksListType = {
 
 interface TasksListProps {
   content: TasksListType[];
+  onTaskClick: (task: TaskProps) => void
 }
 
-function TaskList({ content }: TasksListProps) {
+function TaskList({ content, onTaskClick }: TasksListProps) {
   return (
     <div>
       {content.map((list) => {
@@ -32,7 +34,9 @@ function TaskList({ content }: TasksListProps) {
             {list?.items &&
               list.items.map((task) => {
                 return (
-                  <li className='tasks__item'>
+                  <li className='tasks__item' onClick={() => {
+                    onTaskClick({title: 'My Task name', createdAt: 'Today', assigner: 'Maria'})
+                  }}>
                     <input
                       type='checkbox'
                       id='checkbox'

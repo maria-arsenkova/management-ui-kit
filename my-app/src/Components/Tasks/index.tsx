@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './style.css';
 import TasksList, { TasksListType } from '../TasksList';
 import user from '../TasksList/img/user.png';
@@ -7,7 +7,7 @@ import userTwo from '../TasksList/img/userTwo.png';
 import userTh from '../TasksList/img/userTh.png';
 import userFo from '../TasksList/img/userFo.png';
 import userFr from '../TasksList/img/userFo.png';
-import OpenedTask from '../ОpenedTask';
+import { Task, TaskProps } from '../Task';
 
 const backlog: TasksListType[] = [
   {
@@ -62,16 +62,28 @@ const toDo: TasksListType[] = [
   },
 ];
 
+const INITIAL_TASK_DATA: TaskProps = {
+  title: "Find top 5 customer requests",
+  createdAt: "yesterday at 12:41pm",
+  assigner: 'Kristin A.'
+}
+
 function Tasks() {
+  const [task, setTask] = useState(INITIAL_TASK_DATA)
+  
+  const handleTaskCardClick = (task: TaskProps) => {
+   setTask(task)
+  }
+
   return (
     <div className='tasks'>
       <div className='tasks__scrollBar'>
         <div className='tasks__group'>
-          <TasksList content={backlog} />
-          <TasksList content={toDo} />
+          <TasksList content={backlog} onTaskClick={handleTaskCardClick} />
+          <TasksList content={toDo} onTaskClick={handleTaskCardClick} />
         </div>
       </div>
-      <OpenedTask />
+      <Task title={task.title} createdAt={task.createdAt} assigner={task.assigner} />
     </div>
   );
 }

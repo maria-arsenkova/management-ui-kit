@@ -2,23 +2,19 @@ import React from 'react';
 import './style.css';
 import circle from './img/circle.png';
 
-export type HeadlineType = {
-  name: string;
-  creator: string;
-  data: string;
-};
-
-interface HeadlineProps {
-  header: HeadlineType;
+export interface TaskHeaderProps {
+    name: string;
+    creator: string;
+    data: string;
 }
 
-function Headline({ header }: HeadlineProps) {
+function TaskHeader({ name, creator, data }: TaskHeaderProps) {
   return (
     <div className='headline'>
       <div>
-        <div className='headline__name'>{header.name}</div>
+        <div className='headline__name'>{name}</div>
         <div className='headline__creator'>
-          Added by {header.creator} {header.data}
+          Added by {creator} {data}
         </div>
       </div>
       <a href='#' className='headline__selector'>
@@ -36,4 +32,4 @@ function Headline({ header }: HeadlineProps) {
   );
 }
 
-export default Headline;
+export { TaskHeader };
