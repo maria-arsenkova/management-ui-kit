@@ -1,69 +1,87 @@
 import React from 'react';
 import './style.css';
-import {TaskHeader, TaskHeaderProps } from '../TaskHeader';
-import user from '../InfoBlock/img/user.png';
-import userO from '../InfoBlock/img/userO.png';
-import userY from '../InfoBlock/img/userY.png';
-import userS from '../InfoBlock/img/userS.png';
-import InfoBlock, { InfoBlockType } from '../InfoBlock';
-import Description, { DescriptionType } from '../Description';
+import { TaskHeader, TaskHeaderProps } from '../TaskHeader';
+import { TaskInfoBlock, TaskInfoBlockProps } from '../TaskInfoBlock';
+import { TaskDescription, TaskDescriptionProps } from '../TaskDescription';
 import Discussion from '../Discussion';
 
-const asignTo: InfoBlockType = {
-  title: 'Asign To',
-  executor: { avatar: user, name: 'Linzell Bowman' },
+// на типы заблочить Task
+
+type TaskExecutorType = {
+  avatar: string;
+  name: string;
 };
 
-const dueOn: InfoBlockType = {
-  title: 'Due On',
-  date: 'Tue, Dec 25',
+type TaskFollowersType = {
+  avatar: string;
+  name: string;
 };
 
-const myTag: InfoBlockType = {
-  title: 'Tag',
-  department: 'Marketing',
-};
-
-const followers: InfoBlockType = {
-  title: 'Followers',
-  users: [
-    { avatar: userO, name: 'Linzell Bowman' },
-    { avatar: userY, name: 'Linzell Bowman' },
-    { avatar: userS, name: 'Linzell Bowman' },
-  ],
-};
-
-const description: DescriptionType = {
-  text:
-    'Task Descriptions are used during project planning, project execution and project control. During project planning the task descriptions are used for scope planning and creating estimates. During project execution the task description is used by those doing the activities to ensure they are doing the work correctly.',
+type TaskFilesType = {
+  preview: string;
+  name: string;
+  size: number;
 };
 
 export interface TaskProps {
-  title: string,
-  assigner: string
-  createdAt: string
+  title: string;
+  createdAt: string;
+  assigner: string;
   // TODO: complete other props
+  asignTo: TaskExecutorType;
+  dueOn: string;
+  department: string;
+  followers?: TaskFollowersType[];
+  description?: string;
+  files?: TaskFilesType[];
 }
 
-
-function Task({title, assigner, createdAt}: TaskProps) {
-
+function Task({
+  title,
+  assigner,
+  createdAt,
+  asignTo,
+  dueOn,
+  department,
+  followers,
+  description,
+  files,
+}: TaskProps) {
   const taskHeader: TaskHeaderProps = {
     name: title,
     creator: assigner,
     data: createdAt,
   };
 
+  const taskInfoBlock: TaskInfoBlockProps = {
+    executor: asignTo,
+    date: dueOn,
+    department: department,
+    users: followers,
+  };
+
+  const taskDescription: TaskDescriptionProps = {
+    text: description,
+    files: files,
+  };
+
   return (
     <div className='openedTask'>
-      <TaskHeader data={taskHeader.data} creator={taskHeader.creator} name={taskHeader.name}/>
+      <TaskHeader
+        data={taskHeader.data}
+        creator={taskHeader.creator}
+        name={taskHeader.name}
+      />
       <div className='infoBlocks'>
-        <InfoBlock content={asignTo} />
-        <InfoBlock content={dueOn} />
-        <InfoBlock content={myTag} />
-        <InfoBlock content={followers} />
+        <TaskInfoBlock title={'Asign To'} executor={taskInfoBlock.executor} />
+        <TaskInfoBlock title={'Due On'} date={taskInfoBlock.date} />
+        <TaskInfoBlock title={'Tag'} department={taskInfoBlock.department} />
+        <TaskInfoBlock title={'Followers'} users={taskInfoBlock.users} />
       </div>
-      <Description description={description} />
+      <TaskDescription
+        text={taskDescription.text}
+        files={taskDescription.files}
+      />
       <Discussion />
     </div>
   );

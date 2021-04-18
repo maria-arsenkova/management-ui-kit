@@ -1,24 +1,20 @@
 import React from 'react';
 import './style.css';
 
-export type AdditionFileType = {
+export interface AdditionFileProps {
   preview?: string;
   name: string;
   size: number;
-};
-
-interface AdditionFileProps {
-  content: AdditionFileType;
 }
 
-function AdditionFile({ content }: AdditionFileProps) {
+function AdditionFile({ preview, name, size }: AdditionFileProps) {
   return (
     <div className='addition__file'>
-      <div className='addition__file-preview'></div>
+      <div className='addition__file-preview'>{preview}</div>
       <div>
-        <div className='addition__file-name'>{content.name}</div>
+        <div className='addition__file-name'>{name}</div>
         <div>
-          <span className='addition__file-size'>{content.size} KB</span>
+          <span className='addition__file-size'>{size} KB</span>
           <button className='addition__file-delete'>Delete</button>
         </div>
       </div>
@@ -26,4 +22,4 @@ function AdditionFile({ content }: AdditionFileProps) {
   );
 }
 
-export default AdditionFile;
+export { AdditionFile };

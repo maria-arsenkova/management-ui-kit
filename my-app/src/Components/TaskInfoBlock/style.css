@@ -1,4 +1,4 @@
-.infoBlock {
+.taskInfoBlock {
   height: 50px;
   margin-right: 30px;
   font-size: 16px;
@@ -6,7 +6,7 @@
   color: #131313;
 }
 
-.infoBlock__title {
+.taskInfoBlock__title {
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
@@ -20,7 +20,7 @@
   align-items: center;
 }
 
-.infoBlock_icon {
+.taskInfoBlock_icon {
   margin-right: 5px;
   border-radius: 50%;
   width: 20px;
