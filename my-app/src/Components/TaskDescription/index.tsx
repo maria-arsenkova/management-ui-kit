@@ -4,18 +4,6 @@ import { AdditionFile, AdditionFileProps } from '../AdditionFile';
 import headerIcon from '../AdditionFile/img/header.png';
 import pdfIcon from '../AdditionFile/img/pdfIcon.png';
 
-// const redesign: AdditionFileType = {
-//   preview: pdfIcon,
-//   name: 'Redesign Brief 2019.pdf',
-//   size: 159,
-// };
-
-// const header: AdditionFileType = {
-//   preview: headerIcon,
-//   name: 'Header.png',
-//   size: 129,
-// };
-
 type TaskDescriptionFileType = {
   preview: string;
   name: string;
