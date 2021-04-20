@@ -96,7 +96,6 @@ function Task({
         <TaskInfoBlock title={'Tag'} department={taskInfoBlock.department} />
         <TaskInfoBlock title={'Followers'} users={taskInfoBlock.users} />
       </div>
-      lf
       <TaskDescription
         text={taskDescription.text}
         files={taskDescription.files}
