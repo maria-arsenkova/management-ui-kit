@@ -3,9 +3,7 @@ import './style.css';
 import { TaskHeader, TaskHeaderProps } from '../TaskHeader';
 import { TaskInfoBlock, TaskInfoBlockProps } from '../TaskInfoBlock';
 import { TaskDescription, TaskDescriptionProps } from '../TaskDescription';
-import Discussion from '../Discussion';
-
-// на типы заблочить Task
+import { TaskDiscussion, TaskDiscussionsProps } from '../TaskDiscussion';
 
 type TaskExecutorType = {
   avatar: string;
@@ -23,6 +21,14 @@ type TaskFilesType = {
   size: number;
 };
 
+type TaskDiscussions = {
+  name: string;
+  position: string;
+  photo: string;
+  date: string;
+  text: string;
+};
+
 export interface TaskProps {
   title: string;
   createdAt: string;
@@ -34,6 +40,9 @@ export interface TaskProps {
   followers?: TaskFollowersType[];
   description?: string;
   files?: TaskFilesType[];
+  discussions?: TaskDiscussions[];
+  userAcName?: string;
+  userAcphoto?: string;
 }
 
 function Task({
@@ -46,6 +55,9 @@ function Task({
   followers,
   description,
   files,
+  discussions,
+  userAcName,
+  userAcphoto,
 }: TaskProps) {
   const taskHeader: TaskHeaderProps = {
     name: title,
@@ -65,24 +77,35 @@ function Task({
     files: files,
   };
 
+  const taskDiscussions: TaskDiscussionsProps = {
+    userAcName: userAcName,
+    userAcphoto: userAcphoto,
+    content: discussions,
+  };
+
   return (
-    <div className='openedTask'>
+    <div className='task'>
       <TaskHeader
         data={taskHeader.data}
         creator={taskHeader.creator}
         name={taskHeader.name}
       />
-      <div className='infoBlocks'>
+      <div className='task__info-blocks'>
         <TaskInfoBlock title={'Asign To'} executor={taskInfoBlock.executor} />
         <TaskInfoBlock title={'Due On'} date={taskInfoBlock.date} />
         <TaskInfoBlock title={'Tag'} department={taskInfoBlock.department} />
         <TaskInfoBlock title={'Followers'} users={taskInfoBlock.users} />
       </div>
+      lf
       <TaskDescription
         text={taskDescription.text}
         files={taskDescription.files}
       />
-      <Discussion />
+      <TaskDiscussion
+        content={taskDiscussions.content}
+        userAcphoto={taskDiscussions.userAcphoto}
+        userAcName={taskDiscussions.userAcName}
+      />
     </div>
   );
 }

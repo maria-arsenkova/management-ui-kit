@@ -1,25 +1,17 @@
 import React from 'react';
 import './style.css';
 import { AdditionFile, AdditionFileProps } from '../AdditionFile';
-import headerIcon from '../AdditionFile/img/header.png';
-import pdfIcon from '../AdditionFile/img/pdfIcon.png';
-
-type TaskDescriptionFileType = {
-  preview: string;
-  name: string;
-  size: number;
-};
 
 export interface TaskDescriptionProps {
   text: string | undefined;
-  files: TaskDescriptionFileType[] | undefined;
+  files: AdditionFileProps[] | undefined;
 }
 
 function TaskDescription({ text, files }: TaskDescriptionProps) {
   return (
-    <div className='description'>
-      <div className='description__title'>Description</div>
-      <div className='description__text'>{text}</div>
+    <div className='task__description'>
+      <div className='task__description-title'>Description</div>
+      <div className='task__description-text'>{text}</div>
       {files && (
         <div className='addition'>
           {files.map((item) => {

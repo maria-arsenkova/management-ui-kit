@@ -3,28 +3,28 @@ import './style.css';
 import circle from './img/circle.png';
 
 export interface TaskHeaderProps {
-    name: string;
-    creator: string;
-    data: string;
+  name: string;
+  creator: string;
+  data: string;
 }
 
 function TaskHeader({ name, creator, data }: TaskHeaderProps) {
   return (
-    <div className='headline'>
+    <div className='task__header'>
       <div>
-        <div className='headline__name'>{name}</div>
-        <div className='headline__creator'>
+        <div className='task__header-name'>{name}</div>
+        <div className='task__header-creator'>
           Added by {creator} {data}
         </div>
       </div>
-      <a href='#' className='headline__selector'>
+      <a href='#' className='task__header-selector'>
         <input
           type='checkbox'
           id='tick'
-          className='headline__selector-hidden'
+          className='task__header-selector-hidden'
         />
-        <label htmlFor='tick' className='headline__selector-tick'></label>
-        <span className='headline__selector-more'>
+        <label htmlFor='tick' className='task__header-selector-tick'></label>
+        <span className='task__header-selector-more'>
           <img src={circle} alt='circle' />
         </span>
       </a>

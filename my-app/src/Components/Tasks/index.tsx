@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
-import TasksList, { TasksListType } from '../TasksList';
+import { TasksList, TasksListType } from '../TasksList';
 import userOne from '../TasksList/img/userOne.png';
 import userTwo from '../TasksList/img/userTwo.png';
 import userTh from '../TasksList/img/userTh.png';
@@ -13,6 +13,9 @@ import userY from '../TaskInfoBlock/img/userY.png';
 import userS from '../TaskInfoBlock/img/userS.png';
 import headerIcon from '../AdditionFile/img/header.png';
 import pdfIcon from '../AdditionFile/img/pdfIcon.png';
+import userT from '../TaskDiscussion/img/userT.png';
+import userU from '../TaskDiscussion/img/userU.png';
+import userYY from '../TaskDiscussion//img/userY.png';
 
 const backlog: TasksListType[] = [
   {
@@ -29,6 +32,8 @@ const backlog: TasksListType[] = [
         dueOn: 'Tue, Apr 18',
         department: 'Developement',
         followers: [{ avatar: userO, name: 'userO' }],
+        userAcName: 'userYY',
+        userAcphoto: userYY,
       },
       {
         title: 'Find top 5 customer requests',
@@ -47,6 +52,38 @@ const backlog: TasksListType[] = [
         ],
         description:
           'Task Descriptions are used during project planning, project execution and project control. During project planning the task descriptions are used for scope planning and creating estimates. During project execution the task description is used by those doing the activities to ensure they are doing the work correctly.',
+        files: [
+          {
+            preview: pdfIcon,
+            name: 'Redesign Brief 2019.pdf',
+            size: 159,
+          },
+          {
+            preview: headerIcon,
+            name: 'Header.png',
+            size: 129,
+          },
+        ],
+        discussions: [
+          {
+            name: 'Helena Brauer',
+            position: 'Designer',
+            photo: userU,
+            date: 'Yesterday at 12:37pm',
+            text:
+              'During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes',
+          },
+          {
+            name: 'Prescott MacCaffery',
+            position: 'Developer',
+            photo: userT,
+            date: 'Yesterday at 12:37pm',
+            text:
+              '@Helena Software quality assurance activity in which one or several humans check a program mainly ',
+          },
+        ],
+        userAcName: 'userYY',
+        userAcphoto: userYY,
       },
       {
         title: 'Two-factor authentication to make my private data more secure',
@@ -62,6 +99,8 @@ const backlog: TasksListType[] = [
           { avatar: userO, name: 'userO' },
           { avatar: userY, name: 'userY' },
         ],
+        userAcName: 'userYY',
+        userAcphoto: userYY,
       },
     ],
   },
@@ -81,6 +120,8 @@ const toDo: TasksListType[] = [
         },
         dueOn: 'Tue, Apr 18',
         department: 'Design',
+        userAcName: 'userYY',
+        userAcphoto: userYY,
       },
       {
         title: 'Account for teams and personal in bottom style',
@@ -93,6 +134,8 @@ const toDo: TasksListType[] = [
         dueOn: 'Tue, Dec 25',
         department: 'Marketing',
         followers: [{ avatar: userO, name: 'userO' }],
+        userAcName: 'userYY',
+        userAcphoto: userYY,
       },
       {
         title:
@@ -109,6 +152,8 @@ const toDo: TasksListType[] = [
           { avatar: userO, name: 'userO' },
           { avatar: userY, name: 'userY' },
         ],
+        userAcName: 'userYY',
+        userAcphoto: userYY,
       },
     ],
   },
@@ -140,6 +185,26 @@ const INITIAL_TASK_DATA: TaskProps = {
       size: 129,
     },
   ],
+  discussions: [
+    {
+      name: 'Helena Brauer',
+      position: 'Designer',
+      photo: userU,
+      date: 'Yesterday at 12:37pm',
+      text:
+        'During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes',
+    },
+    {
+      name: 'Prescott MacCaffery',
+      position: 'Developer',
+      photo: userT,
+      date: 'Yesterday at 12:37pm',
+      text:
+        '@Helena Software quality assurance activity in which one or several humans check a program mainly ',
+    },
+  ],
+  userAcName: 'userYY',
+  userAcphoto: userYY,
 };
 
 function Tasks() {
@@ -167,6 +232,9 @@ function Tasks() {
         followers={task.followers}
         description={task.description}
         files={task.files}
+        discussions={task.discussions}
+        userAcName={task.userAcName}
+        userAcphoto={task.userAcphoto}
       />
     </div>
   );

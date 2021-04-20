@@ -12,7 +12,7 @@ interface TasksListProps {
   onTaskClick: (task: TaskProps) => void;
 }
 
-function TaskList({ content, onTaskClick }: TasksListProps) {
+function TasksList({ content, onTaskClick }: TasksListProps) {
   return (
     <div>
       {content.map((list) => {
@@ -38,6 +38,11 @@ function TaskList({ content, onTaskClick }: TasksListProps) {
                         dueOn: task.dueOn,
                         department: task.department,
                         followers: task.followers,
+                        description: task.description,
+                        files: task.files,
+                        discussions: task.discussions,
+                        userAcName: task.userAcName,
+                        userAcphoto: task.userAcphoto,
                       });
                     }}
                   >
@@ -74,4 +79,4 @@ function TaskList({ content, onTaskClick }: TasksListProps) {
   );
 }
 
-export default TaskList;
+export { TasksList };

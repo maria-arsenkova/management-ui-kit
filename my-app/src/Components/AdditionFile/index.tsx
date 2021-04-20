@@ -10,7 +10,7 @@ export interface AdditionFileProps {
 function AdditionFile({ preview, name, size }: AdditionFileProps) {
   return (
     <div className='addition__file'>
-      <div className='addition__file-preview'>{preview}</div>
+      <img className='addition__file-preview' src={preview} alt={name}/>
       <div>
         <div className='addition__file-name'>{name}</div>
         <div>

@@ -1,44 +1,28 @@
 import React from 'react';
 import './style.css';
 
-type CommentAuthorType = {
+export interface CommentProps {
   name: string;
   position: string;
   photo: string;
-};
-
-export type CommentType = {
-  author: CommentAuthorType;
   date: string;
   text: string;
-};
-
-interface CommentProps {
-  content: CommentType;
 }
 
-function Comment({ content }: CommentProps) {
+function Comment({ name, photo, date, text, position }: CommentProps) {
   return (
     <div className='comment'>
-      <img
-        src={content.author.photo}
-        alt={content.author.name}
-        className='comment__author-photo'
-      />
+      <img src={photo} alt={name} className='comment__author-photo' />
       <div className='comment__body'>
         <div>
           <div className='comment__title'>
             <div>
-              <span className='comment__author-name'>
-                {content.author.name},
-              </span>
-              <span className='comment__author-position'>
-                {content.author.position}
-              </span>
+              <span className='comment__author-name'>{name},</span>
+              <span className='comment__author-position'>{position}</span>
             </div>
-            <div className='comment__date'>{content.date}</div>
+            <div className='comment__date'>{date}</div>
           </div>
-          <div className='comment__text'>{content.text}</div>
+          <div className='comment__text'>{text}</div>
         </div>
       </div>
     </div>

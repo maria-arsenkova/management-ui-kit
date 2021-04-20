@@ -1,4 +1,4 @@
-.discussion__title {
+.task__discussion-title {
   font-weight: bold;
   font-size: 16px;
   line-height: 23px;
@@ -29,7 +29,7 @@
   opacity: 0.5;
 }
 
-.comment__add-authorPhoto {
+.comment__add-author-photo {
   border-radius: 50px;
   width: 48px;
   height: 48px;

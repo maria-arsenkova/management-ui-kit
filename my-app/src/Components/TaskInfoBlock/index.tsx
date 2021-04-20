@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css';
 import addIcon from './img/addIcon.png';
+import { Task, TaskProps } from '../Task';
 
 type TaskInfoBlockExecutorType = {
   avatar: string;
@@ -28,17 +29,17 @@ function TaskInfoBlock({
   users,
 }: TaskInfoBlockProps) {
   return (
-    <div className='taskInfoBlock'>
-      <div className='taskInfoBlock__title'>{title}</div>
-      <div className='taskInfoBlock__content'>
+    <div className='task__info-block'>
+      <div className='task__info-block-title'>{title}</div>
+      <div className='task__info-block-content'>
         {executor && (
           <a className='executor'>
             <img
               src={executor.avatar}
               alt={executor.name}
-              className='taskInfoBlock_icon'
+              className='task__info-block_icon'
             />
-            <span className='executor-initials'>{executor.name}</span>
+            <span className='executor__initials'>{executor.name}</span>
           </a>
         )}
         {date && <div className='date'>{date}</div>}
@@ -48,14 +49,14 @@ function TaskInfoBlock({
             {users.map((item) => {
               return (
                 <img
-                  className='taskInfoBlock_icon'
+                  className='task__info-block_icon'
                   key={`${item.name}_${item.avatar}`}
                   src={item.avatar}
                   alt={item.name}
                 />
               );
             })}
-            <img src={addIcon} className='taskInfoBlock_icon' />
+            <img src={addIcon} className='task__info-block_icon' />
           </span>
         )}
       </div>
