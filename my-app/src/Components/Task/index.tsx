@@ -4,6 +4,7 @@ import { TaskHeader, TaskHeaderProps } from '../TaskHeader';
 import { TaskInfoBlock, TaskInfoBlockProps } from '../TaskInfoBlock';
 import { TaskDescription, TaskDescriptionProps } from '../TaskDescription';
 import { TaskDiscussion, TaskDiscussionsProps } from '../TaskDiscussion';
+import { TaskFiles, TaskFilesProps } from '../TaskFiles';
 
 type TaskExecutorType = {
   avatar: string;
@@ -16,7 +17,7 @@ type TaskFollowersType = {
 };
 
 type TaskFilesType = {
-  preview: string;
+  preview?: string;
   name: string;
   size: number;
 };
@@ -41,8 +42,8 @@ export interface TaskProps {
   description?: string;
   files?: TaskFilesType[];
   discussions?: TaskDiscussions[];
-  userAcName?: string;
-  userAcphoto?: string;
+  userAcName: string;
+  userAcphoto: string;
 }
 
 function Task({
@@ -74,7 +75,10 @@ function Task({
 
   const taskDescription: TaskDescriptionProps = {
     text: description,
-    files: files,
+  };
+
+  const taskFiles: TaskFilesProps = {
+    content: files,
   };
 
   const taskDiscussions: TaskDiscussionsProps = {
@@ -96,10 +100,9 @@ function Task({
         <TaskInfoBlock title={'Tag'} department={taskInfoBlock.department} />
         <TaskInfoBlock title={'Followers'} users={taskInfoBlock.users} />
       </div>
-      <TaskDescription
-        text={taskDescription.text}
-        files={taskDescription.files}
-      />
+      <TaskDescription text={taskDescription.text} />
+      <TaskFiles content={taskFiles.content} />
+      <div className='task__divider'></div>
       <TaskDiscussion
         content={taskDiscussions.content}
         userAcphoto={taskDiscussions.userAcphoto}

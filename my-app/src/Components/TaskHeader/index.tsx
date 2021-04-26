@@ -17,7 +17,7 @@ function TaskHeader({ name, creator, data }: TaskHeaderProps) {
           Added by {creator} {data}
         </div>
       </div>
-      <a href='#' className='task__header-selector'>
+      <div className='task__header-selector'>
         <input
           type='checkbox'
           id='tick'
@@ -27,7 +27,7 @@ function TaskHeader({ name, creator, data }: TaskHeaderProps) {
         <span className='task__header-selector-more'>
           <img src={circle} alt='circle' />
         </span>
-      </a>
+      </div>
     </div>
   );
 }

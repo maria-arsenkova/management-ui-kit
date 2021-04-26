@@ -1,7 +1,6 @@
 import React from 'react';
 import './style.css';
 import addIcon from './img/addIcon.png';
-import { Task, TaskProps } from '../Task';
 
 type TaskInfoBlockExecutorType = {
   avatar: string;

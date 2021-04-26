@@ -1,6 +1,4 @@
 .task__description {
-  padding-bottom: 30px;
-  border-bottom: #ececec 1px solid;
   margin-bottom: 30px;
 }
 
@@ -17,9 +15,4 @@
   font-size: 16px;
   line-height: 26px;
   color: #131313;
-  margin-bottom: 30px;
-}
-
-.addition {
-  display: flex;
 }
