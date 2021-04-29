@@ -31,7 +31,6 @@
 
 .tasks__item {
   display: flex;
-  justify-content: space-between;
   align-items: flex-start;
   background: #f7f6f3;
   border-radius: 10px;

@@ -1,23 +1,18 @@
 import React from 'react';
+import { Task, TaskProps } from '../Task';
 import './style.css';
-
-type TasksItemType = {
-  name: string;
-  executorName: string;
-  executorAvatar: string;
-  executorPosition: string;
-};
 
 export type TasksListType = {
   name: string;
-  items?: TasksItemType[];
+  items: TaskProps[];
 };
 
 interface TasksListProps {
   content: TasksListType[];
+  onTaskClick: (task: TaskProps) => void;
 }
 
-function TaskList({ content }: TasksListProps) {
+function TasksList({ content, onTaskClick }: TasksListProps) {
   return (
     <div>
       {content.map((list) => {
@@ -32,7 +27,25 @@ function TaskList({ content }: TasksListProps) {
             {list?.items &&
               list.items.map((task) => {
                 return (
-                  <li className='tasks__item'>
+                  <li
+                    className='tasks__item'
+                    onClick={() => {
+                      onTaskClick({
+                        title: task.title,
+                        createdAt: task.createdAt,
+                        assigner: task.assigner,
+                        asignTo: task.asignTo,
+                        dueOn: task.dueOn,
+                        department: task.department,
+                        followers: task.followers,
+                        description: task.description,
+                        files: task.files,
+                        discussions: task.discussions,
+                        userAcName: task.userAcName,
+                        userAcphoto: task.userAcphoto,
+                      });
+                    }}
+                  >
                     <input
                       type='checkbox'
                       id='checkbox'
@@ -43,16 +56,16 @@ function TaskList({ content }: TasksListProps) {
                       className='tasks__checkbox-new'
                     ></label>
                     <div>
-                      <div className='tasks__item-name'>{task.name}</div>
+                      <div className='tasks__item-name'>{task.title}</div>
                       <a href='#' className='tasks__item-executor'>
                         <img
-                          key={`${task.executorName}_${task.executorAvatar}`}
-                          src={task.executorAvatar}
-                          alt={task.executorName}
+                          key={`${task.asignTo.name}_${task.asignTo.avatar}`}
+                          src={task.asignTo.avatar}
+                          alt={task.asignTo.name}
                           className='tasks__item-avatar'
                         />
                         <span className='tasks__item-position'>
-                          {task.executorPosition}
+                          {task.department}
                         </span>
                       </a>
                     </div>
@@ -66,4 +79,4 @@ function TaskList({ content }: TasksListProps) {
   );
 }
 
-export default TaskList;
+export { TasksList };

@@ -1,10 +1,8 @@
-.description {
-  padding-bottom: 30px;
-  border-bottom: #ececec 1px solid;
+.task__description {
   margin-bottom: 30px;
 }
 
-.description__title {
+.task__description-title {
   margin-bottom: 20px;
   font-weight: bold;
   font-size: 16px;
@@ -13,13 +11,8 @@
   color: #131313;
 }
 
-.description__text {
+.task__description-text {
   font-size: 16px;
   line-height: 26px;
   color: #131313;
-  margin-bottom: 30px;
-}
-
-.addition {
-  display: flex;
 }

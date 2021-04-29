@@ -1,4 +1,4 @@
-.infoBlock {
+.task__info-block {
   height: 50px;
   margin-right: 30px;
   font-size: 16px;
@@ -6,7 +6,7 @@
   color: #131313;
 }
 
-.infoBlock__title {
+.task__info-block-title {
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
@@ -20,13 +20,13 @@
   align-items: center;
 }
 
-.infoBlock_icon {
+.task__info-block_icon {
   margin-right: 5px;
   border-radius: 50%;
   width: 20px;
   height: 20px;
 }
-.executor-initials {
+.executor__initials {
   font-size: 16px;
   line-height: 20px;
   color: #131313;

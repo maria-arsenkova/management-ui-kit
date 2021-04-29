@@ -1,32 +1,32 @@
-.headline {
+.task__header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
 }
 
-.headline__name {
+.task__header-name {
   font-weight: bold;
   font-size: 26px;
   line-height: 38px;
   color: #131313;
 }
 
-.headline__creator {
+.task__header-creator {
   font-size: 16px;
   line-height: 23px;
   color: #131313;
 }
 
-.headline__selector {
+.task__header-selector-hidden {
   display: flex;
   justify-content: baseline;
 }
 
-.headline__selector-hidden {
+.task__header-selector-hidden {
   display: none;
 }
 
-.headline__selector-tick {
+.task__header-selector-tick {
   color: #000;
   cursor: default;
   font-weight: normal;

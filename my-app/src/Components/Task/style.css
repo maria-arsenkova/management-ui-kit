@@ -1,15 +1,20 @@
-.openedTask {
+.task {
   padding: 30px;
   width: 636px;
   background: #ffffff;
   border-radius: 8px;
 }
 
-.infoBlocks {
+.task__info-blocks {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-bottom: 30px;
+  border-bottom: #ececec 1px solid;
+  margin-bottom: 30px;
+}
+
+.task__divider {
   border-bottom: #ececec 1px solid;
   margin-bottom: 30px;
 }
