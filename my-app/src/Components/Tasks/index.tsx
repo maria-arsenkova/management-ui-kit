@@ -32,8 +32,6 @@ const backlog: TasksListType[] = [
         dueOn: 'Tue, Apr 18',
         department: 'Developement',
         followers: [{ avatar: userO, name: 'userO' }],
-        userAcName: 'userYY',
-        userAcphoto: userYY,
       },
       {
         title: 'Find top 5 customer requests',
@@ -82,8 +80,6 @@ const backlog: TasksListType[] = [
               '@Helena Software quality assurance activity in which one or several humans check a program mainly ',
           },
         ],
-        userAcName: 'userYY',
-        userAcphoto: userYY,
       },
       {
         title: 'Two-factor authentication to make my private data more secure',
@@ -99,8 +95,6 @@ const backlog: TasksListType[] = [
           { avatar: userO, name: 'userO' },
           { avatar: userY, name: 'userY' },
         ],
-        userAcName: 'userYY',
-        userAcphoto: userYY,
       },
     ],
   },
@@ -120,8 +114,6 @@ const toDo: TasksListType[] = [
         },
         dueOn: 'Tue, Apr 18',
         department: 'Design',
-        userAcName: 'userYY',
-        userAcphoto: userYY,
       },
       {
         title: 'Account for teams and personal in bottom style',
@@ -134,8 +126,6 @@ const toDo: TasksListType[] = [
         dueOn: 'Tue, Dec 25',
         department: 'Marketing',
         followers: [{ avatar: userO, name: 'userO' }],
-        userAcName: 'userYY',
-        userAcphoto: userYY,
       },
       {
         title:
@@ -152,8 +142,6 @@ const toDo: TasksListType[] = [
           { avatar: userO, name: 'userO' },
           { avatar: userY, name: 'userY' },
         ],
-        userAcName: 'userYY',
-        userAcphoto: userYY,
       },
     ],
   },
@@ -203,8 +191,6 @@ const INITIAL_TASK_DATA: TaskProps = {
         '@Helena Software quality assurance activity in which one or several humans check a program mainly ',
     },
   ],
-  userAcName: 'userYY',
-  userAcphoto: userYY,
 };
 
 function Tasks() {
