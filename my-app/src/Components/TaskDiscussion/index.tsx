@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './style.css';
 import {UserType} from '../UserInfo/types'
 import Comment, { CommentType } from '../Comment';
@@ -12,6 +12,24 @@ function TaskDiscussion({
   content,
   user,
 }: TaskDiscussionsProps) {
+    const [comment, setComment] = useState<CommentType>({
+        text: '',
+        date: Date.now().toString(),
+        name: user.initials,
+        photo: user.avatar,
+        position: user.position
+    })
+
+    const handleComment = (newComment: string): void => {
+        setComment({
+            text: newComment,
+            name: comment.name,
+            photo: comment.photo,
+            date: comment.date,
+            position: comment.position
+        })
+    }
+
   return (
     <div>
       <div className='task__discussion-title'>Discussion</div>
@@ -25,7 +43,9 @@ function TaskDiscussion({
           type='text'
           placeholder='Add a comment…'
           className='comment__add-text'
+          onChange={(event) => handleComment(event.target.value)}
         />
+          <button onClick={() => {}}>Send</button>
       </div>
       {content && (
         <div>
