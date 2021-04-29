@@ -1,12 +1,9 @@
 import React from 'react';
 import './style.css';
-import circle from './img/circle.png';
 
-export type UserType = {
-  avatar: string;
-  initials: string;
-  position?: string;
-};
+import {UserType} from './types'
+
+import circle from './img/circle.png';
 
 interface UserInfoProps {
   user: UserType;

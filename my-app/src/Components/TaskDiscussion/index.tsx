@@ -1,25 +1,24 @@
 import React from 'react';
 import './style.css';
-import Comment, { CommentProps } from '../Comment';
+import {UserType} from '../UserInfo/types'
+import Comment, { CommentType } from '../Comment';
 
 export interface TaskDiscussionsProps {
-  userAcName: string;
-  userAcphoto: string;
-  content?: CommentProps[];
+  user: UserType
+  content?: CommentType[];
 }
 
 function TaskDiscussion({
   content,
-  userAcName,
-  userAcphoto,
+  user,
 }: TaskDiscussionsProps) {
   return (
     <div>
       <div className='task__discussion-title'>Discussion</div>
       <div className='comment__add'>
         <img
-          src={userAcphoto}
-          alt={userAcName}
+          src={user.avatar}
+          alt={user.initials}
           className='comment__add-author-photo'
         />
         <input

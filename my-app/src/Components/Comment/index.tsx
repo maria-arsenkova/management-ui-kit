@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 
-export interface CommentProps {
+export type CommentType =  {
   name: string;
   position: string;
   photo: string;
@@ -9,7 +9,7 @@ export interface CommentProps {
   text: string;
 }
 
-function Comment({ name, photo, date, text, position }: CommentProps) {
+function Comment({ name, photo, date, text, position }: CommentType) {
   return (
     <div className='comment'>
       <img src={photo} alt={name} className='comment__author-photo' />

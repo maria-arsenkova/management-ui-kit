@@ -1,10 +1,12 @@
 import React from 'react';
 import './style.css';
+import { CommentType } from '../Comment'
 import { TaskHeader, TaskHeaderProps } from '../TaskHeader';
 import { TaskInfoBlock, TaskInfoBlockProps } from '../TaskInfoBlock';
 import { TaskDescription, TaskDescriptionProps } from '../TaskDescription';
 import { TaskDiscussion, TaskDiscussionsProps } from '../TaskDiscussion';
 import { TaskFiles, TaskFilesProps } from '../TaskFiles';
+import { user } from '../Sidebar'
 
 type TaskExecutorType = {
   avatar: string;
@@ -22,26 +24,17 @@ type TaskFilesType = {
   size: number;
 };
 
-type TaskDiscussions = {
-  name: string;
-  position: string;
-  photo: string;
-  date: string;
-  text: string;
-};
-
 export interface TaskProps {
   title: string;
   createdAt: string;
   assigner: string;
-  // TODO: complete other props
   asignTo: TaskExecutorType;
   dueOn: string;
   department: string;
   followers?: TaskFollowersType[];
   description?: string;
   files?: TaskFilesType[];
-  discussions?: TaskDiscussions[];
+  discussions?: CommentType[];
   userAcName: string;
   userAcphoto: string;
 }
@@ -60,6 +53,7 @@ function Task({
   userAcName,
   userAcphoto,
 }: TaskProps) {
+
   const taskHeader: TaskHeaderProps = {
     name: title,
     creator: assigner,
@@ -81,12 +75,6 @@ function Task({
     content: files,
   };
 
-  const taskDiscussions: TaskDiscussionsProps = {
-    userAcName: userAcName,
-    userAcphoto: userAcphoto,
-    content: discussions,
-  };
-
   return (
     <div className='task'>
       <TaskHeader
@@ -104,9 +92,8 @@ function Task({
       <TaskFiles content={taskFiles.content} />
       <div className='task__divider'></div>
       <TaskDiscussion
-        content={taskDiscussions.content}
-        userAcphoto={taskDiscussions.userAcphoto}
-        userAcName={taskDiscussions.userAcName}
+        content={discussions}
+        user={user}
       />
     </div>
   );
