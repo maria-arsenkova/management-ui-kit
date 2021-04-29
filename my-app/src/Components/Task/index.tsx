@@ -35,8 +35,6 @@ export interface TaskProps {
   description?: string;
   files?: TaskFilesType[];
   discussions?: CommentType[];
-  userAcName: string;
-  userAcphoto: string;
 }
 
 function Task({
@@ -50,8 +48,6 @@ function Task({
   description,
   files,
   discussions,
-  userAcName,
-  userAcphoto,
 }: TaskProps) {
 
   const taskHeader: TaskHeaderProps = {

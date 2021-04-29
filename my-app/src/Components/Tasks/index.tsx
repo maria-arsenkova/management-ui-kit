@@ -233,8 +233,6 @@ function Tasks() {
         description={task.description}
         files={task.files}
         discussions={task.discussions}
-        userAcName={task.userAcName}
-        userAcphoto={task.userAcphoto}
       />
     </div>
   );
