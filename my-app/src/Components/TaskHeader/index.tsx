@@ -1,14 +1,9 @@
 import React from 'react';
 import './style.css';
 import circle from './img/circle.png';
+import { TaskHeaderType } from './types';
 
-export interface TaskHeaderProps {
-  name: string;
-  creator: string;
-  data: string;
-}
-
-function TaskHeader({ name, creator, data }: TaskHeaderProps) {
+function TaskHeader({ name, creator, data }: TaskHeaderType) {
   return (
     <div className='task__header'>
       <div>

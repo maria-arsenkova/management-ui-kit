@@ -1,13 +1,6 @@
 import React from 'react';
 import './style.css';
-
-export type CommentType =  {
-  name: string;
-  position: string;
-  photo: string;
-  date: string;
-  text: string;
-}
+import { CommentType } from './types';
 
 function Comment({ name, photo, date, text, position }: CommentType) {
   return (
@@ -29,4 +22,4 @@ function Comment({ name, photo, date, text, position }: CommentType) {
   );
 }
 
-export default Comment;
+export { Comment };

@@ -1,18 +1,9 @@
 import React from 'react';
 import './style.css';
 import addIcon from './img/addIcon.png';
+import { TaskInfoBlockExecutorType, TaskInfoBlockUsersType } from './types';
 
-type TaskInfoBlockExecutorType = {
-  avatar: string;
-  name: string;
-};
-
-type TaskInfoBlockUsersType = {
-  avatar: string;
-  name: string;
-};
-
-export interface TaskInfoBlockProps {
+interface TaskInfoBlockProps {
   title?: string;
   executor?: TaskInfoBlockExecutorType;
   date?: string;

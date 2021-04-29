@@ -1,37 +1,26 @@
 import React from 'react';
 import './style.css';
-import { CommentType } from '../Comment'
-import { TaskHeader, TaskHeaderProps } from '../TaskHeader';
-import { TaskInfoBlock, TaskInfoBlockProps } from '../TaskInfoBlock';
-import { TaskDescription, TaskDescriptionProps } from '../TaskDescription';
-import { TaskDiscussion, TaskDiscussionsProps } from '../TaskDiscussion';
-import { TaskFiles, TaskFilesProps } from '../TaskFiles';
-import { user } from '../Sidebar'
-
-type TaskExecutorType = {
-  avatar: string;
-  name: string;
-};
-
-type TaskFollowersType = {
-  avatar: string;
-  name: string;
-};
-
-type TaskFilesType = {
-  preview?: string;
-  name: string;
-  size: number;
-};
+import { CommentType } from '../Comment/types';
+import { TaskHeader } from '../TaskHeader';
+import { TaskInfoBlock } from '../TaskInfoBlock';
+import {
+  TaskInfoBlockExecutorType,
+  TaskInfoBlockUsersType,
+} from '../TaskInfoBlock/types';
+import { TaskDescription } from '../TaskDescription';
+import { TaskDiscussion } from '../TaskDiscussion';
+import { TaskFiles } from '../TaskFiles';
+import { TaskFilesType } from '../TaskFiles/types';
+import { user } from '../Sidebar';
 
 export interface TaskProps {
   title: string;
   createdAt: string;
   assigner: string;
-  asignTo: TaskExecutorType;
+  asignTo: TaskInfoBlockExecutorType;
   dueOn: string;
   department: string;
-  followers?: TaskFollowersType[];
+  followers?: TaskInfoBlockUsersType[];
   description?: string;
   files?: TaskFilesType[];
   discussions?: CommentType[];
@@ -49,48 +38,31 @@ function Task({
   files,
   discussions,
 }: TaskProps) {
-
-  const taskHeader: TaskHeaderProps = {
-    name: title,
-    creator: assigner,
-    data: createdAt,
-  };
-
-  const taskInfoBlock: TaskInfoBlockProps = {
-    executor: asignTo,
-    date: dueOn,
-    department: department,
-    users: followers,
-  };
-
-  const taskDescription: TaskDescriptionProps = {
-    text: description,
-  };
-
-  const taskFiles: TaskFilesProps = {
-    content: files,
-  };
-
   return (
     <div className='task'>
-      <TaskHeader
-        data={taskHeader.data}
-        creator={taskHeader.creator}
-        name={taskHeader.name}
-      />
+      <TaskHeader data={createdAt} creator={assigner} name={title} />
       <div className='task__info-blocks'>
-        <TaskInfoBlock title={'Asign To'} executor={taskInfoBlock.executor} />
-        <TaskInfoBlock title={'Due On'} date={taskInfoBlock.date} />
-        <TaskInfoBlock title={'Tag'} department={taskInfoBlock.department} />
-        <TaskInfoBlock title={'Followers'} users={taskInfoBlock.users} />
+        <TaskInfoBlock title={'Asign To'} executor={asignTo} />
+        <TaskInfoBlock title={'Due On'} date={dueOn} />
+        <TaskInfoBlock title={'Tag'} department={department} />
+        <TaskInfoBlock title={'Followers'} users={followers} />
       </div>
-      <TaskDescription text={taskDescription.text} />
-      <TaskFiles content={taskFiles.content} />
+      <TaskDescription text={description} />
+      {files && (
+        <div className='task__files'>
+          {files.map((item) => {
+            return (
+              <TaskFiles
+                preview={item.preview}
+                name={item.name}
+                size={item.size}
+              />
+            );
+          })}
+        </div>
+      )}
       <div className='task__divider'></div>
-      <TaskDiscussion
-        content={discussions}
-        user={user}
-      />
+      <TaskDiscussion content={discussions} user={user} />
     </div>
   );
 }

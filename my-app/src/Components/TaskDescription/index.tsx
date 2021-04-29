@@ -1,11 +1,8 @@
 import React from 'react';
 import './style.css';
+import { TaskDescriptionType } from './types';
 
-export interface TaskDescriptionProps {
-  text?: string;
-}
-
-function TaskDescription({ text }: TaskDescriptionProps) {
+function TaskDescription({ text }: TaskDescriptionType) {
   return (
     <div className='task__description'>
       <div className='task__description-title'>Description</div>

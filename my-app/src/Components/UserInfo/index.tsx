@@ -1,8 +1,6 @@
 import React from 'react';
 import './style.css';
-
-import {UserType} from './types'
-
+import { UserType } from './types';
 import circle from './img/circle.png';
 
 interface UserInfoProps {
@@ -13,10 +11,7 @@ function UserInfo({ user }: UserInfoProps) {
   return (
     <div className='userInfo'>
       <a href='/' className='userInfo__avatar'>
-        <img
-          src={user.avatar}
-          alt={user.initials}
-        />
+        <img src={user.avatar} alt={user.initials} />
       </a>
       <div>
         <div className='userInfo__initials'>{user.initials}</div>
