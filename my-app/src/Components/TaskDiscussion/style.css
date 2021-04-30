@@ -9,6 +9,8 @@
 
 .comment__add {
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .comment__add-text {
@@ -18,6 +20,27 @@
   background: #eaeaea;
   border-color: transparent;
   padding: 10px 15px;
+}
+
+.task__discussion-button {
+  margin-left: 10px;
+  height: 40px;
+  width: 99px;
+  border-radius: 20px;
+  border: none;
+  background: #eaeaea;
+  color: #131313;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.task__discussion-button:hover {
+  background: #e0e0e0;
+}
+
+.task__discussion-button:active {
+  background: #cfcfcf;
 }
 
 .comment__add-text::-webkit-input-placeholder {

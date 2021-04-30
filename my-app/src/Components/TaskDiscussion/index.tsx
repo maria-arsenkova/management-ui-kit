@@ -43,7 +43,9 @@ function TaskDiscussion({ content, user }: TaskDiscussionsProps) {
           className='comment__add-text'
           onChange={(event) => handleComment(event.target.value)}
         />
-        <button onClick={() => {}}>Send</button>
+        <button className='task__discussion-button' onClick={() => {}}>
+          Send
+        </button>
       </div>
       {content && (
         <div>

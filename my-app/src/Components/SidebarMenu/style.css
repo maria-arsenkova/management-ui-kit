@@ -9,6 +9,16 @@
   padding-bottom: 10px;
 }
 
+.sidebar__menu-item:not(:first-child):hover {
+  border-left: 5px solid #ffc200;
+  background: #202020;
+  box-sizing: border-box;
+  padding-left: 25px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .sidebar__menu-title {
   font-weight: bold;
   text-decoration: none;
@@ -26,16 +36,6 @@
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
-}
-
-.sidebarMenu__menu-link_active {
-  border-left: 5px solid #ffc200;
-  background: #202020;
-  box-sizing: border-box;
-  padding-left: 25px;
-  padding-right: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 .sidebar__menu-preview {

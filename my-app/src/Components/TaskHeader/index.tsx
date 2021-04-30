@@ -19,7 +19,7 @@ function TaskHeader({ name, creator, data }: TaskHeaderType) {
           className='task__header-selector-hidden'
         />
         <label htmlFor='tick' className='task__header-selector-tick'></label>
-        <span className='task__header-selector-more'>
+        <span className='task__header-selector-tick-more'>
           <img src={circle} alt='circle' />
         </span>
       </div>

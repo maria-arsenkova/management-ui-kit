@@ -16,10 +16,8 @@
   line-height: 23px;
   color: #131313;
 }
-
-.task__header-selector-hidden {
+.task__header-selector {
   display: flex;
-  justify-content: baseline;
 }
 
 .task__header-selector-hidden {
@@ -34,23 +32,22 @@
   vertical-align: middle;
 }
 
-.headline__selector-tick:before {
+.task__header-selector-tick:before {
   content: url('./img/checkTask.png');
   color: #000;
   display: inline-block;
   margin-right: 20px;
   position: relative;
+  padding-top: 2px;
   text-align: center;
-  text-indent: 0px;
   width: 40px;
   height: 40px;
   background: #eaeaea;
   border-radius: 4px;
-  border-image: initial;
   vertical-align: middle;
 }
 
-.headline__selector-more {
+.task__header-selector-tick-more {
   background: #eaeaea;
   width: 40px;
   height: 40px;

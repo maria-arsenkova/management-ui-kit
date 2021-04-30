@@ -26,6 +26,10 @@ body {
   grid-area: sidebar;
 }
 
+.app__header {
+  grid-area: header;
+}
+
 .wrapper {
   display: grid;
   grid-template-areas:
