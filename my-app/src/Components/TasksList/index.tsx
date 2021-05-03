@@ -1,15 +1,16 @@
 import React from 'react';
-import { Task, TaskProps } from '../Task';
+import { Task } from '../Task';
+import { TaskType } from '../Task/types';
 import './style.css';
 
 export type TasksListType = {
   name: string;
-  items: TaskProps[];
+  items: TaskType[];
 };
 
 interface TasksListProps {
   content: TasksListType[];
-  onTaskClick: (task: TaskProps) => void;
+  onTaskClick: (task: TaskType) => void;
 }
 
 function TasksList({ content, onTaskClick }: TasksListProps) {

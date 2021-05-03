@@ -1,69 +1,36 @@
 import React from 'react';
 import './style.css';
-import { CommentType } from '../Comment/types';
 import { TaskHeader } from '../TaskHeader';
 import { TaskInfoBlock } from '../TaskInfoBlock';
-import {
-  TaskInfoBlockExecutorType,
-  TaskInfoBlockUsersType,
-} from '../TaskInfoBlock/types';
+
 import { TaskDescription } from '../TaskDescription';
 import { TaskDiscussion } from '../TaskDiscussion';
 import { TaskFiles } from '../TaskFiles';
-import { TaskFilesType } from '../TaskFiles/types';
+
 import { user } from '../Sidebar';
+import {TaskType} from "./types"
 
 export interface TaskProps {
-  title: string;
-  createdAt: string;
-  assigner: string;
-  asignTo: TaskInfoBlockExecutorType;
-  dueOn: string;
-  department: string;
-  followers?: TaskInfoBlockUsersType[];
-  description?: string;
-  files?: TaskFilesType[];
-  discussions?: CommentType[];
-}
-
-export interface TaskPropsTest {
-  title: string;
-  createdAt: string;
-  assigner: string;
-  asignTo: TaskInfoBlockExecutorType;
-  dueOn: string;
-  department: string;
-  followers?: TaskInfoBlockUsersType[];
-  description?: string;
-  files?: TaskFilesType[];
-  discussions?: CommentType[];
+  task: TaskType;
+  onTaskChanged:(task: TaskType) => void;
 }
 
 function Task({
-  title,
-  assigner,
-  createdAt,
-  asignTo,
-  dueOn,
-  department,
-  followers,
-  description,
-  files,
-  discussions,
+  task, onTaskChanged
 }: TaskProps) {
   return (
     <div className='task'>
-      <TaskHeader data={createdAt} creator={assigner} name={title} />
+      <TaskHeader data={task.createdAt} creator={task.assigner} name={task.title} />
       <div className='task__info-blocks'>
-        <TaskInfoBlock title={'Asign To'} executor={asignTo} />
-        <TaskInfoBlock title={'Due On'} date={dueOn} />
-        <TaskInfoBlock title={'Tag'} department={department} />
-        <TaskInfoBlock title={'Followers'} users={followers} />
+        <TaskInfoBlock title={'Asign To'} executor={task.asignTo} />
+        <TaskInfoBlock title={'Due On'} date={task.dueOn} />
+        <TaskInfoBlock title={'Tag'} department={task.department} />
+        <TaskInfoBlock title={'Followers'} users={task.followers} />
       </div>
-      <TaskDescription text={description} />
-      {files && (
+      <TaskDescription text={task.description} />
+      {task.files && (
         <div className='task__files'>
-          {files.map((item) => {
+          {task.files.map((item) => {
             return (
               <TaskFiles
                 preview={item.preview}
@@ -75,7 +42,7 @@ function Task({
         </div>
       )}
       <div className='task__divider'></div>
-      <TaskDiscussion content={discussions} user={user} />
+      <TaskDiscussion content={task.discussions} user={user} onCommentCreated={onTaskChanged}/>
     </div>
   );
 }

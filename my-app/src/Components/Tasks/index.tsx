@@ -7,6 +7,7 @@ import userTh from '../TasksList/img/userTh.png';
 import userFo from '../TasksList/img/userFo.png';
 import userFr from '../TasksList/img/userFr.png';
 import { Task, TaskProps } from '../Task';
+import { TaskType } from '../Task/types';
 import user from '../TaskInfoBlock/img/user.png';
 import userO from '../TaskInfoBlock/img/userO.png';
 import userY from '../TaskInfoBlock/img/userY.png';
@@ -16,6 +17,8 @@ import pdfIcon from '../TaskFiles/img/pdfIcon.png';
 import userT from '../TaskDiscussion/img/userT.png';
 import userU from '../TaskDiscussion/img/userU.png';
 import userYY from '../TaskDiscussion//img/userY.png';
+import { CommentType } from '../Comment/types';
+
 
 const backlog: TasksListType[] = [
   {
@@ -147,7 +150,7 @@ const toDo: TasksListType[] = [
   },
 ];
 
-const INITIAL_TASK_DATA: TaskProps = {
+const INITIAL_TASK_DATA: TaskType = {
   title: 'Find top 5 customer requests',
   createdAt: 'yesterday at 12:41pm',
   assigner: 'Kristin A.',
@@ -196,7 +199,12 @@ const INITIAL_TASK_DATA: TaskProps = {
 function Tasks() {
   const [task, setTask] = useState(INITIAL_TASK_DATA);
 
-  const handleTaskCardClick = (task: TaskProps) => {
+  const handleTaskCardClick = (task: TaskType) => {
+    setTask(task);
+  };
+
+  
+  const handleTaskComentChanged = (task: TaskType) => {
     setTask(task);
   };
 
@@ -208,18 +216,8 @@ function Tasks() {
           <TasksList content={toDo} onTaskClick={handleTaskCardClick} />
         </div>
       </div>
-      <Task
-        title={task.title}
-        createdAt={task.createdAt}
-        assigner={task.assigner}
-        asignTo={task.asignTo}
-        dueOn={task.dueOn}
-        department={task.department}
-        followers={task.followers}
-        description={task.description}
-        files={task.files}
-        discussions={task.discussions}
-      />
+      {/* onTaskChanged={(newTask)=> setTask(newTask)} */}
+      <Task task={task} onTaskChanged={handleTaskComentChanged}/>
     </div>
   );
 }

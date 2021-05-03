@@ -3,13 +3,20 @@ import './style.css';
 import { UserType } from '../UserInfo/types';
 import { Comment } from '../Comment';
 import { CommentType } from '../Comment/types';
+import { TaskType } from '../Task/types';
+import { Task } from '../Task';
 
 export interface TaskDiscussionsProps {
   user: UserType;
   content?: CommentType[];
+  onCommentCreated: (task: TaskType) => void;
 }
 
-function TaskDiscussion({ content, user }: TaskDiscussionsProps) {
+function TaskDiscussion({
+  content,
+  user,
+  onCommentCreated,
+}: TaskDiscussionsProps) {
   const [comment, setComment] = useState<CommentType>({
     text: '',
     date: Date.now().toString(),
@@ -43,7 +50,24 @@ function TaskDiscussion({ content, user }: TaskDiscussionsProps) {
           className='comment__add-text'
           onChange={(event) => handleComment(event.target.value)}
         />
-        <button className='task__discussion-button' onClick={() => {}}>
+        <button
+          className='task__discussion-button'
+          onClick={() => {
+           onCommentCreated({
+            //  ниже это пример 
+            title: 'E-mail after registration so that I can confirm my address',
+            createdAt: 'today at 13:00 pm',
+            assigner: 'Penelope F.',
+            asignTo: {
+              avatar: "not",
+              name: 'ivan ivanov',
+            },
+            dueOn: 'Tue, Apr 18',
+            department: 'Developement',
+            discussions: [comment],
+           });
+          }}
+        >
           Send
         </button>
       </div>
