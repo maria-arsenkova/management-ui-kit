@@ -19,7 +19,6 @@ import userU from '../TaskDiscussion/img/userU.png';
 import userYY from '../TaskDiscussion//img/userY.png';
 import { CommentType } from '../Comment/types';
 
-
 const backlog: TasksListType[] = [
   {
     name: 'Backlog',
@@ -203,8 +202,7 @@ function Tasks() {
     setTask(task);
   };
 
-  
-  const handleTaskComentChanged = (task: TaskType) => {
+  const handleTaskCommentChanged = (task: TaskType) => {
     setTask(task);
   };
 
@@ -216,8 +214,7 @@ function Tasks() {
           <TasksList content={toDo} onTaskClick={handleTaskCardClick} />
         </div>
       </div>
-      {/* onTaskChanged={(newTask)=> setTask(newTask)} */}
-      <Task task={task} onTaskChanged={handleTaskComentChanged}/>
+      <Task task={task} onTaskChanged={handleTaskCommentChanged} />
     </div>
   );
 }

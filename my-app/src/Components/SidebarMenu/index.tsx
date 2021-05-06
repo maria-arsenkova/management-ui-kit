@@ -14,16 +14,17 @@ export type ContentType = {
 };
 
 interface SidebarMenuProps {
+  titel: string;
   content: ContentType[];
 }
 
-function SidebarMenu({ content }: SidebarMenuProps) {
+function SidebarMenu({ content, titel }: SidebarMenuProps) {
   return (
     <div className='sidebar__menu'>
       <ul>
         <li className='sidebar__menu-item'>
           <a href='/' className='sidebar__menu-title'>
-            Teams
+            {titel}
           </a>
         </li>
         {content.map((team) => {

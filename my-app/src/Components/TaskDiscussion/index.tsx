@@ -4,17 +4,18 @@ import { UserType } from '../UserInfo/types';
 import { Comment } from '../Comment';
 import { CommentType } from '../Comment/types';
 import { TaskType } from '../Task/types';
-import { Task } from '../Task';
 
 export interface TaskDiscussionsProps {
   user: UserType;
+  task: TaskType;
   content?: CommentType[];
   onCommentCreated: (task: TaskType) => void;
 }
 
 function TaskDiscussion({
-  content,
   user,
+  task,
+  content,
   onCommentCreated,
 }: TaskDiscussionsProps) {
   const [comment, setComment] = useState<CommentType>({
@@ -53,19 +54,20 @@ function TaskDiscussion({
         <button
           className='task__discussion-button'
           onClick={() => {
-           onCommentCreated({
-            //  ниже это пример 
-            title: 'E-mail after registration so that I can confirm my address',
-            createdAt: 'today at 13:00 pm',
-            assigner: 'Penelope F.',
-            asignTo: {
-              avatar: "not",
-              name: 'ivan ivanov',
-            },
-            dueOn: 'Tue, Apr 18',
-            department: 'Developement',
-            discussions: [comment],
-           });
+            content?.unshift(comment);
+            onCommentCreated({
+              title: task.title,
+              createdAt: task.createdAt,
+              assigner: task.assigner,
+              asignTo: task.asignTo,
+              dueOn: task.dueOn,
+              department: task.department,
+              followers: task.followers,
+              description: task.description,
+              files: task.files,
+              discussions: content,
+            });
+            console.log(content);
           }}
         >
           Send

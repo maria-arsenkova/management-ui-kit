@@ -8,19 +8,21 @@ import { TaskDiscussion } from '../TaskDiscussion';
 import { TaskFiles } from '../TaskFiles';
 
 import { user } from '../Sidebar';
-import {TaskType} from "./types"
+import { TaskType } from './types';
 
 export interface TaskProps {
   task: TaskType;
-  onTaskChanged:(task: TaskType) => void;
+  onTaskChanged: (task: TaskType) => void;
 }
 
-function Task({
-  task, onTaskChanged
-}: TaskProps) {
+function Task({ task, onTaskChanged }: TaskProps) {
   return (
     <div className='task'>
-      <TaskHeader data={task.createdAt} creator={task.assigner} name={task.title} />
+      <TaskHeader
+        data={task.createdAt}
+        creator={task.assigner}
+        name={task.title}
+      />
       <div className='task__info-blocks'>
         <TaskInfoBlock title={'Asign To'} executor={task.asignTo} />
         <TaskInfoBlock title={'Due On'} date={task.dueOn} />
@@ -42,7 +44,12 @@ function Task({
         </div>
       )}
       <div className='task__divider'></div>
-      <TaskDiscussion content={task.discussions} user={user} onCommentCreated={onTaskChanged}/>
+      <TaskDiscussion
+        user={user}
+        task={task}
+        content={task.discussions}
+        onCommentCreated={onTaskChanged}
+      />
     </div>
   );
 }
