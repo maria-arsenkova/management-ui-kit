@@ -10,7 +10,7 @@ function Comment({ name, photo, date, text, position }: CommentType) {
         <div>
           <div className='comment__title'>
             <div>
-              <span className='comment__author-name'>{name},</span>
+              <span className='comment__author-name'>{name}, </span>
               <span className='comment__author-position'>{position}</span>
             </div>
             <div className='comment__date'>{date}</div>

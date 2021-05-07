@@ -6,7 +6,6 @@
 }
 
 .comment__body {
-  display: flex;
   height: 112px;
   width: 551px;
   border-radius: 10px;
