@@ -15,5 +15,5 @@ export type TaskType = {
     followers?: TaskInfoBlockUsersType[];
     description?: string;
     files?: TaskFilesType[];
-    discussions?: CommentType[];
+    discussions: CommentType[];
   }

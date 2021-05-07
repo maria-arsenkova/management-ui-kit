@@ -34,6 +34,7 @@ const backlog: TasksListType[] = [
         dueOn: 'Tue, Apr 18',
         department: 'Developement',
         followers: [{ avatar: userO, name: 'userO' }],
+        discussions: [],
       },
       {
         title: 'Find top 5 customer requests',
@@ -97,6 +98,7 @@ const backlog: TasksListType[] = [
           { avatar: userO, name: 'userO' },
           { avatar: userY, name: 'userY' },
         ],
+        discussions: [],
       },
     ],
   },
@@ -116,6 +118,7 @@ const toDo: TasksListType[] = [
         },
         dueOn: 'Tue, Apr 18',
         department: 'Design',
+        discussions: [],
       },
       {
         title: 'Account for teams and personal in bottom style',
@@ -128,6 +131,7 @@ const toDo: TasksListType[] = [
         dueOn: 'Tue, Dec 25',
         department: 'Marketing',
         followers: [{ avatar: userO, name: 'userO' }],
+        discussions: [],
       },
       {
         title:
@@ -144,6 +148,7 @@ const toDo: TasksListType[] = [
           { avatar: userO, name: 'userO' },
           { avatar: userY, name: 'userY' },
         ],
+        discussions: [],
       },
     ],
   },
@@ -196,7 +201,7 @@ const INITIAL_TASK_DATA: TaskType = {
 };
 
 function Tasks() {
-  const [task, setTask] = useState(INITIAL_TASK_DATA);
+  const [task, setTask] = useState<TaskType>(INITIAL_TASK_DATA);
 
   const handleTaskCardClick = (task: TaskType) => {
     setTask(task);

@@ -8,8 +8,8 @@ import { TaskType } from '../Task/types';
 export interface TaskDiscussionsProps {
   user: UserType;
   task: TaskType;
-  content?: CommentType[];
-  onCommentCreated: (task: TaskType) => void;
+  content: CommentType[];
+  onCommentCreated: (comments: CommentType[]) => void;
 }
 
 function TaskDiscussion({
@@ -36,6 +36,14 @@ function TaskDiscussion({
     });
   };
 
+  const createComment = (
+    newComment: CommentType,
+    allComments: CommentType[]
+  ): void => {
+    const newComments = [newComment, ...allComments];
+    onCommentCreated(newComments);
+  };
+
   return (
     <div>
       <div className='task__discussion-title'>Discussion</div>
@@ -54,20 +62,7 @@ function TaskDiscussion({
         <button
           className='task__discussion-button'
           onClick={() => {
-            content?.unshift(comment);
-            onCommentCreated({
-              title: task.title,
-              createdAt: task.createdAt,
-              assigner: task.assigner,
-              asignTo: task.asignTo,
-              dueOn: task.dueOn,
-              department: task.department,
-              followers: task.followers,
-              description: task.description,
-              files: task.files,
-              discussions: content,
-            });
-            console.log(content);
+            createComment(comment, content);
           }}
         >
           Send

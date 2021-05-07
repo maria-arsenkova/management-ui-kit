@@ -9,6 +9,7 @@ import { TaskFiles } from '../TaskFiles';
 
 import { user } from '../Sidebar';
 import { TaskType } from './types';
+import { CommentType } from '../Comment/types';
 
 export interface TaskProps {
   task: TaskType;
@@ -16,6 +17,11 @@ export interface TaskProps {
 }
 
 function Task({ task, onTaskChanged }: TaskProps) {
+  const handleComments = (newComments: CommentType[]) => {
+  const newTask: TaskType = {...task, discussions:newComments}
+  onTaskChanged(newTask);
+  }
+
   return (
     <div className='task'>
       <TaskHeader
@@ -48,7 +54,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
         user={user}
         task={task}
         content={task.discussions}
-        onCommentCreated={onTaskChanged}
+        onCommentCreated={handleComments}
       />
     </div>
   );
