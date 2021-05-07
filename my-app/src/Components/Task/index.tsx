@@ -18,9 +18,9 @@ export interface TaskProps {
 
 function Task({ task, onTaskChanged }: TaskProps) {
   const handleComments = (newComments: CommentType[]) => {
-  const newTask: TaskType = {...task, discussions:newComments}
-  onTaskChanged(newTask);
-  }
+    const newTask: TaskType = { ...task, discussions: newComments };
+    onTaskChanged(newTask);
+  };
 
   return (
     <div className='task'>
