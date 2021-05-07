@@ -18,3 +18,7 @@
   border-bottom: #ececec 1px solid;
   margin-bottom: 30px;
 }
+
+.task__files {
+  display: flex;
+}

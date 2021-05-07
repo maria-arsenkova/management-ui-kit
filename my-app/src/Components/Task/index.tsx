@@ -1,112 +1,60 @@
 import React from 'react';
 import './style.css';
-import { TaskHeader, TaskHeaderProps } from '../TaskHeader';
-import { TaskInfoBlock, TaskInfoBlockProps } from '../TaskInfoBlock';
-import { TaskDescription, TaskDescriptionProps } from '../TaskDescription';
-import { TaskDiscussion, TaskDiscussionsProps } from '../TaskDiscussion';
-import { TaskFiles, TaskFilesProps } from '../TaskFiles';
+import { TaskHeader } from '../TaskHeader';
+import { TaskInfoBlock } from '../TaskInfoBlock';
 
-type TaskExecutorType = {
-  avatar: string;
-  name: string;
-};
+import { TaskDescription } from '../TaskDescription';
+import { TaskDiscussion } from '../TaskDiscussion';
+import { TaskFiles } from '../TaskFiles';
 
-type TaskFollowersType = {
-  avatar: string;
-  name: string;
-};
-
-type TaskFilesType = {
-  preview?: string;
-  name: string;
-  size: number;
-};
-
-type TaskDiscussions = {
-  name: string;
-  position: string;
-  photo: string;
-  date: string;
-  text: string;
-};
+import { user } from '../Sidebar';
+import { TaskType } from './types';
+import { CommentType } from '../Comment/types';
 
 export interface TaskProps {
-  title: string;
-  createdAt: string;
-  assigner: string;
-  // TODO: complete other props
-  asignTo: TaskExecutorType;
-  dueOn: string;
-  department: string;
-  followers?: TaskFollowersType[];
-  description?: string;
-  files?: TaskFilesType[];
-  discussions?: TaskDiscussions[];
-  userAcName: string;
-  userAcphoto: string;
+  task: TaskType;
+  onTaskChanged: (task: TaskType) => void;
 }
 
-function Task({
-  title,
-  assigner,
-  createdAt,
-  asignTo,
-  dueOn,
-  department,
-  followers,
-  description,
-  files,
-  discussions,
-  userAcName,
-  userAcphoto,
-}: TaskProps) {
-  const taskHeader: TaskHeaderProps = {
-    name: title,
-    creator: assigner,
-    data: createdAt,
-  };
-
-  const taskInfoBlock: TaskInfoBlockProps = {
-    executor: asignTo,
-    date: dueOn,
-    department: department,
-    users: followers,
-  };
-
-  const taskDescription: TaskDescriptionProps = {
-    text: description,
-  };
-
-  const taskFiles: TaskFilesProps = {
-    content: files,
-  };
-
-  const taskDiscussions: TaskDiscussionsProps = {
-    userAcName: userAcName,
-    userAcphoto: userAcphoto,
-    content: discussions,
-  };
+function Task({ task, onTaskChanged }: TaskProps) {
+  const handleComments = (newComments: CommentType[]) => {
+  const newTask: TaskType = {...task, discussions:newComments}
+  onTaskChanged(newTask);
+  }
 
   return (
     <div className='task'>
       <TaskHeader
-        data={taskHeader.data}
-        creator={taskHeader.creator}
-        name={taskHeader.name}
+        data={task.createdAt}
+        creator={task.assigner}
+        name={task.title}
       />
       <div className='task__info-blocks'>
-        <TaskInfoBlock title={'Asign To'} executor={taskInfoBlock.executor} />
-        <TaskInfoBlock title={'Due On'} date={taskInfoBlock.date} />
-        <TaskInfoBlock title={'Tag'} department={taskInfoBlock.department} />
-        <TaskInfoBlock title={'Followers'} users={taskInfoBlock.users} />
+        <TaskInfoBlock title={'Asign To'} executor={task.asignTo} />
+        <TaskInfoBlock title={'Due On'} date={task.dueOn} />
+        <TaskInfoBlock title={'Tag'} department={task.department} />
+        <TaskInfoBlock title={'Followers'} users={task.followers} />
       </div>
-      <TaskDescription text={taskDescription.text} />
-      <TaskFiles content={taskFiles.content} />
+      <TaskDescription text={task.description} />
+      {task.files && (
+        <div className='task__files'>
+          {task.files.map((item) => {
+            return (
+              <TaskFiles
+                preview={item.preview}
+                name={item.name}
+                size={item.size}
+              />
+            );
+          })}
+        </div>
+      )}
       <div className='task__divider'></div>
       <TaskDiscussion
-        content={taskDiscussions.content}
-        userAcphoto={taskDiscussions.userAcphoto}
-        userAcName={taskDiscussions.userAcName}
+        user={user}
+        task={task}
+        content={task.discussions}
+        onCommentCreated={handleComments}
       />
     </div>
   );

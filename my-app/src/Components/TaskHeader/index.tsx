@@ -1,14 +1,9 @@
 import React from 'react';
 import './style.css';
 import circle from './img/circle.png';
+import { TaskHeaderType } from './types';
 
-export interface TaskHeaderProps {
-  name: string;
-  creator: string;
-  data: string;
-}
-
-function TaskHeader({ name, creator, data }: TaskHeaderProps) {
+function TaskHeader({ name, creator, data }: TaskHeaderType) {
   return (
     <div className='task__header'>
       <div>
@@ -24,7 +19,7 @@ function TaskHeader({ name, creator, data }: TaskHeaderProps) {
           className='task__header-selector-hidden'
         />
         <label htmlFor='tick' className='task__header-selector-tick'></label>
-        <span className='task__header-selector-more'>
+        <span className='task__header-selector-tick-more'>
           <img src={circle} alt='circle' />
         </span>
       </div>

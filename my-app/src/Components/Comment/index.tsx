@@ -1,15 +1,8 @@
 import React from 'react';
 import './style.css';
+import { CommentType } from './types';
 
-export interface CommentProps {
-  name: string;
-  position: string;
-  photo: string;
-  date: string;
-  text: string;
-}
-
-function Comment({ name, photo, date, text, position }: CommentProps) {
+function Comment({ name, photo, date, text, position }: CommentType) {
   return (
     <div className='comment'>
       <img src={photo} alt={name} className='comment__author-photo' />
@@ -29,4 +22,4 @@ function Comment({ name, photo, date, text, position }: CommentProps) {
   );
 }
 
-export default Comment;
+export { Comment };

@@ -7,6 +7,7 @@ import userTh from '../TasksList/img/userTh.png';
 import userFo from '../TasksList/img/userFo.png';
 import userFr from '../TasksList/img/userFr.png';
 import { Task, TaskProps } from '../Task';
+import { TaskType } from '../Task/types';
 import user from '../TaskInfoBlock/img/user.png';
 import userO from '../TaskInfoBlock/img/userO.png';
 import userY from '../TaskInfoBlock/img/userY.png';
@@ -16,6 +17,7 @@ import pdfIcon from '../TaskFiles/img/pdfIcon.png';
 import userT from '../TaskDiscussion/img/userT.png';
 import userU from '../TaskDiscussion/img/userU.png';
 import userYY from '../TaskDiscussion//img/userY.png';
+import { CommentType } from '../Comment/types';
 
 const backlog: TasksListType[] = [
   {
@@ -32,8 +34,7 @@ const backlog: TasksListType[] = [
         dueOn: 'Tue, Apr 18',
         department: 'Developement',
         followers: [{ avatar: userO, name: 'userO' }],
-        userAcName: 'userYY',
-        userAcphoto: userYY,
+        discussions: [],
       },
       {
         title: 'Find top 5 customer requests',
@@ -82,8 +83,6 @@ const backlog: TasksListType[] = [
               '@Helena Software quality assurance activity in which one or several humans check a program mainly ',
           },
         ],
-        userAcName: 'userYY',
-        userAcphoto: userYY,
       },
       {
         title: 'Two-factor authentication to make my private data more secure',
@@ -99,8 +98,7 @@ const backlog: TasksListType[] = [
           { avatar: userO, name: 'userO' },
           { avatar: userY, name: 'userY' },
         ],
-        userAcName: 'userYY',
-        userAcphoto: userYY,
+        discussions: [],
       },
     ],
   },
@@ -120,8 +118,7 @@ const toDo: TasksListType[] = [
         },
         dueOn: 'Tue, Apr 18',
         department: 'Design',
-        userAcName: 'userYY',
-        userAcphoto: userYY,
+        discussions: [],
       },
       {
         title: 'Account for teams and personal in bottom style',
@@ -134,8 +131,7 @@ const toDo: TasksListType[] = [
         dueOn: 'Tue, Dec 25',
         department: 'Marketing',
         followers: [{ avatar: userO, name: 'userO' }],
-        userAcName: 'userYY',
-        userAcphoto: userYY,
+        discussions: [],
       },
       {
         title:
@@ -152,14 +148,13 @@ const toDo: TasksListType[] = [
           { avatar: userO, name: 'userO' },
           { avatar: userY, name: 'userY' },
         ],
-        userAcName: 'userYY',
-        userAcphoto: userYY,
+        discussions: [],
       },
     ],
   },
 ];
 
-const INITIAL_TASK_DATA: TaskProps = {
+const INITIAL_TASK_DATA: TaskType = {
   title: 'Find top 5 customer requests',
   createdAt: 'yesterday at 12:41pm',
   assigner: 'Kristin A.',
@@ -203,14 +198,16 @@ const INITIAL_TASK_DATA: TaskProps = {
         '@Helena Software quality assurance activity in which one or several humans check a program mainly ',
     },
   ],
-  userAcName: 'userYY',
-  userAcphoto: userYY,
 };
 
 function Tasks() {
-  const [task, setTask] = useState(INITIAL_TASK_DATA);
+  const [task, setTask] = useState<TaskType>(INITIAL_TASK_DATA);
 
-  const handleTaskCardClick = (task: TaskProps) => {
+  const handleTaskCardClick = (task: TaskType) => {
+    setTask(task);
+  };
+
+  const handleTaskCommentChanged = (task: TaskType) => {
     setTask(task);
   };
 
@@ -222,20 +219,7 @@ function Tasks() {
           <TasksList content={toDo} onTaskClick={handleTaskCardClick} />
         </div>
       </div>
-      <Task
-        title={task.title}
-        createdAt={task.createdAt}
-        assigner={task.assigner}
-        asignTo={task.asignTo}
-        dueOn={task.dueOn}
-        department={task.department}
-        followers={task.followers}
-        description={task.description}
-        files={task.files}
-        discussions={task.discussions}
-        userAcName={task.userAcName}
-        userAcphoto={task.userAcphoto}
-      />
+      <Task task={task} onTaskChanged={handleTaskCommentChanged} />
     </div>
   );
 }

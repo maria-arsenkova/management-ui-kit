@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  font-family: -apple-system, 'Helvetica Neue', 'Arial', sans-serif;
 }
 
 *,
@@ -10,7 +11,6 @@ html {
 
 body {
   background: #f2f2f2;
-  font-family: 'Heebo';
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -23,6 +23,10 @@ body {
 
 .app__sidebar {
   grid-area: sidebar;
+}
+
+.app__header {
+  grid-area: header;
 }
 
 .wrapper {

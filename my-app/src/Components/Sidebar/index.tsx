@@ -1,7 +1,8 @@
 import React from 'react';
 import './style.css';
+import { UserType } from '../UserInfo/types';
 import Brand from '../Brand';
-import UserInfo, { UserType } from '../UserInfo';
+import UserInfo from '../UserInfo';
 import userpic from '../UserInfo/img/userpic.png';
 import Stats, { StatsType } from '../Stats';
 import SidebarMenu, { ContentType } from '../SidebarMenu';
@@ -20,7 +21,7 @@ import userSe from '../SidebarMenu/img/userSe.png';
 import userEt from '../SidebarMenu/img/userEt.png';
 import SidebarFooter from '../SidebarFooter';
 
-const user: UserType = {
+export const user: UserType = {
   avatar: userpic,
   initials: 'Emilee Simchenko',
   position: 'Product Owner',
@@ -89,9 +90,11 @@ function Sidebar() {
       <Brand />
       <UserInfo user={user} />
       <Stats tasks={tasks} />
-      <SidebarMenu content={menu} />
-      <SidebarMenu content={projects} />
-      <SidebarMenu content={teams} />
+      <SidebarMenu titel={'menu'} content={menu} />
+      <SidebarMenu titel={'projects'} content={projects} />
+      <button className='sidebar__button'>+ Add a Project</button>
+      <SidebarMenu titel={'teams'} content={teams} />
+      <button className='sidebar__button'>+ Add a Team</button>
       <SidebarFooter />
     </div>
   );

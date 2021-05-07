@@ -15,7 +15,7 @@ function HeaderTabs({ items }: TabsProps) {
       {items.map((item) => {
         return (
           item?.name && (
-            <a href='/' className='tabs__item tabs_inactive'>
+            <a href='/' className='tabs__item'>
               {item.name}
             </a>
           )
