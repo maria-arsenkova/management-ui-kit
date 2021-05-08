@@ -69,7 +69,7 @@ function TaskDiscussion({
         </button>
       </div>
       {content && (
-        <div className="test">
+        <div>
           {content.map((item) => {
             return (
               <Comment
