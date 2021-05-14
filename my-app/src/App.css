@@ -17,25 +17,10 @@ body {
   line-height: 1.2;
 }
 
-.app__content {
-  grid-area: content;
-}
-
-.app__sidebar {
-  grid-area: sidebar;
-}
-
-.app__header {
-  grid-area: header;
-}
-
 .wrapper {
   display: grid;
-  grid-template-areas:
-    'sidebar header'
-    'sidebar content'
-    'sidebar content';
   grid-template-columns: 270px auto;
-  /* не авто и не 1F - указывать пиксили */
-  grid-template-rows: 136px auto;
+  grid-auto-rows: auto;
+  justify-items: stretch;
+  align-items: stretch;
 }

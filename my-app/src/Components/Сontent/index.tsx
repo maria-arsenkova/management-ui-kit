@@ -1,13 +1,8 @@
 import React from 'react';
-import './style.css';
 import Tasks from '../Tasks';
 
 function Content() {
-  return (
-    <div className='content'>
-      <Tasks />
-    </div>
-  );
+  return <Tasks />;
 }
 
 export default Content;

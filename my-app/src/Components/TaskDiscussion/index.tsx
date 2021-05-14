@@ -20,7 +20,7 @@ function TaskDiscussion({
 }: TaskDiscussionsProps) {
   const [comment, setComment] = useState<CommentType>({
     text: '',
-    date: Date.now().toString(),
+    date: new Date().toLocaleString(),
     name: user.initials,
     photo: user.avatar,
     position: user.position,

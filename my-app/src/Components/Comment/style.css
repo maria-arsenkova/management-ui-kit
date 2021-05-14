@@ -1,14 +1,11 @@
 .comment {
   position: relative;
   height: 112px;
-  width: 575px;
   margin-bottom: 20px;
 }
 
 .comment__body {
-  display: flex;
   height: 112px;
-  width: 551px;
   border-radius: 10px;
   background: #f7f6f3;
   padding: 20px 20px 20px 0px;
