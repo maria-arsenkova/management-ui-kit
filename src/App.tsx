@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 
 import "./reset.css";
 import "./App.css";
@@ -9,24 +9,22 @@ import Tasks from "./Components/Tasks";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="wrapper">
         <Sidebar />
         <div>
           <Header />
-
           <Switch>
             <Route path="/tasks">
               <Tasks />
             </Route>
-
             <Route path="/files">
               <h1>Files1</h1>
             </Route>
           </Switch>
         </div>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./style.css";
 
 export type TabsType = {
@@ -17,9 +17,9 @@ function HeaderTabs({ items }: TabsProps) {
       {items.map((item) => {
         return (
           item?.name && (
-            <Link to={item.path} className="tabs__item">
+            <NavLink to={item.path} className="tabs__item" activeClassName="tabs__item-active">
               {item.name}
-            </Link>
+            </NavLink>
           )
         );
       })}
