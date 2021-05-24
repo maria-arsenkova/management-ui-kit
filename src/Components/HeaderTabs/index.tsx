@@ -1,23 +1,25 @@
-import React from 'react';
-import './style.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./style.css";
 
-export type TapsType = {
+export type TabsType = {
   name: string;
+  path: string;
 };
 
 interface TabsProps {
-  items: TapsType[];
+  items: TabsType[];
 }
 
 function HeaderTabs({ items }: TabsProps) {
   return (
-    <div className='tabs'>
+    <div className="tabs">
       {items.map((item) => {
         return (
           item?.name && (
-            <a href='/' className='tabs__item'>
+            <Link to={item.path} className="tabs__item">
               {item.name}
-            </a>
+            </Link>
           )
         );
       })}
