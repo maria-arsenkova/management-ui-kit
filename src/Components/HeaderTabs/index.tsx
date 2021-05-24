@@ -17,7 +17,11 @@ function HeaderTabs({ items }: TabsProps) {
       {items.map((item) => {
         return (
           item?.name && (
-            <NavLink to={item.path} className="tabs__item" activeClassName="tabs__item-active">
+            <NavLink
+              to={item.path}
+              className="tabs__item"
+              activeClassName="tabs__item-active"
+            >
               {item.name}
             </NavLink>
           )

@@ -1,6 +1,5 @@
 import React from "react";
-import { HashRouter, Switch, Route } from "react-router-dom";
-
+import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import "./reset.css";
 import "./App.css";
 import Sidebar from "./Components/Sidebar";
@@ -15,6 +14,7 @@ function App() {
         <div>
           <Header />
           <Switch>
+            <Redirect exact from="/" to="/tasks" />
             <Route path="/tasks">
               <Tasks />
             </Route>
