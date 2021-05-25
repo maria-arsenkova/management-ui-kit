@@ -19,7 +19,7 @@
   border-bottom: 2px solid rgba(255, 194, 0, 1);
 }
 
-.tabs__item-active {
+.tabs__item_active {
   color: rgba(19, 19, 19, 1);
   border-bottom: 2px solid rgba(255, 194, 0, 1);
 }

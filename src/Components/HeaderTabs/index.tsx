@@ -20,7 +20,7 @@ function HeaderTabs({ items }: TabsProps) {
             <NavLink
               to={item.path}
               className="tabs__item"
-              activeClassName="tabs__item-active"
+              activeClassName="tabs__item_active"
             >
               {item.name}
             </NavLink>
