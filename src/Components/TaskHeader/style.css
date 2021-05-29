@@ -33,7 +33,7 @@
 }
 
 .task__header-selector-tick:before {
-  content: url('./img/checkTask.png');
+  content: url('./img/checkTask.svg');
   color: #000;
   display: inline-block;
   margin-right: 20px;

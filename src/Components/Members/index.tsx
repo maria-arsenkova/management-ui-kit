@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import chat from './img/chat.png';
+import chat from './img/chat.svg';
 
 export type MembersType = {
   name: string;

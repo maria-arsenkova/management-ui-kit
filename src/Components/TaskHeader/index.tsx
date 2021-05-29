@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import circle from './img/circle.png';
+import circle from './img/circle.svg';
 import { TaskHeaderType } from './types';
 
 function TaskHeader({ name, creator, data }: TaskHeaderType) {

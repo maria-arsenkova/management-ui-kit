@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import addIcon from './img/addIcon.png';
+import addIcon from './img/addIcon.svg';
 import { TaskInfoBlockExecutorType, TaskInfoBlockUsersType } from './types';
 
 interface TaskInfoBlockProps {

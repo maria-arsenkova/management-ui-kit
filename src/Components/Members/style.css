@@ -52,6 +52,7 @@
 }
 
 .members__сhat-name {
+  padding-left: 5px;
   color: #ffc200;
   font-weight: bold;
   font-size: 14px;
