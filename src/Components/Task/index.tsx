@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import { TaskHeader } from '../TaskHeader';
 import { TaskInfoBlock } from '../TaskInfoBlock';
@@ -22,6 +22,15 @@ function Task({ task, onTaskChanged }: TaskProps) {
     onTaskChanged(newTask);
   };
 
+  //тест
+  const [items, setItems] = useState([{ name: "", quantity: "", unit: "" }]);
+
+  
+  const deleteItem = (i: number) => {
+    setItems(currentItems => currentItems.filter((item, index) => index !== i));
+  }
+  //тест
+
   return (
     <div className='task'>
       <TaskHeader
@@ -36,6 +45,21 @@ function Task({ task, onTaskChanged }: TaskProps) {
         <TaskInfoBlock title={'Followers'} users={task.followers} />
       </div>
       <TaskDescription text={task.description} />
+      <button>
+        удалить файл
+      </button>
+      {/* тест */}
+      {
+        items.map((item, i) => {
+            return (
+                <div key={i}>
+                    <div>some other els here</div>
+                    <button onClick={() => deleteItem(i)}>delete item</button>
+                </div>
+            )
+        })
+    }
+      
       {task.files && (
         <div className='task__files'>
           {task.files.map((item) => {
