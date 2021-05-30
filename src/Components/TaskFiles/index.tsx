@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import { TaskFilesType } from './types';
 
-function TaskFiles({ preview, name, size }: TaskFilesType) {
+export interface TaskFilesProps {
+  id: string;
+  preview?: string;
+  name: string;
+  size: number;
+  removeFile: (id: string) => void;
+}
+
+function TaskFiles({ id, preview, name, size, removeFile }: TaskFilesProps) {
   return (
-    <div className='task__file'>
+    <div className='task__file' id={id}>
       <img className='task__file-preview' src={preview} alt={name} />
       <div>
         <div className='task__file-name'>{name}</div>
         <div>
           <span className='task__file-size'>{size} KB</span>
-          <button className='task__file-delete'>Delete</button>
+          <button
+            className='task__file-delete'
+            onClick={() => {
+              removeFile(id);
+            }}
+          >
+            Delete
+          </button>
         </div>
       </div>
     </div>

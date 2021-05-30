@@ -22,14 +22,10 @@ function Task({ task, onTaskChanged }: TaskProps) {
     onTaskChanged(newTask);
   };
 
-  //тест
-  const [items, setItems] = useState([{ name: "", quantity: "", unit: "" }]);
-
-  
-  const deleteItem = (i: number) => {
-    setItems(currentItems => currentItems.filter((item, index) => index !== i));
-  }
-  //тест
+  const [allfiles, setFiles] = useState(task.files);
+  const removeFile = (id: string) => {
+    setFiles((allfiles) => allfiles?.filter((file) => file.id !== id));
+  };
 
   return (
     <div className='task'>
@@ -45,29 +41,16 @@ function Task({ task, onTaskChanged }: TaskProps) {
         <TaskInfoBlock title={'Followers'} users={task.followers} />
       </div>
       <TaskDescription text={task.description} />
-      <button>
-        удалить файл
-      </button>
-      {/* тест */}
-      {
-        items.map((item, i) => {
-            return (
-                <div key={i}>
-                    <div>some other els here</div>
-                    <button onClick={() => deleteItem(i)}>delete item</button>
-                </div>
-            )
-        })
-    }
-      
       {task.files && (
         <div className='task__files'>
           {task.files.map((item) => {
             return (
               <TaskFiles
+                id={item.id}
                 preview={item.preview}
                 name={item.name}
                 size={item.size}
+                removeFile={removeFile}
               />
             );
           })}

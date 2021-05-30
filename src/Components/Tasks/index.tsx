@@ -55,11 +55,13 @@ const backlog: TasksListType[] = [
           'Task Descriptions are used during project planning, project execution and project control. During project planning the task descriptions are used for scope planning and creating estimates. During project execution the task description is used by those doing the activities to ensure they are doing the work correctly.',
         files: [
           {
+            id:"0",
             preview: pdfIcon,
             name: 'Redesign Brief 2019.pdf',
             size: 159,
           },
           {
+            id:"1",
             preview: headerIcon,
             name: 'Header.png',
             size: 129,
@@ -170,11 +172,13 @@ const INITIAL_TASK_DATA: TaskType = {
     'Task Descriptions are used during project planning, project execution and project control. During project planning the task descriptions are used for scope planning and creating estimates. During project execution the task description is used by those doing the activities to ensure they are doing the work correctly.',
   files: [
     {
+      id:"0",
       preview: pdfIcon,
       name: 'Redesign Brief 2019.pdf',
       size: 159,
     },
     {
+      id:"1",
       preview: headerIcon,
       name: 'Header.png',
       size: 129,
