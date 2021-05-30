@@ -23,9 +23,9 @@ function SidebarMenu({ content, titel }: SidebarMenuProps) {
     <div className='sidebar__menu'>
       <ul>
         <li className='sidebar__menu-item'>
-          <a href='/' className='sidebar__menu-title'>
+          <p className='sidebar__menu-title'>
             {titel}
-          </a>
+          </p>
         </li>
         {content.map((team) => {
           return (
