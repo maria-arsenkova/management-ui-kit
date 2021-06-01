@@ -25,6 +25,8 @@ function Task({ task, onTaskChanged }: TaskProps) {
   const [allfiles, setFiles] = useState(task.files);
   const removeFile = (id: string) => {
     setFiles((allfiles) => allfiles?.filter((file) => file.id !== id));
+    const newTask: TaskType = {...task, files: allfiles};
+    onTaskChanged(newTask);
   };
 
   return (
