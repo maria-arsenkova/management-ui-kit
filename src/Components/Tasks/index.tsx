@@ -35,11 +35,13 @@ const backlog: TasksListType[] = [
         department: 'Developement',
         followers: [{ avatar: userO, name: 'userO' }],
         discussions: [],
+        isDone: false
       },
       {
         title: 'Find top 5 customer requests',
         createdAt: 'yesterday at 12:41pm',
         assigner: 'Kristin A.',
+        isDone: false,
         asignTo: {
           avatar: userOne,
           name: 'Linzell Bowman',
@@ -90,6 +92,7 @@ const backlog: TasksListType[] = [
         title: 'Two-factor authentication to make my private data more secure',
         createdAt: 'yesterday at 12:00pm',
         assigner: 'Kristin A.',
+        isDone: false,
         asignTo: {
           avatar: userTwo,
           name: 'Louis Freeman',
@@ -114,6 +117,7 @@ const toDo: TasksListType[] = [
         title: 'An option to search in current projects or in all projects',
         createdAt: 'today at 14:00 pm',
         assigner: 'Penelope F.',
+        isDone: false,
         asignTo: {
           avatar: userTh,
           name: 'Abramson Abramson',
@@ -126,6 +130,7 @@ const toDo: TasksListType[] = [
         title: 'Account for teams and personal in bottom style',
         createdAt: 'yesterday at 15:41pm',
         assigner: 'Kristin A.',
+        isDone: false,
         asignTo: {
           avatar: userFo,
           name: 'Hoggarth Bowman',
@@ -138,6 +143,7 @@ const toDo: TasksListType[] = [
       {
         title:
           'Listing on Product Hunt so that we can reach as many potential users',
+        isDone: false,
         createdAt: 'yesterday at 16:00pm',
         assigner: 'Kristin A.',
         asignTo: {
@@ -163,6 +169,7 @@ const INITIAL_TASK_DATA: TaskType = {
   asignTo: { avatar: userOne, name: 'Linzell Bowman' },
   dueOn: 'Tue, Dec 25',
   department: 'Marketing',
+  isDone: false,
   followers: [
     { avatar: userO, name: 'userO' },
     { avatar: userY, name: 'userY' },

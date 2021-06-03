@@ -16,4 +16,5 @@ export type TaskType = {
     description?: string;
     files?: TaskFilesType[];
     discussions: CommentType[];
+    isDone: boolean
   }

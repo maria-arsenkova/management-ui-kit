@@ -30,7 +30,23 @@ function TasksList({ content, onTaskClick }: TasksListProps) {
                 return (
                   <li
                     className='tasks__item'
-                    onClick={() => {
+                  >
+                    {`${task.isDone}`}
+                    <label
+                      htmlFor='checkbox'
+                      className='tasks__checkbox-new'
+                    >
+                      <input
+                          onChange={(event) => {
+                            onTaskClick({...task, isDone: event.target.checked})
+                          }}
+                          type='checkbox'
+                          id='checkbox'
+                          className='tasks__checkbox-hidden'
+                          checked={task.isDone}
+                      />
+                    </label>
+                    <div onClick={() => {
                       onTaskClick({
                         title: task.title,
                         createdAt: task.createdAt,
@@ -42,19 +58,9 @@ function TasksList({ content, onTaskClick }: TasksListProps) {
                         description: task.description,
                         files: task.files,
                         discussions: task.discussions,
+                        isDone: task.isDone
                       });
-                    }}
-                  >
-                    <input
-                      type='checkbox'
-                      id='checkbox'
-                      className='tasks__checkbox-hidden'
-                    />
-                    <label
-                      htmlFor='checkbox'
-                      className='tasks__checkbox-new'
-                    ></label>
-                    <div>
+                    }}>
                       <div className='tasks__item-name'>{task.title}</div>
                       <a href='#' className='tasks__item-executor'>
                         <img
