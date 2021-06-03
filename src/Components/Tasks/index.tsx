@@ -207,11 +207,7 @@ const INITIAL_TASK_DATA: TaskType = {
 function Tasks() {
   const [task, setTask] = useState<TaskType>(INITIAL_TASK_DATA);
 
-  const handleTaskCardClick = (task: TaskType) => {
-    setTask(task);
-  };
-
-  const handleTaskCommentChanged = (task: TaskType) => {
+  const updateTask = (task: TaskType) => {
     setTask(task);
   };
 
@@ -219,11 +215,11 @@ function Tasks() {
     <div className='tasks'>
       <div className='tasks__scrollBar'>
         <div className='tasks__group'>
-          <TasksList content={backlog} onTaskClick={handleTaskCardClick} />
-          <TasksList content={toDo} onTaskClick={handleTaskCardClick} />
+          <TasksList content={backlog} onTaskClick={updateTask} />
+          <TasksList content={toDo} onTaskClick={updateTask} />
         </div>
       </div>
-      <Task task={task} onTaskChanged={handleTaskCommentChanged} />
+      <Task task={task} onTaskChanged={updateTask} />
     </div>
   );
 }

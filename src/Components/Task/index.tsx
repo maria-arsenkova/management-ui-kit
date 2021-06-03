@@ -22,10 +22,12 @@ function Task({ task, onTaskChanged }: TaskProps) {
     onTaskChanged(newTask);
   };
 
-  const [allfiles, setFiles] = useState(task.files);
+
   const removeFile = (id: string) => {
-    setFiles((allfiles) => allfiles?.filter((file) => file.id !== id));
-    const newTask: TaskType = {...task, files: allfiles};
+    const newFiles = task.files?.filter((file) => file.id !== id)
+
+    const newTask: TaskType = {...task, files: newFiles};
+
     onTaskChanged(newTask);
   };
 
@@ -52,7 +54,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
                 preview={item.preview}
                 name={item.name}
                 size={item.size}
-                removeFile={removeFile}
+                onRemoveFile={removeFile}
               />
             );
           })}
