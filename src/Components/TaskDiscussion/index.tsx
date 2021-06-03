@@ -15,11 +15,11 @@ export interface TaskDiscussionsProps {
 
 function TaskDiscussion({
   user,
-  task,
   content,
   onCommentCreated,
 }: TaskDiscussionsProps) {
   const [comment, setComment] = useState<CommentType>({
+    // id: '',
     text: '',
     date: new Date().toLocaleString(),
     name: user.initials,
@@ -29,6 +29,7 @@ function TaskDiscussion({
 
   const handleComment = (newComment: string): void => {
     setComment({
+      // id:comment.date,
       text: newComment,
       name: comment.name,
       photo: comment.photo,
@@ -79,6 +80,7 @@ function TaskDiscussion({
                 photo={item.photo}
                 date={item.date}
                 text={item.text}
+                key={item.date}
               />
             );
           })}

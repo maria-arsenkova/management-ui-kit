@@ -18,7 +18,7 @@ function Members({ members }: MembersProms) {
         {members.map((member) => {
           return (
             member?.avatar && (
-              <a href='/' className='members__link'>
+              <a href='/' className='members__link' key={`${member.name}`}>
                 <img
                   className='members__avatar'
                   key={`${member.avatar}_${member.name}`}

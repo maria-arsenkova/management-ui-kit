@@ -19,7 +19,7 @@ function TasksList({ content, onTaskClick, onTaskUpdate }: TasksListProps) {
     <div>
       {content.map((list) => {
         return (
-          <ul className='tasks__list'>
+          <ul className='tasks__list' key={`${list.name}`}>
             <li className='tasks__title'>
               <span className='tasks__title-text'>{list.name}</span>
               <button type='button' className='tasks__add-task'>
@@ -31,6 +31,7 @@ function TasksList({ content, onTaskClick, onTaskUpdate }: TasksListProps) {
                 return (
                   <li
                     className='tasks__item'
+                    key={`${task.title}`}
                   >
                     {`${task.isDone}`}
                     <label

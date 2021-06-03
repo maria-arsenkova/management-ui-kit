@@ -19,7 +19,6 @@ import userU from '../TaskDiscussion/img/userU.png';
 import userYY from '../TaskDiscussion//img/userY.png';
 import { CommentType } from '../Comment/types';
 
-
 const INITIAL_TASKS: TaskType[] = [
   {
     title: 'E-mail after registration so that I can confirm my address',
@@ -191,7 +190,7 @@ const INITIAL_TASK_DATA: TaskType = {
       name: 'Helena Brauer',
       position: 'Designer',
       photo: userU,
-      date: 'Yesterday at 12:37pm',
+      date: 'Yesterday at 12:39pm',
       text:
         'During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes',
     },

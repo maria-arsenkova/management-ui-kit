@@ -29,7 +29,7 @@ function SidebarMenu({ content, titel }: SidebarMenuProps) {
         </li>
         {content.map((team) => {
           return (
-            <li className='sidebar__menu-item'>
+            <li className='sidebar__menu-item' key={`${team.name}`}>
               <a href='/' className='sidebar__menu-link'>
                 {team?.preview && (
                   <img

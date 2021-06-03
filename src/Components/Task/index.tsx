@@ -22,7 +22,6 @@ function Task({ task, onTaskChanged }: TaskProps) {
     onTaskChanged(newTask);
   };
 
-
   const removeFile = (id: string) => {
     const newFiles = task.files?.filter((file) => file.id !== id)
 
@@ -55,6 +54,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
                 name={item.name}
                 size={item.size}
                 onRemoveFile={removeFile}
+                key={item.id}
               />
             );
           })}

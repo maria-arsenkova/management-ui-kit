@@ -21,6 +21,7 @@ function HeaderTabs({ items }: TabsProps) {
               to={item.path}
               className="tabs__item"
               activeClassName="tabs__item_active"
+              key={`${item.name}`}
             >
               {item.name}
             </NavLink>
