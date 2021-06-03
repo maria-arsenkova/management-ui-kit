@@ -47,19 +47,7 @@ function TasksList({ content, onTaskClick }: TasksListProps) {
                       />
                     </label>
                     <div onClick={() => {
-                      onTaskClick({
-                        title: task.title,
-                        createdAt: task.createdAt,
-                        assigner: task.assigner,
-                        asignTo: task.asignTo,
-                        dueOn: task.dueOn,
-                        department: task.department,
-                        followers: task.followers,
-                        description: task.description,
-                        files: task.files,
-                        discussions: task.discussions,
-                        isDone: task.isDone
-                      });
+                      onTaskClick(task);
                     }}>
                       <div className='tasks__item-name'>{task.title}</div>
                       <a href='#' className='tasks__item-executor'>
