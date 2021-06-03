@@ -208,6 +208,7 @@ const INITIAL_TASK_DATA: TaskType = {
 
 function Tasks() {
   const [task, setTask] = useState<TaskType>(INITIAL_TASK_DATA);
+  const [allTasks, setAllTasks] = useState<TaskType[]>(INITIAL_TASKS)
 
   const updateTask = (task: TaskType) => {
     setTask(task);
@@ -217,23 +218,36 @@ function Tasks() {
     const backlog: TasksListType[] = [
       {
         name: 'Backlog',
-        items: INITIAL_TASKS.filter((task) => task.category === 'backlog'),
+        items: allTasks.filter((task) => task.category === 'backlog'),
       },
     ];
 
     const toDo: TasksListType[] = [
       {
         name: 'To Do',
-        items: INITIAL_TASKS.filter((task) => task.category === 'todo'),
+        items: allTasks.filter((task) => task.category === 'todo'),
       },
     ];
+
+
+    const onTaskUpdate = (updatedTask: TaskType) => {
+      const newTasks: TaskType[] = allTasks.map((task) => {
+        if(updatedTask.title === task.title) {
+          return updatedTask
+        }
+        return task
+      })
+
+      setAllTasks(newTasks)
+
+     }
 
   return (
     <div className='tasks'>
       <div className='tasks__scrollBar'>
         <div className='tasks__group'>
-          <TasksList content={backlog} onTaskClick={updateTask} />
-          <TasksList content={toDo} onTaskClick={updateTask} />
+          <TasksList content={backlog} onTaskClick={updateTask} onTaskUpdate={onTaskUpdate} />
+          <TasksList content={toDo} onTaskClick={updateTask} onTaskUpdate={onTaskUpdate} />
         </div>
       </div>
       <Task task={task} onTaskChanged={updateTask} />

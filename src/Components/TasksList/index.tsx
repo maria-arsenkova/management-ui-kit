@@ -11,9 +11,10 @@ export type TasksListType = {
 interface TasksListProps {
   content: TasksListType[];
   onTaskClick: (task: TaskType) => void;
+  onTaskUpdate: (task: TaskType) => void
 }
 
-function TasksList({ content, onTaskClick }: TasksListProps) {
+function TasksList({ content, onTaskClick, onTaskUpdate }: TasksListProps) {
   return (
     <div>
       {content.map((list) => {
@@ -38,7 +39,7 @@ function TasksList({ content, onTaskClick }: TasksListProps) {
                     >
                       <input
                           onChange={(event) => {
-                            onTaskClick({...task, isDone: event.target.checked})
+                            onTaskUpdate({...task, isDone: event.target.checked})
                           }}
                           type='checkbox'
                           id='checkbox'
