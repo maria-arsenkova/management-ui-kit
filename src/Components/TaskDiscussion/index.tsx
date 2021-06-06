@@ -80,6 +80,7 @@ function TaskDiscussion({
                 photo={item.photo}
                 date={item.date}
                 text={item.text}
+                // не так 
                 key={item.date}
               />
             );

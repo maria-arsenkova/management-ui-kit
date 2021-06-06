@@ -100,3 +100,27 @@
   border-image: initial;
   vertical-align: middle;
 }
+
+.tasks__checkbox-newT {
+  color: #000;
+  cursor: default;
+  line-height: 30px;
+  padding: 4px 0;
+  vertical-align: middle;
+}
+
+.tasks__checkbox-newT:before {
+  content: url('./img/checkOf.svg');
+  color: #000;
+  display: inline-block;
+  margin-right: 12px;
+  position: relative;
+  text-align: center;
+  text-indent: 0px;
+  width: 30px;
+  height: 30px;
+  background: #e20e0e;
+  border-radius: 4px;
+  border-image: initial;
+  vertical-align: middle;
+}

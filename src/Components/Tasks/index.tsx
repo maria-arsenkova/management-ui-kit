@@ -21,6 +21,7 @@ import { CommentType } from '../Comment/types';
 
 const INITIAL_TASKS: TaskType[] = [
   {
+    id: 0,
     title: 'E-mail after registration so that I can confirm my address',
     createdAt: 'today at 13:00 pm',
     assigner: 'Penelope F.',
@@ -33,9 +34,10 @@ const INITIAL_TASKS: TaskType[] = [
     followers: [{ avatar: userO, name: 'userO' }],
     discussions: [],
     isDone: false,
-    category: 'todo'
+    category: 'todo',
   },
   {
+    id: 2,
     category: 'todo',
     title: 'Find top 5 customer requests',
     createdAt: 'yesterday at 12:41pm',
@@ -53,16 +55,16 @@ const INITIAL_TASKS: TaskType[] = [
       { avatar: userS, name: 'userS' },
     ],
     description:
-        'Task Descriptions are used during project planning, project execution and project control. During project planning the task descriptions are used for scope planning and creating estimates. During project execution the task description is used by those doing the activities to ensure they are doing the work correctly.',
+      'Task Descriptions are used during project planning, project execution and project control. During project planning the task descriptions are used for scope planning and creating estimates. During project execution the task description is used by those doing the activities to ensure they are doing the work correctly.',
     files: [
       {
-        id:"0",
+        id: '0',
         preview: pdfIcon,
         name: 'Redesign Brief 2019.pdf',
         size: 159,
       },
       {
-        id:"1",
+        id: '1',
         preview: headerIcon,
         name: 'Header.png',
         size: 129,
@@ -74,20 +76,19 @@ const INITIAL_TASKS: TaskType[] = [
         position: 'Designer',
         photo: userU,
         date: 'Yesterday at 12:37pm',
-        text:
-            'During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes',
+        text: 'During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes',
       },
       {
         name: 'Prescott MacCaffery',
         position: 'Developer',
         photo: userT,
         date: 'Yesterday at 12:37pm',
-        text:
-            '@Helena Software quality assurance activity in which one or several humans check a program mainly ',
+        text: '@Helena Software quality assurance activity in which one or several humans check a program mainly ',
       },
     ],
   },
   {
+    id: 3,
     category: 'todo',
     title: 'Two-factor authentication to make my private data more secure',
     createdAt: 'yesterday at 12:00pm',
@@ -106,6 +107,7 @@ const INITIAL_TASKS: TaskType[] = [
     discussions: [],
   },
   {
+    id: 4,
     category: 'backlog',
     title: 'An option to search in current projects or in all projects',
     createdAt: 'today at 14:00 pm',
@@ -120,6 +122,7 @@ const INITIAL_TASKS: TaskType[] = [
     discussions: [],
   },
   {
+    id: 5,
     category: 'backlog',
     title: 'Account for teams and personal in bottom style',
     createdAt: 'yesterday at 15:41pm',
@@ -135,9 +138,10 @@ const INITIAL_TASKS: TaskType[] = [
     discussions: [],
   },
   {
+    id: 6,
     category: 'backlog',
     title:
-        'Listing on Product Hunt so that we can reach as many potential users',
+      'Listing on Product Hunt so that we can reach as many potential users',
     isDone: false,
     createdAt: 'yesterday at 16:00pm',
     assigner: 'Kristin A.',
@@ -152,10 +156,11 @@ const INITIAL_TASKS: TaskType[] = [
       { avatar: userY, name: 'userY' },
     ],
     discussions: [],
-  }
-]
+  },
+];
 
 const INITIAL_TASK_DATA: TaskType = {
+  id: 7,
   category: 'todo',
   title: 'Find top 5 customer requests',
   createdAt: 'yesterday at 12:41pm',
@@ -173,13 +178,13 @@ const INITIAL_TASK_DATA: TaskType = {
     'Task Descriptions are used during project planning, project execution and project control. During project planning the task descriptions are used for scope planning and creating estimates. During project execution the task description is used by those doing the activities to ensure they are doing the work correctly.',
   files: [
     {
-      id:"0",
+      id: '0',
       preview: pdfIcon,
       name: 'Redesign Brief 2019.pdf',
       size: 159,
     },
     {
-      id:"1",
+      id: '1',
       preview: headerIcon,
       name: 'Header.png',
       size: 129,
@@ -191,62 +196,65 @@ const INITIAL_TASK_DATA: TaskType = {
       position: 'Designer',
       photo: userU,
       date: 'Yesterday at 12:39pm',
-      text:
-        'During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes',
+      text: 'During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes',
     },
     {
       name: 'Prescott MacCaffery',
       position: 'Developer',
       photo: userT,
       date: 'Yesterday at 12:37pm',
-      text:
-        '@Helena Software quality assurance activity in which one or several humans check a program mainly ',
+      text: '@Helena Software quality assurance activity in which one or several humans check a program mainly ',
     },
   ],
 };
 
 function Tasks() {
   const [task, setTask] = useState<TaskType>(INITIAL_TASK_DATA);
-  const [allTasks, setAllTasks] = useState<TaskType[]>(INITIAL_TASKS)
+  const [allTasks, setAllTasks] = useState<TaskType[]>(INITIAL_TASKS);
 
   const updateTask = (task: TaskType) => {
     setTask(task);
   };
 
+  const backlog: TasksListType[] = [
+    {
+      name: 'Backlog',
+      items: allTasks.filter((task) => task.category === 'backlog'),
+    },
+  ];
 
-    const backlog: TasksListType[] = [
-      {
-        name: 'Backlog',
-        items: allTasks.filter((task) => task.category === 'backlog'),
-      },
-    ];
+  const toDo: TasksListType[] = [
+    {
+      name: 'To Do',
+      items: allTasks.filter((task) => task.category === 'todo'),
+    },
+  ];
 
-    const toDo: TasksListType[] = [
-      {
-        name: 'To Do',
-        items: allTasks.filter((task) => task.category === 'todo'),
-      },
-    ];
+  const onTaskUpdate = (updatedTask: TaskType) => {
+    const newTasks: TaskType[] = allTasks.map((task) => {
+      if (updatedTask.id === task.id) {
+        return updatedTask;
+      }
+      return task;
+    });
 
-
-    const onTaskUpdate = (updatedTask: TaskType) => {
-      const newTasks: TaskType[] = allTasks.map((task) => {
-        if(updatedTask.title === task.title) {
-          return updatedTask
-        }
-        return task
-      })
-
-      setAllTasks(newTasks)
-
-     }
+    setAllTasks(newTasks);
+  };
 
   return (
     <div className='tasks'>
       <div className='tasks__scrollBar'>
         <div className='tasks__group'>
-          <TasksList content={backlog} onTaskClick={updateTask} onTaskUpdate={onTaskUpdate} />
-          <TasksList content={toDo} onTaskClick={updateTask} onTaskUpdate={onTaskUpdate} />
+          <TasksList
+            content={backlog}
+            onTaskClick={updateTask}
+            onTaskUpdate={onTaskUpdate}
+          />
+          <TasksList
+            content={toDo}
+            onTaskClick={updateTask}
+            onTaskUpdate={onTaskUpdate}
+          />
         </div>
       </div>
       <Task task={task} onTaskChanged={updateTask} />

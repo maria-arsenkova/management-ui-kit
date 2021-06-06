@@ -31,12 +31,16 @@ function TasksList({ content, onTaskClick, onTaskUpdate }: TasksListProps) {
                 return (
                   <li
                     className='tasks__item'
+                    //по id 
                     key={`${task.title}`}
                   >
-                    {`${task.isDone}`}
+                    {`${task.isDone}`};
+                    {console.log(`${task.isDone}`)};
+                    {console.log({task})}
                     <label
                       htmlFor='checkbox'
                       className='tasks__checkbox-new'
+                      // className={task.isDone === true? 'tasks__checkbox-new': 'tasks__checkbox-newT'}
                     >
                       <input
                           onChange={(event) => {
