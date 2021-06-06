@@ -231,6 +231,7 @@ function Tasks() {
   ];
 
   const onTaskUpdate = (updatedTask: TaskType) => {
+    console.log(updatedTask);
     const newTasks: TaskType[] = allTasks.map((task) => {
       if (updatedTask.id === task.id) {
         return updatedTask;

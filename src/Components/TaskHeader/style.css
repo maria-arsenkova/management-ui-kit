@@ -56,3 +56,26 @@
   justify-content: center;
   align-items: center;
 }
+
+.task__header-selector-tick_active {
+  color: #000;
+  cursor: default;
+  font-weight: normal;
+  line-height: 40px;
+  vertical-align: middle;
+}
+
+.task__header-selector-tick_active:before {
+  content: url('./img/checkTask.svg');
+  color: #000;
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+  padding-top: 2px;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  background: #CEF9C6;
+  border-radius: 4px;
+  vertical-align: middle;
+}

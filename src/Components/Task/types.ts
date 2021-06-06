@@ -17,6 +17,6 @@ export type TaskType = {
     description?: string;
     files?: TaskFilesType[];
     discussions: CommentType[];
-    isDone: boolean,
-    category: 'todo' | 'backlog'
+    isDone: boolean;
+    category: 'todo' | 'backlog';
   }

@@ -23,9 +23,9 @@ function Task({ task, onTaskChanged }: TaskProps) {
   };
 
   const removeFile = (id: string) => {
-    const newFiles = task.files?.filter((file) => file.id !== id)
+    const newFiles = task.files?.filter((file) => file.id !== id);
 
-    const newTask: TaskType = {...task, files: newFiles};
+    const newTask: TaskType = { ...task, files: newFiles };
 
     onTaskChanged(newTask);
   };
@@ -33,6 +33,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
   return (
     <div className='task'>
       <TaskHeader
+        isDone={task.isDone}
         data={task.createdAt}
         creator={task.assigner}
         name={task.title}

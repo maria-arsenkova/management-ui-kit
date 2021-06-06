@@ -3,7 +3,7 @@ import './style.css';
 import circle from './img/circle.svg';
 import { TaskHeaderType } from './types';
 
-function TaskHeader({ name, creator, data }: TaskHeaderType) {
+function TaskHeader({ name, creator, data, isDone }: TaskHeaderType) {
   return (
     <div className='task__header'>
       <div>
@@ -18,7 +18,14 @@ function TaskHeader({ name, creator, data }: TaskHeaderType) {
           id='tick'
           className='task__header-selector-hidden'
         />
-        <label htmlFor='tick' className='task__header-selector-tick'></label>
+        <label
+          htmlFor='tick'
+          className={
+            isDone === true
+              ? 'task__header-selector-tick_active'
+              : 'task__header-selector-tick'
+          }
+        ></label>
         <span className='task__header-selector-tick-more'>
           <img src={circle} alt='circle' />
         </span>

@@ -11,7 +11,7 @@ export type TasksListType = {
 interface TasksListProps {
   content: TasksListType[];
   onTaskClick: (task: TaskType) => void;
-  onTaskUpdate: (task: TaskType) => void
+  onTaskUpdate: (task: TaskType) => void;
 }
 
 function TasksList({ content, onTaskClick, onTaskUpdate }: TasksListProps) {
@@ -31,30 +31,37 @@ function TasksList({ content, onTaskClick, onTaskUpdate }: TasksListProps) {
                 return (
                   <li
                     className='tasks__item'
-                    //по id 
-                    key={`${task.title}`}
+                    key={`${task.id}`}
                   >
                     {`${task.isDone}`};
-                    {console.log(`${task.isDone}`)};
-                    {console.log({task})}
                     <label
                       htmlFor='checkbox'
-                      className='tasks__checkbox-new'
-                      // className={task.isDone === true? 'tasks__checkbox-new': 'tasks__checkbox-newT'}
+                      className={
+                        task.isDone === true
+                          ? 'tasks__checkbox-new_active'
+                          : 'tasks__checkbox-new'
+                      }
                     >
                       <input
-                          onChange={(event) => {
-                            onTaskUpdate({...task, isDone: event.target.checked})
-                          }}
-                          type='checkbox'
-                          id='checkbox'
-                          className='tasks__checkbox-hidden'
-                          checked={task.isDone}
+                        onChange={(event) => {
+                          console.log(event);
+                          onTaskUpdate({
+                            ...task,
+                            isDone: event.target.checked,
+                          }
+                          );
+                        }}
+                        type='checkbox'
+                        id='checkbox'
+                        className='tasks__checkbox-hidden'
+                        checked={task.isDone}
                       />
                     </label>
-                    <div onClick={() => {
-                      onTaskClick(task);
-                    }}>
+                    <div
+                      onClick={() => {
+                        onTaskClick(task);
+                      }}
+                    >
                       <div className='tasks__item-name'>{task.title}</div>
                       <a href='#' className='tasks__item-executor'>
                         <img
