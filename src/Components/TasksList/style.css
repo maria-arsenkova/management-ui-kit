@@ -79,10 +79,10 @@
 /* стили для метки */
 .tasks__checkbox-new {
   color: #000;
-  cursor: default;
   line-height: 30px;
   padding: 4px 0;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 .tasks__checkbox-new:before {
@@ -103,7 +103,6 @@
 
 .tasks__checkbox-new_active {
   color: #cef9c6;
-  cursor: default;
   line-height: 30px;
   padding: 4px 0;
   vertical-align: middle;

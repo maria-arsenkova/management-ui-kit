@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import './style.css';
-import { UserType } from '../UserInfo/types';
-import { Comment } from '../Comment';
-import { CommentType } from '../Comment/types';
-import { TaskType } from '../Task/types';
-
+import React, { useState } from "react";
+import "./style.css";
+import { UserType } from "../UserInfo/types";
+import { Comment } from "../Comment";
+import { CommentType } from "../Comment/types";
+import { TaskType } from "../Task/types";
 
 export interface TaskDiscussionsProps {
   user: UserType;
@@ -19,8 +18,8 @@ function TaskDiscussion({
   onCommentCreated,
 }: TaskDiscussionsProps) {
   const [comment, setComment] = useState<CommentType>({
-    // id: '',
-    text: '',
+    id: Date.now().toString(),
+    text: "",
     date: new Date().toLocaleString(),
     name: user.initials,
     photo: user.avatar,
@@ -29,7 +28,7 @@ function TaskDiscussion({
 
   const handleComment = (newComment: string): void => {
     setComment({
-      // id:comment.date,
+      id: Date.now().toString(),
       text: newComment,
       name: comment.name,
       photo: comment.photo,
@@ -48,21 +47,21 @@ function TaskDiscussion({
 
   return (
     <div>
-      <div className='task__discussion-title'>Discussion</div>
-      <div className='comment__add'>
+      <div className="task__discussion-title">Discussion</div>
+      <div className="comment__add">
         <img
           src={user.avatar}
           alt={user.initials}
-          className='comment__add-author-photo'
+          className="comment__add-author-photo"
         />
         <input
-          type='text'
-          placeholder='Add a comment…'
-          className='comment__add-text'
+          type="text"
+          placeholder="Add a comment…"
+          className="comment__add-text"
           onChange={(event) => handleComment(event.target.value)}
         />
         <button
-          className='task__discussion-button'
+          className="task__discussion-button"
           onClick={() => {
             createComment(comment, content);
           }}
@@ -75,12 +74,13 @@ function TaskDiscussion({
           {content.map((item) => {
             return (
               <Comment
+                id={item.id}
                 name={item.name}
                 position={item.position}
                 photo={item.photo}
                 date={item.date}
                 text={item.text}
-                // не так 
+                // не так
                 key={item.date}
               />
             );
