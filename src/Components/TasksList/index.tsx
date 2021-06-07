@@ -44,7 +44,6 @@ function TasksList({ content, onTaskClick, onTaskUpdate }: TasksListProps) {
                     >
                       <input
                         onChange={(event) => {
-                          console.log(event);
                           onTaskUpdate({
                             ...task,
                             isDone: event.target.checked,
