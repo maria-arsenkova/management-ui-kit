@@ -160,6 +160,7 @@ const INITIAL_TASKS: TaskType[] = [
 ];
 
 const INITIAL_TASK_DATA: TaskType = {
+  openedTask: true,
   id: 7,
   category: "todo",
   title: "Find top 5 customer requests",
@@ -209,19 +210,30 @@ const INITIAL_TASK_DATA: TaskType = {
 };
 
 function Tasks() {
-  const [task, setTask] = useState<TaskType>(INITIAL_TASK_DATA);
   const [allTasks, setAllTasks] = useState<TaskType[]>(INITIAL_TASKS);
 
-  const updateTask = (task: TaskType) => {
-    setTask(task);
+  const openTask = (updatedTask: TaskType) => {
+    const newTasks: TaskType[] = allTasks.map((task) => {
+      return {
+        ...task,
+        openedTask: updatedTask.id === task.id,
+      };
+    });
+
+    setAllTasks(newTasks);
   };
+
+  const backlogTasks = allTasks.filter((task) => task.category === "backlog");
 
   const backlog: TasksListType[] = [
     {
       name: "Backlog",
-      items: allTasks.filter((task) => task.category === "backlog"),
+      items: backlogTasks,
     },
   ];
+
+  const openedTask: TaskType | undefined =
+    allTasks.find((task) => task.openedTask) || backlogTasks[0];
 
   const toDo: TasksListType[] = [
     {
@@ -247,17 +259,17 @@ function Tasks() {
         <div className="tasks__group">
           <TasksList
             content={backlog}
-            onTaskClick={updateTask}
+            onTaskClick={openTask}
             onTaskUpdate={onTaskUpdate}
           />
           <TasksList
             content={toDo}
-            onTaskClick={updateTask}
+            onTaskClick={openTask}
             onTaskUpdate={onTaskUpdate}
           />
         </div>
       </div>
-      <Task task={task} onTaskChanged={updateTask} />
+      {openedTask && <Task task={openedTask} onTaskChanged={onTaskUpdate} />}
     </div>
   );
 }
