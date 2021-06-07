@@ -72,6 +72,7 @@ const INITIAL_TASKS: TaskType[] = [
     ],
     discussions: [
       {
+        id: Date.now().toString(),
         name: "Helena Brauer",
         position: "Designer",
         photo: userU,
@@ -79,6 +80,7 @@ const INITIAL_TASKS: TaskType[] = [
         text: "During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes",
       },
       {
+        id: Date.now().toString(),
         name: "Prescott MacCaffery",
         position: "Developer",
         photo: userT,
@@ -193,6 +195,7 @@ const INITIAL_TASK_DATA: TaskType = {
   ],
   discussions: [
     {
+      id: Date.now().toString(),
       name: "Helena Brauer",
       position: "Designer",
       photo: userU,
@@ -200,6 +203,7 @@ const INITIAL_TASK_DATA: TaskType = {
       text: "During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes",
     },
     {
+      id: Date.now().toString(),
       name: "Prescott MacCaffery",
       position: "Developer",
       photo: userT,
