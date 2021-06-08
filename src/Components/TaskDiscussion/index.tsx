@@ -20,7 +20,7 @@ function TaskDiscussion({
   const [comment, setComment] = useState<CommentType>({
     id: Date.now().toString(),
     text: "",
-    date: new Date().toLocaleString(),
+    date: new Date().toLocaleDateString('en-GB', { weekday: "short", month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'}),
     name: user.initials,
     photo: user.avatar,
     position: user.position,
@@ -80,7 +80,6 @@ function TaskDiscussion({
                 photo={item.photo}
                 date={item.date}
                 text={item.text}
-                // не так
                 key={item.date}
               />
             );
