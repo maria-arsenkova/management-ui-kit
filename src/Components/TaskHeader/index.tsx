@@ -3,7 +3,14 @@ import './style.css';
 import circle from './img/circle.svg';
 import { TaskHeaderType } from './types';
 
-function TaskHeader({ name, creator, data, isDone }: TaskHeaderType) {
+function TaskHeader({
+  name,
+  creator,
+  data,
+  isDone,
+  onTaskUpdate,
+  task,
+}: TaskHeaderType) {
   return (
     <div className='task__header'>
       <div>
@@ -14,12 +21,19 @@ function TaskHeader({ name, creator, data, isDone }: TaskHeaderType) {
       </div>
       <div className='task__header-selector'>
         <input
+          onChange={(event) => {
+            onTaskUpdate({
+              ...task,
+              isDone: event.target.checked,
+            });
+          }}
           type='checkbox'
-          id='tick'
+          id={`tick-${task.id}`}
+          checked={task.isDone}
           className='task__header-selector-hidden'
         />
         <label
-          htmlFor='tick'
+          htmlFor={`tick-${task.id}`}
           className={
             isDone === true
               ? 'task__header-selector-tick_active'

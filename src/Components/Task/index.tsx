@@ -37,6 +37,8 @@ function Task({ task, onTaskChanged }: TaskProps) {
         data={task.createdAt}
         creator={task.assigner}
         name={task.title}
+        onTaskUpdate={onTaskChanged}
+        task={task}
       />
       <div className='task__info-blocks'>
         <TaskInfoBlock title={'Asign To'} executor={task.asignTo} />

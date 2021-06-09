@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { Task } from "../Task";
-import { TaskType } from "../Task/types";
-import "./style.css";
+import React, { useState } from 'react';
+import { Task } from '../Task';
+import { TaskType } from '../Task/types';
+import './style.css';
 
 export type TasksListType = {
   name: string;
@@ -19,23 +19,23 @@ function TasksList({ content, onTaskClick, onTaskUpdate }: TasksListProps) {
     <div>
       {content.map((list) => {
         return (
-          <ul className="tasks__list" key={list.name}>
-            <li className="tasks__title">
-              <span className="tasks__title-text">{list.name}</span>
-              <button type="button" className="tasks__add-task">
+          <ul className='tasks__list' key={list.name}>
+            <li className='tasks__title'>
+              <span className='tasks__title-text'>{list.name}</span>
+              <button type='button' className='tasks__add-task'>
                 + Add Task
               </button>
             </li>
             {list?.items &&
               list.items.map((task) => {
                 return (
-                  <li className="tasks__item" key={task.id}>
+                  <li className='tasks__item' key={task.id}>
                     <label
                       htmlFor={`checkbox-${task.id}`}
                       className={
                         task.isDone
-                          ? "tasks__checkbox-new_active"
-                          : "tasks__checkbox-new"
+                          ? 'tasks__checkbox-new_active'
+                          : 'tasks__checkbox-new'
                       }
                     >
                       <input
@@ -45,9 +45,9 @@ function TasksList({ content, onTaskClick, onTaskUpdate }: TasksListProps) {
                             isDone: event.target.checked,
                           });
                         }}
-                        type="checkbox"
+                        type='checkbox'
                         id={`checkbox-${task.id}`}
-                        className="tasks__checkbox-hidden"
+                        className='tasks__checkbox-hidden'
                         checked={task.isDone}
                       />
                     </label>
@@ -56,15 +56,15 @@ function TasksList({ content, onTaskClick, onTaskUpdate }: TasksListProps) {
                         onTaskClick(task);
                       }}
                     >
-                      <div className="tasks__item-name">{task.title}</div>
-                      <a href="#" className="tasks__item-executor">
+                      <div className='tasks__item-name'>{task.title}</div>
+                      <a href='#' className='tasks__item-executor'>
                         <img
                           key={`${task.asignTo.name}_${task.asignTo.avatar}`}
                           src={task.asignTo.avatar}
                           alt={task.asignTo.name}
-                          className="tasks__item-avatar"
+                          className='tasks__item-avatar'
                         />
-                        <span className="tasks__item-position">
+                        <span className='tasks__item-position'>
                           {task.department}
                         </span>
                       </a>

@@ -348,7 +348,7 @@ function Tasks() {
           />
         </div>
       </div>
-      {openedTask && <Task task={openedTask} onTaskChanged={onTaskUpdate} />}
+      {openedTask && <Task task={openedTask} onTaskChanged={onTaskUpdate}/>}
     </div>
   );
 }

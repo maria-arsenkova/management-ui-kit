@@ -13,7 +13,7 @@ function Files({ tasks }: FilesProps) {
     return item.files;
   });
   console.log(allFiles);
-  
+
   return (
     <div className='files'>
       <table className='files__table'>
