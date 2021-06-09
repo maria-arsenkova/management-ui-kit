@@ -23,9 +23,7 @@ function SidebarMenu({ content, titel }: SidebarMenuProps) {
     <div className='sidebar__menu'>
       <ul>
         <li className='sidebar__menu-item'>
-          <p className='sidebar__menu-title'>
-            {titel}
-          </p>
+          <p className='sidebar__menu-title'>{titel}</p>
         </li>
         {content.map((team) => {
           return (
@@ -66,4 +64,4 @@ function SidebarMenu({ content, titel }: SidebarMenuProps) {
   );
 }
 
-export default SidebarMenu;
+export { SidebarMenu };

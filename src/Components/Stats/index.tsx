@@ -27,4 +27,4 @@ function Stats({ tasks }: StatsProps) {
   );
 }
 
-export default Stats;
+export { Stats };

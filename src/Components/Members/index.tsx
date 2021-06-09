@@ -43,4 +43,4 @@ function Members({ members }: MembersProms) {
   );
 }
 
-export default Members;
+export { Members };

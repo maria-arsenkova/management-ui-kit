@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
-import HeaderСontent from '../HeaderСontent';
-import HeaderTabs, { TabsType } from '../HeaderTabs';
+import { HeaderСontent } from '../HeaderСontent';
+import { HeaderTabs, TabsType } from '../HeaderTabs';
 
 const navbar: TabsType[] = [
   { name: 'Tasks', path: '/tasks' },

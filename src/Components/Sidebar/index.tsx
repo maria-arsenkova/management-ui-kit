@@ -1,11 +1,11 @@
 import React from 'react';
 import './style.css';
 import { UserType } from '../UserInfo/types';
-import Brand from '../Brand';
-import UserInfo from '../UserInfo';
+import { Brand } from '../Brand';
+import { UserInfo } from '../UserInfo';
 import userpic from '../UserInfo/img/userpic.png';
-import Stats, { StatsType } from '../Stats';
-import SidebarMenu, { ContentType } from '../SidebarMenu';
+import { Stats, StatsType } from '../Stats';
+import { SidebarMenu, ContentType } from '../SidebarMenu';
 import dashboard from '../SidebarMenu/img/dashboard.svg';
 import crm from '../SidebarMenu/img/crm.svg';
 import website from '../SidebarMenu/img/website.svg';
@@ -19,7 +19,7 @@ import userFa from '../SidebarMenu/img/userFa.png';
 import userSi from '../SidebarMenu/img/userSi.png';
 import userSe from '../SidebarMenu/img/userSe.png';
 import userEt from '../SidebarMenu/img/userEt.png';
-import SidebarFooter from '../SidebarFooter';
+import { SidebarFooter } from '../SidebarFooter';
 
 export const user: UserType = {
   avatar: userpic,

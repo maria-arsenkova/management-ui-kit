@@ -17,4 +17,4 @@ function HeaderLogo() {
   );
 }
 
-export default HeaderLogo;
+export { HeaderLogo };

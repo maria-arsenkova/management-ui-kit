@@ -26,4 +26,4 @@ function UserInfo({ user }: UserInfoProps) {
   );
 }
 
-export default UserInfo;
+export { UserInfo };

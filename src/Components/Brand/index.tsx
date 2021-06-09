@@ -17,4 +17,4 @@ function Brand() {
   );
 }
 
-export default Brand;
+export { Brand };

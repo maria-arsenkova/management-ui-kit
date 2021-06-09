@@ -10,4 +10,4 @@ function SidebarFooter() {
   );
 }
 
-export default SidebarFooter;
+export { SidebarFooter };
