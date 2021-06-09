@@ -56,6 +56,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
                 size={item.size}
                 onRemoveFile={removeFile}
                 key={item.id}
+                sizeSign={item.sizeSign}
               />
             );
           })}

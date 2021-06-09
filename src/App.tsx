@@ -2,9 +2,12 @@ import React from "react";
 import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import "./reset.css";
 import "./App.css";
-import Sidebar from "./Components/Sidebar";
-import Header from "./Components/Header";
-import Tasks from "./Components/Tasks";
+import {Sidebar} from "./Components/Sidebar";
+import {Header} from "./Components/Header";
+import {Tasks} from "./Components/Tasks";
+import {Files} from "./Components/Files";
+import { Task } from "./Components/Task";
+import {INITIAL_TASKS} from './Components/Tasks'
 
 function App() {
   return (
@@ -19,7 +22,7 @@ function App() {
               <Tasks />
             </Route>
             <Route path="/files">
-              <h1>Files1</h1>
+              <Files tasks={INITIAL_TASKS}/>
             </Route>
           </Switch>
         </div>

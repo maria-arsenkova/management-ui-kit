@@ -1,161 +1,249 @@
-import React, { useState } from "react";
-import "./style.css";
-import { TasksList, TasksListType } from "../TasksList";
-import userOne from "../TasksList/img/userOne.png";
-import userTwo from "../TasksList/img/userTwo.png";
-import userTh from "../TasksList/img/userTh.png";
-import userFo from "../TasksList/img/userFo.png";
-import userFr from "../TasksList/img/userFr.png";
-import { Task, TaskProps } from "../Task";
-import { TaskType } from "../Task/types";
-import user from "../TaskInfoBlock/img/user.png";
-import userO from "../TaskInfoBlock/img/userO.png";
-import userY from "../TaskInfoBlock/img/userY.png";
-import userS from "../TaskInfoBlock/img/userS.png";
-import headerIcon from "../TaskFiles/img/header.png";
-import pdfIcon from "../TaskFiles/img/pdfIcon.png";
-import userT from "../TaskDiscussion/img/userT.png";
-import userU from "../TaskDiscussion/img/userU.png";
-import userYY from "../TaskDiscussion//img/userY.png";
-import { CommentType } from "../Comment/types";
+import React, { useState } from 'react';
+import './style.css';
+import { TasksList, TasksListType } from '../TasksList';
+import userOne from '../TasksList/img/userOne.png';
+import userTwo from '../TasksList/img/userTwo.png';
+import userTh from '../TasksList/img/userTh.png';
+import userFo from '../TasksList/img/userFo.png';
+import userFr from '../TasksList/img/userFr.png';
+import { Task, TaskProps } from '../Task';
+import { TaskType } from '../Task/types';
+import user from '../TaskInfoBlock/img/user.png';
+import userO from '../TaskInfoBlock/img/userO.png';
+import userY from '../TaskInfoBlock/img/userY.png';
+import userS from '../TaskInfoBlock/img/userS.png';
+import headerIcon from '../TaskFiles/img/headerIcon.svg';
+import pdfIcon from '../TaskFiles/img/pdfIcon.svg';
+import zipIcon from '../TaskFiles/img/zipIcon.svg';
+import articleImage from '../TaskFiles/img/articleImage.svg';
+import headerPhoto from '../TaskFiles/img/headerPhoto.svg';
+import desingSource from '../TaskFiles/img/desingSource.svg';
+import improvements from '../TaskFiles/img/improvements.svg';
+import icons from '../TaskFiles/img/icons.svg';
+import userT from '../TaskDiscussion/img/userT.png';
+import userU from '../TaskDiscussion/img/userU.png';
 
-const INITIAL_TASKS: TaskType[] = [
+export const INITIAL_TASKS: TaskType[] = [
   {
     id: 1,
-    title: "E-mail after registration so that I can confirm my address",
-    createdAt: "today at 13:00 pm",
-    assigner: "Penelope F.",
+    title: 'E-mail after registration so that I can confirm my address',
+    createdAt: 'today at 13:00 pm',
+    assigner: 'Penelope F.',
     asignTo: {
       avatar: user,
-      name: "ivan ivanov",
+      name: 'ivan ivanov',
     },
-    dueOn: "Tue, Apr 18",
-    department: "Developement",
-    followers: [{ avatar: userO, name: "userO" }],
+    dueOn: 'Tue, Apr 18',
+    department: 'Developement',
+    followers: [{ avatar: userO, name: 'userO' }],
     discussions: [],
+    files: [
+      {
+        id: '0',
+        preview: headerPhoto,
+        name: 'Header Photo.jpg',
+        size: 5.8,
+        sizeSign: 'MB',
+        uploadedBy: 'Chinmay Sarasvati',
+        date: '01 Jan 2019',
+      },
+      {
+        id: '1',
+        preview: improvements,
+        name: 'Improvements. jpg',
+        size: 290,
+        sizeSign: 'KB',
+        uploadedBy: 'Jacqueline Asong',
+        date: '17 Dec 2019',
+      },
+    ],
     isDone: false,
-    category: "todo",
+    category: 'todo',
   },
   {
     id: 2,
-    category: "todo",
-    title: "Find top 5 customer requests",
-    createdAt: "yesterday at 12:41pm",
-    assigner: "Kristin A.",
+    category: 'todo',
+    title: 'Find top 5 customer requests',
+    createdAt: 'yesterday at 12:41pm',
+    assigner: 'Kristin A.',
     isDone: false,
     asignTo: {
       avatar: userOne,
-      name: "Linzell Bowman",
+      name: 'Linzell Bowman',
     },
-    dueOn: "Tue, Dec 25",
-    department: "Marketing",
+    dueOn: 'Tue, Dec 25',
+    department: 'Marketing',
     followers: [
-      { avatar: userO, name: "userO" },
-      { avatar: userY, name: "userY" },
-      { avatar: userS, name: "userS" },
+      { avatar: userO, name: 'userO' },
+      { avatar: userY, name: 'userY' },
+      { avatar: userS, name: 'userS' },
     ],
     description:
-      "Task Descriptions are used during project planning, project execution and project control. During project planning the task descriptions are used for scope planning and creating estimates. During project execution the task description is used by those doing the activities to ensure they are doing the work correctly.",
+      'Task Descriptions are used during project planning, project execution and project control. During project planning the task descriptions are used for scope planning and creating estimates. During project execution the task description is used by those doing the activities to ensure they are doing the work correctly.',
     files: [
       {
-        id: "0",
+        id: '0',
         preview: pdfIcon,
-        name: "Redesign Brief 2019.pdf",
+        name: 'Redesign Brief 2019.pdf',
         size: 159,
+        sizeSign: 'KB',
+        uploadedBy: 'Mattie Blooman',
+        date: '08 Jan 2019',
       },
       {
-        id: "1",
+        id: '1',
         preview: headerIcon,
-        name: "Header.png",
+        name: 'Header.png',
         size: 129,
+        sizeSign: 'KB',
+        uploadedBy: 'Mattie Blooman',
+        date: '08 Jan 2019',
+      },
+      {
+        id: '2',
+        preview: articleImage,
+        name: 'Article Image.jpg',
+        size: 133.9,
+        sizeSign: 'MB',
+        uploadedBy: 'Homayoun Shakibaii',
+        date: '20 Dec 2019',
+      },
+      {
+        id: '3',
+        preview: desingSource,
+        name: 'Desing Source.png',
+        size: 432,
+        sizeSign: 'KB',
+        uploadedBy: 'Ingo Schimpff',
+        date: '19 Dec 2019',
       },
     ],
     discussions: [
       {
         id: Date.now().toString(),
-        name: "Helena Brauer",
-        position: "Designer",
+        name: 'Helena Brauer',
+        position: 'Designer',
         photo: userU,
-        date: "Yesterday at 12:37pm",
-        text: "During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes",
+        date: 'Yesterday at 12:37pm',
+        text: 'During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes',
       },
       {
         id: Date.now().toString(),
-        name: "Prescott MacCaffery",
-        position: "Developer",
+        name: 'Prescott MacCaffery',
+        position: 'Developer',
         photo: userT,
-        date: "Yesterday at 12:37pm",
-        text: "@Helena Software quality assurance activity in which one or several humans check a program mainly ",
+        date: 'Yesterday at 12:37pm',
+        text: '@Helena Software quality assurance activity in which one or several humans check a program mainly ',
       },
     ],
   },
   {
     id: 3,
-    category: "todo",
-    title: "Two-factor authentication to make my private data more secure",
-    createdAt: "yesterday at 12:00pm",
-    assigner: "Kristin A.",
+    category: 'todo',
+    title: 'Two-factor authentication to make my private data more secure',
+    createdAt: 'yesterday at 12:00pm',
+    assigner: 'Kristin A.',
     isDone: false,
     asignTo: {
       avatar: userTwo,
-      name: "Louis Freeman",
+      name: 'Louis Freeman',
     },
-    dueOn: "Tue, Apr 18",
-    department: "Design",
+    dueOn: 'Tue, Apr 18',
+    department: 'Design',
     followers: [
-      { avatar: userO, name: "userO" },
-      { avatar: userY, name: "userY" },
+      { avatar: userO, name: 'userO' },
+      { avatar: userY, name: 'userY' },
     ],
     discussions: [],
+    files: [
+      {
+        id: '0',
+        preview: zipIcon,
+        name: 'All Files.zip',
+        size: 17,
+        sizeSign: 'KB',
+        uploadedBy: 'Alfie Wood',
+        date: '02 Jan 2019',
+      },
+    ],
   },
   {
     id: 4,
-    category: "backlog",
-    title: "An option to search in current projects or in all projects",
-    createdAt: "today at 14:00 pm",
-    assigner: "Penelope F.",
+    category: 'backlog',
+    title: 'An option to search in current projects or in all projects',
+    createdAt: 'today at 14:00 pm',
+    assigner: 'Penelope F.',
     isDone: false,
     asignTo: {
       avatar: userTh,
-      name: "Abramson Abramson",
+      name: 'Abramson Abramson',
     },
-    dueOn: "Tue, Apr 18",
-    department: "Design",
+    dueOn: 'Tue, Apr 18',
+    department: 'Design',
     discussions: [],
   },
   {
     id: 5,
-    category: "backlog",
-    title: "Account for teams and personal in bottom style",
-    createdAt: "yesterday at 15:41pm",
-    assigner: "Kristin A.",
+    category: 'backlog',
+    title: 'Account for teams and personal in bottom style',
+    createdAt: 'yesterday at 15:41pm',
+    assigner: 'Kristin A.',
     isDone: false,
     asignTo: {
       avatar: userFo,
-      name: "Hoggarth Bowman",
+      name: 'Hoggarth Bowman',
     },
-    dueOn: "Tue, Dec 25",
-    department: "Marketing",
-    followers: [{ avatar: userO, name: "userO" }],
+    dueOn: 'Tue, Dec 25',
+    department: 'Marketing',
+    followers: [{ avatar: userO, name: 'userO' }],
     discussions: [],
+    files: [
+      {
+        id: '0',
+        preview: pdfIcon,
+        name: 'Client Meeting.pdf',
+        size: 119,
+        sizeSign: 'KB',
+        uploadedBy: 'Jeremías Romero',
+        date: '12 Dec 2019',
+      },
+      {
+        id: '1',
+        preview: icons,
+        name: 'Icons.png',
+        size: 95,
+        sizeSign: 'KB',
+        uploadedBy: 'Okazaki Suzuko',
+        date: '07 Dec 2019',
+      },
+      {
+        id: '2',
+        preview: articleImage,
+        name: 'Article Image.jpg',
+        size: 133.9,
+        sizeSign: 'MB',
+        uploadedBy: 'Homayoun Shakibaii',
+        date: '20 Dec 2019',
+      },
+    ],
   },
   {
     id: 6,
-    category: "backlog",
+    category: 'backlog',
     title:
-      "Listing on Product Hunt so that we can reach as many potential users",
+      'Listing on Product Hunt so that we can reach as many potential users',
     isDone: false,
-    createdAt: "yesterday at 16:00pm",
-    assigner: "Kristin A.",
+    createdAt: 'yesterday at 16:00pm',
+    assigner: 'Kristin A.',
     asignTo: {
       avatar: userFr,
-      name: "Louis Kendal",
+      name: 'Louis Kendal',
     },
-    dueOn: "Tue, Apr 18",
-    department: "Design",
+    dueOn: 'Tue, Apr 18',
+    department: 'Design',
     followers: [
-      { avatar: userO, name: "userO" },
-      { avatar: userY, name: "userY" },
+      { avatar: userO, name: 'userO' },
+      { avatar: userY, name: 'userY' },
     ],
     discussions: [],
   },
@@ -164,51 +252,38 @@ const INITIAL_TASKS: TaskType[] = [
 const INITIAL_TASK_DATA: TaskType = {
   openedTask: true,
   id: 7,
-  category: "todo",
-  title: "Find top 5 customer requests",
-  createdAt: "yesterday at 12:41pm",
-  assigner: "Kristin A.",
-  asignTo: { avatar: userOne, name: "Linzell Bowman" },
-  dueOn: "Tue, Dec 25",
-  department: "Marketing",
+  category: 'todo',
+  title: 'Find top 5 customer requests',
+  createdAt: 'yesterday at 12:41pm',
+  assigner: 'Kristin A.',
+  asignTo: { avatar: userOne, name: 'Linzell Bowman' },
+  dueOn: 'Tue, Dec 25',
+  department: 'Marketing',
   isDone: false,
   followers: [
-    { avatar: userO, name: "userO" },
-    { avatar: userY, name: "userY" },
-    { avatar: userS, name: "userS" },
+    { avatar: userO, name: 'userO' },
+    { avatar: userY, name: 'userY' },
+    { avatar: userS, name: 'userS' },
   ],
   description:
-    "Task Descriptions are used during project planning, project execution and project control. During project planning the task descriptions are used for scope planning and creating estimates. During project execution the task description is used by those doing the activities to ensure they are doing the work correctly.",
-  files: [
-    {
-      id: "0",
-      preview: pdfIcon,
-      name: "Redesign Brief 2019.pdf",
-      size: 159,
-    },
-    {
-      id: "1",
-      preview: headerIcon,
-      name: "Header.png",
-      size: 129,
-    },
-  ],
+    'Task Descriptions are used during project planning, project execution and project control. During project planning the task descriptions are used for scope planning and creating estimates. During project execution the task description is used by those doing the activities to ensure they are doing the work correctly.',
+  files: [],
   discussions: [
     {
       id: Date.now().toString(),
-      name: "Helena Brauer",
-      position: "Designer",
+      name: 'Helena Brauer',
+      position: 'Designer',
       photo: userU,
-      date: "Yesterday at 12:39pm",
-      text: "During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes",
+      date: 'Yesterday at 12:39pm',
+      text: 'During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes',
     },
     {
       id: Date.now().toString(),
-      name: "Prescott MacCaffery",
-      position: "Developer",
+      name: 'Prescott MacCaffery',
+      position: 'Developer',
       photo: userT,
-      date: "Yesterday at 12:37pm",
-      text: "@Helena Software quality assurance activity in which one or several humans check a program mainly ",
+      date: 'Yesterday at 12:37pm',
+      text: '@Helena Software quality assurance activity in which one or several humans check a program mainly ',
     },
   ],
 };
@@ -227,11 +302,11 @@ function Tasks() {
     setAllTasks(newTasks);
   };
 
-  const backlogTasks = allTasks.filter((task) => task.category === "backlog");
+  const backlogTasks = allTasks.filter((task) => task.category === 'backlog');
 
   const backlog: TasksListType[] = [
     {
-      name: "Backlog",
+      name: 'Backlog',
       items: backlogTasks,
     },
   ];
@@ -241,8 +316,8 @@ function Tasks() {
 
   const toDo: TasksListType[] = [
     {
-      name: "To Do",
-      items: allTasks.filter((task) => task.category === "todo"),
+      name: 'To Do',
+      items: allTasks.filter((task) => task.category === 'todo'),
     },
   ];
 
@@ -258,9 +333,9 @@ function Tasks() {
   };
 
   return (
-    <div className="tasks">
-      <div className="tasks__scrollBar">
-        <div className="tasks__group">
+    <div className='tasks'>
+      <div className='tasks__scrollBar'>
+        <div className='tasks__group'>
           <TasksList
             content={backlog}
             onTaskClick={openTask}
@@ -278,4 +353,4 @@ function Tasks() {
   );
 }
 
-export default Tasks;
+export { Tasks };

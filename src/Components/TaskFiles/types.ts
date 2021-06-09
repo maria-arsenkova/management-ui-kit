@@ -3,5 +3,8 @@ export type TaskFilesType = {
     preview?: string;
     name: string;
     size: number;
+    sizeSign: "KB"|"MB"|"GB"|"ТB";
+    uploadedBy: string;
+    date: string;
 }
 

@@ -1,0 +1,26 @@
+.files {
+  padding: 30px;
+  border-radius: 8px;
+  align-self: start;
+}
+
+.files__table {
+    width: 100%;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid #69c;
+    border-collapse: collapse;
+}
+/* .files__table td:first-child {
+    margin-top: 30px;
+} */
+
+.files__table th {
+    height: 32px;
+    border: 1px solid #69c;
+}
+
+.files__table td {
+    height: 32px;
+    border: 1px solid #69c;
+}
