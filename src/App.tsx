@@ -5,6 +5,8 @@ import "./App.css";
 import {Sidebar} from "./Components/Sidebar";
 import {Header} from "./Components/Header";
 import {Tasks} from "./Components/Tasks";
+import arrowIcon from './Components/Files/img/searchIcon.svg';
+
 import {Files} from "./Components/Files";
 import { Task } from "./Components/Task";
 import {INITIAL_TASKS} from './Components/Tasks'

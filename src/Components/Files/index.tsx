@@ -1,4 +1,5 @@
 import React from 'react';
+import { HashRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
 import './style.css';
 import { TaskType } from '../Task/types';
 import searchIcon from './img/searchIcon.svg';
@@ -31,7 +32,7 @@ function Files({ tasks }: FilesProps) {
         {tasks.map((item) => {
           return (
             //добавить ключь
-            //tbody дублируется с каждое tr, return требует иметь одного обобщаюшего элем
+            //tbody дублируется с каждое tr, return требует иметь одного обобщающего элем
             <tbody>
               {item?.files &&
                 item.files.map((item) => {
@@ -63,11 +64,13 @@ function Files({ tasks }: FilesProps) {
                         </button>
                       </td>
                       <td>
-                        <img
-                          src={downloadIcon}
-                          alt='downloadIcon'
-                          key={`${downloadIcon}_${item.name}`}
-                        />
+                        <a target='_blank' href={item.preview} download>
+                          <img
+                            src={downloadIcon}
+                            alt='downloadIcon'
+                            key={`${downloadIcon}_${item.name}`}
+                          />
+                        </a>
                       </td>
                     </tr>
                   );
