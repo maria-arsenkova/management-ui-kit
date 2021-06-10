@@ -106,6 +106,7 @@
   line-height: 30px;
   padding: 4px 0;
   vertical-align: middle;
+  cursor: pointer;
 }
 
 .tasks__checkbox-new_active:before {
