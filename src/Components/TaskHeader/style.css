@@ -4,6 +4,10 @@
   margin-bottom: 30px;
 }
 
+.task__group {
+  margin-right: 6px;
+}
+
 .task__header-name {
   font-weight: bold;
   font-size: 26px;

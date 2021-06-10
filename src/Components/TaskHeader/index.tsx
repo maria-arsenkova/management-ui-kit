@@ -13,7 +13,7 @@ function TaskHeader({
 }: TaskHeaderType) {
   return (
     <div className='task__header'>
-      <div>
+      <div className="task__group">
         <div className='task__header-name'>{name}</div>
         <div className='task__header-creator'>
           Added by {creator} {data}
