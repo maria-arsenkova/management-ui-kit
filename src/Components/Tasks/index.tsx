@@ -6,7 +6,7 @@ import userTwo from '../TasksList/img/userTwo.png';
 import userTh from '../TasksList/img/userTh.png';
 import userFo from '../TasksList/img/userFo.png';
 import userFr from '../TasksList/img/userFr.png';
-import { Task, TaskProps } from '../Task';
+import { Task } from '../Task';
 import { TaskType } from '../Task/types';
 import user from '../TaskInfoBlock/img/user.png';
 import userO from '../TaskInfoBlock/img/userO.png';
@@ -124,7 +124,7 @@ export const INITIAL_TASKS: TaskType[] = [
         name: 'Helena Brauer',
         position: 'Designer',
         photo: userU,
-        date: 'Thu, 10 June, 11:31',
+        date: 'Yesterday at 12:37pm',
         text: 'During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes',
       },
       {
@@ -132,7 +132,7 @@ export const INITIAL_TASKS: TaskType[] = [
         name: 'Prescott MacCaffery',
         position: 'Developer',
         photo: userT,
-        date: 'Thu, 10 June, 11:31',
+        date: 'Yesterday at 12:37pm',
         text: '@Helena Software quality assurance activity in which one or several humans check a program mainly ',
       },
     ],
@@ -249,46 +249,11 @@ export const INITIAL_TASKS: TaskType[] = [
   },
 ];
 
-const INITIAL_TASK_DATA: TaskType = {
-  openedTask: true,
-  id: 7,
-  category: 'todo',
-  title: 'Find top 5 customer requests',
-  createdAt: 'yesterday at 12:41pm',
-  assigner: 'Kristin A.',
-  asignTo: { avatar: userOne, name: 'Linzell Bowman' },
-  dueOn: 'Tue, Dec 25',
-  department: 'Marketing',
-  isDone: false,
-  followers: [
-    { avatar: userO, name: 'userO' },
-    { avatar: userY, name: 'userY' },
-    { avatar: userS, name: 'userS' },
-  ],
-  description:
-    'Task Descriptions are used during project planning, project execution and project control. During project planning the task descriptions are used for scope planning and creating estimates. During project execution the task description is used by those doing the activities to ensure they are doing the work correctly.',
-  files: [],
-  discussions: [
-    {
-      id: Date.now().toString(),
-      name: 'Helena Brauer',
-      position: 'Designer',
-      photo: userU,
-      date: 'Yesterday at 12:39pm',
-      text: 'During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes',
-    },
-    {
-      id: Date.now().toString(),
-      name: 'Prescott MacCaffery',
-      position: 'Developer',
-      photo: userT,
-      date: 'Yesterday at 12:37pm',
-      text: '@Helena Software quality assurance activity in which one or several humans check a program mainly ',
-    },
-  ],
-};
+export interface TasksProps {
+  onTasksUpdate: (task: TaskType[]) => void;
+}
 
-function Tasks() {
+function Tasks({ onTasksUpdate }: TasksProps) {
   const [allTasks, setAllTasks] = useState<TaskType[]>(INITIAL_TASKS);
 
   const openTask = (updatedTask: TaskType) => {
@@ -330,6 +295,7 @@ function Tasks() {
     });
 
     setAllTasks(newTasks);
+    onTasksUpdate(newTasks);
   };
 
   return (

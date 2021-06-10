@@ -1,30 +1,32 @@
-import React from "react";
-import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
-import "./reset.css";
-import "./App.css";
-import {Sidebar} from "./Components/Sidebar";
-import {Header} from "./Components/Header";
-import {Tasks} from "./Components/Tasks";
-import arrowIcon from './Components/Files/img/searchIcon.svg';
-
-import {Files} from "./Components/Files";
-import { Task } from "./Components/Task";
-import {INITIAL_TASKS} from './Components/Tasks'
-
+import React, { useState } from 'react';
+import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
+import './reset.css';
+import './App.css';
+import { Sidebar } from './Components/Sidebar';
+import { Header } from './Components/Header';
+import { Tasks } from './Components/Tasks';
+import { Files } from './Components/Files';
+import { TaskType } from './Components/Task/types';
+import { INITIAL_TASKS } from './Components/Tasks';
 function App() {
+  const [allTasks, setAllTasks] = useState<TaskType[]>(INITIAL_TASKS);
+
+  const onTasksUpdate = (tasks: TaskType[]) => {
+    setAllTasks(tasks);
+  };
   return (
     <HashRouter>
-      <div className="wrapper">
+      <div className='wrapper'>
         <Sidebar />
         <div>
           <Header />
           <Switch>
-            <Redirect exact from="/" to="/tasks" />
-            <Route path="/tasks">
-              <Tasks />
+            <Redirect exact from='/' to='/tasks' />
+            <Route path='/tasks'>
+              <Tasks onTasksUpdate={onTasksUpdate} />
             </Route>
-            <Route path="/files">
-              <Files tasks={INITIAL_TASKS}/>
+            <Route path='/files'>
+              <Files tasks={allTasks} />
             </Route>
           </Switch>
         </div>
@@ -33,4 +35,4 @@ function App() {
   );
 }
 
-export default App;
+export { App };
