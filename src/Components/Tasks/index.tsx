@@ -124,7 +124,7 @@ export const INITIAL_TASKS: TaskType[] = [
         name: 'Helena Brauer',
         position: 'Designer',
         photo: userU,
-        date: 'Yesterday at 12:37pm',
+        date: 'Thu, 10 June, 11:31',
         text: 'During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes',
       },
       {
@@ -132,7 +132,7 @@ export const INITIAL_TASKS: TaskType[] = [
         name: 'Prescott MacCaffery',
         position: 'Developer',
         photo: userT,
-        date: 'Yesterday at 12:37pm',
+        date: 'Thu, 10 June, 11:31',
         text: '@Helena Software quality assurance activity in which one or several humans check a program mainly ',
       },
     ],

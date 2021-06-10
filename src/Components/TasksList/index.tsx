@@ -64,9 +64,21 @@ function TasksList({ content, onTaskClick, onTaskUpdate }: TasksListProps) {
                           alt={task.asignTo.name}
                           className='tasks__item-avatar'
                         />
-                        <span className='tasks__item-position'>
-                          {task.department}
-                        </span>
+                        {task.department == 'Developement' && (
+                          <span className='department department_developement'>
+                            {task.department}
+                          </span>
+                        )}
+                        {task.department == 'Marketing' && (
+                          <span className='department department_marketing'>
+                            {task.department}
+                          </span>
+                        )}
+                        {task.department == 'Design' && (
+                          <span className='department department_design'>
+                            {task.department}
+                          </span>
+                        )}
                       </a>
                     </div>
                   </li>

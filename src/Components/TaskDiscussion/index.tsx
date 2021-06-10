@@ -81,7 +81,6 @@ function TaskDiscussion({
           className='task__discussion-button'
           onClick={() => {
             createComment(comment, content);
-            console.log(comment);
           }}
         >
           Send
