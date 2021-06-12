@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import { TaskFilesType } from "../TaskFiles/types";
 import searchIcon from "./img/searchIcon.svg";
@@ -9,7 +9,37 @@ interface FilesProps {
   files: TaskFilesType[];
 }
 
+interface Sort {
+  sortBy: "name" | "size" | "date" | "uploadedBy";
+  sortType: "acs" | "desc";
+}
+
+const INITIAL_SORT: Sort = {
+  sortBy: "name",
+  sortType: "acs",
+};
+
 function Files({ files }: FilesProps) {
+  const [stateFiles, setStateFiles] = useState(files);
+  const [sort, setSort] = useState(INITIAL_SORT);
+
+  const handleSorting = (files: TaskFilesType[], sort: Sort): void => {
+    // @ts-ignore
+    const newFiles = files.sort((a, b) => {
+      return a.name > b.name;
+    });
+
+    console.log("newFiles", newFiles);
+  };
+
+  useEffect(() => {
+    handleSorting(stateFiles, sort);
+  }, [sort]);
+
+  const updateSortState = (newSort: Sort) => {
+    setSort(newSort);
+  };
+
   return (
     <div className="files">
       <table className="files__table">
@@ -18,10 +48,30 @@ function Files({ files }: FilesProps) {
             <th>Image</th>
             <th>
               <img src={searchIcon} alt="searchIcon" className="searchIcon" />
-              Name
+              <button
+                onClick={() => {
+                  updateSortState({
+                    sortBy: "name",
+                    sortType: sort.sortType === "acs" ? "desc" : "acs",
+                  });
+                }}
+              >
+                Name
+              </button>
             </th>
             <th>Size</th>
-            <th>Uploaded By</th>
+            <th>
+              <button
+                onClick={() => {
+                  updateSortState({
+                    sortBy: "uploadedBy",
+                    sortType: sort.sortType === "acs" ? "desc" : "acs",
+                  });
+                }}
+              >
+                Uploaded By
+              </button>
+            </th>
             <th>Date</th>
             <th>Tag</th>
             <th></th>
@@ -29,7 +79,7 @@ function Files({ files }: FilesProps) {
           </tr>
         </thead>
         <tbody>
-          {files.map((item) => {
+          {stateFiles.map((item) => {
             return (
               <tr key={`${item.uploadedBy}_${item.name}`}>
                 <td>
