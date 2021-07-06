@@ -28,8 +28,15 @@ function Files({ files }: FilesProps) {
     sort: Sort
   ): TaskFilesType[] => {
     const newFiles = files.sort((a, b) => {
-      const x = a[sort.sortBy].toString().toLowerCase();
-      const y = b[sort.sortBy].toString().toLowerCase();
+      const x =
+        typeof a[sort.sortBy] == "string"
+          ? a[sort.sortBy].toString().toLowerCase()
+          : a[sort.sortBy];
+
+      const y =
+        typeof b[sort.sortBy] === "string"
+          ? b[sort.sortBy].toString().toLowerCase()
+          : b[sort.sortBy];
 
       if (sort.sortType === "acs") {
         if (x < y) {
@@ -75,14 +82,38 @@ function Files({ files }: FilesProps) {
                 }}
               >
                 Name
-                {sort.sortType === "acs" ? (
-                  <img alt="arrowUp" src={arrowUp} className="arrow" />
-                ) : (
-                  <img alt="arrowDown" src={arrowIcon} className="arrow" />
+                {sort.sortBy === "name" && (
+                  <>
+                    {sort.sortType === "acs" ? (
+                      <img alt="arrowUp" src={arrowUp} className="arrow" />
+                    ) : (
+                      <img alt="arrowDown" src={arrowIcon} className="arrow" />
+                    )}
+                  </>
                 )}
               </button>
             </th>
-            <th>Size</th>
+            <th>
+              <button
+                onClick={() => {
+                  updateSortState({
+                    sortBy: "size",
+                    sortType: sort.sortType === "acs" ? "desc" : "acs",
+                  });
+                }}
+              >
+                Size
+                {sort.sortBy === "size" && (
+                  <>
+                    {sort.sortType === "acs" ? (
+                      <img alt="arrowUp" src={arrowUp} className="arrow" />
+                    ) : (
+                      <img alt="arrowDown" src={arrowIcon} className="arrow" />
+                    )}
+                  </>
+                )}
+              </button>
+            </th>
             <th>
               <button
                 onClick={() => {
@@ -94,10 +125,14 @@ function Files({ files }: FilesProps) {
                 className="test"
               >
                 Uploaded By
-                {sort.sortType === "acs" ? (
-                  <img alt="arrowUp" src={arrowUp} className="arrow" />
-                ) : (
-                  <img alt="arrowDown" src={arrowIcon} className="arrow" />
+                {sort.sortBy === "uploadedBy" && (
+                  <>
+                    {sort.sortType === "acs" ? (
+                      <img alt="arrowUp" src={arrowUp} className="arrow" />
+                    ) : (
+                      <img alt="arrowDown" src={arrowIcon} className="arrow" />
+                    )}
+                  </>
                 )}
               </button>
             </th>
