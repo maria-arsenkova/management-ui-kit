@@ -97,3 +97,7 @@
 .table__button:active {
   background: #cfcfcf;
 }
+
+.arrow {
+  margin-left: 5px;
+}

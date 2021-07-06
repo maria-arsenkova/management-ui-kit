@@ -19,11 +19,6 @@ import articleImage from '../TaskFiles/img/articleImage.svg';
 import headerPhoto from '../TaskFiles/img/headerPhoto.svg';
 import desingSource from '../TaskFiles/img/desingSource.svg';
 import improvements from '../TaskFiles/img/improvements.svg';
-import scrumIcon from '../TaskFiles/img/scrumIcon.svg';
-import wood from '../TaskFiles/img/wood.svg';
-import backgroundIcon from '../TaskFiles/img/backgroundIcon.svg';
-import dawn from '../TaskFiles/img/dawn.jpg';
-import city from '../TaskFiles/img/city.jpg';
 import icons from '../TaskFiles/img/icons.svg';
 import userT from '../TaskDiscussion/img/userT.png';
 import userU from '../TaskDiscussion/img/userU.png';
@@ -44,7 +39,7 @@ export const INITIAL_TASKS: TaskType[] = [
     discussions: [],
     files: [
       {
-        id: '0',
+        id: Date.now().toString(),
         preview: headerPhoto,
         name: 'Header Photo.jpg',
         size: 5.8,
@@ -53,30 +48,12 @@ export const INITIAL_TASKS: TaskType[] = [
         date: '01 Jan 2019',
       },
       {
-        id: '1',
+        id: Date.now().toString(),
         preview: improvements,
         name: 'Improvements. jpg',
         size: 290,
         sizeSign: 'KB',
         uploadedBy: 'Jacqueline Asong',
-        date: '17 Dec 2019',
-      },
-      {
-        id: '2',
-        preview: zipIcon,
-        name: 'All Use.zip',
-        size: 250,
-        sizeSign: 'KB',
-        uploadedBy: 'Emily Asong',
-        date: '17 Dec 2019',
-      },
-      {
-        id: '3',
-        preview: pdfIcon,
-        name: 'Photo Use.pdf',
-        size: 360,
-        sizeSign: 'KB',
-        uploadedBy: 'Emily Asong',
         date: '17 Dec 2019',
       },
     ],
@@ -105,7 +82,7 @@ export const INITIAL_TASKS: TaskType[] = [
       'Task Descriptions are used during project planning, project execution and project control. During project planning the task descriptions are used for scope planning and creating estimates. During project execution the task description is used by those doing the activities to ensure they are doing the work correctly.',
     files: [
       {
-        id: '0',
+        id: Date.now().toString(),
         preview: pdfIcon,
         name: 'Redesign Brief 2019.pdf',
         size: 159,
@@ -114,7 +91,7 @@ export const INITIAL_TASKS: TaskType[] = [
         date: '08 Jan 2019',
       },
       {
-        id: '1',
+        id: Date.now().toString(),
         preview: headerIcon,
         name: 'Header.png',
         size: 129,
@@ -123,7 +100,7 @@ export const INITIAL_TASKS: TaskType[] = [
         date: '08 Jan 2019',
       },
       {
-        id: '2',
+        id: Date.now().toString(),
         preview: articleImage,
         name: 'Article Image.jpg',
         size: 133.9,
@@ -132,7 +109,7 @@ export const INITIAL_TASKS: TaskType[] = [
         date: '20 Dec 2019',
       },
       {
-        id: '3',
+        id: Date.now().toString(),
         preview: desingSource,
         name: 'Desing Source.png',
         size: 432,
@@ -180,31 +157,13 @@ export const INITIAL_TASKS: TaskType[] = [
     discussions: [],
     files: [
       {
-        id: '0',
+        id: Date.now().toString(),
         preview: zipIcon,
         name: 'All Files.zip',
         size: 17,
         sizeSign: 'KB',
-        uploadedBy: 'Alfie Moore',
+        uploadedBy: 'Alfie Wood',
         date: '02 Jan 2019',
-      },
-      {
-        id: '1',
-        preview: scrumIcon,
-        name: 'Scrum.jpg',
-        size: 57.9,
-        sizeSign: 'MB',
-        uploadedBy: 'Matilda Evans',
-        date: '09 Dec 2019',
-      },
-      {
-        id: '2',
-        preview: pdfIcon,
-        name: 'Stakeholder.pdf',
-        size: 41.8,
-        sizeSign: 'MB',
-        uploadedBy: 'Sukhnam Chander',
-        date: '02 Dec 2019',
       },
     ],
   },
@@ -222,35 +181,7 @@ export const INITIAL_TASKS: TaskType[] = [
     dueOn: 'Tue, Apr 18',
     department: 'Design',
     discussions: [],
-    files: [
-      {
-        id: '0',
-        preview: city,
-        name: 'Сity.jpg',
-        size: 6.5,
-        sizeSign: 'MB',
-        uploadedBy: 'Eva Smith',
-        date: '04 Jan 2019',
-      },
-      {
-        id: '1',
-        preview: pdfIcon,
-        name: 'Сity.pdf',
-        size: 760,
-        sizeSign: 'KB',
-        uploadedBy: 'Ruby Adamson',
-        date: '18 Dec 2019',
-      },
-      {
-        id: '2',
-        preview: zipIcon,
-        name: 'Сity.zip',
-        size: 200,
-        sizeSign: 'KB',
-        uploadedBy: 'Chloe Johnson',
-        date: '19 Dec 2019',
-      },
-    ],
+    files: [],
   },
   {
     id: 5,
@@ -269,7 +200,7 @@ export const INITIAL_TASKS: TaskType[] = [
     discussions: [],
     files: [
       {
-        id: '0',
+        id: Date.now().toString(),
         preview: pdfIcon,
         name: 'Client Meeting.pdf',
         size: 119,
@@ -278,7 +209,7 @@ export const INITIAL_TASKS: TaskType[] = [
         date: '12 Dec 2019',
       },
       {
-        id: '1',
+        id: Date.now().toString(),
         preview: icons,
         name: 'Icons.png',
         size: 95,
@@ -287,22 +218,13 @@ export const INITIAL_TASKS: TaskType[] = [
         date: '07 Dec 2019',
       },
       {
-        id: '2',
+        id: Date.now().toString(),
         preview: articleImage,
         name: 'Article Image.jpg',
         size: 133.9,
         sizeSign: 'MB',
         uploadedBy: 'Homayoun Shakibaii',
         date: '20 Dec 2019',
-      },
-      {
-        id: '3',
-        preview: backgroundIcon,
-        name: 'Background.jpg',
-        size: 17.3,
-        sizeSign: 'MB',
-        uploadedBy: 'Wilhelm Dowall',
-        date: '01 Dec 2019',
       },
     ],
   },
@@ -320,49 +242,12 @@ export const INITIAL_TASKS: TaskType[] = [
     },
     dueOn: 'Tue, Apr 18',
     department: 'Design',
-    files: [
-      {
-        id: '0',
-        preview: wood,
-        name: 'Wood.jpg',
-        size: 4,
-        sizeSign: 'MB',
-        uploadedBy: 'Eva Sarasvati',
-        date: '03 Jan 2019',
-      },
-      {
-        id: '1',
-        preview: dawn,
-        name: 'Dawn.jpg',
-        size: 50,
-        sizeSign: 'MB',
-        uploadedBy: 'Isla Asong',
-        date: '17 Dec 2019',
-      },
-      {
-        id: '2',
-        preview: zipIcon,
-        name: 'Address.zip',
-        size: 250,
-        sizeSign: 'KB',
-        uploadedBy: 'Emily Asong',
-        date: '17 Dec 2019',
-      },
-      {
-        id: '3',
-        preview: pdfIcon,
-        name: 'Photo Use.pdf',
-        size: 360,
-        sizeSign: 'KB',
-        uploadedBy: 'Emily Asong',
-        date: '17 Dec 2019',
-      },
-    ],
     followers: [
       { avatar: userO, name: 'userO' },
       { avatar: userY, name: 'userY' },
     ],
     discussions: [],
+    files: [],
   },
 ];
 

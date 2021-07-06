@@ -15,7 +15,7 @@ export type TaskType = {
   department: string;
   followers?: TaskInfoBlockUsersType[];
   description?: string;
-  files?: TaskFilesType[];
+  files: TaskFilesType[];
   discussions: CommentType[];
   isDone: boolean;
   category: "todo" | "backlog";
