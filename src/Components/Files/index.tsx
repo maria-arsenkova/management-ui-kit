@@ -1,89 +1,84 @@
-import React, { useState, useEffect } from 'react';
-import './style.css';
-import { TaskFilesType } from '../TaskFiles/types';
-import searchIcon from './img/searchIcon.svg';
-import arrowIcon from './img/arrowIcon.svg';
-import downloadIcon from './img/downloadIcon.svg';
-import arrowUp from './img/arrowIcon rotated.svg';
+import React, { useState, useEffect } from "react";
+import "./style.css";
+import { TaskFilesType } from "../TaskFiles/types";
+import searchIcon from "./img/searchIcon.svg";
+import arrowIcon from "./img/arrowIcon.svg";
+import downloadIcon from "./img/downloadIcon.svg";
+import arrowUp from "./img/arrowIcon rotated.svg";
 
 interface FilesProps {
   files: TaskFilesType[];
 }
 
 interface Sort {
-  sortBy: 'name' | 'size' | 'date' | 'uploadedBy';
-  sortType: 'acs' | 'desc';
+  sortBy: "name" | "size" | "date" | "uploadedBy";
+  sortType: "acs" | "desc";
 }
 
 const INITIAL_SORT: Sort = {
-  sortBy: 'name',
-  sortType: 'acs',
+  sortBy: "name",
+  sortType: "acs",
 };
 
 function Files({ files }: FilesProps) {
-  const [stateFiles, setStateFiles] = useState(files);
   const [sort, setSort] = useState(INITIAL_SORT);
 
-  // console.log('stateFiles', stateFiles);
+  const handleSorting = (
+    files: TaskFilesType[],
+    sort: Sort
+  ): TaskFilesType[] => {
+    const newFiles = files.sort((a, b) => {
+      const x = a[sort.sortBy].toString().toLowerCase();
+      const y = b[sort.sortBy].toString().toLowerCase();
 
-  const handleSorting = (files: TaskFilesType[], sort: Sort): void => {
-    // @ts-ignore
-    if (sort.sortBy == 'name') {
-      if (sort.sortType == 'acs') {
-        // ↑
-       const newFiles =  stateFiles.sort((a, b) => {
-          var x = a.name.toLowerCase();
-          var y = b.name.toLowerCase();
-          if (x < y) {
-            return -1;
-          }
-          if (x > y) {
-            return 1;
-          }
-          return 0;
-        });
-        setStateFiles(newFiles);
+      if (sort.sortType === "acs") {
+        if (x < y) {
+          return -1;
+        }
+        if (x > y) {
+          return 1;
+        }
       } else {
-        // ↓
-        // stateFiles.reverse();
+        if (x > y) {
+          return -1;
+        }
+        if (x < y) {
+          return 1;
+        }
       }
-    }
-    if (sort.sortBy == 'uploadedBy') {
-      if (sort.sortType == 'acs') {
-        console.log('uploadedBy');
-      }
-    }
+      return 0;
+    });
+
+    return newFiles;
   };
 
-  useEffect(() => {
-    handleSorting(stateFiles, sort);
-  }, [sort]);
+  const filteredFiles = handleSorting(files, sort);
 
   const updateSortState = (newSort: Sort) => {
     setSort(newSort);
   };
 
   return (
-    <div className='files'>
-      <table className='files__table'>
+    <div className="files">
+      <table className="files__table">
         <thead>
           <tr>
             <th>Image</th>
             <th>
-              <img src={searchIcon} alt='searchIcon' className='searchIcon' />
+              <img src={searchIcon} alt="searchIcon" className="searchIcon" />
               <button
                 onClick={() => {
                   updateSortState({
-                    sortBy: 'name',
-                    sortType: sort.sortType === 'acs' ? 'desc' : 'acs',
+                    sortBy: "name",
+                    sortType: sort.sortType === "acs" ? "desc" : "acs",
                   });
                 }}
               >
                 Name
-                {sort.sortType === 'acs' ? (
-                  <img alt='arrowUp' src={arrowUp} className='arrow' />
+                {sort.sortType === "acs" ? (
+                  <img alt="arrowUp" src={arrowUp} className="arrow" />
                 ) : (
-                  <img alt='arrowDown' src={arrowIcon} className='arrow' />
+                  <img alt="arrowDown" src={arrowIcon} className="arrow" />
                 )}
               </button>
             </th>
@@ -92,17 +87,17 @@ function Files({ files }: FilesProps) {
               <button
                 onClick={() => {
                   updateSortState({
-                    sortBy: 'uploadedBy',
-                    sortType: sort.sortType === 'acs' ? 'desc' : 'acs',
+                    sortBy: "uploadedBy",
+                    sortType: sort.sortType === "acs" ? "desc" : "acs",
                   });
                 }}
-                className='test'
+                className="test"
               >
                 Uploaded By
-                {sort.sortType === 'acs' ? (
-                  <img alt='arrowUp' src={arrowUp} className='arrow' />
+                {sort.sortType === "acs" ? (
+                  <img alt="arrowUp" src={arrowUp} className="arrow" />
                 ) : (
-                  <img alt='arrowDown' src={arrowIcon} className='arrow' />
+                  <img alt="arrowDown" src={arrowIcon} className="arrow" />
                 )}
               </button>
             </th>
@@ -113,12 +108,12 @@ function Files({ files }: FilesProps) {
           </tr>
         </thead>
         <tbody>
-          {stateFiles.map((item) => {
+          {filteredFiles.map((item) => {
             return (
               <tr key={`${item.uploadedBy}_${item.name}`}>
                 <td>
                   <img
-                    className='table__img'
+                    className="table__img"
                     src={item.preview}
                     alt={item.name}
                     key={`${item.preview}_${item.name}`}
@@ -132,20 +127,20 @@ function Files({ files }: FilesProps) {
                 <td>{item.date}</td>
                 <td></td>
                 <td>
-                  <button className='table__button'>
-                    Actions{' '}
+                  <button className="table__button">
+                    Actions{" "}
                     <img
                       src={arrowIcon}
-                      alt='arrowIcon'
+                      alt="arrowIcon"
                       key={`${arrowIcon}_${item.name}`}
                     />
                   </button>
                 </td>
                 <td>
-                  <a target='_blank' href={item.preview} download>
+                  <a target="_blank" href={item.preview} download>
                     <img
                       src={downloadIcon}
-                      alt='downloadIcon'
+                      alt="downloadIcon"
                       key={`${downloadIcon}_${item.name}`}
                     />
                   </a>
