@@ -12,9 +12,15 @@ interface TasksListProps {
   content: TasksListType[];
   onTaskClick: (task: TaskType) => void;
   onTaskUpdate: (task: TaskType) => void;
+  onCreateTaskClick: () => void;
 }
 
-function TasksList({ content, onTaskClick, onTaskUpdate }: TasksListProps) {
+function TasksList({
+  content,
+  onTaskClick,
+  onTaskUpdate,
+  onCreateTaskClick,
+}: TasksListProps) {
   return (
     <div>
       {content.map((list) => {
@@ -22,7 +28,11 @@ function TasksList({ content, onTaskClick, onTaskUpdate }: TasksListProps) {
           <ul className='tasks__list' key={list.name}>
             <li className='tasks__title'>
               <span className='tasks__title-text'>{list.name}</span>
-              <button type='button' className='tasks__add-task'>
+              <button
+                type='button'
+                className='tasks__add-task'
+                onClick={onCreateTaskClick}
+              >
                 + Add Task
               </button>
             </li>
