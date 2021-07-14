@@ -316,7 +316,7 @@ function Tasks({ onTasksUpdate }: TasksProps) {
             onTaskUpdate={onTaskUpdate}
             onCreateTaskClick={handleModalClick}
           />
-          {isShowModal && <Modal onCreateTaskClick={handleModalClick}/>}
+          {isShowModal && <Modal onCreateTaskClick={handleModalClick} tasks={INITIAL_TASKS} />}
           <TasksList
             content={toDo}
             onTaskClick={openTask}
@@ -325,7 +325,7 @@ function Tasks({ onTasksUpdate }: TasksProps) {
           />
         </div>
       </div>
-      {openedTask && <Task task={openedTask} onTaskChanged={onTaskUpdate} />}
+      {openedTask && <Task task={openedTask} onTaskChanged={onTaskUpdate}/>}
     </div>
   );
 }

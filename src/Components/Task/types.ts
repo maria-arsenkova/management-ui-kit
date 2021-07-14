@@ -6,7 +6,7 @@ import {
 import { TaskFilesType } from "../TaskFiles/types";
 
 export type TaskType = {
-  id: number;
+  id: number|string;
   title: string;
   createdAt: string;
   assigner: string;
