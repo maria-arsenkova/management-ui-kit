@@ -22,60 +22,21 @@ const Modal = ({ onCreateTaskClick, tasks }: modalProps) => {
   };
 
   const newTask: TaskType = {
-    id: Date.now().toString(),
-    title: taskTitle,
-    createdAt: '',
-    assigner: '',
-    //как сделать его тут
-    asignTo: {
-      avatar: close,
-      name: 'test',
-    },
-    dueOn: '',
-    department: '',
-    followers: [],
+    ...tasks[0],
+    title:taskTitle,
     description: taskDescription,
-    files: [],
-    discussions: [],
-    isDone: false,
-    //как настроить предопределение
-    category: 'todo',
-  };
+  }
+
 
   // const createTaskTest = (newTask: TaskType, allTask: TaskType[]): void => {
   //   const newTasks = [newTask, ...allTask];
   //   console.log(newTasks);
   // }
 
-  const createTask = (): void => {
+  const createTask = async(): Promise <void> => {
     const firestore = firebase.firestore();
-    const docRef = firestore.doc('tasks/task');
-    docRef
-      .set({
-        id: Date.now().toString(),
-        title: taskTitle,
-        createdAt: '',
-        assigner: '',
-        //как сделать его тут
-        asignTo: {
-          avatar: close,
-          name: 'test',
-        },
-        dueOn: '',
-        department: '',
-        followers: [],
-        description: taskDescription,
-        files: [],
-        discussions: [],
-        isDone: false,
-        category: 'todo',
-      })
-      .then(() => {
-        console.log('Document successfully written!');
-      })
-      .catch((error) => {
-        console.error('Error writing document: ', error);
-      });
+    const document = await firestore.collection('tasks').add(newTask);
+    console.log(document);
   };
 
   return (
