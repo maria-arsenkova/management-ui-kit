@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 import { TasksList, TasksListType } from '../TasksList';
 import userOne from '../TasksList/img/userOne.png';
@@ -328,13 +328,35 @@ function Tasks({ onTasksUpdate }: TasksProps) {
   const createTask = async (): Promise<void> => {
     const firestore = firebase.firestore();
     const document = await firestore.collection('tasks').add(newTask);
-    console.log(document);
+  };
+
+  //забл на тип TaskType[]
+  //push заменить на десрукт.
+  //проблема с ключами
+  //по клику на «Create Task» в «Modal»
+
+  const updateTasks = async (): Promise<void> => {
+    const allTasks: any = [];
+    const firestore = firebase.firestore();
+    const document = firestore.collection('tasks');
+    const snapshot = await document.get();
+    snapshot.forEach((doc) => {
+      allTasks.push({ ...doc.data() });
+    });
+    setAllTasks(allTasks);
   };
 
   return (
     <div className='tasks'>
       <div className='tasks__scrollBar'>
         <div className='tasks__group'>
+          <p
+            onClick={() => {
+              updateTasks();
+            }}
+          >
+            TEST
+          </p>
           <TasksList
             content={backlog}
             onTaskClick={openTask}
@@ -375,7 +397,15 @@ function Tasks({ onTasksUpdate }: TasksProps) {
                   ></textarea>
                 </div>
               </div>
-              <button className='modal__create-task' onClick={createTask}>
+              <button
+                className='modal__create-task'
+                //Пересмотреть
+                onClick={function (event) {
+                  createTask();
+                  updateTasks();
+                  handleModalClick();
+                }}
+              >
                 Create Task
               </button>
             </Modal>
