@@ -1,27 +1,42 @@
-import React, { useState, useEffect } from "react";
-import "./style.css";
-import { TaskFilesType } from "../TaskFiles/types";
-import searchIcon from "./img/searchIcon.svg";
-import arrowIcon from "./img/arrowIcon.svg";
-import downloadIcon from "./img/downloadIcon.svg";
-import arrowUp from "./img/arrowIcon rotated.svg";
+import React, { useState, useEffect } from 'react';
+import './style.css';
+import { TaskFilesType } from '../TaskFiles/types';
+import searchIcon from './img/searchIcon.svg';
+import arrowIcon from './img/arrowIcon.svg';
+import downloadIcon from './img/downloadIcon.svg';
+import arrowUp from './img/arrowIcon rotated.svg';
+import { getTasks } from '../../services/tasks';
 
 interface FilesProps {
   files: TaskFilesType[];
 }
 
 interface Sort {
-  sortBy: "name" | "size" | "date" | "uploadedBy";
-  sortType: "acs" | "desc";
+  sortBy: 'name' | 'size' | 'date' | 'uploadedBy';
+  sortType: 'acs' | 'desc';
 }
 
 const INITIAL_SORT: Sort = {
-  sortBy: "name",
-  sortType: "acs",
+  sortBy: 'name',
+  sortType: 'acs',
 };
 
-function Files({ files }: FilesProps) {
+function Files() {
   const [sort, setSort] = useState(INITIAL_SORT);
+  const [files, setFiles] = useState<TaskFilesType[]>([]);
+
+  const getFiles = async () => {
+    const allTasks = await getTasks();
+    const allFiles: TaskFilesType[] = allTasks
+      .map((task) => task?.files)
+      .flat()
+      .filter((file) => file);
+    setFiles(allFiles);
+  };
+
+  useEffect(() => {
+    getFiles();
+  }, []);
 
   const handleSorting = (
     files: TaskFilesType[],
@@ -29,16 +44,16 @@ function Files({ files }: FilesProps) {
   ): TaskFilesType[] => {
     const newFiles = files.sort((a, b) => {
       const x =
-        typeof a[sort.sortBy] == "string"
+        typeof a[sort.sortBy] == 'string'
           ? a[sort.sortBy].toString().toLowerCase()
           : a[sort.sortBy];
 
       const y =
-        typeof b[sort.sortBy] === "string"
+        typeof b[sort.sortBy] === 'string'
           ? b[sort.sortBy].toString().toLowerCase()
           : b[sort.sortBy];
 
-      if (sort.sortType === "acs") {
+      if (sort.sortType === 'acs') {
         if (x < y) {
           return -1;
         }
@@ -66,28 +81,28 @@ function Files({ files }: FilesProps) {
   };
 
   return (
-    <div className="files">
-      <table className="files__table">
+    <div className='files'>
+      <table className='files__table'>
         <thead>
           <tr>
             <th>Image</th>
             <th>
-              <img src={searchIcon} alt="searchIcon" className="searchIcon" />
+              <img src={searchIcon} alt='searchIcon' className='searchIcon' />
               <button
                 onClick={() => {
                   updateSortState({
-                    sortBy: "name",
-                    sortType: sort.sortType === "acs" ? "desc" : "acs",
+                    sortBy: 'name',
+                    sortType: sort.sortType === 'acs' ? 'desc' : 'acs',
                   });
                 }}
               >
                 Name
-                {sort.sortBy === "name" && (
+                {sort.sortBy === 'name' && (
                   <>
-                    {sort.sortType === "acs" ? (
-                      <img alt="arrowUp" src={arrowUp} className="arrow" />
+                    {sort.sortType === 'acs' ? (
+                      <img alt='arrowUp' src={arrowUp} className='arrow' />
                     ) : (
-                      <img alt="arrowDown" src={arrowIcon} className="arrow" />
+                      <img alt='arrowDown' src={arrowIcon} className='arrow' />
                     )}
                   </>
                 )}
@@ -97,18 +112,18 @@ function Files({ files }: FilesProps) {
               <button
                 onClick={() => {
                   updateSortState({
-                    sortBy: "size",
-                    sortType: sort.sortType === "acs" ? "desc" : "acs",
+                    sortBy: 'size',
+                    sortType: sort.sortType === 'acs' ? 'desc' : 'acs',
                   });
                 }}
               >
                 Size
-                {sort.sortBy === "size" && (
+                {sort.sortBy === 'size' && (
                   <>
-                    {sort.sortType === "acs" ? (
-                      <img alt="arrowUp" src={arrowUp} className="arrow" />
+                    {sort.sortType === 'acs' ? (
+                      <img alt='arrowUp' src={arrowUp} className='arrow' />
                     ) : (
-                      <img alt="arrowDown" src={arrowIcon} className="arrow" />
+                      <img alt='arrowDown' src={arrowIcon} className='arrow' />
                     )}
                   </>
                 )}
@@ -118,19 +133,19 @@ function Files({ files }: FilesProps) {
               <button
                 onClick={() => {
                   updateSortState({
-                    sortBy: "uploadedBy",
-                    sortType: sort.sortType === "acs" ? "desc" : "acs",
+                    sortBy: 'uploadedBy',
+                    sortType: sort.sortType === 'acs' ? 'desc' : 'acs',
                   });
                 }}
-                className="test"
+                className='test'
               >
                 Uploaded By
-                {sort.sortBy === "uploadedBy" && (
+                {sort.sortBy === 'uploadedBy' && (
                   <>
-                    {sort.sortType === "acs" ? (
-                      <img alt="arrowUp" src={arrowUp} className="arrow" />
+                    {sort.sortType === 'acs' ? (
+                      <img alt='arrowUp' src={arrowUp} className='arrow' />
                     ) : (
-                      <img alt="arrowDown" src={arrowIcon} className="arrow" />
+                      <img alt='arrowDown' src={arrowIcon} className='arrow' />
                     )}
                   </>
                 )}
@@ -148,7 +163,7 @@ function Files({ files }: FilesProps) {
               <tr key={`${item.uploadedBy}_${item.name}`}>
                 <td>
                   <img
-                    className="table__img"
+                    className='table__img'
                     src={item.preview}
                     alt={item.name}
                     key={`${item.preview}_${item.name}`}
@@ -162,20 +177,20 @@ function Files({ files }: FilesProps) {
                 <td>{item.date}</td>
                 <td></td>
                 <td>
-                  <button className="table__button">
-                    Actions{" "}
+                  <button className='table__button'>
+                    Actions{' '}
                     <img
                       src={arrowIcon}
-                      alt="arrowIcon"
+                      alt='arrowIcon'
                       key={`${arrowIcon}_${item.name}`}
                     />
                   </button>
                 </td>
                 <td>
-                  <a target="_blank" href={item.preview} download>
+                  <a target='_blank' href={item.preview} download>
                     <img
                       src={downloadIcon}
-                      alt="downloadIcon"
+                      alt='downloadIcon'
                       key={`${downloadIcon}_${item.name}`}
                     />
                   </a>

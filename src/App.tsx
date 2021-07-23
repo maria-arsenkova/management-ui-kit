@@ -16,10 +16,7 @@ function App() {
     setAllTasks(tasks);
   };
 
-  const allFiles: TaskFilesType[] = allTasks
-    .map((task) => task?.files)
-    .flat()
-    .filter((file) => file);
+ 
 
   return (
     <HashRouter>
@@ -33,7 +30,7 @@ function App() {
               <Tasks onTasksUpdate={onTasksUpdate} />
             </Route>
             <Route path="/files">
-              <Files files={allFiles} />
+              <Files />
             </Route>
           </Switch>
         </div>

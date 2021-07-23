@@ -25,6 +25,7 @@ import userU from '../TaskDiscussion/img/userU.png';
 import { Modal } from '../Modal';
 import close from '../Modal/img/close.svg';
 import firebase from '../../services/firebase';
+import {getTasks} from '../../services/tasks'
 
 export const INITIAL_TASKS: TaskType[] = [
   {
@@ -259,8 +260,12 @@ export interface TasksProps {
 }
 
 function Tasks({ onTasksUpdate }: TasksProps) {
-  const [allTasks, setAllTasks] = useState<TaskType[]>(INITIAL_TASKS);
+  const [allTasks, setAllTasks] = useState<TaskType[]>([]);
   const [isShowModal, setShowModal] = useState<boolean>(false);
+
+  useEffect(() => {
+    updateTasks();
+  }, [])
 
   const handleModalClick = (): void => {
     setShowModal(!isShowModal);
@@ -330,19 +335,8 @@ function Tasks({ onTasksUpdate }: TasksProps) {
     const document = await firestore.collection('tasks').add(newTask);
   };
 
-  //забл на тип TaskType[]
-  //push заменить на десрукт.
-  //проблема с ключами
-  //по клику на «Create Task» в «Modal»
-
   const updateTasks = async (): Promise<void> => {
-    const allTasks: any = [];
-    const firestore = firebase.firestore();
-    const document = firestore.collection('tasks');
-    const snapshot = await document.get();
-    snapshot.forEach((doc) => {
-      allTasks.push({ ...doc.data() });
-    });
+    const allTasks = await getTasks();
     setAllTasks(allTasks);
   };
 
@@ -350,13 +344,6 @@ function Tasks({ onTasksUpdate }: TasksProps) {
     <div className='tasks'>
       <div className='tasks__scrollBar'>
         <div className='tasks__group'>
-          <p
-            onClick={() => {
-              updateTasks();
-            }}
-          >
-            TEST
-          </p>
           <TasksList
             content={backlog}
             onTaskClick={openTask}
