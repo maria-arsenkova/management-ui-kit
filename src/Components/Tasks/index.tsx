@@ -25,7 +25,7 @@ import userU from '../TaskDiscussion/img/userU.png';
 import { Modal } from '../Modal';
 import close from '../Modal/img/close.svg';
 import firebase from '../../services/firebase';
-import {getTasks} from '../../services/tasks'
+import { getTasks } from '../../services/tasks';
 
 export const INITIAL_TASKS: TaskType[] = [
   {
@@ -255,17 +255,13 @@ export const INITIAL_TASKS: TaskType[] = [
   },
 ];
 
-export interface TasksProps {
-  onTasksUpdate: (task: TaskType[]) => void;
-}
-
-function Tasks({ onTasksUpdate }: TasksProps) {
+function Tasks() {
   const [allTasks, setAllTasks] = useState<TaskType[]>([]);
   const [isShowModal, setShowModal] = useState<boolean>(false);
 
   useEffect(() => {
     updateTasks();
-  }, [])
+  }, []);
 
   const handleModalClick = (): void => {
     setShowModal(!isShowModal);
@@ -310,7 +306,6 @@ function Tasks({ onTasksUpdate }: TasksProps) {
     });
 
     setAllTasks(newTasks);
-    onTasksUpdate(newTasks);
   };
 
   const [taskTitle, setTitle] = useState<string>('');
@@ -386,7 +381,6 @@ function Tasks({ onTasksUpdate }: TasksProps) {
               </div>
               <button
                 className='modal__create-task'
-                //Пересмотреть
                 onClick={function (event) {
                   createTask();
                   updateTasks();

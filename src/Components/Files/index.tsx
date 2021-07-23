@@ -7,10 +7,6 @@ import downloadIcon from './img/downloadIcon.svg';
 import arrowUp from './img/arrowIcon rotated.svg';
 import { getTasks } from '../../services/tasks';
 
-interface FilesProps {
-  files: TaskFilesType[];
-}
-
 interface Sort {
   sortBy: 'name' | 'size' | 'date' | 'uploadedBy';
   sortType: 'acs' | 'desc';
