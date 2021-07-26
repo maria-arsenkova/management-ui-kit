@@ -10,6 +10,9 @@ import { TaskFiles } from '../TaskFiles';
 import { user } from '../Sidebar';
 import { TaskType } from './types';
 import { CommentType } from '../Comment/types';
+import firebase from '../../services/firebase';
+import headerPhoto from '../TaskFiles/img/headerPhoto.svg';
+import { TaskFilesType } from '../TaskFiles/types';
 
 export interface TaskProps {
   task: TaskType;
@@ -30,6 +33,35 @@ function Task({ task, onTaskChanged }: TaskProps) {
     onTaskChanged(newTask);
   };
 
+  // const newFileTest = (img: string) => {
+  //   console.log(img);
+  // };
+
+  // const fileChangedHandler = (event: any) => {
+  //   let file_size = event.target.files[0].size;
+
+  //   //or if you like to have name and type
+  //   let file_name = event.target.files[0].name;
+  //   let file_type = event.target.files[0].type;
+  //   //do whatever operation you want to do here
+  // };
+
+  // const getTasks = async (): Promise<void> => {
+  //   const firestore = firebase.firestore();
+  //   const document = firestore.collection('tasks');
+  //   const snapshot = await document.doc('x1HVmLYAAaGDS4XCe9xT').update({
+  //     files: firebase.firestore.FieldValue.arrayUnion({
+  //       id: Date.now().toString(),
+  //       preview: headerPhoto,
+  //       name: 'Improvements. jpg',
+  //       size: 290,
+  //       sizeSign: 'KB',
+  //       uploadedBy: 'Jacqueline Asong',
+  //       date: '17 Dec 2019',
+  //     }),
+  //   });
+  // };
+
   return (
     <div className='task'>
       <TaskHeader
@@ -47,6 +79,14 @@ function Task({ task, onTaskChanged }: TaskProps) {
         <TaskInfoBlock title={'Followers'} users={task.followers} />
       </div>
       <TaskDescription text={task.description} />
+      
+      {/* <button onClick={getTasks}>ТЕСТ</button>
+      <input type='file' onChange={fileChangedHandler(event)}></input>
+      <button type='submit' onClick={getTasks}>
+        Upload Image
+      </button> */}
+
+
       {task.files && (
         <div className='task__files'>
           {task.files.map((item) => {

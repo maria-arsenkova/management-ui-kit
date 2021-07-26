@@ -7,4 +7,3 @@ export type TaskFilesType = {
     uploadedBy: string;
     date: string;
 }
-

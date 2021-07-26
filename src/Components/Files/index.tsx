@@ -6,6 +6,7 @@ import arrowIcon from './img/arrowIcon.svg';
 import downloadIcon from './img/downloadIcon.svg';
 import arrowUp from './img/arrowIcon rotated.svg';
 import { getTasks } from '../../services/tasks';
+import preview from '../TaskFiles/img/improvements.svg';
 
 interface Sort {
   sortBy: 'name' | 'size' | 'date' | 'uploadedBy';
@@ -91,6 +92,7 @@ function Files() {
                     sortType: sort.sortType === 'acs' ? 'desc' : 'acs',
                   });
                 }}
+                className='sort-button'
               >
                 Name
                 {sort.sortBy === 'name' && (
@@ -112,6 +114,7 @@ function Files() {
                     sortType: sort.sortType === 'acs' ? 'desc' : 'acs',
                   });
                 }}
+                className='sort-button'
               >
                 Size
                 {sort.sortBy === 'size' && (
@@ -133,7 +136,7 @@ function Files() {
                     sortType: sort.sortType === 'acs' ? 'desc' : 'acs',
                   });
                 }}
-                className='test'
+                className='sort-button'
               >
                 Uploaded By
                 {sort.sortBy === 'uploadedBy' && (
@@ -196,7 +199,7 @@ function Files() {
           })}
         </tbody>
       </table>
-    </div>
+      </div>
   );
 }
 

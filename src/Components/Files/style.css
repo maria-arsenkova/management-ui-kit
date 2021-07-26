@@ -101,3 +101,14 @@
 .arrow {
   margin-left: 5px;
 }
+
+.sort-button {
+  border: none;
+  background: transparent;
+  padding: 0%;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  color: #131313;
+}
