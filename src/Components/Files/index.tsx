@@ -20,7 +20,7 @@ const INITIAL_SORT: Sort = {
 function Files() {
   const [sort, setSort] = useState(INITIAL_SORT);
   const [files, setFiles] = useState<TaskFilesType[]>([]);
-
+  
   const getFiles = async () => {
     const allTasks = await getTasks();
     const allFiles: TaskFilesType[] = allTasks
@@ -158,7 +158,7 @@ function Files() {
         <tbody>
           {filteredFiles.map((item) => {
             return (
-              <tr key={`${item.uploadedBy}_${item.name}`}>
+              <tr key={`${item.id}_${item.name}`}>
                 <td>
                   <img
                     className='table__img'
