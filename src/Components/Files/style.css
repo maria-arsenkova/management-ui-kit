@@ -112,3 +112,8 @@
   line-height: 21px;
   color: #131313;
 }
+
+.up {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}

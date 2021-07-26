@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './style.css';
 import { TaskFilesType } from '../TaskFiles/types';
 import searchIcon from './img/searchIcon.svg';
-import arrowIcon from './img/arrowIcon.svg';
+import arrow from './img/arrow.svg';
 import downloadIcon from './img/downloadIcon.svg';
-import arrowUp from './img/arrowIcon rotated.svg';
 import { getTasks } from '../../services/tasks';
 import preview from '../TaskFiles/img/improvements.svg';
 
@@ -98,9 +97,9 @@ function Files() {
                 {sort.sortBy === 'name' && (
                   <>
                     {sort.sortType === 'acs' ? (
-                      <img alt='arrowUp' src={arrowUp} className='arrow' />
+                      <img alt='arrowUp' src={arrow} className='arrow up' />
                     ) : (
-                      <img alt='arrowDown' src={arrowIcon} className='arrow' />
+                      <img alt='arrowDown' src={arrow} className='arrow' />
                     )}
                   </>
                 )}
@@ -120,9 +119,9 @@ function Files() {
                 {sort.sortBy === 'size' && (
                   <>
                     {sort.sortType === 'acs' ? (
-                      <img alt='arrowUp' src={arrowUp} className='arrow' />
+                      <img alt='arrowUp' src={arrow} className='arrow up' />
                     ) : (
-                      <img alt='arrowDown' src={arrowIcon} className='arrow' />
+                      <img alt='arrowDown' src={arrow} className='arrow' />
                     )}
                   </>
                 )}
@@ -142,9 +141,9 @@ function Files() {
                 {sort.sortBy === 'uploadedBy' && (
                   <>
                     {sort.sortType === 'acs' ? (
-                      <img alt='arrowUp' src={arrowUp} className='arrow' />
+                      <img alt='arrowUp' src={arrow} className='arrow up' />
                     ) : (
-                      <img alt='arrowDown' src={arrowIcon} className='arrow' />
+                      <img alt='arrowDown' src={arrow} className='arrow' />
                     )}
                   </>
                 )}
@@ -179,9 +178,9 @@ function Files() {
                   <button className='table__button'>
                     Actions{' '}
                     <img
-                      src={arrowIcon}
-                      alt='arrowIcon'
-                      key={`${arrowIcon}_${item.name}`}
+                      src={arrow}
+                      alt='arrow'
+                      key={`${arrow}_${item.name}`}
                     />
                   </button>
                 </td>
@@ -199,7 +198,7 @@ function Files() {
           })}
         </tbody>
       </table>
-      </div>
+    </div>
   );
 }
 
