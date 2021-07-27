@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import chat from './img/chat.png';
+import chat from './img/chat.svg';
 
 export type MembersType = {
   name: string;
@@ -18,7 +18,7 @@ function Members({ members }: MembersProms) {
         {members.map((member) => {
           return (
             member?.avatar && (
-              <a href='/' className='members__link'>
+              <a href='/' className='members__link' key={`${member.name}`}>
                 <img
                   className='members__avatar'
                   key={`${member.avatar}_${member.name}`}
@@ -43,4 +43,4 @@ function Members({ members }: MembersProms) {
   );
 }
 
-export default Members;
+export { Members };

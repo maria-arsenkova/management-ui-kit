@@ -1,17 +1,15 @@
 .comment {
   position: relative;
-  height: 112px;
   margin-bottom: 20px;
+  padding-left: 24px;
 }
 
 .comment__body {
   height: 112px;
   border-radius: 10px;
   background: #f7f6f3;
-  padding: 20px 20px 20px 0px;
+  padding: 20px 20px 20px 40px;
   margin-bottom: 20px;
-  padding-left: 40px;
-  position: absolute;
   left: 4.17%;
   right: 0;
   top: 0;
@@ -22,7 +20,6 @@
   border-radius: 50px;
   width: 48px;
   height: 48px;
-  margin-right: 10px;
   position: absolute;
   left: 0;
   right: 91.65%;

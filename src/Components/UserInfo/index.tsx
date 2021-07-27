@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 import { UserType } from './types';
-import circle from './img/circle.png';
+import circle from './img/circle.svg';
 
 interface UserInfoProps {
   user: UserType;
@@ -26,4 +26,4 @@ function UserInfo({ user }: UserInfoProps) {
   );
 }
 
-export default UserInfo;
+export { UserInfo };

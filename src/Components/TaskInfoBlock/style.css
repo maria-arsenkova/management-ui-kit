@@ -42,12 +42,24 @@
   height: 20px;
   width: 112px;
   padding: 4px 10px 4px 10px;
-  background: #f5f0ff;
   border-radius: 10.5px;
   text-decoration: none;
   font-weight: bold;
   font-size: 12px;
   line-height: 20px;
   text-transform: uppercase;
+}
+.department_developement {
+  background: #fff1e2;
+  color: #ed6400;
+}
+
+.department_marketing {
+  background: #f5f0ff;
   color: #764ced;
+}
+
+.department_design {
+  background: #e3efff;
+  color: #1975d0;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
-import logoWeb from './img/logoWeb.png';
-import circle from './img/circle.png';
+import logoWeb from './img/logoWeb.svg';
+import circle from './img/circle.svg';
 
 function HeaderLogo() {
   return (
@@ -17,4 +17,4 @@ function HeaderLogo() {
   );
 }
 
-export default HeaderLogo;
+export { HeaderLogo };

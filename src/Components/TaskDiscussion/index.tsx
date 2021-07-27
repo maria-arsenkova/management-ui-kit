@@ -14,24 +14,29 @@ export interface TaskDiscussionsProps {
 
 function TaskDiscussion({
   user,
-  task,
   content,
   onCommentCreated,
 }: TaskDiscussionsProps) {
   const [comment, setComment] = useState<CommentType>({
+    id: '',
     text: '',
-    date: new Date().toLocaleString(),
+    date: '',
     name: user.initials,
     photo: user.avatar,
     position: user.position,
   });
 
-  const handleComment = (newComment: string): void => {
+  const handleComment = (
+    newComment: string,
+    newId: string,
+    newDate: string
+  ): void => {
     setComment({
+      id: newId,
       text: newComment,
       name: comment.name,
       photo: comment.photo,
-      date: comment.date,
+      date: newDate,
       position: comment.position,
     });
   };
@@ -57,7 +62,20 @@ function TaskDiscussion({
           type='text'
           placeholder='Add a comment…'
           className='comment__add-text'
-          onChange={(event) => handleComment(event.target.value)}
+          onChange={(event) =>
+            handleComment(
+              event.target.value,
+              Date.now().toString(),
+              new Date().toLocaleDateString('en-GB', {
+                weekday: 'short',
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                // second: 'numeric',
+              })
+            )
+          }
         />
         <button
           className='task__discussion-button'
@@ -73,11 +91,15 @@ function TaskDiscussion({
           {content.map((item) => {
             return (
               <Comment
+                id={item.id}
                 name={item.name}
                 position={item.position}
                 photo={item.photo}
                 date={item.date}
                 text={item.text}
+                //когда один и тот же текст — сбой с ключами — они дублируются  (к примеру отправить два раза один и тот-же текст)
+                //onChange — когда изменяем форму, обновляет хук, а когда на баттон то публикует, если текст один и тот-же то хук не обновляется (к примеру отправить два раза один и тот-же текст)
+                key={item.id}
               />
             );
           })}

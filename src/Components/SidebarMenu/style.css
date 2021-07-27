@@ -8,6 +8,9 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
+.sidebar__menu-item:not(:first-child) {
+  cursor: pointer;
+}
 
 .sidebar__menu-item:not(:first-child):hover {
   border-left: 5px solid #ffc200;

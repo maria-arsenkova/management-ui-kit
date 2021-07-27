@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
-import list from './img/list.png';
-import search from './img/search.png';
+import list from './img/list.svg';
+import search from './img/search.svg';
 
 function Brand() {
   return (
@@ -17,4 +17,4 @@ function Brand() {
   );
 }
 
-export default Brand;
+export { Brand };

@@ -16,7 +16,7 @@ function Stats({ tasks }: StatsProps) {
       {tasks.map((task) => {
         return (
           task?.counter && (
-            <div>
+            <div key={`${task.counter}_${task.name}`}>
               <div className='stats__counter'>{task.counter}</div>
               <div className='stats__name'>{task.name}</div>
             </div>
@@ -27,4 +27,4 @@ function Stats({ tasks }: StatsProps) {
   );
 }
 
-export default Stats;
+export { Stats };

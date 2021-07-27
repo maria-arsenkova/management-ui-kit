@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 import { CommentType } from './types';
 
-function Comment({ name, photo, date, text, position }: CommentType) {
+function Comment({ name, photo, date, text, position}: CommentType) {
   return (
     <div className='comment'>
       <img src={photo} alt={name} className='comment__author-photo' />

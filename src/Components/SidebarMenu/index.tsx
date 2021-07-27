@@ -23,13 +23,11 @@ function SidebarMenu({ content, titel }: SidebarMenuProps) {
     <div className='sidebar__menu'>
       <ul>
         <li className='sidebar__menu-item'>
-          <a href='/' className='sidebar__menu-title'>
-            {titel}
-          </a>
+          <p className='sidebar__menu-title'>{titel}</p>
         </li>
         {content.map((team) => {
           return (
-            <li className='sidebar__menu-item'>
+            <li className='sidebar__menu-item' key={`${team.name}`}>
               <a href='/' className='sidebar__menu-link'>
                 {team?.preview && (
                   <img
@@ -66,4 +64,4 @@ function SidebarMenu({ content, titel }: SidebarMenuProps) {
   );
 }
 
-export default SidebarMenu;
+export { SidebarMenu };

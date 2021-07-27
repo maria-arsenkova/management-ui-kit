@@ -5,8 +5,8 @@
 }
 
 .task__file-preview {
-  background: url('../TaskFiles/img/header.png');
   border-radius: 8px;
+  border-color: transparent;
   width: 40px;
   height: 40px;
   margin-right: 10px;

@@ -1,6 +1,6 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import "./style.css";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import './style.css';
 
 export type TabsType = {
   name: string;
@@ -13,14 +13,15 @@ interface TabsProps {
 
 function HeaderTabs({ items }: TabsProps) {
   return (
-    <div className="tabs">
+    <div className='tabs'>
       {items.map((item) => {
         return (
           item?.name && (
             <NavLink
               to={item.path}
-              className="tabs__item"
-              activeClassName="tabs__item_active"
+              className='tabs__item'
+              activeClassName='tabs__item_active'
+              key={`${item.name}`}
             >
               {item.name}
             </NavLink>
@@ -31,4 +32,4 @@ function HeaderTabs({ items }: TabsProps) {
   );
 }
 
-export default HeaderTabs;
+export { HeaderTabs };

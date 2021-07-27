@@ -1,25 +1,26 @@
-import React from "react";
-import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
-import "./reset.css";
-import "./App.css";
-import Sidebar from "./Components/Sidebar";
-import Header from "./Components/Header";
-import Tasks from "./Components/Tasks";
+import React from 'react';
+import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
+import './reset.css';
+import './App.css';
+import { Sidebar } from './Components/Sidebar';
+import { Header } from './Components/Header';
+import { Tasks } from './Components/Tasks';
+import { Files } from './Components/Files';
 
 function App() {
   return (
     <HashRouter>
-      <div className="wrapper">
+      <div className='wrapper'>
         <Sidebar />
         <div>
           <Header />
           <Switch>
-            <Redirect exact from="/" to="/tasks" />
-            <Route path="/tasks">
+            <Redirect exact from='/' to='/tasks' />
+            <Route path='/tasks'>
               <Tasks />
             </Route>
-            <Route path="/files">
-              <h1>Files1</h1>
+            <Route path='/files'>
+              <Files />
             </Route>
           </Switch>
         </div>
@@ -28,4 +29,4 @@ function App() {
   );
 }
 
-export default App;
+export { App };

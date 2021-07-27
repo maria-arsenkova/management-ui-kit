@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import addIcon from './img/addIcon.png';
+import addIcon from './img/addIcon.svg';
 import { TaskInfoBlockExecutorType, TaskInfoBlockUsersType } from './types';
 
 interface TaskInfoBlockProps {
@@ -33,7 +33,17 @@ function TaskInfoBlock({
           </a>
         )}
         {date && <div className='date'>{date}</div>}
-        {department && <span className='department'>{department}</span>}
+        {department == 'Developement' && (
+          <span className='department department_developement'>
+            {department}
+          </span>
+        )}
+        {department == 'Marketing' && (
+          <span className='department department_marketing'>{department}</span>
+        )}
+        {department == 'Design' && (
+          <span className='department department_design'>{department}</span>
+        )}
         {users && (
           <span>
             {users.map((item) => {

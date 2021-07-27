@@ -2,6 +2,7 @@
   padding: 30px;
   background: #ffffff;
   border-radius: 8px;
+  align-self: start;
 }
 
 .task__info-blocks {
@@ -20,4 +21,5 @@
 
 .task__files {
   display: flex;
+  flex-wrap: wrap;
 }
