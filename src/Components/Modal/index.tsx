@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import './style.css';
+import React from "react";
+
+import "./style.scss";
+import closeIcon from "./img/close.svg";
 
 interface modalProps {
   children:
@@ -7,10 +9,25 @@ interface modalProps {
     | React.ReactChildren[]
     | React.ReactChild
     | React.ReactChild[];
+  onClose: () => void;
+  title: string;
 }
 
-const Modal = ({ children }: modalProps) => {
-  return <div className='modal'>{children}</div>;
+const Modal = ({ children, onClose, title }: modalProps) => {
+  return (
+    <div className="Modal">
+      <div className="Modal__header">
+        <span>{title}</span>
+        <img
+          src={closeIcon}
+          alt="close"
+          onClick={onClose}
+          className="Modal__close"
+        />
+      </div>
+      {children}
+    </div>
+  );
 };
 
 export { Modal };
