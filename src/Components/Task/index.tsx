@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import './style.css';
-import { TaskHeader } from '../TaskHeader';
-import { TaskInfoBlock } from '../TaskInfoBlock';
+import React, { useState } from "react";
+import "./style.css";
+import { TaskHeader } from "../TaskHeader";
+import { TaskInfoBlock } from "../TaskInfoBlock";
 
-import { TaskDescription } from '../TaskDescription';
-import { TaskDiscussion } from '../TaskDiscussion';
-import { TaskFiles } from '../TaskFiles';
+import { TaskDescription } from "../TaskDescription";
+import { TaskDiscussion } from "../TaskDiscussion";
+import { TaskFiles } from "../TaskFiles";
 
-import { user } from '../Sidebar';
-import { TaskType } from './types';
-import { CommentType } from '../Comment/types';
-import firebase from '../../services/firebase';
+import { user } from "../Sidebar";
+import { TaskType } from "./types";
+import { CommentType } from "../Comment/types";
+import firebase from "../../services/firebase";
 
 export interface TaskProps {
   task: TaskType;
@@ -23,30 +23,21 @@ function Task({ task, onTaskChanged }: TaskProps) {
     onTaskChanged(newTask);
   };
 
-  const removeFile = (id: string) => {
-    const newFiles = task.files?.filter((file) => file.id !== id);
+  const removeFile = async (task: TaskType, fileId: string): Promise<void> => {
+    const newTask: TaskType = {
+      ...task,
+      files: task.files.filter((file) => file.id !== fileId),
+    };
 
-    const newTask: TaskType = { ...task, files: newFiles };
+    const db = firebase.firestore();
+
+    await db.collection("tasks").doc(task.id.toString()).set(newTask);
 
     onTaskChanged(newTask);
   };
 
-  // const test = () => {
-  //   const firestore = firebase.firestore();
-  //   const postsRef = firestore.collection('tasks');
-  //   postsRef
-  //     .where('id', '==', '1627395327037')
-  //     .get()
-  //     .then((snapshot) => {
-  //       snapshot.forEach((doc) => {
-  //         console.log(doc.id, '=>', doc.data());
-  //         firestore.collection('tasks').doc(doc.id).delete();
-  //       });
-  //     })
-  // };
-  
   return (
-    <div className='task'>
+    <div className="task">
       <TaskHeader
         isDone={task.isDone}
         data={task.createdAt}
@@ -55,16 +46,16 @@ function Task({ task, onTaskChanged }: TaskProps) {
         onTaskUpdate={onTaskChanged}
         task={task}
       />
-      <div className='task__info-blocks'>
-        <TaskInfoBlock title={'Asign To'} executor={task.asignTo} />
-        <TaskInfoBlock title={'Due On'} date={task.dueOn} />
-        <TaskInfoBlock title={'Tag'} department={task.department} />
-        <TaskInfoBlock title={'Followers'} users={task.followers} />
+      <div className="task__info-blocks">
+        <TaskInfoBlock title={"Asign To"} executor={task.asignTo} />
+        <TaskInfoBlock title={"Due On"} date={task.dueOn} />
+        <TaskInfoBlock title={"Tag"} department={task.department} />
+        <TaskInfoBlock title={"Followers"} users={task.followers} />
       </div>
       <TaskDescription text={task.description} />
-      {/* <h1 onClick={test}>test</h1> */}
+
       {task.files && (
-        <div className='task__files'>
+        <div className="task__files">
           {task.files.map((item) => {
             return (
               <TaskFiles
@@ -72,7 +63,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
                 preview={item.preview}
                 name={item.name}
                 size={item.size}
-                onRemoveFile={removeFile}
+                onRemoveFile={() => removeFile(task, item.id)}
                 key={item.id}
                 sizeSign={item.sizeSign}
               />
@@ -80,7 +71,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
           })}
         </div>
       )}
-      <div className='task__divider'></div>
+      <div className="task__divider"></div>
       <TaskDiscussion
         user={user}
         task={task}
