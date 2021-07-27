@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css';
 
+
 export interface TaskFilesProps {
   id: string;
   preview?: string;
@@ -10,7 +11,7 @@ export interface TaskFilesProps {
   onRemoveFile: (id: string) => void;
 }
 
-function TaskFiles({ id, preview, name, size, sizeSign, onRemoveFile }: TaskFilesProps) {
+function TaskFiles({ id, preview, name, size, sizeSign, onRemoveFile, }: TaskFilesProps) {
   return (
     <div className='task__file' id={id}>
       <img className='task__file-preview' src={preview} alt={name} />
