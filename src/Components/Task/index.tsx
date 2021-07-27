@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.css";
 import { TaskHeader } from "../TaskHeader";
 import { TaskInfoBlock } from "../TaskInfoBlock";
@@ -71,7 +71,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
           })}
         </div>
       )}
-      <div className="task__divider"></div>
+      <div className="task__divider" />
       <TaskDiscussion
         user={user}
         task={task}
