@@ -52,14 +52,12 @@ function Task({ task, onTaskChanged }: TaskProps) {
 
     await db.collection("tasks").doc(task.id.toString()).set(newTask);
 
-    onTaskChanged(newTask); 
+    onTaskChanged(newTask);
   };
 
-
-
-  const createFile = (event: any):void => {
+  const createFile = (event: any): void => {
     const file = event.target.files[0];
-    let preview = ''
+    let preview = "";
 
     const newFile: TaskFilesType = {
       //генерировать в firestore id
@@ -74,10 +72,29 @@ function Task({ task, onTaskChanged }: TaskProps) {
 
     const reader = new FileReader();
     reader.onload = (event: any) => {
-      newFile.preview  = event.target.result;
+      newFile.preview = event.target.result;
     };
-    reader.readAsDataURL(file); 
+    reader.readAsDataURL(file);
     updateFiles(newFile, task.files);
+  };
+
+  //считает общий вес
+  const formatBytes = (event: any, decimals: number) => {
+    const bytes = event.target.files[0].size;
+    var k = 1024; //Or 1 kilo = 1000
+    var sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB"];
+    var i = Math.floor(Math.log(bytes) / Math.log(k));
+    console.log(
+      parseFloat((bytes / Math.pow(k, i)).toFixed(decimals)) + " " + sizes[i]
+    );
+  };
+
+  //считает и отображает в КБ
+  const formatBytesKB = (event: any) => {
+    const bytes = event.target.files[0].size;
+    var k = 1024;
+    var i = Math.floor(bytes / k);
+    console.log(i + "KB");
   };
 
   return (
@@ -98,6 +115,12 @@ function Task({ task, onTaskChanged }: TaskProps) {
       </div>
       <TaskDescription text={task.description} />
       <input type="file" onChange={createFile} />
+      {/* <input
+        type="file"
+        onChange={(event) => {
+          formatBytes(event, 2);
+        }}
+      /> */}
       {task.files && (
         <div className="task__files">
           {task.files.map((item) => {
