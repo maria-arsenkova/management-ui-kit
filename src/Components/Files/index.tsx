@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import './style.css';
-import { TaskFilesType } from '../TaskFiles/types';
-import searchIcon from './img/searchIcon.svg';
-import arrow from './img/arrow.svg';
-import downloadIcon from './img/downloadIcon.svg';
-import { getTasks } from '../../services/tasks';
+import React, { useState, useEffect } from "react";
+import "./style.css";
+import { TaskFilesType } from "../TaskFiles/types";
+import searchIcon from "./img/searchIcon.svg";
+import arrow from "./img/arrow.svg";
+import downloadIcon from "./img/downloadIcon.svg";
+import { getTasks } from "../../services/tasks";
 
 interface Sort {
-  sortBy: 'name' | 'size' | 'date' | 'uploadedBy';
-  sortType: 'acs' | 'desc';
+  sortBy: "name" | "size" | "date" | "uploadedBy";
+  sortType: "acs" | "desc";
 }
 
 const INITIAL_SORT: Sort = {
-  sortBy: 'name',
-  sortType: 'acs',
+  sortBy: "name",
+  sortType: "acs",
 };
 
 function Files() {
@@ -39,16 +39,16 @@ function Files() {
   ): TaskFilesType[] => {
     const newFiles = files.sort((a, b) => {
       const x =
-        typeof a[sort.sortBy] == 'string'
+        typeof a[sort.sortBy] == "string"
           ? a[sort.sortBy].toString().toLowerCase()
           : a[sort.sortBy];
 
       const y =
-        typeof b[sort.sortBy] === 'string'
+        typeof b[sort.sortBy] === "string"
           ? b[sort.sortBy].toString().toLowerCase()
           : b[sort.sortBy];
 
-      if (sort.sortType === 'acs') {
+      if (sort.sortType === "acs") {
         if (x < y) {
           return -1;
         }
@@ -76,32 +76,32 @@ function Files() {
   };
 
   return (
-    <div className='files'>
-      <div className='files__table'>
-        <div className='files__table-title'>
+    <div className="files">
+      <div className="files__list">
+        <div className="files__list-line files__list-line-header">
           <div>Image</div>
           <div>
-            <img src={searchIcon} alt='searchIcon' className='searchIcon' />
+            <img src={searchIcon} alt="searchIcon" className="search-icon" />
             <button
               onClick={() => {
                 updateSortState({
-                  sortBy: 'name',
-                  sortType: sort.sortType === 'acs' ? 'desc' : 'acs',
+                  sortBy: "name",
+                  sortType: sort.sortType === "acs" ? "desc" : "acs",
                 });
               }}
-              className='button-sort'
+              className="button-sort"
             >
               Name
-              {sort.sortBy === 'name' && (
+              {sort.sortBy === "name" && (
                 <>
-                  {sort.sortType === 'acs' ? (
+                  {sort.sortType === "acs" ? (
                     <img
-                      alt='arrowUp'
+                      alt="arrowUp"
                       src={arrow}
-                      className='icon-arrow icon-arrow_up'
+                      className="icon-arrow icon-arrow_up"
                     />
                   ) : (
-                    <img alt='arrowDown' src={arrow} className='icon-arrow' />
+                    <img alt="arrowDown" src={arrow} className="icon-arrow" />
                   )}
                 </>
               )}
@@ -111,23 +111,23 @@ function Files() {
             <button
               onClick={() => {
                 updateSortState({
-                  sortBy: 'size',
-                  sortType: sort.sortType === 'acs' ? 'desc' : 'acs',
+                  sortBy: "size",
+                  sortType: sort.sortType === "acs" ? "desc" : "acs",
                 });
               }}
-              className='button-sort'
+              className="button-sort"
             >
               Size
-              {sort.sortBy === 'size' && (
+              {sort.sortBy === "size" && (
                 <>
-                  {sort.sortType === 'acs' ? (
+                  {sort.sortType === "acs" ? (
                     <img
-                      alt='arrowUp'
+                      alt="arrowUp"
                       src={arrow}
-                      className='icon-arrow icon-arrow_up'
+                      className="icon-arrow icon-arrow_up"
                     />
                   ) : (
-                    <img alt='arrowDown' src={arrow} className='icon-arrow' />
+                    <img alt="arrowDown" src={arrow} className="icon-arrow" />
                   )}
                 </>
               )}
@@ -137,23 +137,23 @@ function Files() {
             <button
               onClick={() => {
                 updateSortState({
-                  sortBy: 'uploadedBy',
-                  sortType: sort.sortType === 'acs' ? 'desc' : 'acs',
+                  sortBy: "uploadedBy",
+                  sortType: sort.sortType === "acs" ? "desc" : "acs",
                 });
               }}
-              className='button-sort'
+              className="button-sort"
             >
               Uploaded By
-              {sort.sortBy === 'uploadedBy' && (
+              {sort.sortBy === "uploadedBy" && (
                 <>
-                  {sort.sortType === 'acs' ? (
+                  {sort.sortType === "acs" ? (
                     <img
-                      alt='arrowUp'
+                      alt="arrowUp"
                       src={arrow}
-                      className='icon-arrow icon-arrow_up'
+                      className="icon-arrow icon-arrow_up"
                     />
                   ) : (
-                    <img alt='arrowDown' src={arrow} className='icon-arrow' />
+                    <img alt="arrowDown" src={arrow} className="icon-arrow" />
                   )}
                 </>
               )}
@@ -166,10 +166,13 @@ function Files() {
         </div>
         {filteredFiles.map((item) => {
           return (
-            <div className='files__table-body' key={`${item.id}_${item.name}`}>
+            <div
+              className="files__list-line files__list-line-body"
+              key={`${item.id}_${item.name}`}
+            >
               <div>
                 <img
-                  className='file-preview'
+                  className="file-preview"
                   src={item.preview}
                   alt={item.name}
                   key={`${item.preview}_${item.name}`}
@@ -183,21 +186,21 @@ function Files() {
               <div>{item.date}</div>
               <div></div>
               <div>
-                <button className='button-actions'>
+                <button className="button-actions">
                   Actions
                   <img
                     src={arrow}
-                    alt='arrow'
+                    alt="arrow"
                     key={`${arrow}_${item.name}`}
-                    className='icon-arrow'
+                    className="icon-arrow"
                   />
                 </button>
               </div>
               <div>
-                <a target='_blank' href={item.preview} download>
+                <a target="_blank" href={item.preview} download>
                   <img
                     src={downloadIcon}
-                    alt='downloadIcon'
+                    alt="downloadIcon"
                     key={`${downloadIcon}_${item.name}`}
                   />
                 </a>
