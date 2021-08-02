@@ -59,7 +59,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
     const file = event.target.files[0];
     let preview = "";
 
-    const newFile: TaskFilesType = {
+    let newFile: TaskFilesType = {
       //генерировать в firestore id
       id: Date.now().toString(),
       preview: preview,
