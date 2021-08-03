@@ -1,0 +1,53 @@
+.Tasks {
+  display: grid;
+  grid-template-columns: 360px auto;
+  grid-template-rows: auto auto;
+  justify-items: stretch;
+  align-items: stretch;
+  padding: 30px;
+
+  &__list {
+    overflow-y: scroll;
+    overflow: auto;
+    padding-right: 12px;
+    margin-right: 12px;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 8px;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      background-color: #f9f9fd;
+      margin: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: #dcd9d3;
+    }
+  }
+}
+
+
+
+
+.modal__create-task {
+  width: 100%;
+  background: #cef9c6;
+  border-radius: 25px;
+  border: none;
+  height: 50px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  color: #1d201c;
+}
+
+.modal__create-task:hover {
+  background: #caf6bf;
+}
+
+.modal__create-task:active {
+  background: #caffbd;
+}

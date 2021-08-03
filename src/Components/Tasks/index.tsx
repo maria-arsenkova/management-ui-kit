@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./style.css";
+import "./style.scss";
 import { TasksList, TasksListType } from "../TasksList";
 import userOne from "../TasksList/img/userOne.png";
 import userTwo from "../TasksList/img/userTwo.png";
@@ -26,6 +26,8 @@ import { Modal } from "../Modal";
 import close from "../Modal/img/close.svg";
 import firebase from "../../services/firebase";
 import { getTasks } from "../../services/tasks";
+import { Input } from "../Input";
+import { Textarea } from "../Textarea";
 
 export const INITIAL_TASKS: TaskType[] = [
   {
@@ -336,61 +338,38 @@ function Tasks() {
   };
 
   return (
-    <div className="tasks">
-      <div className="tasks__scrollBar">
-        <div className="tasks__group">
-          <TasksList
-            content={backlog}
-            onTaskClick={openTask}
-            onTaskUpdate={onTaskUpdate}
-            onCreateTaskClick={handleModalClick}
-          />
-          {isShowModal && (
-            <Modal title="Add a New Task" onClose={handleModalClick}>
-              <div className="modal__task-name">
-                <div className="modal__field">Name</div>
-                <div>
-                  <input
-                    className="modal__add-name"
-                    type="text"
-                    onChange={(event) => {
-                      handleTitle(event.target.value);
-                    }}
-                  ></input>
-                </div>
-              </div>
-              <div className="modal__task-description">
-                <div className="modal__field">Description</div>
-                <div>
-                  <textarea
-                    className="modal__add-description"
-                    onChange={(event) => {
-                      handleDescription(event.target.value);
-                    }}
-                  ></textarea>
-                </div>
-              </div>
-              <button
-                className="modal__create-task"
-                onClick={function (event) {
-                  createTask();
-                  updateTasks();
-                  handleModalClick();
-                }}
-              >
-                Create Task
-              </button>
-            </Modal>
-          )}
-          <TasksList
-            content={toDo}
-            onTaskClick={openTask}
-            onTaskUpdate={onTaskUpdate}
-            onCreateTaskClick={handleModalClick}
-          />
-        </div>
+    <div className="Tasks">
+      <div className="Tasks__list">
+        <TasksList
+          content={backlog}
+          onTaskClick={openTask}
+          onTaskUpdate={onTaskUpdate}
+          onCreateTaskClick={handleModalClick}
+        />
+        <TasksList
+          content={toDo}
+          onTaskClick={openTask}
+          onTaskUpdate={onTaskUpdate}
+          onCreateTaskClick={handleModalClick}
+        />
       </div>
       {openedTask && <Task task={openedTask} onTaskChanged={onTaskUpdate} />}
+      {isShowModal && (
+        <Modal title="Add a New Task" onClose={handleModalClick}>
+          <Input label={"Name"} value={taskTitle} onChange={handleTitle}/>
+          <Textarea label={"Description"} handleDescription={handleDescription}/>
+          <button
+            className="modal__create-task"
+            onClick={function (event) {
+              createTask();
+              updateTasks();
+              handleModalClick();
+            }}
+          >
+            Create Task
+          </button>
+        </Modal>
+      )}
     </div>
   );
 }
