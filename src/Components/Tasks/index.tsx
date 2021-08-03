@@ -28,6 +28,7 @@ import firebase from "../../services/firebase";
 import { getTasks } from "../../services/tasks";
 import { Input } from "../Input";
 import { Textarea } from "../Textarea";
+import { Button } from "../Button";
 
 export const INITIAL_TASKS: TaskType[] = [
   {
@@ -356,18 +357,17 @@ function Tasks() {
       {openedTask && <Task task={openedTask} onTaskChanged={onTaskUpdate} />}
       {isShowModal && (
         <Modal title="Add a New Task" onClose={handleModalClick}>
-          <Input label={"Name"} value={taskTitle} onChange={handleTitle}/>
-          <Textarea label={"Description"} handleDescription={handleDescription}/>
-          <button
-            className="modal__create-task"
-            onClick={function (event) {
-              createTask();
-              updateTasks();
-              handleModalClick();
-            }}
-          >
-            Create Task
-          </button>
+          <Input label={"Name"} value={taskTitle} onChange={handleTitle} />
+          <Textarea
+            label={"Description"}
+            handleDescription={handleDescription}
+          />
+          <Button
+            name={"Create Task"}
+            createTask={createTask}
+            updateTasks={updateTasks}
+            handleModalClick={handleModalClick}
+          />
         </Modal>
       )}
     </div>

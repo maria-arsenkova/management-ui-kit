@@ -27,27 +27,3 @@
     }
   }
 }
-
-
-
-
-.modal__create-task {
-  width: 100%;
-  background: #cef9c6;
-  border-radius: 25px;
-  border: none;
-  height: 50px;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 21px;
-  text-align: center;
-  color: #1d201c;
-}
-
-.modal__create-task:hover {
-  background: #caf6bf;
-}
-
-.modal__create-task:active {
-  background: #caffbd;
-}

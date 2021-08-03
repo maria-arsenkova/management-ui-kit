@@ -2,12 +2,12 @@ import React from "react";
 import "./style.scss";
 
 interface InputProps {
-    label: string,
-    value: string,
-    onChange: (value:string) => void,
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
 }
 
-const Input = ({label, value, onChange}:InputProps) => {
+const Input = ({ label, value, onChange }: InputProps) => {
   return (
     <div className="Input">
       <div className="Input__label">{label}</div>
@@ -25,4 +25,4 @@ const Input = ({label, value, onChange}:InputProps) => {
   );
 };
 
-export {Input}
+export { Input };
