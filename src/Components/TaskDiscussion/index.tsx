@@ -55,7 +55,7 @@ function TaskDiscussion({
       <div className="task__discussion-title">Discussion</div>
       <div className="comment__add">
         <span className="comment__user-photo">
-          <UserPhoto user={user} size={AVATAR_SIZE.MEDIUM} />
+          <UserPhoto user={user} size={AVATAR_SIZE.LARGE} />
         </span>
         <input
           type="text"

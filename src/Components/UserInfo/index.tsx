@@ -2,6 +2,7 @@ import React from "react";
 import "./style.scss";
 import { UserType } from "./types";
 import circle from "./img/circle.svg";
+import {UserPhoto, AVATAR_SIZE } from "../UserPhoto"
 
 interface UserInfoProps {
   user: UserType;
@@ -10,9 +11,9 @@ interface UserInfoProps {
 function UserInfo({ user }: UserInfoProps) {
   return (
     <div className="UserInfo">
-      <a href="/" className="UserInfo__avatar">
-        <img src={user.avatar} alt={user.initials} />
-      </a>
+      <span className="UserInfo__avatar">
+        <UserPhoto user={user} size={AVATAR_SIZE.LARGE}/>
+      </span>
       <div>
         <div className="UserInfo__initials">{user.initials}</div>
         {user?.position && (

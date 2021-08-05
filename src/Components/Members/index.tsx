@@ -1,30 +1,22 @@
 import React from 'react';
 import './style.scss';
 import chat from './img/chat.svg';
-
-export type MembersType = {
-  name: string;
-  avatar: string;
-};
+import { UserType } from "../UserInfo/types";
+import {UserPhoto, AVATAR_SIZE } from "../UserPhoto"
 
 interface MembersProms {
-  members: MembersType[];
+  members: UserType[];
 }
 
-function Members({ members }: MembersProms) {
+function Members({members}: MembersProms) {
   return (
     <div className='Members'>
       <div className='Members_wrapper'>
-        {members.map((member) => {
+        {members.map((member, index) => {
           return (
             member?.avatar && (
-              <a href='/' className='Members__link' key={`${member.name}`}>
-                <img
-                  className='Members__avatar'
-                  key={`${member.avatar}_${member.name}`}
-                  src={member.avatar}
-                  alt={member.name}
-                />
+                <a href='/' className='Members__member-photo' key={`${members[index].initials}`}>
+                   <UserPhoto user={members[index]} size={AVATAR_SIZE.MEDIUM}/>
               </a>
             )
           );
