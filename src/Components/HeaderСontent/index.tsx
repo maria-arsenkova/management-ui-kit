@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.css';
+import './style.scss';
 import { HeaderLogo } from '../HeaderLogo';
 import { Members, MembersType } from '../Members';
 import userN from '../Members/img/userN.png';
@@ -14,7 +14,7 @@ const members: MembersType[] = [
 
 function HeaderСontent() {
   return (
-    <div className='header__сontent'>
+    <div className='Header-сontent'>
       <HeaderLogo />
       <Members members={members} />
     </div>
