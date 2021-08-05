@@ -4,6 +4,7 @@ import { UserType } from '../UserInfo/types';
 import { Comment } from '../Comment';
 import { CommentType } from '../Comment/types';
 import { TaskType } from '../Task/types';
+import {UserPhoto} from '../UserPhoto'
 
 export interface TaskDiscussionsProps {
   user: UserType;
@@ -53,11 +54,12 @@ function TaskDiscussion({
     <div>
       <div className='task__discussion-title'>Discussion</div>
       <div className='comment__add'>
-        <img
+      <UserPhoto user={user} type={"comment__add-author-photo"}/>
+        {/* <img
           src={user.avatar}
           alt={user.initials}
           className='comment__add-author-photo'
-        />
+        /> */}
         <input
           type='text'
           placeholder='Add a comment…'
