@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "./style.scss";
 import { UserType } from "../UserInfo/types";
 import { UserPhoto, AVATAR_SIZE } from "../UserPhoto";
 
