@@ -97,8 +97,27 @@ function Task({ task, onTaskChanged }: TaskProps) {
     console.log(i + "KB");
   };
 
+  const test = async (event: any): Promise<void> => {
+    const storage = firebase.storage();
+    var file = event.target.files[0];
+    // Get a reference to the location where we'll store our photos
+    var storageRef = storage.ref().child("chat_photos");
+    // Get a reference to store file at photos/<FILENAME>.jpg
+    var photoRef = storageRef.child(file.name);
+     // Upload file to Firebase Storage
+    var uploadTask = photoRef.put(file);
+    uploadTask.on('state_changed', null, null, function() {
+      // When the image has successfully uploaded, we get its download URL
+      var downloadUrl = uploadTask.snapshot.downloadURL;
+      
+      console.log(downloadUrl);
+    });
+  };
+
   return (
     <div className="task">
+      {/* <button onClick={test}>TEST</button> */}
+      {/* <input type="file" onChange={test} /> */}
       <TaskHeader
         isDone={task.isDone}
         data={task.createdAt}
@@ -121,6 +140,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
           formatBytes(event, 2);
         }}
       /> */}
+
       {task.files && (
         <div className="task__files">
           {task.files.map((item) => {
