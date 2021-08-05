@@ -1,16 +1,16 @@
 import React from 'react';
-import './style.css';
+import './style.scss';
 import list from './img/list.svg';
 import search from './img/search.svg';
 
 function Brand() {
   return (
-    <div className='brand'>
+    <div className='Brand'>
       <a href='/'>
-        <img src={list} alt='list' className='brand__iconList'></img>
+        <img src={list} alt='list' className='Brand__icon-list'></img>
       </a>
-      <span className='brand__name'>PROJECTUS</span>
-      <a href='/' className='brand__iconSearch'>
+      <span className='Brand__name'>PROJECTUS</span>
+      <a href='/' className='Brand__icon-search'>
         <img src={search} alt='search'></img>
       </a>
     </div>
