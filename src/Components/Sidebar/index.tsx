@@ -61,25 +61,25 @@ const teams: ContentType[] = [
   {
     name: "Designers",
     items: [
-      { name: "userZ", avatar: userZ },
-      { name: "userO", avatar: userO },
-      { name: "userT", avatar: userT },
+      { initials: "userZ", avatar: userZ, position: "userZ" },
+      { initials: "userO", avatar: userO, position: "userO" },
+      { initials: "userT", avatar: userT, position: "userT" },
     ],
   },
   {
     name: "Backend",
     items: [
-      { name: "userF", avatar: userF },
-      { name: "userFo", avatar: userFo },
+      { initials: "userF", avatar: userF,  position: "userF"},
+      { initials: "userFo", avatar: userFo,  position: "userFo" },
     ],
   },
   {
     name: "Frontend",
     items: [
-      { name: "userFa", avatar: userFa },
-      { name: "userSi", avatar: userSi },
-      { name: "userSe", avatar: userSe },
-      { name: "userEt", avatar: userEt },
+      { initials: "userFa", avatar: userFa,  position: "userFa" },
+      { initials: "userSi", avatar: userSi,  position: "userSi" },
+      { initials: "userSe", avatar: userSe,  position: "userSe" },
+      { initials: "userEt", avatar: userEt,  position: "userEt" },
     ],
   },
 ];
@@ -90,10 +90,10 @@ function Sidebar() {
       <Brand />
       <UserInfo user={user} />
       <Stats tasks={tasks} />
-      <SidebarMenu titel={"menu"} content={menu} />
-      <SidebarMenu titel={"projects"} content={projects} />
+      <SidebarMenu title={"menu"} content={menu} />
+      <SidebarMenu title={"projects"} content={projects} />
       <button className="Sidebar__button">+ Add a Project</button>
-      <SidebarMenu titel={"teams"} content={teams} />
+      <SidebarMenu title={"teams"} content={teams} />
       <button className="Sidebar__button">+ Add a Team</button>
       <SidebarFooter />
     </div>
