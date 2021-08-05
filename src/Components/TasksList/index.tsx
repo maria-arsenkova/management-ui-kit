@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Task } from '../Task';
 import { TaskType } from '../Task/types';
 import './style.css';
+import { Button } from "../Button";
 
 export type TasksListType = {
   name: string;
@@ -28,13 +29,14 @@ function TasksList({
           <ul className='tasks__list' key={list.name}>
             <li className='tasks__title'>
               <span className='tasks__title-text'>{list.name}</span>
-              <button
+              <Button name={'+ Add Task'}  onClick={onCreateTaskClick}/>
+              {/* <button
                 type='button'
                 className='tasks__add-task'
                 onClick={onCreateTaskClick}
               >
                 + Add Task
-              </button>
+              </button> */}
             </li>
             {list?.items &&
               list.items.map((task) => {

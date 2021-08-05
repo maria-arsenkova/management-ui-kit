@@ -364,9 +364,7 @@ function Tasks() {
           />
           <Button
             name={"Create Task"}
-            createTask={createTask}
-            updateTasks={updateTasks}
-            handleModalClick={handleModalClick}
+            onClick={createTask}
           />
         </Modal>
       )}

@@ -2,23 +2,23 @@ import React from "react";
 import "./style.scss";
 import { UserType } from "../UserInfo/types";
 
-interface UserPhoto {
-  user: UserType;
-  type:
-    | "Comment__author-photo"
-    | "comment__add-author-photo"
-    | "userInfo__avatar";
+export enum AVATAR_SIZE {
+  SMALL = "SMALL",
+  MEDIUM = "MEDIUM",
 }
 
-const UserPhoto = ({ user, type }: UserPhoto) => {
-  let className = "";
-  if (type == "Comment__author-photo") {
-    className += "Comment__author-photo";
-  } else if (type == "comment__add-author-photo") {
-    className += "comment__add-author-photo";
-  } else {
-    className += "userInfo__avatar";
-  }
+interface UserPhotoProps {
+  user: UserType;
+  size: AVATAR_SIZE;
+}
+
+const UserPhoto = ({ user, size }: UserPhotoProps) => {
+  let className = "UserPhoto ";
+  if (size == AVATAR_SIZE.SMALL) {
+    className += "UserPhoto_small";
+  } else  if (size == AVATAR_SIZE.MEDIUM) {
+    className += "UserPhoto_medium";
+  } 
   return <img src={user.avatar} alt={user.initials} className={className} />;
 };
 

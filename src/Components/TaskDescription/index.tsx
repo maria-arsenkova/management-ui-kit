@@ -1,12 +1,12 @@
 import React from 'react';
-import './style.css';
+import './style.scss';
 import { TaskDescriptionType } from './types';
 
 function TaskDescription({ text }: TaskDescriptionType) {
   return (
-    <div className='task__description'>
-      <div className='task__description-title'>Description</div>
-      <div className='task__description-text'>{text}</div>
+    <div className='TaskDescription'>
+      <div className='TaskDescription__title'>Description</div>
+      <div className='TaskDescription__text'>{text}</div>
     </div>
   );
 }

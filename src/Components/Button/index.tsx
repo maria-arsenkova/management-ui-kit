@@ -3,25 +3,20 @@ import "./style.scss";
 
 interface ButtonProps {
   name: string;
-  createTask: () => void;
-  updateTasks: () => void;
-  handleModalClick: () => void;
+  // createTask: () => void;
+  // updateTasks: () => void;
+  // handleModalClick: () => void;
+  onClick: () => void;
 }
 
 const Button = ({
-  createTask,
-  updateTasks,
-  handleModalClick,
+  onClick,
   name,
 }: ButtonProps) => {
   return (
     <button
       className="Button"
-      onClick={function (event) {
-        createTask();
-        updateTasks();
-        handleModalClick();
-      }}
+      onClick={onClick}
     >
       {name}
     </button>

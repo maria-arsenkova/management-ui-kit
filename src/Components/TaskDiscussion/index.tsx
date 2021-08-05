@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import './style.scss';
-import { UserType } from '../UserInfo/types';
-import { Comment } from '../Comment';
-import { CommentType } from '../Comment/types';
-import { TaskType } from '../Task/types';
-import {UserPhoto} from '../UserPhoto'
+import React, { useState } from "react";
+import "./style.scss";
+import { UserType } from "../UserInfo/types";
+import { Comment } from "../Comment";
+import { CommentType } from "../Comment/types";
+import { TaskType } from "../Task/types";
+import { UserPhoto, AVATAR_SIZE } from "../UserPhoto";
 
 export interface TaskDiscussionsProps {
   user: UserType;
@@ -19,9 +19,9 @@ function TaskDiscussion({
   onCommentCreated,
 }: TaskDiscussionsProps) {
   const [comment, setComment] = useState<CommentType>({
-    id: '',
-    text: '',
-    date: '',
+    id: "",
+    text: "",
+    date: "",
     name: user.initials,
     photo: user.avatar,
     position: user.position,
@@ -52,35 +52,32 @@ function TaskDiscussion({
 
   return (
     <div>
-      <div className='task__discussion-title'>Discussion</div>
-      <div className='comment__add'>
-      <UserPhoto user={user} type={"comment__add-author-photo"}/>
-        {/* <img
-          src={user.avatar}
-          alt={user.initials}
-          className='comment__add-author-photo'
-        /> */}
+      <div className="task__discussion-title">Discussion</div>
+      <div className="comment__add">
+        <span className="comment__user-photo">
+          <UserPhoto user={user} size={AVATAR_SIZE.MEDIUM} />
+        </span>
         <input
-          type='text'
-          placeholder='Add a comment…'
-          className='comment__add-text'
+          type="text"
+          placeholder="Add a comment…"
+          className="comment__add-text"
           onChange={(event) =>
             handleComment(
               event.target.value,
               Date.now().toString(),
-              new Date().toLocaleDateString('en-GB', {
-                weekday: 'short',
-                month: 'long',
-                day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric',
+              new Date().toLocaleDateString("en-GB", {
+                weekday: "short",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
                 // second: 'numeric',
               })
             )
           }
         />
         <button
-          className='task__discussion-button'
+          className="task__discussion-button"
           onClick={() => {
             createComment(comment, content);
           }}
