@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "./style.scss";
 import { TaskHeader } from "../TaskHeader";
 import { TaskInfoBlock } from "../TaskInfoBlock";
 
@@ -115,7 +115,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
   };
 
   return (
-    <div className="task">
+    <div className="Task">
       {/* <button onClick={test}>TEST</button> */}
       {/* <input type="file" onChange={test} /> */}
       <TaskHeader
@@ -126,7 +126,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
         onTaskUpdate={onTaskChanged}
         task={task}
       />
-      <div className="task__info-blocks">
+      <div className="Task__info-blocks">
         <TaskInfoBlock title={"Asign To"} executor={task.asignTo} />
         <TaskInfoBlock title={"Due On"} date={task.dueOn} />
         <TaskInfoBlock title={"Tag"} department={task.department} />
@@ -142,7 +142,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
       /> */}
 
       {task.files && (
-        <div className="task__files">
+        <div className="Task__files">
           {task.files.map((item) => {
             return (
               <TaskFiles
@@ -158,7 +158,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
           })}
         </div>
       )}
-      <div className="task__divider" />
+      <div className="Task__divider" />
       <TaskDiscussion
         user={user}
         task={task}

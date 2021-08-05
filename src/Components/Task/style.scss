@@ -1,0 +1,25 @@
+.Task {
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 8px;
+  align-self: start;
+
+  &__info-blocks {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    border-bottom: #ececec 1px solid;
+    margin-bottom: 30px;
+  }
+
+  &__divider {
+    border-bottom: #ececec 1px solid;
+    margin-bottom: 30px;
+  }
+
+  &__files {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
