@@ -23,18 +23,18 @@ interface SidebarMenuProps {
 
 function SidebarMenu({ content, title }: SidebarMenuProps) {
   return (
-    <div className="sidebar__menu">
+    <div className="SidebarMenu">
       <ul>
-        <li className="sidebar__menu-item">
-          <p className="sidebar__menu-title">{title}</p>
+        <li className="SidebarMenu__item">
+          <p className="SidebarMenu__title">{title}</p>
         </li>
         {content.map((team) => {
           return (
-            <li className="sidebar__menu-item" key={`${team.name}`}>
-              <a href="/" className="sidebar__menu-link">
+            <li className="SidebarMenu__item" key={`${team.name}`}>
+              <a href="/" className="SidebarMenu__link">
                 {team?.preview && (
                   <img
-                    className="sidebar__menu-preview"
+                    className="SidebarMenu__preview"
                     key={`${team.preview}_${team.name}`}
                     src={team.preview}
                     alt={team.name}
@@ -42,12 +42,12 @@ function SidebarMenu({ content, title }: SidebarMenuProps) {
                 )}
                 {team.name}
                 {team?.items && (
-                  <span className="sidebar__menu-avatars">
+                  <span className="SidebarMenu__avatars">
                     {team.items.map((user) => {
                       return (
                         user?.avatar && (
                           <span
-                            className="sidebar__menu-avatar"
+                            className="SidebarMenu__avatar"
                             key={`${user.initials}_${user.avatar}`}
                           >
                             <UserPhoto user={user} size={AVATAR_SIZE.SMALL} />
@@ -58,7 +58,7 @@ function SidebarMenu({ content, title }: SidebarMenuProps) {
                   </span>
                 )}
                 {team?.counter && (
-                  <span className="sidebar__menu-сounter">{team.counter}</span>
+                  <span className="SidebarMenu__сounter">{team.counter}</span>
                 )}
               </a>
             </li>
