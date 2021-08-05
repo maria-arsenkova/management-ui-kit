@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./style.css";
+import "./style.scss";
 import { TaskFilesType } from "../TaskFiles/types";
 import searchIcon from "./img/searchIcon.svg";
 import arrow from "./img/arrow.svg";
@@ -76,9 +76,9 @@ function Files() {
   };
 
   return (
-    <div className="files">
-      <div className="files__list">
-        <div className="files__list-line files__list-line-header">
+    <div className="Files">
+      <div className="Files__list">
+        <div className="Files__list-line Files__list-line-header">
           <div>Image</div>
           <div>
             <img src={searchIcon} alt="searchIcon" className="search-icon" />
@@ -167,7 +167,7 @@ function Files() {
         {filteredFiles.map((item) => {
           return (
             <div
-              className="files__list-line files__list-line-body"
+              className="Files__list-line Files__list-line-body"
               key={`${item.id}_${item.name}`}
             >
               <div>
