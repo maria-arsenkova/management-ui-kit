@@ -1,5 +1,5 @@
-import React from 'react';
-import './style.css';
+import React from "react";
+import "./style.scss";
 
 export type StatsType = {
   name: string;
@@ -12,13 +12,13 @@ interface StatsProps {
 
 function Stats({ tasks }: StatsProps) {
   return (
-    <div className='stats'>
+    <div className="Stats">
       {tasks.map((task) => {
         return (
           task?.counter && (
             <div key={`${task.counter}_${task.name}`}>
-              <div className='stats__counter'>{task.counter}</div>
-              <div className='stats__name'>{task.name}</div>
+              <div className="Stats__counter">{task.counter}</div>
+              <div className="Stats__name">{task.name}</div>
             </div>
           )
         );
