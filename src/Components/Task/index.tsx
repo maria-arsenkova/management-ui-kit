@@ -107,11 +107,15 @@ function Task({ task, onTaskChanged }: TaskProps) {
      // Upload file to Firebase Storage
     var uploadTask = photoRef.put(file);
     uploadTask.on('state_changed', null, null, function() {
+      // getDownloadURL(uploadTask.snapshot.ref)
       // When the image has successfully uploaded, we get its download URL
+      
       var downloadUrl = uploadTask.snapshot.downloadURL;
       
       console.log(downloadUrl);
     });
+
+    console.log(await storageRef.getDownloadURL());
   };
 
   return (
@@ -132,8 +136,10 @@ function Task({ task, onTaskChanged }: TaskProps) {
         <TaskInfoBlock title={"Tag"} department={task.department} />
         <TaskInfoBlock title={"Followers"} users={task.followers} />
       </div>
+      {/* <input type="file" onChange={test} /> */}
       <TaskDescription text={task.description} />
       <input type="file" onChange={createFile} />
+     
       {/* <input
         type="file"
         onChange={(event) => {
