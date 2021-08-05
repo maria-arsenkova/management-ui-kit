@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './style.css';
+import './style.scss';
 import { UserType } from '../UserInfo/types';
 import { Comment } from '../Comment';
 import { CommentType } from '../Comment/types';
