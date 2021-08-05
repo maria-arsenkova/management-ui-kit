@@ -1,0 +1,73 @@
+.Comment {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 24px;
+
+  &__author-photo {
+    border-radius: 50px;
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    left: 0;
+    right: 91.65%;
+    top: 17.86%;
+    bottom: 39.29%;
+    z-index: 1;
+  }
+
+  &__content {
+    height: 112px;
+    border-radius: 10px;
+    background: #f7f6f3;
+    padding: 20px 20px 20px 40px;
+    margin-bottom: 20px;
+    left: 4.17%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  &__author-photo {
+    border-radius: 50px;
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    left: 0;
+    right: 91.65%;
+    top: 17.86%;
+    bottom: 39.29%;
+    z-index: 1;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__author-name {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 23px;
+    color: #131313;
+  }
+
+  &__author-position {
+    font-size: 16px;
+    line-height: 23px;
+    color: #131313;
+  }
+
+  &__date {
+    font-size: 12px;
+    line-height: 18px;
+    text-align: right;
+    color: #131313;
+    opacity: 0.7;
+  }
+
+  &__text {
+    font-size: 15px;
+    line-height: 22px;
+    color: #131313;
+  }
+}
