@@ -30,14 +30,14 @@ function TaskHeader({
           type="checkbox"
           id={`tick-${task.id}`}
           checked={task.isDone}
-          className="task__header-selector-hidden"
+          className="TaskHeader__selector-hidden"
         />
         <label
           htmlFor={`tick-${task.id}`}
           className={
             isDone === true
-              ? "task__header-selector-tick_active"
-              : "task__header-selector-tick"
+              ? "TaskHeader__selector-tick_active"
+              : "TaskHeader__selector-tick"
           }
         ></label>
         <span className="TaskHeader__selector-tick-more">
