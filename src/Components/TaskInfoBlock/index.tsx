@@ -2,6 +2,7 @@ import React from "react";
 import "./style.scss";
 import addIcon from "./img/addIcon.svg";
 import { UserType } from "../UserInfo/types";
+import {Department, DEPARTMENT} from '../Department'
 
 interface TaskInfoBlockProps {
   title?: string;
@@ -34,15 +35,13 @@ function TaskInfoBlock({
         )}
         {date && <div className="TaskInfoBlock__date">{date}</div>}
         {department == "Developement" && (
-          <span className="department department_developement">
-            {department}
-          </span>
+           <Department name={department} department={DEPARTMENT.DEVELOPEMENT} />
         )}
         {department == "Marketing" && (
-          <span className="department department_marketing">{department}</span>
+           <Department name={department} department={DEPARTMENT.MARKETING} />
         )}
         {department == "Design" && (
-          <span className="department department_design">{department}</span>
+          <Department name={department} department={DEPARTMENT.DESIGN} />
         )}
         {users && (
           <span>

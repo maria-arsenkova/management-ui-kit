@@ -3,6 +3,7 @@ import { Task } from "../Task";
 import { TaskType } from "../Task/types";
 import "./style.scss";
 import { Button, BUTTON_SIZE } from "../Button";
+import { Department, DEPARTMENT } from "../Department";
 
 export type TasksListType = {
   name: string;
@@ -29,7 +30,11 @@ function TasksList({
           <ul className="TasksList" key={list.name}>
             <li className="TasksList__title">
               <span className="TasksList__title-text">{list.name}</span>
-              <Button name={"+ Add Task"} onClick={onCreateTaskClick} size={BUTTON_SIZE.MEDIUM}/>
+              <Button
+                name={"+ Add Task"}
+                onClick={onCreateTaskClick}
+                size={BUTTON_SIZE.MEDIUM}
+              />
               {/* <button
                 type='button'
                 className='TasksList__add-task'
@@ -77,19 +82,22 @@ function TasksList({
                           className="TasksList__item-avatar"
                         />
                         {task.department == "Developement" && (
-                          <span className="department department_developement">
-                            {task.department}
-                          </span>
+                          <Department
+                            name={task.department}
+                            department={DEPARTMENT.DEVELOPEMENT}
+                          />
                         )}
                         {task.department == "Marketing" && (
-                          <span className="department department_marketing">
-                            {task.department}
-                          </span>
+                          <Department
+                            name={task.department}
+                            department={DEPARTMENT.MARKETING}
+                          />
                         )}
                         {task.department == "Design" && (
-                          <span className="department department_design">
-                            {task.department}
-                          </span>
+                          <Department
+                            name={task.department}
+                            department={DEPARTMENT.DESIGN}
+                          />
                         )}
                       </a>
                     </div>
