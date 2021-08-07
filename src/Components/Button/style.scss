@@ -1,9 +1,7 @@
 .Button {
-  width: 100%;
   background: #cef9c6;
   border-radius: 25px;
   border: none;
-  height: 50px;
   font-weight: bold;
   font-size: 14px;
   line-height: 21px;
@@ -15,5 +13,20 @@
   }
   &:active {
     background: #caffbd;
+  }
+
+  &_small {
+    width: 20px;
+    height: 20px;
+  }
+
+  &_medium {
+    height: 40px;
+    width: 110px;
+  }
+
+  &_large {
+    height: 50px;
+    width: 100%;
   }
 }

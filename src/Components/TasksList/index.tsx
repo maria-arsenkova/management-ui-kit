@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Task } from "../Task";
 import { TaskType } from "../Task/types";
 import "./style.css";
-import { Button } from "../Button";
+import { Button, BUTTON_SIZE } from "../Button";
 
 export type TasksListType = {
   name: string;
@@ -29,7 +29,7 @@ function TasksList({
           <ul className="tasks__list" key={list.name}>
             <li className="tasks__title">
               <span className="tasks__title-text">{list.name}</span>
-              <Button name={"+ Add Task"} onClick={onCreateTaskClick} />
+              <Button name={"+ Add Task"} onClick={onCreateTaskClick} size={BUTTON_SIZE.MEDIUM}/>
               {/* <button
                 type='button'
                 className='tasks__add-task'

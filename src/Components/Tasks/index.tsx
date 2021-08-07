@@ -28,7 +28,7 @@ import firebase from "../../services/firebase";
 import { getTasks } from "../../services/tasks";
 import { Input } from "../Input";
 import { Textarea } from "../Textarea";
-import { Button } from "../Button";
+import { Button, BUTTON_SIZE} from "../Button";
 
 export const INITIAL_TASKS: TaskType[] = [
   {
@@ -391,7 +391,7 @@ function Tasks() {
             label={"Description"}
             handleDescription={handleDescription}
           />
-          <Button name={"Create Task"} onClick={createTask} />
+          <Button name={"Create Task"} onClick={createTask} size={BUTTON_SIZE.LARGE}/>
         </Modal>
       )}
     </div>

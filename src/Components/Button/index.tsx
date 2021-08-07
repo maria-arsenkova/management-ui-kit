@@ -1,23 +1,29 @@
 import React from "react";
 import "./style.scss";
 
-interface ButtonProps {
-  name: string;
-  // createTask: () => void;
-  // updateTasks: () => void;
-  // handleModalClick: () => void;
-  onClick: () => void;
+export enum BUTTON_SIZE {
+  SMALL = "SMALL",
+  MEDIUM = "MEDIUM",
+  LARGE = "LARGE",
 }
 
-const Button = ({
-  onClick,
-  name,
-}: ButtonProps) => {
+interface ButtonProps {
+  name: string;
+  onClick: () => void;
+  size: BUTTON_SIZE;
+}
+
+const Button = ({ onClick, name, size }: ButtonProps) => {
+  let className = "Button ";
+  if (size == BUTTON_SIZE.SMALL) {
+    className += "Button_small";
+  } else if (size == BUTTON_SIZE.MEDIUM) {
+    className += "Button_medium";
+  } else if (size == BUTTON_SIZE.LARGE) {
+    className += "Button_large";
+  }
   return (
-    <button
-      className="Button"
-      onClick={onClick}
-    >
+    <button className={className} onClick={onClick}>
       {name}
     </button>
   );
