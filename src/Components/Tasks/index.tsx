@@ -38,11 +38,18 @@ export const INITIAL_TASKS: TaskType[] = [
     assigner: "Penelope F.",
     asignTo: {
       avatar: user,
-      name: "ivan ivanov",
+      initials: "ivan ivanov",
+      position: "",
     },
     dueOn: "Tue, Apr 18",
     department: "Developement",
-    followers: [{ avatar: userO, name: "userO" }],
+    followers: [
+      {
+        avatar: userO,
+        initials: "ivan ivanov",
+        position: "",
+      },
+    ],
     discussions: [],
     files: [
       {
@@ -76,14 +83,24 @@ export const INITIAL_TASKS: TaskType[] = [
     isDone: false,
     asignTo: {
       avatar: userOne,
-      name: "Linzell Bowman",
+      initials: "Linzell Bowman",
+      position: "",
     },
     dueOn: "Tue, Dec 25",
     department: "Marketing",
     followers: [
-      { avatar: userO, name: "userO" },
-      { avatar: userY, name: "userY" },
-      { avatar: userS, name: "userS" },
+      {
+        avatar: userO,
+        initials: "Bowman",
+        position: "",
+      },
+      {
+        avatar: userY,
+        initials: "userY",
+        position: "",
+      },
+      { avatar: userS, initials: "userS",
+      position: "", },
     ],
     description:
       "Task Descriptions are used during project planning, project execution and project control. During project planning the task descriptions are used for scope planning and creating estimates. During project execution the task description is used by those doing the activities to ensure they are doing the work correctly.",
@@ -157,13 +174,17 @@ export const INITIAL_TASKS: TaskType[] = [
     isDone: false,
     asignTo: {
       avatar: userTwo,
-      name: "Louis Freeman",
+      initials: "Louis Freeman",
+      
+        position: "",
     },
     dueOn: "Tue, Apr 18",
     department: "Design",
     followers: [
-      { avatar: userO, name: "userO" },
-      { avatar: userY, name: "userY" },
+      { avatar: userO, initials: "userO",
+      position: "", },
+      { avatar: userY, initials: "userY",
+      position: "", },
     ],
     discussions: [],
     files: [
@@ -187,7 +208,9 @@ export const INITIAL_TASKS: TaskType[] = [
     isDone: false,
     asignTo: {
       avatar: userTh,
-      name: "Abramson Abramson",
+      initials: "Abramson Abramson",
+      
+        position: "",
     },
     dueOn: "Tue, Apr 18",
     department: "Design",
@@ -203,11 +226,12 @@ export const INITIAL_TASKS: TaskType[] = [
     isDone: false,
     asignTo: {
       avatar: userFo,
-      name: "Hoggarth Bowman",
+      initials: "Hoggarth Bowman",
+      position: "",
     },
     dueOn: "Tue, Dec 25",
     department: "Marketing",
-    followers: [{ avatar: userO, name: "userO" }],
+    followers: [{ avatar: userO, initials: "userO", position: "",}],
     discussions: [],
     files: [
       {
@@ -249,13 +273,14 @@ export const INITIAL_TASKS: TaskType[] = [
     assigner: "Kristin A.",
     asignTo: {
       avatar: userFr,
-      name: "Louis Kendal",
+      initials: "Louis Kendal",
+      position: "",
     },
     dueOn: "Tue, Apr 18",
     department: "Design",
     followers: [
-      { avatar: userO, name: "userO" },
-      { avatar: userY, name: "userY" },
+      { avatar: userO, initials: "userO", position: "",},
+      { avatar: userY, initials: "userY", position: "",},
     ],
     discussions: [],
     files: [],

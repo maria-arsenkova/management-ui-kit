@@ -1,19 +1,16 @@
 import { CommentProps } from "../Comment/types";
-import {
-  TaskInfoBlockExecutorType,
-  TaskInfoBlockUsersType,
-} from "../TaskInfoBlock/types";
 import { TaskFilesType } from "../TaskFiles/types";
+import { UserType } from "../UserInfo/types";
 
 export type TaskType = {
   id: number|string;
   title: string;
   createdAt: string;
   assigner: string;
-  asignTo: TaskInfoBlockExecutorType;
+  asignTo: UserType;
   dueOn: string;
   department: string;
-  followers?: TaskInfoBlockUsersType[];
+  followers?: UserType[];
   description?: string;
   files: TaskFilesType[];
   discussions: CommentProps[];
