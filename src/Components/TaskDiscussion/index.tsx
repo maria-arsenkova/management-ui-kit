@@ -57,6 +57,7 @@ function TaskDiscussion({
           type="text"
           placeholder="Add a comment…"
           className="comment__add-text"
+          id="pounds"
           onChange={(event) =>
             handleComment(
               event.target.value,
@@ -90,8 +91,6 @@ function TaskDiscussion({
                 date={item.date}
                 text={item.text}
                 author={item.author}
-                //когда один и тот же текст — сбой с ключами — они дублируются  (к примеру отправить два раза один и тот-же текст)
-                //onChange — когда изменяем форму, обновляет хук, а когда на баттон то публикует, если текст один и тот-же то хук не обновляется (к примеру отправить два раза один и тот-же текст)
                 key={item.id}
               />
             );
