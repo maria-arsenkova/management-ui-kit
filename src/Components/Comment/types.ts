@@ -1,7 +1,7 @@
-export type CommentType = {
-  name: string;
-  position: string;
-  photo: string;
+import { UserType } from "../UserInfo/types";
+
+export interface CommentProps {
+  author: UserType;
   date: string;
   text: string;
   id: string;

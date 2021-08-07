@@ -128,17 +128,21 @@ export const INITIAL_TASKS: TaskType[] = [
     discussions: [
       {
         id: Date.now().toString(),
-        name: "Helena Brauer",
-        position: "Designer",
-        photo: userU,
+        author: {
+          avatar: userU,
+          initials: "Helena Brauer",
+          position: "Designer",
+        },
         date: "Yesterday at 12:37pm",
         text: "During a project build, it is necessary to evaluate the product design and development against project requirements and outcomes",
       },
       {
         id: Date.now().toString(),
-        name: "Prescott MacCaffery",
-        position: "Developer",
-        photo: userT,
+        author: {
+          avatar: userT,
+          initials: "Prescott MacCaffery",
+          position: "Developer",
+        },
         date: "Yesterday at 12:37pm",
         text: "@Helena Software quality assurance activity in which one or several humans check a program mainly ",
       },
@@ -362,10 +366,7 @@ function Tasks() {
             label={"Description"}
             handleDescription={handleDescription}
           />
-          <Button
-            name={"Create Task"}
-            onClick={createTask}
-          />
+          <Button name={"Create Task"} onClick={createTask} />
         </Modal>
       )}
     </div>

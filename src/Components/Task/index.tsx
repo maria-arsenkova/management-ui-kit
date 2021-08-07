@@ -10,7 +10,7 @@ import { TaskFilesType } from "../TaskFiles/types";
 
 import { user } from "../Sidebar";
 import { TaskType } from "./types";
-import { CommentType } from "../Comment/types";
+import { CommentProps } from "../Comment/types";
 import firebase from "../../services/firebase";
 import headerPhoto from "../TaskFiles/img/headerPhoto.svg";
 
@@ -20,7 +20,7 @@ export interface TaskProps {
 }
 
 function Task({ task, onTaskChanged }: TaskProps) {
-  const handleComments = (newComments: CommentType[]) => {
+  const handleComments = (newComments: CommentProps[]) => {
     const newTask: TaskType = { ...task, discussions: newComments };
     onTaskChanged(newTask);
   };

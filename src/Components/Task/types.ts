@@ -1,4 +1,4 @@
-import { CommentType } from "../Comment/types";
+import { CommentProps } from "../Comment/types";
 import {
   TaskInfoBlockExecutorType,
   TaskInfoBlockUsersType,
@@ -16,7 +16,7 @@ export type TaskType = {
   followers?: TaskInfoBlockUsersType[];
   description?: string;
   files: TaskFilesType[];
-  discussions: CommentType[];
+  discussions: CommentProps[];
   isDone: boolean;
   category: "todo" | "backlog";
   openedTask?: boolean;
