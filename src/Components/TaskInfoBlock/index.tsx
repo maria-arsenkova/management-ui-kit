@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "./style.scss";
 import addIcon from "./img/addIcon.svg";
 import { UserType } from "../UserInfo/types";
 
@@ -19,20 +19,20 @@ function TaskInfoBlock({
   users,
 }: TaskInfoBlockProps) {
   return (
-    <div className="task__info-block">
-      <div className="task__info-block-title">{title}</div>
-      <div className="task__info-block-content">
+    <div className="TaskInfoBlock">
+      <div className="TaskInfoBlock__title">{title}</div>
+      <div className="TaskInfoBlock__content">
         {executor && (
-          <a className="executor">
+          <a className="TaskInfoBlock__executor">
             <img
               src={executor.avatar}
               alt={executor.initials}
-              className="task__info-block_icon"
+              className="TaskInfoBlock__executor-icon"
             />
-            <span className="executor__initials">{executor.initials}</span>
+            <span className="TaskInfoBlock__executor-initials">{executor.initials}</span>
           </a>
         )}
-        {date && <div className="date">{date}</div>}
+        {date && <div className="TaskInfoBlock__date">{date}</div>}
         {department == "Developement" && (
           <span className="department department_developement">
             {department}

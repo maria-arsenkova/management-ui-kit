@@ -3,8 +3,8 @@ import './style.scss';
 
 function SidebarFooter() {
   return (
-    <footer className='sidebar__footer'>
-      <a href="/" className='sidebar__footer-link'>Invite your team</a> and start
+    <footer className='SidebarFooter'>
+      <a href="/" className='SidebarFooter__link'>Invite your team</a> and start
       collaborating!
     </footer>
   );

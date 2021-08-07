@@ -1,35 +1,35 @@
-.task__file {
+.TaskFiles {
   display: flex;
   margin-right: 30px;
   margin-bottom: 30px;
-}
 
-.task__file-preview {
-  border-radius: 8px;
-  border-color: transparent;
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-}
+  &__preview {
+    border-radius: 8px;
+    border-color: transparent;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
 
-.task__file-name {
-  font-weight: bold;
-  line-height: 21px;
-  color: #131313;
-}
+  &__name {
+    font-weight: bold;
+    line-height: 21px;
+    color: #131313;
+  }
 
-.task__file-size {
-  line-height: 21px;
-  color: #131313;
-  opacity: 0.7;
-  margin-right: 15px;
-}
+  &__size {
+    line-height: 21px;
+    color: #131313;
+    opacity: 0.7;
+    margin-right: 15px;
+  }
 
-.task__file-delete {
-  font-weight: bold;
-  line-height: 21px;
-  color: #ff1000;
-  background: transparent;
-  padding: 0px;
-  border: transparent;
+  &__delete {
+    font-weight: bold;
+    line-height: 21px;
+    color: #ff1000;
+    background: transparent;
+    padding: 0px;
+    border: transparent;
+  }
 }

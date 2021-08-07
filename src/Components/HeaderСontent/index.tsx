@@ -15,7 +15,7 @@ const members: UserType[] = [
 
 function HeaderСontent() {
   return (
-    <div className="Header-сontent">
+    <div className="HeaderСontent">
       <HeaderLogo />
       <Members members={members} />
     </div>

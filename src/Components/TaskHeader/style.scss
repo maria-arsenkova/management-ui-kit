@@ -1,0 +1,87 @@
+.TaskHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+
+  &__group {
+    margin-right: 6px;
+  }
+
+  &__name {
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 38px;
+    color: #131313;
+  }
+
+  &__creator {
+    font-size: 16px;
+    line-height: 23px;
+    color: #131313;
+  }
+  &__selector {
+    display: flex;
+  }
+
+  &__selector-hidden {
+    display: none;
+  }
+
+  &__selector-tick {
+    color: #000;
+    cursor: default;
+    font-weight: normal;
+    line-height: 40px;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  &__selector-tick:before {
+    content: url("./img/checkTask.svg");
+    color: #000;
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+    padding-top: 2px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    background: #eaeaea;
+    border-radius: 4px;
+    vertical-align: middle;
+  }
+
+  &__selector-tick-more {
+    background: #eaeaea;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__selector-tick_active {
+    color: #000;
+    cursor: default;
+    font-weight: normal;
+    line-height: 40px;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  &__selector-tick_active:before {
+    content: url("./img/checkTaskActive.svg");
+    color: #000;
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+    padding-top: 2px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    background: #cef9c6;
+    border-radius: 4px;
+    vertical-align: middle;
+  }
+}

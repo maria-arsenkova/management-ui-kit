@@ -13,14 +13,14 @@ interface TabsProps {
 
 function HeaderTabs({ items }: TabsProps) {
   return (
-    <div className="Tabs">
+    <div className="HeaderTabs">
       {items.map((item) => {
         return (
           item?.name && (
             <NavLink
               to={item.path}
-              className="Tabs__item"
-              activeClassName="Tabs__item_active"
+              className="HeaderTabs__item"
+              activeClassName="HeaderTabs__item_active"
               key={`${item.name}`}
             >
               {item.name}

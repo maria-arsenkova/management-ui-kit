@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Task } from "../Task";
 import { TaskType } from "../Task/types";
-import "./style.css";
+import "./style.scss";
 import { Button, BUTTON_SIZE } from "../Button";
 
 export type TasksListType = {
@@ -26,13 +26,13 @@ function TasksList({
     <div>
       {content.map((list) => {
         return (
-          <ul className="tasks__list" key={list.name}>
-            <li className="tasks__title">
-              <span className="tasks__title-text">{list.name}</span>
+          <ul className="TasksList" key={list.name}>
+            <li className="TasksList__title">
+              <span className="TasksList__title-text">{list.name}</span>
               <Button name={"+ Add Task"} onClick={onCreateTaskClick} size={BUTTON_SIZE.MEDIUM}/>
               {/* <button
                 type='button'
-                className='tasks__add-task'
+                className='TasksList__add-task'
                 onClick={onCreateTaskClick}
               >
                 + Add Task
@@ -41,13 +41,13 @@ function TasksList({
             {list?.items &&
               list.items.map((task) => {
                 return (
-                  <li className="tasks__item" key={task.id}>
+                  <li className="TasksList__item" key={task.id}>
                     <label
                       htmlFor={`checkbox-${task.id}`}
                       className={
                         task.isDone
-                          ? "tasks__checkbox-new_active"
-                          : "tasks__checkbox-new"
+                          ? "TasksList__checkbox-new_active"
+                          : "TasksList__checkbox-new"
                       }
                     >
                       <input
@@ -59,7 +59,7 @@ function TasksList({
                         }}
                         type="checkbox"
                         id={`checkbox-${task.id}`}
-                        className="tasks__checkbox-hidden"
+                        className="TasksList__checkbox-hidden"
                         checked={task.isDone}
                       />
                     </label>
@@ -68,13 +68,13 @@ function TasksList({
                         onTaskClick(task);
                       }}
                     >
-                      <div className="tasks__item-name">{task.title}</div>
-                      <a href="#" className="tasks__item-executor">
+                      <div className="TasksList__item-name">{task.title}</div>
+                      <a href="#" className="TasksList__item-executor">
                         <img
                           key={`${task.asignTo.initials}_${task.asignTo.avatar}`}
                           src={task.asignTo.avatar}
                           alt={task.asignTo.initials}
-                          className="tasks__item-avatar"
+                          className="TasksList__item-avatar"
                         />
                         {task.department == "Developement" && (
                           <span className="department department_developement">

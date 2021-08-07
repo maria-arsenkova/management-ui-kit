@@ -1,58 +1,60 @@
-.task__discussion-title {
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 23px;
-  text-transform: uppercase;
-  color: #131313;
-  margin-bottom: 20px;
-}
+.TaskDiscussion {
+  &__title {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 23px;
+    text-transform: uppercase;
+    color: #131313;
+    margin-bottom: 20px;
+  }
 
-.comment__add {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+  &__new-comment {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-.comment__add-text {
-  height: 40px;
-  width: 100%;
-  border-radius: 4px 4px 4px 4px;
-  background: #eaeaea;
-  border-color: transparent;
-  padding: 10px 15px;
-}
+  &__comment-user-photo {
+    margin-right: 10px;
+  }
 
-.task__discussion-button {
-  margin-left: 10px;
-  height: 40px;
-  width: 99px;
-  border-radius: 20px;
-  border: none;
-  background: #eaeaea;
-  color: #131313;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 21px;
-}
+  &__comment-text {
+    height: 40px;
+    width: 100%;
+    border-radius: 4px 4px 4px 4px;
+    background: #eaeaea;
+    border-color: transparent;
+    padding: 10px 15px;
+  }
 
-.task__discussion-button:hover {
-  background: #e0e0e0;
-}
+  &__comment-text::-webkit-input-placeholder {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+    color: #131313;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+  }
 
-.task__discussion-button:active {
-  background: #cfcfcf;
-}
+  &__button-add-comment {
+    margin-left: 10px;
+    height: 40px;
+    width: 99px;
+    border-radius: 20px;
+    border: none;
+    background: #eaeaea;
+    color: #131313;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+  }
 
-.comment__add-text::-webkit-input-placeholder {
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 21px;
-  color: #131313;
-  mix-blend-mode: normal;
-  opacity: 0.5;
-}
+  &__button-add-comment:hover {
+    background: #e0e0e0;
+  }
 
-.comment__user-photo {
-  margin-right: 10px;
+  &__button-add-comment:active {
+    background: #cfcfcf;
+  }
 }

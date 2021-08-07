@@ -48,15 +48,15 @@ function TaskDiscussion({
 
   return (
     <div>
-      <div className="task__discussion-title">Discussion</div>
-      <div className="comment__add">
-        <span className="comment__user-photo">
+      <div className="TaskDiscussion__title">Discussion</div>
+      <div className="TaskDiscussion__new-comment">
+        <span className="TaskDiscussion__comment-user-photo">
           <UserPhoto user={user} size={AVATAR_SIZE.LARGE} />
         </span>
         <input
           type="text"
           placeholder="Add a comment…"
-          className="comment__add-text"
+          className="TaskDiscussion__comment-text"
           id="pounds"
           onChange={(event) =>
             handleComment(
@@ -74,7 +74,7 @@ function TaskDiscussion({
           }
         />
         <button
-          className="task__discussion-button"
+          className="TaskDiscussion__button-add-comment"
           onClick={() => {
             createComment(comment, content);
           }}
