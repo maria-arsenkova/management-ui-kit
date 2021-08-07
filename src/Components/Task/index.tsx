@@ -12,7 +12,8 @@ import { user } from "../Sidebar";
 import { TaskType } from "./types";
 import { CommentProps } from "../Comment/types";
 import firebase from "../../services/firebase";
-import headerPhoto from "../TaskFiles/img/headerPhoto.svg";
+import pdf from "./img/pdf.svg";
+import zip from "./img/zip.svg";
 
 export interface TaskProps {
   task: TaskType;
@@ -56,26 +57,50 @@ function Task({ task, onTaskChanged }: TaskProps) {
   };
 
   const createFile = (event: any): void => {
-    const file = event.target.files[0];
-    let preview = "";
-
-    let newFile: TaskFilesType = {
-      //генерировать в firestore id
-      id: Date.now().toString(),
-      preview: preview,
-      name: file.name,
-      size: file.size,
-      sizeSign: "KB",
-      uploadedBy: "",
-      date: Date.now().toString(),
-    };
-
-    const reader = new FileReader();
-    reader.onload = (event: any) => {
-      newFile.preview = event.target.result;
-    };
-    reader.readAsDataURL(file);
-    updateFiles(newFile, task.files);
+    var file = event.target.files[0];
+    const storageRef = firebase.storage().ref();
+    var uploadTask = storageRef.child(file.name).put(file);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("Upload is " + progress + "% done");
+        switch (snapshot.state) {
+          case firebase.storage.TaskState.PAUSED: // or 'paused'
+            console.log("Upload is paused");
+            break;
+          case firebase.storage.TaskState.RUNNING: // or 'running'
+            console.log("Upload is running");
+            break;
+        }
+      },
+      (error) => {},
+      () => {
+        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+          console.log("File available at", downloadURL);
+          let preview =""
+          if (file.name.includes('.pdf') ) {
+            preview = pdf;
+          }  else if (file.name.includes('.zip')) {
+            preview = zip;
+          }
+          else {
+            preview = downloadURL
+          }
+          let newFile: TaskFilesType = {
+            //генерировать в firestore id
+            id: Date.now().toString(),
+            preview: preview,
+            name: file.name,
+            size: file.size,
+            sizeSign: "KB",
+            uploadedBy: "",
+            date: Date.now().toString(),
+          };
+          updateFiles(newFile, task.files);
+        });
+      }
+    );
   };
 
   //считает общий вес
@@ -97,26 +122,6 @@ function Task({ task, onTaskChanged }: TaskProps) {
     console.log(i + "KB");
   };
 
-  const test = async (event: any): Promise<void> => {
-    const storage = firebase.storage();
-    var file = event.target.files[0];
-    // Get a reference to the location where we'll store our photos
-    var storageRef = storage.ref().child("chat_photos");
-    // Get a reference to store file at photos/<FILENAME>.jpg
-    var photoRef = storageRef.child(file.name);
-     // Upload file to Firebase Storage
-    var uploadTask = photoRef.put(file);
-    uploadTask.on('state_changed', null, null, function() {
-      // getDownloadURL(uploadTask.snapshot.ref)
-      // When the image has successfully uploaded, we get its download URL
-      
-      var downloadUrl = uploadTask.snapshot.downloadURL;
-      
-      console.log(downloadUrl);
-    });
-
-    console.log(await storageRef.getDownloadURL());
-  };
 
   return (
     <div className="Task">
@@ -136,10 +141,9 @@ function Task({ task, onTaskChanged }: TaskProps) {
         <TaskInfoBlock title={"Tag"} department={task.department} />
         <TaskInfoBlock title={"Followers"} users={task.followers} />
       </div>
-      {/* <input type="file" onChange={test} /> */}
       <TaskDescription text={task.description} />
       <input type="file" onChange={createFile} />
-     
+
       {/* <input
         type="file"
         onChange={(event) => {
