@@ -3,14 +3,8 @@ import "./style.scss";
 import { UserType } from "../UserInfo/types";
 import { UserPhoto, AVATAR_SIZE } from "../UserPhoto";
 
-// type ContentItemType = {
-//   name: string;
-//   avatar: string;
-// };
-
 export type ContentType = {
   name: string;
-  // items?: ContentItemType[];
   items?: UserType[];
   counter?: number;
   preview?: string;

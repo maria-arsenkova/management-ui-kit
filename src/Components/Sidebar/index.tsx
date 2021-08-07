@@ -69,17 +69,17 @@ const teams: ContentType[] = [
   {
     name: "Backend",
     items: [
-      { initials: "userF", avatar: userF,  position: "userF"},
-      { initials: "userFo", avatar: userFo,  position: "userFo" },
+      { initials: "userF", avatar: userF, position: "userF" },
+      { initials: "userFo", avatar: userFo, position: "userFo" },
     ],
   },
   {
     name: "Frontend",
     items: [
-      { initials: "userFa", avatar: userFa,  position: "userFa" },
-      { initials: "userSi", avatar: userSi,  position: "userSi" },
-      { initials: "userSe", avatar: userSe,  position: "userSe" },
-      { initials: "userEt", avatar: userEt,  position: "userEt" },
+      { initials: "userFa", avatar: userFa, position: "userFa" },
+      { initials: "userSi", avatar: userSi, position: "userSi" },
+      { initials: "userSe", avatar: userSe, position: "userSe" },
+      { initials: "userEt", avatar: userEt, position: "userEt" },
     ],
   },
 ];
