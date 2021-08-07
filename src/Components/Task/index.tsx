@@ -78,14 +78,13 @@ function Task({ task, onTaskChanged }: TaskProps) {
       () => {
         uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
           console.log("File available at", downloadURL);
-          let preview =""
-          if (file.name.includes('.pdf') ) {
+          let preview = "";
+          if (file.name.includes(".pdf")) {
             preview = pdf;
-          }  else if (file.name.includes('.zip')) {
+          } else if (file.name.includes(".zip")) {
             preview = zip;
-          }
-          else {
-            preview = downloadURL
+          } else {
+            preview = downloadURL;
           }
           let newFile: TaskFilesType = {
             //генерировать в firestore id
@@ -95,7 +94,13 @@ function Task({ task, onTaskChanged }: TaskProps) {
             size: file.size,
             sizeSign: "KB",
             uploadedBy: "",
-            date: Date.now().toString(),
+            date: new Date().toLocaleDateString("en-GB", {
+              weekday: "short",
+              month: "long",
+              day: "numeric",
+              hour: "numeric",
+              minute: "numeric",
+            }),
           };
           updateFiles(newFile, task.files);
         });
@@ -121,7 +126,6 @@ function Task({ task, onTaskChanged }: TaskProps) {
     var i = Math.floor(bytes / k);
     console.log(i + "KB");
   };
-
 
   return (
     <div className="Task">
