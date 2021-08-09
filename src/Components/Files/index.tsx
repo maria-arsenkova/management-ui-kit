@@ -5,6 +5,7 @@ import searchIcon from "./img/searchIcon.svg";
 import arrow from "./img/arrow.svg";
 import downloadIcon from "./img/downloadIcon.svg";
 import { getTasks } from "../../services/tasks";
+import {Search} from '../Search'
 
 interface Sort {
   sortBy: "name" | "size" | "date" | "uploadedBy";
@@ -81,6 +82,7 @@ function Files() {
         <div className="Files__list-line Files__list-line-header">
           <div>Image</div>
           <div>
+            {/* <span className="search-icon"><Search /></span> */}
             <img src={searchIcon} alt="searchIcon" className="search-icon" />
             <button
               onClick={() => {

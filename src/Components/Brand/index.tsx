@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import list from "./img/list.svg";
-import search from "./img/search.svg";
+import {Search} from '../Search'
 
 function Brand() {
   return (
@@ -11,7 +11,7 @@ function Brand() {
       </a>
       <span className="Brand__name">PROJECTUS</span>
       <a href="/" className="Brand__icon-search">
-        <img src={search} alt="search"></img>
+       <Search />
       </a>
     </div>
   );
