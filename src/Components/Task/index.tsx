@@ -103,10 +103,34 @@ function Task({ task, onTaskChanged }: TaskProps) {
             }),
           };
           updateFiles(newFile, task.files);
+          testDownload(file.name);
         });
       }
     );
   };
+  
+
+  const testDownload = (name: string) => {
+    const storageRef = firebase.storage().ref();
+    
+    storageRef.child(name).getDownloadURL()
+    .then((url) => {
+      // `url` is the download URL for 'images/stars.jpg'
+  
+      // This can be downloaded directly:
+      var xhr = new XMLHttpRequest();
+      xhr.responseType = 'blob';
+      xhr.onload = (event) => {
+        var blob = xhr.response;
+      };
+      xhr.open('GET', url);
+      xhr.send();
+    })
+    .catch((error) => {
+      // Handle any errors
+    });
+  
+  }
 
   //считает общий вес
   const formatBytes = (event: any, decimals: number) => {
