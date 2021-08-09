@@ -5,7 +5,8 @@ import searchIcon from "./img/searchIcon.svg";
 import arrow from "./img/arrow.svg";
 import downloadIcon from "./img/downloadIcon.svg";
 import { getTasks } from "../../services/tasks";
-import {Search} from '../Search'
+import { Search } from "../Search";
+import { IconArrow, ARROW_DIRECTION } from "../IconArrow";
 
 interface Sort {
   sortBy: "name" | "size" | "date" | "uploadedBy";
@@ -82,7 +83,7 @@ function Files() {
         <div className="Files__list-line Files__list-line-header">
           <div>Image</div>
           <div>
-            {/* <span className="search-icon"><Search /></span> */}
+            {/* <span><Search /></span> */}
             <img src={searchIcon} alt="searchIcon" className="search-icon" />
             <button
               onClick={() => {
@@ -91,19 +92,19 @@ function Files() {
                   sortType: sort.sortType === "acs" ? "desc" : "acs",
                 });
               }}
-              className="button-sort"
+              className="Files__button-sort"
             >
               Name
               {sort.sortBy === "name" && (
                 <>
                   {sort.sortType === "acs" ? (
-                    <img
-                      alt="arrowUp"
-                      src={arrow}
-                      className="icon-arrow icon-arrow_up"
-                    />
+                    <span className="Files__arrow">
+                      <IconArrow derection={ARROW_DIRECTION.UP} />
+                    </span>
                   ) : (
-                    <img alt="arrowDown" src={arrow} className="icon-arrow" />
+                    <span className="Files__arrow">
+                      <IconArrow derection={ARROW_DIRECTION.DOWN} />
+                    </span>
                   )}
                 </>
               )}
@@ -117,19 +118,19 @@ function Files() {
                   sortType: sort.sortType === "acs" ? "desc" : "acs",
                 });
               }}
-              className="button-sort"
+              className="Files__button-sort"
             >
               Size
               {sort.sortBy === "size" && (
                 <>
                   {sort.sortType === "acs" ? (
-                    <img
-                      alt="arrowUp"
-                      src={arrow}
-                      className="icon-arrow icon-arrow_up"
-                    />
+                    <span className="Files__arrow">
+                      <IconArrow derection={ARROW_DIRECTION.UP} />
+                    </span>
                   ) : (
-                    <img alt="arrowDown" src={arrow} className="icon-arrow" />
+                    <span className="Files__arrow">
+                      <IconArrow derection={ARROW_DIRECTION.DOWN} />
+                    </span>
                   )}
                 </>
               )}
@@ -143,19 +144,19 @@ function Files() {
                   sortType: sort.sortType === "acs" ? "desc" : "acs",
                 });
               }}
-              className="button-sort"
+              className="Files__button-sort"
             >
               Uploaded By
               {sort.sortBy === "uploadedBy" && (
                 <>
                   {sort.sortType === "acs" ? (
-                    <img
-                      alt="arrowUp"
-                      src={arrow}
-                      className="icon-arrow icon-arrow_up"
-                    />
+                    <span className="Files__arrow">
+                      <IconArrow derection={ARROW_DIRECTION.UP} />
+                    </span>
                   ) : (
-                    <img alt="arrowDown" src={arrow} className="icon-arrow" />
+                    <span className="Files__arrow">
+                      <IconArrow derection={ARROW_DIRECTION.DOWN} />
+                    </span>
                   )}
                 </>
               )}
@@ -174,7 +175,7 @@ function Files() {
             >
               <div>
                 <img
-                  className="file-preview"
+                  className="Files__preview"
                   src={item.preview}
                   alt={item.name}
                   key={`${item.preview}_${item.name}`}
@@ -188,14 +189,11 @@ function Files() {
               <div>{item.date}</div>
               <div></div>
               <div>
-                <button className="button-actions">
+                <button className="Files__button-actions">
                   Actions
-                  <img
-                    src={arrow}
-                    alt="arrow"
-                    key={`${arrow}_${item.name}`}
-                    className="icon-arrow"
-                  />
+                  <span key={`${arrow}_${item.name}`} className="Files__arrow">
+                    <IconArrow derection={ARROW_DIRECTION.DOWN} />
+                  </span>
                 </button>
               </div>
               <div>

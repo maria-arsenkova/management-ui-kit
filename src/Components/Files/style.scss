@@ -59,20 +59,20 @@
     opacity: 0.7;
   }
 
-  .search-icon {
-    margin-right: 8px;
-    vertical-align: middle;
-    opacity: 1;
-  }
-
-  .file-preview {
+  &__preview {
     height: 40px;
     width: 40px;
     border-radius: 8px;
     border-color: transparent;
   }
 
-  .button-actions {
+  .search-icon {
+    margin-right: 8px;
+    vertical-align: middle;
+    opacity: 1;
+  }
+
+  &__button-actions {
     height: 40px;
     width: 99px;
     border-radius: 20px;
@@ -84,24 +84,19 @@
     line-height: 21px;
   }
 
-  .button-actions:hover {
+  &__button-actions:hover {
     background: #e0e0e0;
   }
 
-  .button-actions:active {
+  &__button-actions:active {
     background: #cfcfcf;
   }
 
-  .icon-arrow {
+  &__arrow {
     margin-left: 5px;
   }
 
-  .icon-arrow_up {
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-  }
-
-  .button-sort {
+  &__button-sort {
     border: none;
     background: transparent;
     padding: 0%;
