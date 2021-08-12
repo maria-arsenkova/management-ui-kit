@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { Task } from "../Task";
+import React from "react";
+import { Button, BUTTON_SIZE, BUTTON_VARIABLE } from "../Button";
+import { Department, DEPARTMENT } from "../Department";
 import { TaskType } from "../Task/types";
 import "./style.scss";
-import { Button, BUTTON_SIZE } from "../Button";
-import { Department, DEPARTMENT } from "../Department";
 
 export type TasksListType = {
   name: string;
@@ -31,10 +30,12 @@ function TasksList({
             <li className="TasksList__title">
               <span className="TasksList__title-text">{list.name}</span>
               <Button
-                name={"+ Add Task"}
                 onClick={onCreateTaskClick}
                 size={BUTTON_SIZE.MEDIUM}
-              />
+                variable={BUTTON_VARIABLE.SUCCESS}
+              >
+                + Add Task
+              </Button>
               {/* <button
                 type='button'
                 className='TasksList__add-task'

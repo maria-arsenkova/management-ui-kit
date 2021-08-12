@@ -1,8 +1,9 @@
 import React from "react";
-import "./style.scss";
-import chat from "./img/chat.svg";
 import { UserType } from "../UserInfo/types";
-import { UserPhoto, AVATAR_SIZE } from "../UserPhoto";
+import { AVATAR_SIZE, UserPhoto } from "../UserPhoto";
+import { Button, BUTTON_SIZE, BUTTON_VARIABLE } from "./../Button";
+import chat from "./img/chat.svg";
+import "./style.scss";
 
 interface MembersProms {
   members: UserType[];
@@ -25,15 +26,17 @@ function Members({ members }: MembersProms) {
           );
         })}
       </div>
-      <div className="Members__share">
-        <span className="Members__share-name">Share</span>
-      </div>
-      <div className="Members__сhat">
-        <a href="/">
-          <img src={chat} alt="chat" />
-        </a>
-        <span className="Members__сhat-name">Chat</span>
-      </div>
+      <Button size={BUTTON_SIZE.SMALL} onClick={() => {}}>
+        Share
+      </Button>
+      <Button
+        onClick={() => {}}
+        variable={BUTTON_VARIABLE.WARNING}
+        size={BUTTON_SIZE.SMALL}
+      >
+        <img src={chat} alt="chat" />
+        <span>Chat</span>
+      </Button>
     </div>
   );
 }

@@ -1,34 +1,33 @@
-import React, { useState, useEffect } from "react";
-import "./style.scss";
-import { TasksList, TasksListType } from "../TasksList";
-import userOne from "../TasksList/img/userOne.png";
-import userTwo from "../TasksList/img/userTwo.png";
-import userTh from "../TasksList/img/userTh.png";
-import userFo from "../TasksList/img/userFo.png";
-import userFr from "../TasksList/img/userFr.png";
-import { Task } from "../Task";
-import { TaskType } from "../Task/types";
-import user from "../TaskInfoBlock/img/user.png";
-import userO from "../TaskInfoBlock/img/userO.png";
-import userY from "../TaskInfoBlock/img/userY.png";
-import userS from "../TaskInfoBlock/img/userS.png";
-import headerIcon from "../TaskFiles/img/headerIcon.svg";
-import pdfIcon from "../TaskFiles/img/pdfIcon.svg";
-import zipIcon from "../TaskFiles/img/zipIcon.svg";
-import articleImage from "../TaskFiles/img/articleImage.svg";
-import headerPhoto from "../TaskFiles/img/headerPhoto.svg";
-import desingSource from "../TaskFiles/img/desingSource.svg";
-import improvements from "../TaskFiles/img/improvements.svg";
-import icons from "../TaskFiles/img/icons.svg";
-import userT from "../TaskDiscussion/img/userT.png";
-import userU from "../TaskDiscussion/img/userU.png";
-import { Modal } from "../Modal";
-import close from "../Modal/img/close.svg";
+import React, { useEffect, useState } from "react";
 import firebase from "../../services/firebase";
 import { getTasks } from "../../services/tasks";
+import { Button, BUTTON_SIZE, BUTTON_VARIABLE } from "../Button";
 import { Input } from "../Input";
+import { Modal } from "../Modal";
+import { Task } from "../Task";
+import { TaskType } from "../Task/types";
+import userT from "../TaskDiscussion/img/userT.png";
+import userU from "../TaskDiscussion/img/userU.png";
+import articleImage from "../TaskFiles/img/articleImage.svg";
+import desingSource from "../TaskFiles/img/desingSource.svg";
+import headerIcon from "../TaskFiles/img/headerIcon.svg";
+import headerPhoto from "../TaskFiles/img/headerPhoto.svg";
+import icons from "../TaskFiles/img/icons.svg";
+import improvements from "../TaskFiles/img/improvements.svg";
+import pdfIcon from "../TaskFiles/img/pdfIcon.svg";
+import zipIcon from "../TaskFiles/img/zipIcon.svg";
+import user from "../TaskInfoBlock/img/user.png";
+import userO from "../TaskInfoBlock/img/userO.png";
+import userS from "../TaskInfoBlock/img/userS.png";
+import userY from "../TaskInfoBlock/img/userY.png";
+import { TasksList, TasksListType } from "../TasksList";
+import userFo from "../TasksList/img/userFo.png";
+import userFr from "../TasksList/img/userFr.png";
+import userOne from "../TasksList/img/userOne.png";
+import userTh from "../TasksList/img/userTh.png";
+import userTwo from "../TasksList/img/userTwo.png";
 import { Textarea } from "../Textarea";
-import { Button, BUTTON_SIZE} from "../Button";
+import "./style.scss";
 
 export const INITIAL_TASKS: TaskType[] = [
   {
@@ -99,8 +98,7 @@ export const INITIAL_TASKS: TaskType[] = [
         initials: "userY",
         position: "",
       },
-      { avatar: userS, initials: "userS",
-      position: "", },
+      { avatar: userS, initials: "userS", position: "" },
     ],
     description:
       "Task Descriptions are used during project planning, project execution and project control. During project planning the task descriptions are used for scope planning and creating estimates. During project execution the task description is used by those doing the activities to ensure they are doing the work correctly.",
@@ -175,16 +173,14 @@ export const INITIAL_TASKS: TaskType[] = [
     asignTo: {
       avatar: userTwo,
       initials: "Louis Freeman",
-      
-        position: "",
+
+      position: "",
     },
     dueOn: "Tue, Apr 18",
     department: "Design",
     followers: [
-      { avatar: userO, initials: "userO",
-      position: "", },
-      { avatar: userY, initials: "userY",
-      position: "", },
+      { avatar: userO, initials: "userO", position: "" },
+      { avatar: userY, initials: "userY", position: "" },
     ],
     discussions: [],
     files: [
@@ -209,8 +205,8 @@ export const INITIAL_TASKS: TaskType[] = [
     asignTo: {
       avatar: userTh,
       initials: "Abramson Abramson",
-      
-        position: "",
+
+      position: "",
     },
     dueOn: "Tue, Apr 18",
     department: "Design",
@@ -231,7 +227,7 @@ export const INITIAL_TASKS: TaskType[] = [
     },
     dueOn: "Tue, Dec 25",
     department: "Marketing",
-    followers: [{ avatar: userO, initials: "userO", position: "",}],
+    followers: [{ avatar: userO, initials: "userO", position: "" }],
     discussions: [],
     files: [
       {
@@ -279,8 +275,8 @@ export const INITIAL_TASKS: TaskType[] = [
     dueOn: "Tue, Apr 18",
     department: "Design",
     followers: [
-      { avatar: userO, initials: "userO", position: "",},
-      { avatar: userY, initials: "userY", position: "",},
+      { avatar: userO, initials: "userO", position: "" },
+      { avatar: userY, initials: "userY", position: "" },
     ],
     discussions: [],
     files: [],
@@ -391,7 +387,14 @@ function Tasks() {
             label={"Description"}
             handleDescription={handleDescription}
           />
-          <Button name={"Create Task"} onClick={createTask} size={BUTTON_SIZE.LARGE}/>
+          <Button
+            onClick={createTask}
+            size={BUTTON_SIZE.LARGE}
+            fillWidth
+            variable={BUTTON_VARIABLE.SUCCESS}
+          >
+            Create Task
+          </Button>
         </Modal>
       )}
     </div>

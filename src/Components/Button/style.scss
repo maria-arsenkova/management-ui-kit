@@ -1,5 +1,4 @@
 .Button {
-  background: #cef9c6;
   border-radius: 25px;
   border: none;
   font-weight: bold;
@@ -8,25 +7,44 @@
   text-align: center;
   color: #1d201c;
 
-  &:hover {
-    background: #caf6bf;
-  }
-  &:active {
-    background: #caffbd;
+  :nth-child(2) {
+    margin-left: 4px;
   }
 
   &_small {
-    width: 20px;
-    height: 20px;
+    padding: 4px 15px;
   }
 
   &_medium {
-    height: 40px;
-    width: 110px;
+    padding: 10px 20px;
   }
 
   &_large {
-    height: 50px;
+    padding: 15px 20px;
+  }
+
+  &_fillWidth {
     width: 100%;
+  }
+
+  &_success {
+    background: #cef9c6;
+
+    &:hover {
+      background: #caf6bf;
+    }
+
+    &:active {
+      background: #caffbd;
+    }
+  }
+
+  &_default {
+    background: #eaeaea;
+  }
+
+  &_warning {
+    color: #ffc200;
+    background: #fff8dd;
   }
 }

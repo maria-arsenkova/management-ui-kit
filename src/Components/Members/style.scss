@@ -15,40 +15,4 @@
   &__member-photo:last-child {
     margin: 0px;
   }
-
-  &__share {
-    height: 30px;
-    width: 67px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-    background: #eaeaea;
-    margin-right: 15px;
-  }
-
-  &__share-name {
-    color: #131313;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 21px;
-  }
-
-  &__сhat {
-    height: 30px;
-    width: 81px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-    background: #fff8dd;
-  }
-
-  &__сhat-name {
-    padding-left: 5px;
-    color: #ffc200;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 21px;
-  }
 }
