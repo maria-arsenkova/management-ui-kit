@@ -5,6 +5,7 @@ import { Comment } from "../Comment";
 import { CommentProps } from "../Comment/types";
 import { TaskType } from "../Task/types";
 import { UserPhoto, AVATAR_SIZE } from "../UserPhoto";
+import { Button, BUTTON_SIZE } from "../Button";
 
 export interface TaskDiscussionsProps {
   user: UserType;
@@ -73,14 +74,11 @@ function TaskDiscussion({
             )
           }
         />
-        <button
-          className="TaskDiscussion__button-add-comment"
-          onClick={() => {
+        
+        <Button size={BUTTON_SIZE.MEDIUM}  onClick={() => {
             createComment(comment, content);
-          }}
-        >
-          Send
-        </button>
+          }}>Send </Button>
+
       </div>
       {content && (
         <div>

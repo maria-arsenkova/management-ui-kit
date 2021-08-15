@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import firebase from "../../services/firebase";
 import { getTasks } from "../../services/tasks";
 import { Button, BUTTON_SIZE, BUTTON_VARIABLE } from "../Button";
+import { SIZE_SIGN } from "../TaskFiles/types";
+import { DEPARTMENT } from "../Department";
 import { Input } from "../Input";
 import { Modal } from "../Modal";
 import { Task } from "../Task";
@@ -41,7 +43,7 @@ export const INITIAL_TASKS: TaskType[] = [
       position: "",
     },
     dueOn: "Tue, Apr 18",
-    department: "Developement",
+    department: DEPARTMENT.DEVELOPEMENT,
     followers: [
       {
         avatar: userO,
@@ -56,7 +58,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: headerPhoto,
         name: "Header Photo.jpg",
         size: 5.8,
-        sizeSign: "KB",
+        sizeSign: SIZE_SIGN.KB,
         uploadedBy: "Chinmay Sarasvati",
         date: "01 Jan 2019",
       },
@@ -65,7 +67,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: improvements,
         name: "Improvements. jpg",
         size: 290,
-        sizeSign: "KB",
+        sizeSign:  SIZE_SIGN.KB,
         uploadedBy: "Jacqueline Asong",
         date: "17 Dec 2019",
       },
@@ -86,7 +88,7 @@ export const INITIAL_TASKS: TaskType[] = [
       position: "",
     },
     dueOn: "Tue, Dec 25",
-    department: "Marketing",
+    department: DEPARTMENT.MARKETING,
     followers: [
       {
         avatar: userO,
@@ -108,7 +110,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: pdfIcon,
         name: "Redesign Brief 2019.pdf",
         size: 159,
-        sizeSign: "KB",
+        sizeSign:  SIZE_SIGN.KB,
         uploadedBy: "Mattie Blooman",
         date: "08 Jan 2019",
       },
@@ -117,7 +119,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: headerIcon,
         name: "Header.png",
         size: 129,
-        sizeSign: "KB",
+        sizeSign:  SIZE_SIGN.KB,
         uploadedBy: "Mattie Blooman",
         date: "08 Jan 2019",
       },
@@ -126,7 +128,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: articleImage,
         name: "Article Image 2.jpg",
         size: 133.9,
-        sizeSign: "KB",
+        sizeSign:  SIZE_SIGN.KB,
         uploadedBy: "Homayoun Shakibaii",
         date: "20 Dec 2019",
       },
@@ -135,7 +137,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: desingSource,
         name: "Desing Source.png",
         size: 432,
-        sizeSign: "KB",
+        sizeSign:  SIZE_SIGN.KB,
         uploadedBy: "Ingo Schimpff",
         date: "19 Dec 2019",
       },
@@ -177,7 +179,7 @@ export const INITIAL_TASKS: TaskType[] = [
       position: "",
     },
     dueOn: "Tue, Apr 18",
-    department: "Design",
+    department:DEPARTMENT.DESIGN,
     followers: [
       { avatar: userO, initials: "userO", position: "" },
       { avatar: userY, initials: "userY", position: "" },
@@ -189,7 +191,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: zipIcon,
         name: "All Files.zip",
         size: 17,
-        sizeSign: "KB",
+        sizeSign:  SIZE_SIGN.KB,
         uploadedBy: "Alfie Wood",
         date: "02 Jan 2019",
       },
@@ -209,7 +211,7 @@ export const INITIAL_TASKS: TaskType[] = [
       position: "",
     },
     dueOn: "Tue, Apr 18",
-    department: "Design",
+    department: DEPARTMENT.DESIGN,
     discussions: [],
     files: [],
   },
@@ -226,7 +228,7 @@ export const INITIAL_TASKS: TaskType[] = [
       position: "",
     },
     dueOn: "Tue, Dec 25",
-    department: "Marketing",
+    department: DEPARTMENT.MARKETING,
     followers: [{ avatar: userO, initials: "userO", position: "" }],
     discussions: [],
     files: [
@@ -235,7 +237,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: pdfIcon,
         name: "Client Meeting.pdf",
         size: 119,
-        sizeSign: "KB",
+        sizeSign:  SIZE_SIGN.KB,
         uploadedBy: "Jeremías Romero",
         date: "12 Dec 2019",
       },
@@ -244,7 +246,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: icons,
         name: "Icons.png",
         size: 95,
-        sizeSign: "KB",
+        sizeSign:  SIZE_SIGN.KB,
         uploadedBy: "Okazaki Suzuko",
         date: "07 Dec 2019",
       },
@@ -253,7 +255,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: articleImage,
         name: "Article Image.jpg",
         size: 133.9,
-        sizeSign: "KB",
+        sizeSign:  SIZE_SIGN.KB,
         uploadedBy: "Homayoun Shakibaii",
         date: "20 Dec 2019",
       },
@@ -273,7 +275,7 @@ export const INITIAL_TASKS: TaskType[] = [
       position: "",
     },
     dueOn: "Tue, Apr 18",
-    department: "Design",
+    department: DEPARTMENT.DESIGN,
     followers: [
       { avatar: userO, initials: "userO", position: "" },
       { avatar: userY, initials: "userY", position: "" },

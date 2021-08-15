@@ -1,36 +1,26 @@
 import React from "react";
 import "./style.scss";
+import { TaskFilesForClient } from "./types";
 
 export interface TaskFilesProps {
-  id: string;
-  preview?: string;
-  name: string;
-  size: number;
-  sizeSign: "KB" | "MB" | "GB" | "ТB";
+  file: TaskFilesForClient;
   onRemoveFile: (id: string) => void;
 }
 
-function TaskFiles({
-  id,
-  preview,
-  name,
-  size,
-  sizeSign,
-  onRemoveFile,
-}: TaskFilesProps) {
+function TaskFiles({ file, onRemoveFile }: TaskFilesProps) {
   return (
-    <div className="TaskFiles" id={id}>
-      <img className="TaskFiles__preview" src={preview} alt={name} />
+    <div className="TaskFiles" id={file.id}>
+      <img className="TaskFiles__preview" src={file.preview} alt={file.name} />
       <div>
-        <div className="TaskFiles__name">{name}</div>
+        <div className="TaskFiles__name">{file.name}</div>
         <div>
           <span className="TaskFiles__size">
-            {size} {sizeSign}
+            {file.size} {file.sizeSign}
           </span>
           <button
             className="TaskFiles__delete"
             onClick={() => {
-              onRemoveFile(id);
+              onRemoveFile(file.id);
             }}
           >
             Delete

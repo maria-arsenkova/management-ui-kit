@@ -36,13 +36,6 @@ function TasksList({
               >
                 + Add Task
               </Button>
-              {/* <button
-                type='button'
-                className='TasksList__add-task'
-                onClick={onCreateTaskClick}
-              >
-                + Add Task
-              </button> */}
             </li>
             {list?.items &&
               list.items.map((task) => {
@@ -82,24 +75,12 @@ function TasksList({
                           alt={task.asignTo.initials}
                           className="TasksList__item-avatar"
                         />
-                        {task.department == "Developement" && (
+                        {task.department && (
                           <Department
-                            name={task.department}
-                            department={DEPARTMENT.DEVELOPEMENT}
+                            department={task.department}
                           />
                         )}
-                        {task.department == "Marketing" && (
-                          <Department
-                            name={task.department}
-                            department={DEPARTMENT.MARKETING}
-                          />
-                        )}
-                        {task.department == "Design" && (
-                          <Department
-                            name={task.department}
-                            department={DEPARTMENT.DESIGN}
-                          />
-                        )}
+                        
                       </a>
                     </div>
                   </li>

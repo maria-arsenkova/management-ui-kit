@@ -41,10 +41,26 @@
 
   &_default {
     background: #eaeaea;
+
+    &:hover {
+      background: #e0e0e0;
+    }
+
+    &:active {
+      background: #cfcfcf;
+    }
   }
 
   &_warning {
     color: #ffc200;
     background: #fff8dd;
+
+    &:hover {
+      background: #fdefc6;
+    }
+
+    &:active {
+      background: #fdedbd;
+    }
   }
 }

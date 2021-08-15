@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./style.scss";
-import { TaskFilesType } from "../TaskFiles/types";
+import { TaskFilesForClient } from "../TaskFiles/types";
 import searchIcon from "./img/searchIcon.svg";
 import arrow from "./img/arrow.svg";
 import downloadIcon from "./img/downloadIcon.svg";
@@ -20,11 +20,11 @@ const INITIAL_SORT: Sort = {
 
 function Files() {
   const [sort, setSort] = useState(INITIAL_SORT);
-  const [files, setFiles] = useState<TaskFilesType[]>([]);
+  const [files, setFiles] = useState<TaskFilesForClient[]>([]);
 
   const getFiles = async () => {
     const allTasks = await getTasks();
-    const allFiles: TaskFilesType[] = allTasks
+    const allFiles: TaskFilesForClient[] = allTasks
       .map((task) => task?.files)
       .flat()
       .filter((file) => file);
@@ -36,9 +36,9 @@ function Files() {
   }, []);
 
   const handleSorting = (
-    files: TaskFilesType[],
+    files: TaskFilesForClient[],
     sort: Sort
-  ): TaskFilesType[] => {
+  ): TaskFilesForClient[] => {
     const newFiles = files.sort((a, b) => {
       const x =
         typeof a[sort.sortBy] == "string"
@@ -83,8 +83,8 @@ function Files() {
         <div className="Files__list-line Files__list-line-header">
           <div>Image</div>
           <div>
-            {/* <span><Search /></span> */}
-            <img src={searchIcon} alt="searchIcon" className="search-icon" />
+            <span><Search /></span>
+            {/* <img src={searchIcon} alt="searchIcon" className="search-icon" /> */}
             <button
               onClick={() => {
                 updateSortState({

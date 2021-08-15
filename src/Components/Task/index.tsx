@@ -6,7 +6,11 @@ import { TaskInfoBlock } from "../TaskInfoBlock";
 import { TaskDescription } from "../TaskDescription";
 import { TaskDiscussion } from "../TaskDiscussion";
 import { TaskFiles } from "../TaskFiles";
-import { TaskFilesType } from "../TaskFiles/types";
+import {
+  TaskFilesType,
+  TaskFilesForClient,
+  SIZE_SIGN,
+} from "../TaskFiles/types";
 
 import { user } from "../Sidebar";
 import { TaskType } from "./types";
@@ -41,8 +45,8 @@ function Task({ task, onTaskChanged }: TaskProps) {
 
   //обновили все файлы в Task
   const updateFiles = async (
-    newFile: TaskFilesType,
-    allFiles: TaskFilesType[]
+    newFile: TaskFilesForClient,
+    allFiles: TaskFilesForClient[]
   ): Promise<void> => {
     const newFiles = [newFile, ...allFiles];
     const newTask: TaskType = {
@@ -74,7 +78,9 @@ function Task({ task, onTaskChanged }: TaskProps) {
             break;
         }
       },
-      (error) => {},
+      (error) => {
+        console.error(error);
+      },
       () => {
         uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
           console.log("File available at", downloadURL);
@@ -86,13 +92,13 @@ function Task({ task, onTaskChanged }: TaskProps) {
           } else {
             preview = downloadURL;
           }
-          let newFile: TaskFilesType = {
-            //генерировать в firestore id
+
+          let newFile: TaskFilesForClient = {
             id: Date.now().toString(),
             preview: preview,
             name: file.name,
             size: file.size,
-            sizeSign: "KB",
+            sizeSign: formatSize(file.size),
             uploadedBy: "",
             date: new Date().toLocaleDateString("en-GB", {
               weekday: "short",
@@ -108,53 +114,66 @@ function Task({ task, onTaskChanged }: TaskProps) {
       }
     );
   };
-  
 
   const testDownload = (name: string) => {
     const storageRef = firebase.storage().ref();
-    
-    storageRef.child(name).getDownloadURL()
-    .then((url) => {
-      // `url` is the download URL for 'images/stars.jpg'
-  
-      // This can be downloaded directly:
-      var xhr = new XMLHttpRequest();
-      xhr.responseType = 'blob';
-      xhr.onload = (event) => {
-        var blob = xhr.response;
-      };
-      xhr.open('GET', url);
-      xhr.send();
-    })
-    .catch((error) => {
-      // Handle any errors
-    });
-  
-  }
 
-  //считает общий вес
-  const formatBytes = (event: any, decimals: number) => {
-    const bytes = event.target.files[0].size;
-    var k = 1024; //Or 1 kilo = 1000
-    var sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB"];
-    var i = Math.floor(Math.log(bytes) / Math.log(k));
-    console.log(
-      parseFloat((bytes / Math.pow(k, i)).toFixed(decimals)) + " " + sizes[i]
-    );
+    storageRef
+      .child(name)
+      .getDownloadURL()
+      .then((url) => {
+        // `url` is the download URL for 'images/stars.jpg'
+
+        // This can be downloaded directly:
+        var xhr = new XMLHttpRequest();
+        xhr.responseType = "blob";
+        xhr.onload = (event) => {
+          var blob = xhr.response;
+        };
+        xhr.open("GET", url);
+        xhr.send();
+      })
+      .catch((error) => {
+        // Handle any errors
+      });
   };
 
-  //считает и отображает в КБ
-  const formatBytesKB = (event: any) => {
-    const bytes = event.target.files[0].size;
-    var k = 1024;
-    var i = Math.floor(bytes / k);
-    console.log(i + "KB");
+  //считает общий вес
+  // const formatSize = (size: number, decimals: number): SIZE_SIGN => {
+  //   const bytes = size;
+  //   var k = 1024; //Or 1 kilo = 1000
+  //   var sizes = ["Bytes", "KB", "MB", "GB", "TB"];
+  // // находит степень
+  //   var i = Math.floor(Math.log(bytes) / Math.log(k));
+  //   let format = parseFloat((bytes / Math.pow(k, i)).toFixed(decimals)) + " " + sizes[i]
+  //   console.log(i);
+  //   console.log(
+  //     parseFloat((bytes / Math.pow(k, i)).toFixed(decimals))
+  //   );
+  // };
+
+  const formatSize = (size: number): SIZE_SIGN => {
+    const bytes = size;
+    var kiloBytes = Math.pow(1024, 1);
+    var megaBytes = Math.pow(1024, 2);
+    var gigaBytes = Math.pow(1024, 3);
+    var tbBytes = Math.pow(1024, 4);
+
+    if (bytes < kiloBytes) {
+      console.log(SIZE_SIGN.BYTES);
+    } else if (bytes < megaBytes || bytes == kiloBytes ) {
+      // console.log((bytes / kiloBytes).toFixed(decimals) + " " + SIZE_SIGN.KB);
+      console.log(SIZE_SIGN.KB);
+    } else if (bytes < gigaBytes || bytes == megaBytes) {
+      console.log(SIZE_SIGN.MB);
+    } else if (bytes < tbBytes || bytes == gigaBytes) {
+      console.log(SIZE_SIGN.GB);
+    } else console.log(SIZE_SIGN.KB);
+    return SIZE_SIGN.BYTES;
   };
 
   return (
     <div className="Task">
-      {/* <button onClick={test}>TEST</button> */}
-      {/* <input type="file" onChange={test} /> */}
       <TaskHeader
         isDone={task.isDone}
         data={task.createdAt}
@@ -171,26 +190,14 @@ function Task({ task, onTaskChanged }: TaskProps) {
       </div>
       <TaskDescription text={task.description} />
       <input type="file" onChange={createFile} />
-
-      {/* <input
-        type="file"
-        onChange={(event) => {
-          formatBytes(event, 2);
-        }}
-      /> */}
-
       {task.files && (
         <div className="Task__files">
           {task.files.map((item) => {
             return (
               <TaskFiles
-                id={item.id}
-                preview={item.preview}
-                name={item.name}
-                size={item.size}
+                file={item}
                 onRemoveFile={() => removeFile(task, item.id)}
                 key={item.id}
-                sizeSign={item.sizeSign}
               />
             );
           })}

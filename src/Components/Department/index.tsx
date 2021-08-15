@@ -8,11 +8,10 @@ export enum DEPARTMENT {
 }
 
 export type DepartmentType = {
-  name: string;
   department: DEPARTMENT;
 };
 
-const Department = ({ name, department }: DepartmentType) => {
+const Department = ({ department }: DepartmentType) => {
   let className = "Department ";
 
   if (department == DEPARTMENT.DESIGN) {
@@ -22,7 +21,7 @@ const Department = ({ name, department }: DepartmentType) => {
   } else if (department == DEPARTMENT.MARKETING) {
     className += "Department_marketing";
   }
-  return <span className={className}>{name}</span>;
+  return <span className={className}>{department}</span>;
 };
 
 export { Department };

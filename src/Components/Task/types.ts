@@ -1,5 +1,6 @@
 import { CommentProps } from "../Comment/types";
-import { TaskFilesType } from "../TaskFiles/types";
+import { DEPARTMENT } from "../Department";
+import { TaskFilesForClient } from "../TaskFiles/types";
 import { UserType } from "../UserInfo/types";
 
 export type TaskType = {
@@ -9,10 +10,10 @@ export type TaskType = {
   assigner: string;
   asignTo: UserType;
   dueOn: string;
-  department: string;
+  department: DEPARTMENT;
   followers?: UserType[];
   description?: string;
-  files: TaskFilesType[];
+  files: TaskFilesForClient[];
   discussions: CommentProps[];
   isDone: boolean;
   category: "todo" | "backlog";

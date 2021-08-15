@@ -1,9 +1,20 @@
+export enum SIZE_SIGN {
+    BYTES = "BYTES",
+    KB = "KB",
+    MB = "MB",
+    GB = "GB",
+    TB = "TB",
+}
+
 export type TaskFilesType = {
-    id: string;
     preview?: string;
     name: string;
     size: number;
-    sizeSign: "KB"|"MB"|"GB"|"ТB";
+    sizeSign: SIZE_SIGN;
     uploadedBy: string;
     date: string;
+}
+
+export interface TaskFilesForClient extends TaskFilesType {
+    id: string;
 }

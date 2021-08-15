@@ -8,7 +8,7 @@ interface TaskInfoBlockProps {
   title?: string;
   executor?: UserType;
   date?: string;
-  department?: string;
+  department?: DEPARTMENT;
   users?: UserType[];
 }
 
@@ -34,15 +34,7 @@ function TaskInfoBlock({
           </a>
         )}
         {date && <div className="TaskInfoBlock__date">{date}</div>}
-        {department == "Developement" && (
-           <Department name={department} department={DEPARTMENT.DEVELOPEMENT} />
-        )}
-        {department == "Marketing" && (
-           <Department name={department} department={DEPARTMENT.MARKETING} />
-        )}
-        {department == "Design" && (
-          <Department name={department} department={DEPARTMENT.DESIGN} />
-        )}
+        {department &&  <Department department={department} /> }
         {users && (
           <span>
             {users.map((item) => {
