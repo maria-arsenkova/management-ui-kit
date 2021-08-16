@@ -138,17 +138,14 @@ function Task({ task, onTaskChanged }: TaskProps) {
       });
   };
 
-  //считает общий вес
-  // const formatSize = (size: number, decimals: number): SIZE_SIGN => {
+  // const formatSize2 = (size: number, decimals: number): void => {
   //   const bytes = size;
   //   var k = 1024; //Or 1 kilo = 1000
   //   var sizes = ["Bytes", "KB", "MB", "GB", "TB"];
-  // // находит степень
+  //   // находит степень
   //   var i = Math.floor(Math.log(bytes) / Math.log(k));
-  //   let format = parseFloat((bytes / Math.pow(k, i)).toFixed(decimals)) + " " + sizes[i]
-  //   console.log(i);
   //   console.log(
-  //     parseFloat((bytes / Math.pow(k, i)).toFixed(decimals))
+  //     parseFloat((bytes / Math.pow(k, i)).toFixed(decimals)) + " " + sizes[i]
   //   );
   // };
 
@@ -159,17 +156,21 @@ function Task({ task, onTaskChanged }: TaskProps) {
     var gigaBytes = Math.pow(1024, 3);
     var tbBytes = Math.pow(1024, 4);
 
-    if (bytes < kiloBytes) {
-      console.log(SIZE_SIGN.BYTES);
-    } else if (bytes < megaBytes || bytes == kiloBytes ) {
-      // console.log((bytes / kiloBytes).toFixed(decimals) + " " + SIZE_SIGN.KB);
-      console.log(SIZE_SIGN.KB);
-    } else if (bytes < gigaBytes || bytes == megaBytes) {
-      console.log(SIZE_SIGN.MB);
-    } else if (bytes < tbBytes || bytes == gigaBytes) {
-      console.log(SIZE_SIGN.GB);
-    } else console.log(SIZE_SIGN.KB);
-    return SIZE_SIGN.BYTES;
+    switch (true) {
+      case bytes < kiloBytes:
+        return SIZE_SIGN.BYTES;
+
+      case bytes < megaBytes || bytes == kiloBytes:
+        return SIZE_SIGN.KB;
+
+      case bytes < gigaBytes || bytes == megaBytes:
+        return SIZE_SIGN.MB;
+      case bytes < tbBytes || bytes == gigaBytes:
+        return SIZE_SIGN.GB;
+
+      default:
+        return SIZE_SIGN.TB;
+    }
   };
 
   return (
