@@ -1,6 +1,6 @@
-import React from 'react';
-import './style.scss';
-import { TaskDescriptionType } from './types';
+import React from "react";
+import "./style.scss";
+import { TaskDescriptionType } from "./types";
 
 function TaskDescription({ text }: TaskDescriptionType) {
   return (
@@ -12,4 +12,3 @@ function TaskDescription({ text }: TaskDescriptionType) {
 }
 
 export { TaskDescription };
- 

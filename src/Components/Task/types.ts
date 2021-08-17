@@ -1,6 +1,7 @@
 import { CommentProps } from "../Comment/types";
 import { DEPARTMENT } from "../Department";
 import { TaskFilesForClient } from "../TaskFiles/types";
+import { TaskDescriptionType } from '../TaskDescription/types';
 import { UserType } from "../UserInfo/types";
 
 export type TaskType = {

@@ -353,7 +353,7 @@ function Tasks() {
     ...INITIAL_TASKS[0],
     title: taskTitle,
     description: taskDescription,
-  };
+  };  
 
   const createTask = async (): Promise<void> => {
     const firestore = firebase.firestore();
