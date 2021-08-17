@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.scss";
 import { UserType } from "./types";
-import circle from "./img/circle.svg";
 import {UserPhoto, AVATAR_SIZE } from "../UserPhoto"
+import {Icon2} from '../Icon2'
 
 interface UserInfoProps {
   user: UserType;
@@ -20,8 +20,8 @@ function UserInfo({ user }: UserInfoProps) {
           <div className="UserInfo__position">{user.position}</div>
         )}
       </div>
-      <a href="/" className="circleIcon">
-        <img src={circle} alt="circle" />
+      <a href="/">
+        <Icon2 name={"circle"} />
       </a>
     </div>
   );

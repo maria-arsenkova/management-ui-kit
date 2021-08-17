@@ -3,7 +3,7 @@ import "./style.scss";
 import { UserType } from "../UserInfo/types";
 import { Brand } from "../Brand";
 import { UserInfo } from "../UserInfo";
-import userpic from "../UserInfo/img/userpic.png";
+import userpic from "../UserInfo/img/user.svg";
 import { Stats, StatsType } from "../Stats";
 import { SidebarMenu, ContentType } from "../SidebarMenu";
 import dashboard from "../SidebarMenu/img/dashboard.svg";
