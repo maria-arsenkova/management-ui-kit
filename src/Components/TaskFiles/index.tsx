@@ -25,6 +25,8 @@ function TaskFiles({ file, onRemoveFile }: TaskFilesProps) {
           >
             Delete
           </button>
+          {console.log(file.preview)}
+          <a target="_blank" download href={file.preview} >скачать</a>
         </div>
       </div>
     </div>

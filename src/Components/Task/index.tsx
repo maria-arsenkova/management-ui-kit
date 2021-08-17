@@ -118,24 +118,22 @@ function Task({ task, onTaskChanged }: TaskProps) {
   const testDownload = (name: string) => {
     const storageRef = firebase.storage().ref();
 
-    storageRef
-      .child(name)
-      .getDownloadURL()
-      .then((url) => {
-        // `url` is the download URL for 'images/stars.jpg'
-
-        // This can be downloaded directly:
-        var xhr = new XMLHttpRequest();
-        xhr.responseType = "blob";
-        xhr.onload = (event) => {
-          var blob = xhr.response;
-        };
-        xhr.open("GET", url);
-        xhr.send();
-      })
-      .catch((error) => {
-        // Handle any errors
-      });
+    storageRef.child(name).getDownloadURL()
+    .then((url) => {
+      var xhr = new XMLHttpRequest();
+      xhr.responseType = 'blob';
+      xhr.onload = (event) => {
+        var blob = xhr.response;
+      };
+      xhr.open('GET', url);
+      xhr.send();
+  
+  
+      console.log('моя ссылка на скачивание', url);
+    })
+    .catch((error) => {
+      // Handle any errors
+    });
   };
 
   // const formatSize2 = (size: number, decimals: number): void => {

@@ -67,7 +67,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: improvements,
         name: "Improvements. jpg",
         size: 290,
-        sizeSign:  SIZE_SIGN.KB,
+        sizeSign: SIZE_SIGN.KB,
         uploadedBy: "Jacqueline Asong",
         date: "17 Dec 2019",
       },
@@ -110,7 +110,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: pdfIcon,
         name: "Redesign Brief 2019.pdf",
         size: 159,
-        sizeSign:  SIZE_SIGN.KB,
+        sizeSign: SIZE_SIGN.KB,
         uploadedBy: "Mattie Blooman",
         date: "08 Jan 2019",
       },
@@ -119,7 +119,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: headerIcon,
         name: "Header.png",
         size: 129,
-        sizeSign:  SIZE_SIGN.KB,
+        sizeSign: SIZE_SIGN.KB,
         uploadedBy: "Mattie Blooman",
         date: "08 Jan 2019",
       },
@@ -128,7 +128,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: articleImage,
         name: "Article Image 2.jpg",
         size: 133.9,
-        sizeSign:  SIZE_SIGN.KB,
+        sizeSign: SIZE_SIGN.KB,
         uploadedBy: "Homayoun Shakibaii",
         date: "20 Dec 2019",
       },
@@ -137,7 +137,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: desingSource,
         name: "Desing Source.png",
         size: 432,
-        sizeSign:  SIZE_SIGN.KB,
+        sizeSign: SIZE_SIGN.KB,
         uploadedBy: "Ingo Schimpff",
         date: "19 Dec 2019",
       },
@@ -179,7 +179,7 @@ export const INITIAL_TASKS: TaskType[] = [
       position: "",
     },
     dueOn: "Tue, Apr 18",
-    department:DEPARTMENT.DESIGN,
+    department: DEPARTMENT.DESIGN,
     followers: [
       { avatar: userO, initials: "userO", position: "" },
       { avatar: userY, initials: "userY", position: "" },
@@ -191,7 +191,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: zipIcon,
         name: "All Files.zip",
         size: 17,
-        sizeSign:  SIZE_SIGN.KB,
+        sizeSign: SIZE_SIGN.KB,
         uploadedBy: "Alfie Wood",
         date: "02 Jan 2019",
       },
@@ -237,7 +237,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: pdfIcon,
         name: "Client Meeting.pdf",
         size: 119,
-        sizeSign:  SIZE_SIGN.KB,
+        sizeSign: SIZE_SIGN.KB,
         uploadedBy: "Jeremías Romero",
         date: "12 Dec 2019",
       },
@@ -246,7 +246,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: icons,
         name: "Icons.png",
         size: 95,
-        sizeSign:  SIZE_SIGN.KB,
+        sizeSign: SIZE_SIGN.KB,
         uploadedBy: "Okazaki Suzuko",
         date: "07 Dec 2019",
       },
@@ -255,7 +255,7 @@ export const INITIAL_TASKS: TaskType[] = [
         preview: articleImage,
         name: "Article Image.jpg",
         size: 133.9,
-        sizeSign:  SIZE_SIGN.KB,
+        sizeSign: SIZE_SIGN.KB,
         uploadedBy: "Homayoun Shakibaii",
         date: "20 Dec 2019",
       },
@@ -358,6 +358,7 @@ function Tasks() {
   const createTask = async (): Promise<void> => {
     const firestore = firebase.firestore();
     const document = await firestore.collection("tasks").add(newTask);
+    handleModalClick();
   };
 
   const updateTasks = async (): Promise<void> => {
@@ -390,10 +391,10 @@ function Tasks() {
             handleDescription={handleDescription}
           />
           <Button
-            onClick={createTask}
             size={BUTTON_SIZE.LARGE}
             fillWidth
             variable={BUTTON_VARIABLE.SUCCESS}
+            onClick={createTask}
           >
             Create Task
           </Button>
