@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.scss";
-import addIcon from "./img/addIcon.svg";
 import { UserType } from "../UserInfo/types";
 import {Department, DEPARTMENT} from '../Department'
+import { Icon2 } from "../Icon2";
 
 interface TaskInfoBlockProps {
   title?: string;
@@ -28,7 +28,7 @@ function TaskInfoBlock({
             <img
               src={executor.avatar}
               alt={executor.initials}
-              className="TaskInfoBlock__executor-icon"
+              className="TaskInfoBlock__executor-photo"
             />
             <span className="TaskInfoBlock__executor-initials">{executor.initials}</span>
           </a>
@@ -40,14 +40,14 @@ function TaskInfoBlock({
             {users.map((item) => {
               return (
                 <img
-                  className="task__info-block_icon"
+                  className="TaskInfoBlock__member"
                   key={`${item.initials}_${item.avatar}`}
                   src={item.avatar}
                   alt={item.initials}
                 />
               );
             })}
-            <img src={addIcon} className="task__info-block_icon" />
+            <Icon2 name='addIcon' />
           </span>
         )}
       </div>

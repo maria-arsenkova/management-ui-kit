@@ -19,7 +19,7 @@
     align-items: center;
   }
 
-  &__executor-icon {
+  &__executor-photo {
     margin-right: 5px;
     border-radius: 50%;
     width: 20px;
@@ -36,5 +36,9 @@
     font-size: 16px;
     line-height: 20px;
     color: #131313;
+  }
+
+  &__member {
+    margin-right: 5px;
   }
 }
