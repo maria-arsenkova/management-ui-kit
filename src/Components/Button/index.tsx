@@ -59,6 +59,10 @@ const Button = ({
       className += "Button_success ";
     }
 
+    // if (children == "Share") {
+    //   className += 'test'
+    // }
+
     return className;
   };
 

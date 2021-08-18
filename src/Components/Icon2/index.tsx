@@ -4,6 +4,7 @@ import logoWeb from "./img/logoWeb.svg";
 import list from "./img/list.svg";
 import search from "./img/search.svg";
 import circle from "./img/circle.svg";
+import chat from './img/chat.svg'
 
 interface IconProps {
   name: string;
@@ -33,6 +34,10 @@ const Icon2 = ({ name, url }: IconProps): JSX.Element => {
 
     case name == "previewProject":
       scr += { url };
+      break;
+
+      case name == "chat":
+      scr = chat;
       break;
   }
   return <img src={scr} alt={name} className={className}></img>;
