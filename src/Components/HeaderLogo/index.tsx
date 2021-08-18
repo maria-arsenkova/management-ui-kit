@@ -1,17 +1,16 @@
 import React from "react";
 import "./style.scss";
-import logoWeb from "./img/logoWeb.svg";
-import circle from "./img/circle.svg";
+import { Icon2 } from "../Icon2";
 
 function HeaderLogo() {
   return (
     <div className="HeaderLogo">
       <a href="/" className="HeaderLogo__item">
-        <img src={logoWeb} alt="logo" />
+        <Icon2 name={"logoWeb"} />
         <span className="HeaderLogo__name">Website</span>
       </a>
       <span className="HeaderLogo__icon">
-        <img src={circle} alt="circle" />
+        <Icon2 name={"circle"} />
       </span>
     </div>
   );
