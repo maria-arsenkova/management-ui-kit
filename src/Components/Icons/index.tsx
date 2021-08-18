@@ -5,14 +5,15 @@ import list from "./img/list.svg";
 import search from "./img/search.svg";
 import circle from "./img/circle.svg";
 import chat from "./img/chat.svg";
-import addIcon from "./img/addIcon.svg";
+import add from "./img/add.svg";
+import download from "./img/download.svg";
 
-interface IconProps {
+interface IconsProps {
   name: string;
   url?: string;
 }
 
-const Icon2 = ({ name, url }: IconProps): JSX.Element => {
+const Icons = ({ name, url }: IconsProps): JSX.Element => {
   let className = "Icon ";
   let scr = "";
 
@@ -41,11 +42,15 @@ const Icon2 = ({ name, url }: IconProps): JSX.Element => {
       scr = chat;
       break;
 
-    case name == "addIcon":
-      scr = addIcon;
+    case name == "add":
+      scr = add;
+      break;
+
+    case name == "download":
+      scr = download;
       break;
   }
   return <img src={scr} alt={name} className={className}></img>;
 };
 
-export { Icon2 };
+export { Icons };

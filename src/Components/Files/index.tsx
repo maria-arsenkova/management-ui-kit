@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./style.scss";
 import { TaskFilesForClient } from "../TaskFiles/types";
-import searchIcon from "./img/searchIcon.svg";
-import arrow from "./img/arrow.svg";
-import downloadIcon from "./img/downloadIcon.svg";
 import { getTasks } from "../../services/tasks";
 import { Search } from "../Search";
 import { IconArrow, ARROW_DIRECTION } from "../IconArrow";
+import { Icons } from "../Icons";
 
 interface Sort {
   sortBy: "name" | "size" | "date" | "uploadedBy";
@@ -83,7 +81,7 @@ function Files() {
         <div className="Files__list-line Files__list-line-header">
           <div>Image</div>
           <div>
-            <span><Search /></span>
+            <Icons name='search'/>
             {/* <img src={searchIcon} alt="searchIcon" className="search-icon" /> */}
             <button
               onClick={() => {
@@ -191,18 +189,14 @@ function Files() {
               <div>
                 <button className="Files__button-actions">
                   Actions
-                  <span key={`${arrow}_${item.name}`} className="Files__arrow">
+                  <span className="Files__arrow">
                     <IconArrow derection={ARROW_DIRECTION.DOWN} />
                   </span>
                 </button>
               </div>
               <div>
                 <a target="_blank" href={item.preview} download>
-                  <img
-                    src={downloadIcon}
-                    alt="downloadIcon"
-                    key={`${downloadIcon}_${item.name}`}
-                  />
+                  <Icons name='download' key={`${item.date}_${item.name}`} />
                 </a>
               </div>
             </div>

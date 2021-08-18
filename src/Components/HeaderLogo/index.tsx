@@ -1,16 +1,16 @@
 import React from "react";
 import "./style.scss";
-import { Icon2 } from "../Icon2";
+import { Icons } from "../Icons";
 
 function HeaderLogo() {
   return (
     <div className="HeaderLogo">
       <a href="/" className="HeaderLogo__item">
-        <Icon2 name={"logoWeb"} />
+        <Icons name={"logoWeb"} />
         <span className="HeaderLogo__name">Website</span>
       </a>
       <span className="HeaderLogo__icon">
-        <Icon2 name={"circle"} />
+        <Icons name={"circle"} />
       </span>
     </div>
   );

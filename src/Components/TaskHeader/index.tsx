@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { TaskHeaderType } from "./types";
-import { Icon2 } from "../Icon2";
+import { Icons } from "../Icons";
 
 function TaskHeader({
   name,
@@ -41,7 +41,7 @@ function TaskHeader({
           }
         ></label>
         <span className="TaskHeader__selector-tick-more">
-          <Icon2 name={"circle"}/>
+          <Icons name={"circle"}/>
         </span>
       </div>
     </div>

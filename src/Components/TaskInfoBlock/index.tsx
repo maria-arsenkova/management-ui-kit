@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import { UserType } from "../UserInfo/types";
 import {Department, DEPARTMENT} from '../Department'
-import { Icon2 } from "../Icon2";
+import { Icons } from "../Icons";
 
 interface TaskInfoBlockProps {
   title?: string;
@@ -47,7 +47,7 @@ function TaskInfoBlock({
                 />
               );
             })}
-            <Icon2 name='addIcon' />
+            <Icons name='add' />
           </span>
         )}
       </div>

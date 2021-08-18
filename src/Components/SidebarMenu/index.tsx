@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import { UserType } from "../UserInfo/types";
 import { UserPhoto, AVATAR_SIZE } from "../UserPhoto";
-import { Icon2 } from "../Icon2";
+import { Icons } from "../Icons";
 
 export type ContentType = {
   name: string;
@@ -28,7 +28,7 @@ function SidebarMenu({ content, title }: SidebarMenuProps) {
             <li className="SidebarMenu__item" key={`${team.name}`}>
               <a href="/" className="SidebarMenu__link">
                 {team?.preview && (
-                  <Icon2 name={"previewProject"}  url={team.preview} key={`${team.preview}_${team.name}`}/>
+                  <Icons name={"previewProject"}  url={team.preview} key={`${team.preview}_${team.name}`}/>
                   // <img
                   //   className="SidebarMenu__preview"
                   //   key={`${team.preview}_${team.name}`}

@@ -1,9 +1,8 @@
 import React from "react";
-import { Icon2 } from "../Icon2";
+import { Icons } from "../Icons";
 import { UserType } from "../UserInfo/types";
 import { AVATAR_SIZE, UserPhoto } from "../UserPhoto";
 import { Button, BUTTON_SIZE, BUTTON_VARIABLE } from "./../Button";
-import chat from "./img/chat.svg";
 import "./style.scss";
 
 interface MembersProms {
@@ -35,7 +34,7 @@ function Members({ members }: MembersProms) {
         variable={BUTTON_VARIABLE.WARNING}
         size={BUTTON_SIZE.SMALL}
       >
-        <Icon2 name="chat"/>
+        <Icons name="chat"/>
         <span>Chat</span>
       </Button>
     </div>
