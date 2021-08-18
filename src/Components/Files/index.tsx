@@ -5,6 +5,7 @@ import { getTasks } from "../../services/tasks";
 import { Search } from "../Search";
 import { IconArrow, ARROW_DIRECTION } from "../IconArrow";
 import { Icons } from "../Icons";
+import { Button } from "../Button";
 
 interface Sort {
   sortBy: "name" | "size" | "date" | "uploadedBy";
@@ -81,7 +82,7 @@ function Files() {
         <div className="Files__list-line Files__list-line-header">
           <div>Image</div>
           <div>
-            <Icons name='search'/>
+            <Icons name="search" />
             {/* <img src={searchIcon} alt="searchIcon" className="search-icon" /> */}
             <button
               onClick={() => {
@@ -187,6 +188,13 @@ function Files() {
               <div>{item.date}</div>
               <div></div>
               <div>
+                <Button>
+                  Actions
+                  {/* <span className="Files__arrow">
+                    <IconArrow derection={ARROW_DIRECTION.DOWN} />
+                  </span> */}
+                </Button>
+
                 <button className="Files__button-actions">
                   Actions
                   <span className="Files__arrow">
@@ -196,7 +204,7 @@ function Files() {
               </div>
               <div>
                 <a target="_blank" href={item.preview} download>
-                  <Icons name='download' key={`${item.date}_${item.name}`} />
+                  <Icons name="download" key={`${item.date}_${item.name}`} />
                 </a>
               </div>
             </div>

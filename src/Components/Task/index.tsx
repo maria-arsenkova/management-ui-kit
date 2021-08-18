@@ -7,7 +7,6 @@ import { TaskDescription } from "../TaskDescription";
 import { TaskDiscussion } from "../TaskDiscussion";
 import { TaskFiles } from "../TaskFiles";
 import {
-  TaskFilesType,
   TaskFilesForClient,
   SIZE_SIGN,
 } from "../TaskFiles/types";
