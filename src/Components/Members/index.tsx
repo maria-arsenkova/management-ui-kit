@@ -26,15 +26,17 @@ function Members({ members }: MembersProms) {
           );
         })}
       </div>
-      <Button size={BUTTON_SIZE.SMALL} onClick={() => {}}>
-        Share
-      </Button>
+      <span className="Members__button-share">
+        <Button size={BUTTON_SIZE.SMALL} onClick={() => {}}>
+          Share
+        </Button>
+      </span>
       <Button
         onClick={() => {}}
         variable={BUTTON_VARIABLE.WARNING}
         size={BUTTON_SIZE.SMALL}
       >
-        <Icons name="chat"/>
+        <Icons name="chat" />
         <span>Chat</span>
       </Button>
     </div>

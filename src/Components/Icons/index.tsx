@@ -3,6 +3,7 @@ import "./style.scss";
 import logoWeb from "./img/logoWeb.svg";
 import list from "./img/list.svg";
 import search from "./img/search.svg";
+import searchBlack from "./img/searchBlack.svg";
 import circle from "./img/circle.svg";
 import chat from "./img/chat.svg";
 import add from "./img/add.svg";
@@ -15,7 +16,7 @@ interface IconsProps {
 
 const Icons = ({ name, url }: IconsProps): JSX.Element => {
   let className = "Icon ";
-  let scr ;
+  let scr;
 
   switch (true) {
     case name == "list":
@@ -24,6 +25,10 @@ const Icons = ({ name, url }: IconsProps): JSX.Element => {
 
     case name == "search":
       scr = search;
+      break;
+
+    case name == "searchBlack":
+      scr = searchBlack;
       break;
 
     case name == "circle":
@@ -36,7 +41,7 @@ const Icons = ({ name, url }: IconsProps): JSX.Element => {
 
     case name == "previewProject":
       scr = url;
-      className= "Icon__preview-project "
+      className = "Icon__preview-project ";
       break;
 
     case name == "chat":
