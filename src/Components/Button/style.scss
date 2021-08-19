@@ -63,4 +63,10 @@
       background: #fdedbd;
     }
   }
+
+  &_transparent {
+    text-align: left;
+    background: inherit;
+    color: #ffc200;
+  }
 }

@@ -11,11 +11,12 @@ export enum BUTTON_VARIABLE {
   DEFAULT = "DEFAULT",
   WARNING = "WARNING",
   SUCCESS = "SUCCESS",
+  TRANSPARENT = 'TRANSPARENT',
 }
 
 interface ButtonProps {
   onClick: () => void;
-  size: BUTTON_SIZE;
+  size?: BUTTON_SIZE;
   fillWidth?: boolean;
   variable?: BUTTON_VARIABLE;
   children:
@@ -57,6 +58,8 @@ const Button = ({
       className += "Button_warning ";
     } else if (variable === BUTTON_VARIABLE.SUCCESS) {
       className += "Button_success ";
+    } else if (variable === BUTTON_VARIABLE.TRANSPARENT) {
+      className += "Button_transparent ";
     }
 
     // if (children == "Share") {
