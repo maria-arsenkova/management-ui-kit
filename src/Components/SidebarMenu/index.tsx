@@ -29,12 +29,6 @@ function SidebarMenu({ content, title }: SidebarMenuProps) {
               <a href="/" className="SidebarMenu__link">
                 {team?.preview && (
                   <Icons name={"previewProject"}  url={team.preview} key={`${team.preview}_${team.name}`}/>
-                  // <img
-                  //   className="SidebarMenu__preview"
-                  //   key={`${team.preview}_${team.name}`}
-                  //   src={team.preview}
-                  //   alt={team.name}
-                  // />
                 )}
                 {team.name}
                 {team?.items && (

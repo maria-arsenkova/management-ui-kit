@@ -15,7 +15,7 @@ interface IconsProps {
 
 const Icons = ({ name, url }: IconsProps): JSX.Element => {
   let className = "Icon ";
-  let scr = "";
+  let scr ;
 
   switch (true) {
     case name == "list":
@@ -35,7 +35,8 @@ const Icons = ({ name, url }: IconsProps): JSX.Element => {
       break;
 
     case name == "previewProject":
-      scr += { url };
+      scr = url;
+      className= "Icon__preview-project "
       break;
 
     case name == "chat":
