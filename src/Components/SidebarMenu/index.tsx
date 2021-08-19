@@ -3,6 +3,7 @@ import "./style.scss";
 import { UserType } from "../UserInfo/types";
 import { UserPhoto, AVATAR_SIZE } from "../UserPhoto";
 import { Icons } from "../Icons";
+import { Circle, CIRCLE_SIZE, CIRCLE_VARIABLE } from "../Сircle";
 
 export type ContentType = {
   name: string;
@@ -28,7 +29,11 @@ function SidebarMenu({ content, title }: SidebarMenuProps) {
             <li className="SidebarMenu__item" key={`${team.name}`}>
               <a href="/" className="SidebarMenu__link">
                 {team?.preview && (
-                  <Icons name={"previewProject"}  url={team.preview} key={`${team.preview}_${team.name}`}/>
+                  <Icons
+                    name={"previewProject"}
+                    url={team.preview}
+                    key={`${team.preview}_${team.name}`}
+                  />
                 )}
                 {team.name}
                 {team?.items && (
@@ -48,7 +53,14 @@ function SidebarMenu({ content, title }: SidebarMenuProps) {
                   </span>
                 )}
                 {team?.counter && (
-                  <span className="SidebarMenu__сounter">{team.counter}</span>
+                  <span className="SidebarMenu__сounter">
+                    <Circle
+                      size={CIRCLE_SIZE.SMALL}
+                      variable={CIRCLE_VARIABLE.WARNING}
+                    >
+                      {team.counter}
+                    </Circle>
+                  </span>
                 )}
               </a>
             </li>

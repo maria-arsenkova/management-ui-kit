@@ -7,6 +7,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
   }
+
   &__item:not(:first-child) {
     cursor: pointer;
   }
@@ -57,15 +58,6 @@
   }
 
   &__сounter {
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    background: #ffc200;
-    border-radius: 50%;
-    text-align: center;
     margin-left: 10px;
-    font-weight: bold;
-    font-size: 13px;
-    color: #131313;
   }
 }

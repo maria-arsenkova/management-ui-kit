@@ -2,6 +2,7 @@ import React from "react";
 import "./style.scss";
 import { TaskHeaderType } from "./types";
 import { Icons } from "../Icons";
+import { Circle, CIRCLE_SIZE, CIRCLE_VARIABLE } from "../Сircle";
 
 function TaskHeader({
   name,
@@ -40,9 +41,9 @@ function TaskHeader({
               : "TaskHeader__selector-tick"
           }
         ></label>
-        <span className="TaskHeader__selector-tick-more">
-          <Icons name={"circle"}/>
-        </span>
+        <Circle size={CIRCLE_SIZE.LARGE} variable={CIRCLE_VARIABLE.DEFAULT}>
+          <Icons name={"circle"} />
+        </Circle>
       </div>
     </div>
   );

@@ -20,7 +20,7 @@ import userSi from "../SidebarMenu/img/userSi.png";
 import userSe from "../SidebarMenu/img/userSe.png";
 import userEt from "../SidebarMenu/img/userEt.png";
 import { SidebarFooter } from "../SidebarFooter";
-import { Button, BUTTON_SIZE, BUTTON_VARIABLE } from "../Button";
+import { Button, BUTTON_VARIABLE } from "../Button";
 
 export const user: UserType = {
   avatar: userpic,

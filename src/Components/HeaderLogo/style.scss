@@ -9,21 +9,12 @@
     align-items: center;
     text-decoration: none;
   }
+  
   &__name {
     font-weight: 900;
     font-size: 32px;
     line-height: 47px;
     color: #131313;
     margin-left: 15px;
-  }
-
-  &__icon {
-    background: #eaeaea;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 }
