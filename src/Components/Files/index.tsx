@@ -82,8 +82,9 @@ function Files() {
         <div className="Files__list-line Files__list-line-header">
           <div>Image</div>
           <div>
-            <Icons name="search" />
-            {/* <img src={searchIcon} alt="searchIcon" className="search-icon" /> */}
+            <span className="search-icon">
+              <Icons name="searchBlack" />
+            </span>
             <button
               onClick={() => {
                 updateSortState({
