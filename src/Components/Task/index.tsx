@@ -148,10 +148,11 @@ function Task({ task, onTaskChanged }: TaskProps) {
 
   const formatSize = (size: number): SIZE_SIGN => {
     const bytes = size;
-    let kiloBytes = Math.pow(1024, 1);
-    let megaBytes = Math.pow(1024, 2);
-    let gigaBytes = Math.pow(1024, 3);
-    let tbBytes = Math.pow(1024, 4);
+    const kiloBytes = Math.pow(1024, 1);
+    const megaBytes = Math.pow(1024, 2);
+    const gigaBytes = Math.pow(1024, 3);
+    const tbBytes = Math.pow(1024, 4);
+    const ptbBytes = Math.pow(1024, 5);
 
     switch (true) {
       case bytes < kiloBytes:
@@ -162,13 +163,19 @@ function Task({ task, onTaskChanged }: TaskProps) {
 
       case bytes < gigaBytes || bytes == megaBytes:
         return SIZE_SIGN.MB;
+
       case bytes < tbBytes || bytes == gigaBytes:
         return SIZE_SIGN.GB;
+      
+        case bytes < ptbBytes || bytes == tbBytes:
+          return SIZE_SIGN.TB;
 
       default:
-        return SIZE_SIGN.TB;
+        return SIZE_SIGN.BYTES;
     }
   };
+
+  console.log(task)
 
   return (
     <div className="Task">

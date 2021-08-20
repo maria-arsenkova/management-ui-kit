@@ -8,6 +8,23 @@ export interface TaskFilesProps {
 }
 
 function TaskFiles({ file, onRemoveFile }: TaskFilesProps) {
+  const preparedSize = (size: number): string => {
+    const bytes = size;
+    const k = 1024;
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)).toString();
+  };
+
+  const download = (url: string | undefined): void => {
+    if (typeof url == "string") {
+      const link = document.createElement("a");
+      link.href = url;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
+
   return (
     <div className="TaskFiles" id={file.id}>
       <img className="TaskFiles__preview" src={file.preview} alt={file.name} />
@@ -15,7 +32,7 @@ function TaskFiles({ file, onRemoveFile }: TaskFilesProps) {
         <div className="TaskFiles__name">{file.name}</div>
         <div>
           <span className="TaskFiles__size">
-            {file.size} {file.sizeSign}
+            {preparedSize(file.size)} {file.sizeSign}
           </span>
           <button
             className="TaskFiles__delete"

@@ -62,10 +62,6 @@ const Button = ({
       className += "Button_transparent ";
     }
 
-    // if (children == "Share") {
-    //   className += 'test'
-    // }
-
     return className;
   };
 

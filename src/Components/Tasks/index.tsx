@@ -358,6 +358,7 @@ function Tasks() {
   const createTask = async (): Promise<void> => {
     const firestore = firebase.firestore();
     const document = await firestore.collection("tasks").add(newTask);
+    updateTasks();
     handleModalClick();
   };
 
