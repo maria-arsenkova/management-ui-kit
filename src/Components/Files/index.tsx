@@ -190,7 +190,7 @@ function Files() {
               <div></div>
               <div>
                 <Button
-                  size={BUTTON_SIZE.MEDIUM}
+                  size={BUTTON_SIZE.SMALL}
                   variable={BUTTON_VARIABLE.DEFAULT}
                   onClick={() => {}}
                 >
