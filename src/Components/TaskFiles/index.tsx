@@ -35,7 +35,7 @@ function TaskFiles({ file, onRemoveFile }: TaskFilesProps) {
             {preparedSize(file.size)} {file.sizeSign}
           </span>
           <button
-            className="TaskFiles__delete"
+            className="TaskFiles__delete TaskFiles__test"
             onClick={() => {
               onRemoveFile(file.id);
             }}

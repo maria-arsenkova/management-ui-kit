@@ -22,4 +22,25 @@
     display: flex;
     flex-wrap: wrap;
   }
+
+  &__file-upload {
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    color: #1d201c;
+    line-height: 21px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  &__file-upload-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__file-upload-hidden {
+    display: none;
+  }
 }
