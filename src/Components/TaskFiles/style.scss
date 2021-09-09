@@ -33,13 +33,22 @@
     border: transparent;
   }
 
-  &__test{
+  &__download {
+    display: inline-block;
     border-radius: 25px;
-    border: none;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 21px;
-    text-align: center;
+    // border: 1px solid #ccc;
+    display: inline-block;
+    padding-left: 8px;
+    cursor: pointer;
     color: #1d201c;
+    font-size: 12px;
+    line-height: 21px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  &__download-icon {
+    width: 16px;
+    height: 16px;
   }
 }
