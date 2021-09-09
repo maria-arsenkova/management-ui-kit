@@ -6,10 +6,7 @@ import { TaskInfoBlock } from "../TaskInfoBlock";
 import { TaskDescription } from "../TaskDescription";
 import { TaskDiscussion } from "../TaskDiscussion";
 import { TaskFiles } from "../TaskFiles";
-import {
-  TaskFilesForClient,
-  SIZE_SIGN,
-} from "../TaskFiles/types";
+import { TaskFilesForClient, SIZE_SIGN } from "../TaskFiles/types";
 
 import { user } from "../Sidebar";
 import { TaskType } from "./types";
@@ -17,6 +14,7 @@ import { CommentProps } from "../Comment/types";
 import firebase from "../../services/firebase";
 import pdf from "./img/pdf.svg";
 import zip from "./img/zip.svg";
+import upload from "./img/upload.svg";
 
 export interface TaskProps {
   task: TaskType;
@@ -117,22 +115,23 @@ function Task({ task, onTaskChanged }: TaskProps) {
   const testDownload = (name: string) => {
     const storageRef = firebase.storage().ref();
 
-    storageRef.child(name).getDownloadURL()
-    .then((url) => {
-      var xhr = new XMLHttpRequest();
-      xhr.responseType = 'blob';
-      xhr.onload = (event) => {
-        var blob = xhr.response;
-      };
-      xhr.open('GET', url);
-      xhr.send();
-  
-  
-      console.log('моя ссылка на скачивание', url);
-    })
-    .catch((error) => {
-      // Handle any errors
-    });
+    storageRef
+      .child(name)
+      .getDownloadURL()
+      .then((url) => {
+        var xhr = new XMLHttpRequest();
+        xhr.responseType = "blob";
+        xhr.onload = (event) => {
+          var blob = xhr.response;
+        };
+        xhr.open("GET", url);
+        xhr.send();
+
+        console.log("моя ссылка на скачивание", url);
+      })
+      .catch((error) => {
+        // Handle any errors
+      });
   };
 
   // const formatSize2 = (size: number, decimals: number): void => {
@@ -166,16 +165,16 @@ function Task({ task, onTaskChanged }: TaskProps) {
 
       case bytes < tbBytes || bytes == gigaBytes:
         return SIZE_SIGN.GB;
-      
-        case bytes < ptbBytes || bytes == tbBytes:
-          return SIZE_SIGN.TB;
+
+      case bytes < ptbBytes || bytes == tbBytes:
+        return SIZE_SIGN.TB;
 
       default:
         return SIZE_SIGN.BYTES;
     }
   };
 
-  console.log(task)
+  console.log(task);
 
   return (
     <div className="Task">
@@ -194,7 +193,15 @@ function Task({ task, onTaskChanged }: TaskProps) {
         <TaskInfoBlock title={"Followers"} users={task.followers} />
       </div>
       <TaskDescription text={task.description} />
-      <input type="file" onChange={createFile} />
+      <label htmlFor={"file-upload"} className="Task__file-upload">
+        <img src={upload} className="Task__file-upload-icon" /> File Upload
+      </label>
+      <input
+        type="file"
+        onChange={createFile}
+        className="Task__file-upload-hidden"
+        id={"file-upload"}
+      />
       {task.files && (
         <div className="Task__files">
           {task.files.map((item) => {

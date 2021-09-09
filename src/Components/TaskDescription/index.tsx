@@ -7,6 +7,7 @@ function TaskDescription({ text }: TaskDescriptionType) {
     <div className='TaskDescription'>
       <div className='TaskDescription__title'>Description</div>
       <div className='TaskDescription__text'>{text}</div>
+      <textarea></textarea>
     </div>
   );
 }

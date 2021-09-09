@@ -32,4 +32,14 @@
     padding: 0px;
     border: transparent;
   }
+
+  &__test{
+    border-radius: 25px;
+    border: none;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: #1d201c;
+  }
 }
