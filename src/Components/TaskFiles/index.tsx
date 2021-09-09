@@ -2,6 +2,7 @@ import React from "react";
 import "./style.scss";
 import { TaskFilesForClient } from "./types";
 import downloadIcon from "./img/download.svg";
+import deleteIcon from "./img/delete.svg"
 
 export interface TaskFilesProps {
   file: TaskFilesForClient;
@@ -29,27 +30,34 @@ function TaskFiles({ file, onRemoveFile }: TaskFilesProps) {
   return (
     <div className="TaskFiles" id={file.id}>
       <img className="TaskFiles__preview" src={file.preview} alt={file.name} />
-      <div>
+      <div className="TaskFiles__information">
         <div className="TaskFiles__name">{file.name}</div>
         <div>
           <span className="TaskFiles__size">
             {preparedSize(file.size)} {file.sizeSign}
           </span>
+        </div>
+      </div>
+      <div>
+        <div>
           <a
             target="_blank"
             download
             href={file.preview}
             className="TaskFiles__download"
           >
-            <img src={downloadIcon} className="TaskFiles__download-icon" />{" "}
-            <span className="TaskFiles__test">Download</span>
+            <img src={downloadIcon} className="TaskFiles__download-icon" />
+            <span>Download</span>
           </a>
+        </div>
+        <div>
           <button
             className="TaskFiles__delete"
             onClick={() => {
               onRemoveFile(file.id);
             }}
           >
+            <img src={deleteIcon} className="TaskFiles__download-icon"/>
             Delete
           </button>
         </div>
