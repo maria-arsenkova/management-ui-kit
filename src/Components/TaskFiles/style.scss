@@ -11,6 +11,11 @@
     margin-right: 10px;
   }
 
+  &__information {
+    padding-right: 10px;
+    display: inline-block;
+  }
+
   &__name {
     font-weight: bold;
     line-height: 21px;
@@ -21,7 +26,6 @@
     line-height: 21px;
     color: #131313;
     opacity: 0.7;
-    margin-right: 15px;
   }
 
   &__delete {
@@ -35,10 +39,6 @@
 
   &__download {
     display: inline-block;
-    border-radius: 25px;
-    // border: 1px solid #ccc;
-    display: inline-block;
-    padding-left: 8px;
     cursor: pointer;
     color: #1d201c;
     font-size: 12px;
@@ -50,5 +50,6 @@
   &__download-icon {
     width: 16px;
     height: 16px;
+    margin-right: 5px;
   }
 }
