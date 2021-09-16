@@ -11,7 +11,7 @@ function TaskDescription({
     <div className="TaskDescription">
       <div className="TaskDescription__title">Description</div>
       <div className="TaskDescription__text">{description}</div>
-      <Textarea handleDescription={onChangeDescription} />
+      <Textarea handleDescription={onChangeDescription} value={description}/>
     </div>
   );
 }
