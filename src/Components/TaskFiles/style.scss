@@ -29,9 +29,6 @@
   }
 
   &__delete {
-    font-weight: bold;
-    line-height: 21px;
-    color: #ff1000;
     background: transparent;
     padding: 0px;
     border: transparent;
@@ -40,16 +37,26 @@
   &__download {
     display: inline-block;
     cursor: pointer;
-    color: #1d201c;
-    font-size: 12px;
-    line-height: 21px;
-    font-weight: bold;
     text-decoration: none;
   }
 
-  &__download-icon {
-    width: 16px;
-    height: 16px;
+  &__icon-control {
     margin-right: 5px;
+    line-height: 21px;
   }
 }
+
+// .test2:hover rect{
+//   fill: #ffffff;
+//   transition: .4s;
+// }
+
+// .test:hover rect {
+//   fill: #ffffff;
+//   transition: .4s;
+// }
+
+// .test:hover circle {
+//   fill: #f44336;
+//   transition: .4s;
+// }

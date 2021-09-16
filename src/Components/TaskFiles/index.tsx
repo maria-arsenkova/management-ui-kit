@@ -1,8 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { TaskFilesForClient } from "./types";
-import downloadIcon from "./img/download.svg";
-import deleteIcon from "./img/delete.svg";
+import { Icons, ICON_SIZE } from "../Icons";
 
 export interface TaskFilesProps {
   file: TaskFilesForClient;
@@ -46,8 +45,9 @@ function TaskFiles({ file, onRemoveFile }: TaskFilesProps) {
             href={file.preview}
             className="TaskFiles__download"
           >
-            <img src={downloadIcon} className="TaskFiles__download-icon" />
-            <span>Download</span>
+            <div className="TaskFiles__icon-control">
+              <Icons name={"downloadCloud"} size={ICON_SIZE.SMALL} />
+            </div>
           </a>
         </div>
         <div>
@@ -57,8 +57,38 @@ function TaskFiles({ file, onRemoveFile }: TaskFilesProps) {
               onRemoveFile(file.id);
             }}
           >
-            <img src={deleteIcon} className="TaskFiles__download-icon" />
-            Delete
+            <div className="TaskFiles__icon-control">
+              <Icons name={"delete"} size={ICON_SIZE.SMALL} />
+            </div>
+            {/* <div className="test">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                version="1.1"
+                viewBox="0 0 32 32"
+              >
+                <g transform="scale(2)">
+                  <circle fill="#ffffff" id="facebook" cx="8" cy="8" r="7" />
+                  <rect
+                    fill="#f44336"
+                    width="2"
+                    height="10"
+                    x="-.98"
+                    y="-16.29"
+                    transform="rotate(135)"
+                  />
+                  <rect
+                    fill="#f44336"
+                    width="2"
+                    height="10"
+                    x="-12.29"
+                    y="-5.01"
+                    transform="rotate(-135)"
+                  />
+                </g>
+              </svg>
+            </div> */}
           </button>
         </div>
       </div>
