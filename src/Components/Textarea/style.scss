@@ -1,6 +1,4 @@
 .Textarea {
-  padding: 20px 0px 30px 0px;
-
   &__label {
     font-weight: bold;
     font-size: 16px;
@@ -18,7 +16,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
-    line-height: 23px;
+    line-height: 26px;
     color: #131313;
     font-family: inherit;
   }
@@ -26,6 +24,7 @@
   &_transparent {
     background: transparent;
     border: 1px solid #e6e6e6;
+
     &:focus {
       border: 1px solid #9b9b9b;
     }
