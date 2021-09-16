@@ -52,7 +52,7 @@ export const INITIAL_TASKS: TaskType[] = [
       },
     ],
     discussions: [],
-    description: '',
+    description: "",
     files: [
       {
         id: Date.now().toString(),
@@ -186,7 +186,7 @@ export const INITIAL_TASKS: TaskType[] = [
       { avatar: userY, initials: "userY", position: "" },
     ],
     discussions: [],
-    description: '',
+    description: "",
     files: [
       {
         id: Date.now().toString(),
@@ -215,7 +215,7 @@ export const INITIAL_TASKS: TaskType[] = [
     dueOn: "Tue, Apr 18",
     department: DEPARTMENT.DESIGN,
     discussions: [],
-    description: '',
+    description: "",
     files: [],
   },
   {
@@ -234,7 +234,7 @@ export const INITIAL_TASKS: TaskType[] = [
     department: DEPARTMENT.MARKETING,
     followers: [{ avatar: userO, initials: "userO", position: "" }],
     discussions: [],
-    description: '',
+    description: "",
     files: [
       {
         id: Date.now().toString(),
@@ -285,7 +285,7 @@ export const INITIAL_TASKS: TaskType[] = [
       { avatar: userY, initials: "userY", position: "" },
     ],
     discussions: [],
-    description: '',
+    description: "",
     files: [],
   },
 ];
@@ -358,7 +358,7 @@ function Tasks() {
     ...INITIAL_TASKS[0],
     title: taskTitle,
     description: taskDescription,
-  };  
+  };
 
   const createTask = async (): Promise<void> => {
     const firestore = firebase.firestore();
@@ -391,12 +391,16 @@ function Tasks() {
       {openedTask && <Task task={openedTask} onTaskChanged={onTaskUpdate} />}
       {isShowModal && (
         <Modal title="Add a New Task" onClose={handleModalClick}>
-          <Input label={"Name"} value={taskTitle} onChange={handleTitle} />
-          <Textarea
-            variable={TEXTAREA_VARIABLE.DEFAULT}
-            label={"Description"}
-            handleDescription={handleDescription}
-          />
+          <div className="Modal__title">
+            <Input label={"Name"} value={taskTitle} onChange={handleTitle} />
+          </div>
+          <div className="Modal__description">
+            <Textarea
+              variable={TEXTAREA_VARIABLE.DEFAULT}
+              label={"Description"}
+              handleDescription={handleDescription}
+            />
+          </div>
           <Button
             size={BUTTON_SIZE.LARGE}
             fillWidth
