@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./style.scss";
 import { TaskDescriptionType } from "./types";
-import { Textarea } from "../Textarea";
+import { Textarea, TEXTAREA_VARIABLE } from "../Textarea";
+import { Button, BUTTON_VARIABLE, BUTTON_SIZE } from "../Button";
 
 function TaskDescription({
   description,
@@ -11,7 +12,7 @@ function TaskDescription({
     <div className="TaskDescription">
       <div className="TaskDescription__title">Description</div>
       <div className="TaskDescription__text">{description}</div>
-      <Textarea handleDescription={onChangeDescription} value={description}/>
+      <Textarea handleDescription={onChangeDescription} value={description} variable={TEXTAREA_VARIABLE.TRANSPARENT}/>
     </div>
   );
 }
