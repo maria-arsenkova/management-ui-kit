@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import { TaskFilesForClient } from "./types";
 import downloadIcon from "./img/download.svg";
-import deleteIcon from "./img/delete.svg"
+import deleteIcon from "./img/delete.svg";
 
 export interface TaskFilesProps {
   file: TaskFilesForClient;
@@ -57,7 +57,7 @@ function TaskFiles({ file, onRemoveFile }: TaskFilesProps) {
               onRemoveFile(file.id);
             }}
           >
-            <img src={deleteIcon} className="TaskFiles__download-icon"/>
+            <img src={deleteIcon} className="TaskFiles__download-icon" />
             Delete
           </button>
         </div>

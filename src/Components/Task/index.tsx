@@ -40,7 +40,23 @@ function Task({ task, onTaskChanged }: TaskProps) {
     onTaskChanged(newTask);
   };
 
-  //обновили все файлы в Task
+  const updateDescription = async (
+    task: TaskType,
+    newDescription: string
+  ): Promise<void> => {
+    const newTask: TaskType = {
+      ...task,
+      description: newDescription,
+    };
+
+    const db = firebase.firestore();
+
+    await db.collection("tasks").doc(task.id.toString()).set(newTask);
+
+    onTaskChanged(newTask);
+    console.log(newDescription);
+  };
+
   const updateFiles = async (
     newFile: TaskFilesForClient,
     allFiles: TaskFilesForClient[]
@@ -134,17 +150,6 @@ function Task({ task, onTaskChanged }: TaskProps) {
       });
   };
 
-  // const formatSize2 = (size: number, decimals: number): void => {
-  //   const bytes = size;
-  //   var k = 1024; //Or 1 kilo = 1000
-  //   var sizes = ["Bytes", "KB", "MB", "GB", "TB"];
-  //   // находит степень
-  //   var i = Math.floor(Math.log(bytes) / Math.log(k));
-  //   console.log(
-  //     parseFloat((bytes / Math.pow(k, i)).toFixed(decimals)) + " " + sizes[i]
-  //   );
-  // };
-
   const formatSize = (size: number): SIZE_SIGN => {
     const bytes = size;
     const kiloBytes = Math.pow(1024, 1);
@@ -174,8 +179,6 @@ function Task({ task, onTaskChanged }: TaskProps) {
     }
   };
 
-  console.log(task);
-
   return (
     <div className="Task">
       <TaskHeader
@@ -192,7 +195,12 @@ function Task({ task, onTaskChanged }: TaskProps) {
         <TaskInfoBlock title={"Tag"} department={task.department} />
         <TaskInfoBlock title={"Followers"} users={task.followers} />
       </div>
-      <TaskDescription text={task.description} />
+      <TaskDescription
+        description={task.description}
+        onChangeDescription={(newDescription) =>
+          updateDescription(task, newDescription)
+        }
+      />
       <label htmlFor={"file-upload"} className="Task__file-upload">
         <img src={upload} className="Task__file-upload-icon" /> File Upload
       </label>

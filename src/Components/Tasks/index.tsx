@@ -52,6 +52,7 @@ export const INITIAL_TASKS: TaskType[] = [
       },
     ],
     discussions: [],
+    description: '',
     files: [
       {
         id: Date.now().toString(),
@@ -185,6 +186,7 @@ export const INITIAL_TASKS: TaskType[] = [
       { avatar: userY, initials: "userY", position: "" },
     ],
     discussions: [],
+    description: '',
     files: [
       {
         id: Date.now().toString(),
@@ -213,6 +215,7 @@ export const INITIAL_TASKS: TaskType[] = [
     dueOn: "Tue, Apr 18",
     department: DEPARTMENT.DESIGN,
     discussions: [],
+    description: '',
     files: [],
   },
   {
@@ -231,6 +234,7 @@ export const INITIAL_TASKS: TaskType[] = [
     department: DEPARTMENT.MARKETING,
     followers: [{ avatar: userO, initials: "userO", position: "" }],
     discussions: [],
+    description: '',
     files: [
       {
         id: Date.now().toString(),
@@ -281,6 +285,7 @@ export const INITIAL_TASKS: TaskType[] = [
       { avatar: userY, initials: "userY", position: "" },
     ],
     discussions: [],
+    description: '',
     files: [],
   },
 ];
