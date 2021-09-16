@@ -13,7 +13,7 @@ export type TaskType = {
   dueOn: string;
   department: DEPARTMENT;
   followers?: UserType[];
-  description?: string;
+  description: string;
   files: TaskFilesForClient[];
   discussions: CommentProps[];
   isDone: boolean;
