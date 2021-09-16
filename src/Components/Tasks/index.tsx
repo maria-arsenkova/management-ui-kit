@@ -28,7 +28,7 @@ import userFr from "../TasksList/img/userFr.png";
 import userOne from "../TasksList/img/userOne.png";
 import userTh from "../TasksList/img/userTh.png";
 import userTwo from "../TasksList/img/userTwo.png";
-import { Textarea } from "../Textarea";
+import { Textarea, TEXTAREA_VARIABLE } from "../Textarea";
 import "./style.scss";
 
 export const INITIAL_TASKS: TaskType[] = [
@@ -393,6 +393,7 @@ function Tasks() {
         <Modal title="Add a New Task" onClose={handleModalClick}>
           <Input label={"Name"} value={taskTitle} onChange={handleTitle} />
           <Textarea
+            variable={TEXTAREA_VARIABLE.DEFAULT}
             label={"Description"}
             handleDescription={handleDescription}
           />
