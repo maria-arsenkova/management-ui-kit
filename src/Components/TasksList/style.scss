@@ -17,10 +17,27 @@
   &__item {
     display: flex;
     align-items: flex-start;
-    background: #f7f6f3;
+
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 10px;
+    cursor: pointer;
+
+    &:hover {
+      background: #fffef7;
+    }
+
+    &:active {
+      background: #f8f6e3;
+    }
+
+    &_inactive {
+      background: #f7f6f3;
+    }
+
+    &_active {
+      background: #fff8dd;
+    }
   }
 
   &__item-name {
