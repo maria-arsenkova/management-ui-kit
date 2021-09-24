@@ -75,7 +75,7 @@ function TasksList({
                       }}
                     >
                       <div className="TasksList__item-name">{task.title}</div>
-                      <a href="#" className="TasksList__item-executor">
+                      <span className="TasksList__item-executor">
                         <img
                           key={`${task.asignTo.initials}_${task.asignTo.avatar}`}
                           src={task.asignTo.avatar}
@@ -85,7 +85,7 @@ function TasksList({
                         {task.department && (
                           <Department department={task.department} />
                         )}
-                      </a>
+                      </span>
                     </div>
                   </li>
                 );
