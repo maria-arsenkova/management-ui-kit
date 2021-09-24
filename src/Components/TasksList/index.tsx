@@ -42,7 +42,6 @@ function TasksList({
                 return (
                   <li
                     key={task.id}
-                    // className={'task.isDone ? "TasksList__item" : "inactive"'}
                     className={`TasksList__item ${
                       task.openedTask
                         ? "TasksList__item_active"
