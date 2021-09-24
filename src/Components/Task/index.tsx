@@ -179,6 +179,9 @@ function Task({ task, onTaskChanged }: TaskProps) {
     }
   };
 
+  // const test = (id:string| number) => {
+  //   console.log(id);
+  // }
   return (
     <div className="Task">
       <TaskHeader
@@ -189,6 +192,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
         onTaskUpdate={onTaskChanged}
         task={task}
       />
+      {/* <div  onClick={() => test(task.id)}>DELITE</div> */}
       <div className="Task__info-blocks">
         <TaskInfoBlock title={"Asign To"} executor={task.asignTo} />
         <TaskInfoBlock title={"Due On"} date={task.dueOn} />
