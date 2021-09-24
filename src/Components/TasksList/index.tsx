@@ -40,7 +40,15 @@ function TasksList({
             {list?.items &&
               list.items.map((task) => {
                 return (
-                  <li className="TasksList__item" key={task.id}>
+                  <li
+                    key={task.id}
+                    // className={'task.isDone ? "TasksList__item" : "inactive"'}
+                    className={`TasksList__item ${
+                      task.openedTask
+                        ? "TasksList__item_active"
+                        : "TasksList__item_inactive"
+                    }`}
+                  >
                     <label
                       htmlFor={`checkbox-${task.id}`}
                       className={
@@ -76,11 +84,8 @@ function TasksList({
                           className="TasksList__item-avatar"
                         />
                         {task.department && (
-                          <Department
-                            department={task.department}
-                          />
+                          <Department department={task.department} />
                         )}
-                        
                       </a>
                     </div>
                   </li>
