@@ -47,6 +47,12 @@ function TaskDiscussion({
     onCommentCreated(newComments);
   };
 
+  const handleKeyPress = (event: any) => {
+    if (event.key === "Enter") {
+      createComment(comment, content);
+    }
+  };
+
   return (
     <div>
       <div className="TaskDiscussion__title">Discussion</div>
@@ -73,12 +79,17 @@ function TaskDiscussion({
               })
             )
           }
+          onKeyPress={handleKeyPress}
         />
-        
-        <Button size={BUTTON_SIZE.MEDIUM}  onClick={() => {
-            createComment(comment, content);
-          }}>Send </Button>
 
+        <Button
+          size={BUTTON_SIZE.MEDIUM}
+          onClick={() => {
+            createComment(comment, content);
+          }}
+        >
+          Send
+        </Button>
       </div>
       {content && (
         <div>
