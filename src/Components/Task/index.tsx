@@ -38,6 +38,19 @@ function Task({ task, onTaskChanged }: TaskProps) {
     await db.collection("tasks").doc(task.id.toString()).set(newTask);
 
     onTaskChanged(newTask);
+
+    //Удаление из Storage firebase
+    const nameFile = task.files.filter((file) => file.id == fileId)[0].name;
+    const storageRef = firebase.storage().ref();
+    var desertRef = storageRef.child(nameFile);
+    desertRef
+      .delete()
+      .then(() => {
+        console.log("File deleted successfully");
+      })
+      .catch((error) => {
+        console.log("Uh-oh, an error occurred");
+      });
   };
 
   const updateDescription = async (
@@ -205,6 +218,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
           updateDescription(task, newDescription)
         }
       />
+
       <label htmlFor={"file-upload"} className="Task__file-upload">
         <img src={upload} className="Task__file-upload-icon" /> File Upload
       </label>
