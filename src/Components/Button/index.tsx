@@ -11,7 +11,14 @@ export enum BUTTON_VARIABLE {
   DEFAULT = "DEFAULT",
   WARNING = "WARNING",
   SUCCESS = "SUCCESS",
-  TRANSPARENT = 'TRANSPARENT',
+  TRANSPARENT = "TRANSPARENT",
+  DANGER = "DANGER",
+}
+
+export enum BUTTON_TEXT {
+  DEFAULT = "DEFAULT",
+  WARNING = "WARNING",
+  WHITE = "WHITE",
 }
 
 interface ButtonProps {
@@ -19,6 +26,7 @@ interface ButtonProps {
   size?: BUTTON_SIZE;
   fillWidth?: boolean;
   variable?: BUTTON_VARIABLE;
+  text?: BUTTON_TEXT;
   children:
     | React.ReactChildren
     | React.ReactChildren[]
@@ -31,12 +39,14 @@ const Button = ({
   size = BUTTON_SIZE.MEDIUM,
   fillWidth = false,
   variable = BUTTON_VARIABLE.DEFAULT,
+  text = BUTTON_TEXT.DEFAULT,
   children,
 }: ButtonProps) => {
   const getButtonClass = (
     size: BUTTON_SIZE,
     fillWidth = false,
-    variable: BUTTON_VARIABLE
+    variable: BUTTON_VARIABLE,
+    text: BUTTON_TEXT
   ): string => {
     let className = "Button ";
 
@@ -60,14 +70,24 @@ const Button = ({
       className += "Button_success ";
     } else if (variable === BUTTON_VARIABLE.TRANSPARENT) {
       className += "Button_transparent ";
+    } else if (variable === BUTTON_VARIABLE.DANGER) {
+      className += "Button_danger ";
     }
+
+    if (text === BUTTON_TEXT.DEFAULT) {
+      className += "Button_text-default ";
+    } else if (text === BUTTON_TEXT.WARNING) {
+      className += "Button_text-warning ";
+    } else if (text === BUTTON_TEXT.WHITE) {
+      className += "Button_text-white ";
+    } 
 
     return className;
   };
 
   return (
     <button
-      className={getButtonClass(size, fillWidth, variable)}
+      className={getButtonClass(size, fillWidth, variable, text)}
       onClick={onClick}
     >
       {children}

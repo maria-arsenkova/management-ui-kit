@@ -2,7 +2,7 @@ import React from "react";
 import { Icons } from "../Icons";
 import { UserType } from "../UserInfo/types";
 import { AVATAR_SIZE, UserPhoto } from "../UserPhoto";
-import { Button, BUTTON_SIZE, BUTTON_VARIABLE } from "./../Button";
+import { Button, BUTTON_SIZE, BUTTON_TEXT, BUTTON_VARIABLE } from "./../Button";
 import "./style.scss";
 
 interface MembersProms {
@@ -36,6 +36,7 @@ function Members({ members }: MembersProms) {
         onClick={() => {}}
         variable={BUTTON_VARIABLE.WARNING}
         size={BUTTON_SIZE.SMALL}
+        text={BUTTON_TEXT.WARNING}
       >
         <Icons name="chat" />
         <span>Chat</span>
