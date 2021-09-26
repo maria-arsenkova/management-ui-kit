@@ -20,7 +20,7 @@ import userSi from "../SidebarMenu/img/userSi.png";
 import userSe from "../SidebarMenu/img/userSe.png";
 import userEt from "../SidebarMenu/img/userEt.png";
 import { SidebarFooter } from "../SidebarFooter";
-import { Button, BUTTON_VARIABLE } from "../Button";
+import { Button, BUTTON_VARIABLE, BUTTON_TEXT } from "../Button";
 
 export const user: UserType = {
   avatar: userpic,
@@ -93,9 +93,17 @@ function Sidebar() {
       <Stats tasks={tasks} />
       <SidebarMenu title={"menu"} content={menu} />
       <SidebarMenu title={"projects"} content={projects} />
-      <Button variable={BUTTON_VARIABLE.TRANSPARENT} onClick={()=>{}}>+ Add a Project</Button>
+      <div className="Sidebar__add-new-section">
+        <Button variable={BUTTON_VARIABLE.TRANSPARENT}  text={BUTTON_TEXT.WARNING} onClick={() => {}}>
+          + Add a Project
+        </Button>
+      </div>
       <SidebarMenu title={"teams"} content={teams} />
-      <Button variable={BUTTON_VARIABLE.TRANSPARENT} onClick={()=>{}}>+ Add a Team</Button>
+      <div className="Sidebar__add-new-section">
+        <Button variable={BUTTON_VARIABLE.TRANSPARENT} text={BUTTON_TEXT.WARNING} onClick={() => {}}>
+          + Add a Team
+        </Button>
+      </div>
       <SidebarFooter />
     </div>
   );
