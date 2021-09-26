@@ -16,8 +16,10 @@ function TaskDescription({
         value={description}
         variable={TEXTAREA_VARIABLE.TRANSPARENT}
       />
+       <div className="TaskDescription__description-control">
       <Button size={BUTTON_SIZE.SMALL} variable={BUTTON_VARIABLE.SUCCESS} onClick={() => onChangeDescription}>Save</Button>
       <Button size={BUTTON_SIZE.SMALL} variable={BUTTON_VARIABLE.DANGER} text={BUTTON_TEXT.WHITE}  onClick={() => onChangeDescription}>Cancel</Button>
+      </div>
     </div>
   );
 }
