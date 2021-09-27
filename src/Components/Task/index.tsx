@@ -55,7 +55,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
 
   const updateDescription = async (
     task: TaskType,
-    newDescription: string
+    newDescription: string 
   ): Promise<void> => {
     const newTask: TaskType = {
       ...task,
@@ -213,7 +213,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
         <TaskInfoBlock title={"Followers"} users={task.followers} />
       </div>
       <TaskDescription
-        description={task.description}
+        taskDescription={task.description}
         onChangeDescription={(newDescription) =>
           updateDescription(task, newDescription)
         }

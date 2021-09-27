@@ -10,8 +10,9 @@
     color: #131313;
   }
 
-  &__description-control{
+  &__description-control {
     padding-top: 16px;
+    // display: none;
 
     & button:first-child {
       margin-right: 5px;
