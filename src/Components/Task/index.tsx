@@ -55,7 +55,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
 
   const updateDescription = async (
     task: TaskType,
-    newDescription: string 
+    newDescription: string
   ): Promise<void> => {
     const newTask: TaskType = {
       ...task,
@@ -214,9 +214,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
       </div>
       <TaskDescription
         taskDescription={task.description}
-        onChangeDescription={(newDescription) =>
-          updateDescription(task, newDescription)
-        }
+        onSave={(newDescription) => updateDescription(task, newDescription)}
       />
 
       <label htmlFor={"file-upload"} className="Task__file-upload">
