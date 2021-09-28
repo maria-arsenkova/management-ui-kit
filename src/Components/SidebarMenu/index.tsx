@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import { UserType } from "../UserInfo/types";
 import { UserPhoto, AVATAR_SIZE } from "../UserPhoto";
-import { Icons, ICON_SIZE } from "../Icons";
+import { Icon, ICON_SIZE } from "../Icon";
 import { Circle, CIRCLE_SIZE, CIRCLE_VARIABLE } from "../Сircle";
 
 export type ContentType = {
@@ -30,7 +30,7 @@ function SidebarMenu({ content, title }: SidebarMenuProps) {
               <a href="/" className="SidebarMenu__link">
                 {team?.preview && (
                   <div className="SidebarMenu__preview">
-                    <Icons
+                    <Icon
                     name={"previewProject"}
                     size={ICON_SIZE.MEDIUM}
                     url={team.preview}

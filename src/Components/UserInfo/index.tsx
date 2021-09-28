@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import { UserType } from "./types";
 import { UserPhoto, AVATAR_SIZE } from "../UserPhoto";
-import { Icons } from "../Icons";
+import { Icon } from "../Icon";
 
 interface UserInfoProps {
   user: UserType;
@@ -21,7 +21,7 @@ function UserInfo({ user }: UserInfoProps) {
         )}
       </div>
       <a href="/">
-        <Icons name={"circle"} />
+        <Icon name={"circle"} />
       </a>
     </div>
   );

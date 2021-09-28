@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./style.scss";
 import { TaskFilesForClient } from "../TaskFiles/types";
 import { getTasks } from "../../services/tasks";
-import { Icons } from "../Icons";
+import { Icon } from "../Icon";
 import { Button, BUTTON_SIZE, BUTTON_VARIABLE } from "../Button";
 
 interface Sort {
@@ -81,7 +81,7 @@ function Files() {
           <div>Image</div>
           <div>
             <span className="Files__search-icon">
-              <Icons name="searchBlack" />
+              <Icon name="searchBlack" />
             </span>
             <button
               onClick={() => {
@@ -97,11 +97,11 @@ function Files() {
                 <>
                   {sort.sortType === "acs" ? (
                     <span className="Files__arrow">
-                      <Icons name="arrowUp" />
+                      <Icon name="arrowUp" />
                     </span>
                   ) : (
                     <span className="Files__arrow">
-                      <Icons name="arrowDown" />
+                      <Icon name="arrowDown" />
                     </span>
                   )}
                 </>
@@ -123,11 +123,11 @@ function Files() {
                 <>
                   {sort.sortType === "acs" ? (
                     <span className="Files__arrow">
-                      <Icons name="arrowUp" />
+                      <Icon name="arrowUp" />
                     </span>
                   ) : (
                     <span className="Files__arrow">
-                      <Icons name="arrowDown" />
+                      <Icon name="arrowDown" />
                     </span>
                   )}
                 </>
@@ -149,11 +149,11 @@ function Files() {
                 <>
                   {sort.sortType === "acs" ? (
                     <span className="Files__arrow">
-                      <Icons name="arrowUp" />
+                      <Icon name="arrowUp" />
                     </span>
                   ) : (
                     <span className="Files__arrow">
-                      <Icons name="arrowDown" />
+                      <Icon name="arrowDown" />
                     </span>
                   )}
                 </>
@@ -194,13 +194,13 @@ function Files() {
                 >
                   Actions
                   <span className="Files__arrow">
-                  <Icons name="arrowDown" />
+                  <Icon name="arrowDown" />
                   </span>
                 </Button>
               </div>
               <div>
                 <a target="_blank" href={item.preview} download>
-                  <Icons name="download"/>
+                  <Icon name="download"/>
                 </a>
               </div>
             </div>
