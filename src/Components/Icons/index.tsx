@@ -10,6 +10,7 @@ import add from "./img/add.svg";
 import download from "./img/download.svg";
 import downloadCloud from "./img/downloadCloud.svg";
 import deleteIcon from "./img/delete.svg";
+import arrow from "./img/arrow.svg";
 
 export enum ICON_SIZE {
   SMALL = "SMALL",
@@ -78,6 +79,15 @@ const Icons = ({ name, url, size }: IconsProps): JSX.Element => {
 
     case name == "downloadCloud":
       scr = downloadCloud;
+      break;
+
+    case name == "arrowUp":
+      scr = arrow;
+      className += "Icon__arrowUp ";
+      break;
+
+    case name == "arrowDown":
+      scr = arrow;
       break;
   }
   return <img src={scr} alt={name} className={className}></img>;

@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./style.scss";
 import { TaskFilesForClient } from "../TaskFiles/types";
 import { getTasks } from "../../services/tasks";
-import { Search } from "../Search";
-import { IconArrow, ARROW_DIRECTION } from "../IconArrow";
 import { Icons } from "../Icons";
 import { Button, BUTTON_SIZE, BUTTON_VARIABLE } from "../Button";
 
@@ -82,7 +80,7 @@ function Files() {
         <div className="Files__list-line Files__list-line-header">
           <div>Image</div>
           <div>
-            <span className="search-icon">
+            <span className="Files__search-icon">
               <Icons name="searchBlack" />
             </span>
             <button
@@ -99,11 +97,11 @@ function Files() {
                 <>
                   {sort.sortType === "acs" ? (
                     <span className="Files__arrow">
-                      <IconArrow derection={ARROW_DIRECTION.UP} />
+                      <Icons name="arrowUp" />
                     </span>
                   ) : (
                     <span className="Files__arrow">
-                      <IconArrow derection={ARROW_DIRECTION.DOWN} />
+                      <Icons name="arrowDown" />
                     </span>
                   )}
                 </>
@@ -125,11 +123,11 @@ function Files() {
                 <>
                   {sort.sortType === "acs" ? (
                     <span className="Files__arrow">
-                      <IconArrow derection={ARROW_DIRECTION.UP} />
+                      <Icons name="arrowUp" />
                     </span>
                   ) : (
                     <span className="Files__arrow">
-                      <IconArrow derection={ARROW_DIRECTION.DOWN} />
+                      <Icons name="arrowDown" />
                     </span>
                   )}
                 </>
@@ -151,11 +149,11 @@ function Files() {
                 <>
                   {sort.sortType === "acs" ? (
                     <span className="Files__arrow">
-                      <IconArrow derection={ARROW_DIRECTION.UP} />
+                      <Icons name="arrowUp" />
                     </span>
                   ) : (
                     <span className="Files__arrow">
-                      <IconArrow derection={ARROW_DIRECTION.DOWN} />
+                      <Icons name="arrowDown" />
                     </span>
                   )}
                 </>
@@ -196,19 +194,13 @@ function Files() {
                 >
                   Actions
                   <span className="Files__arrow">
-                    <IconArrow derection={ARROW_DIRECTION.DOWN} />
+                  <Icons name="arrowDown" />
                   </span>
                 </Button>
-                {/* <button className="Files__button-actions">
-                  Actions
-                  <span className="Files__arrow">
-                    <IconArrow derection={ARROW_DIRECTION.DOWN} />
-                  </span>
-                </button> */}
               </div>
               <div>
                 <a target="_blank" href={item.preview} download>
-                  <Icons name="download" key={`${item.date}_${item.name}`} />
+                  <Icons name="download"/>
                 </a>
               </div>
             </div>

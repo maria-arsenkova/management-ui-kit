@@ -8,4 +8,9 @@
     width: 20px;
     height: 20px;
   }
+
+  &__arrowUp {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+  }
 }
