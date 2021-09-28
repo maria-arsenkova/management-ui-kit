@@ -18,13 +18,13 @@ export enum ICON_SIZE {
   LARGE = "LARGE",
 }
 
-interface IconsProps {
+interface IconProps {
   size?: ICON_SIZE;
   name: string;
   url?: string;
 }
 
-const Icons = ({ name, url, size }: IconsProps): JSX.Element => {
+const Icon = ({ name, url, size }: IconProps): JSX.Element => {
   let className = "Icon ";
   let scr;
 
@@ -93,4 +93,4 @@ const Icons = ({ name, url, size }: IconsProps): JSX.Element => {
   return <img src={scr} alt={name} className={className}></img>;
 };
 
-export { Icons };
+export { Icon };

@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { TaskHeaderType } from "./types";
-import { Icons } from "../Icons";
+import { Icon } from "../Icon";
 import { Circle, CIRCLE_SIZE, CIRCLE_VARIABLE } from "../Сircle";
 
 function TaskHeader({
@@ -42,7 +42,7 @@ function TaskHeader({
           }
         ></label>
         <Circle size={CIRCLE_SIZE.LARGE} variable={CIRCLE_VARIABLE.DEFAULT}>
-          <Icons name={"circle"} />
+          <Icon name={"circle"} />
         </Circle>
       </div>
     </div>

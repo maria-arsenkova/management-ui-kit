@@ -1,5 +1,5 @@
 import React from "react";
-import { Icons } from "../Icons";
+import { Icon } from "../Icon";
 import { UserType } from "../UserInfo/types";
 import { AVATAR_SIZE, UserPhoto } from "../UserPhoto";
 import { Button, BUTTON_SIZE, BUTTON_TEXT, BUTTON_VARIABLE } from "./../Button";
@@ -38,7 +38,7 @@ function Members({ members }: MembersProms) {
         size={BUTTON_SIZE.SMALL}
         text={BUTTON_TEXT.WARNING}
       >
-        <Icons name="chat" />
+        <Icon name="chat" />
         <span>Chat</span>
       </Button>
     </div>
