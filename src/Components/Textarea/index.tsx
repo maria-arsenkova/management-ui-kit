@@ -7,13 +7,14 @@ export enum TEXTAREA_VARIABLE {
 }
 
 interface TextareaProps {
+  onFocus?: () => void;
   label?: string;
   value?: string;
   variable: TEXTAREA_VARIABLE;
   handleDescription: (value: string) => void;
 }
 
-const Textarea = ({ label, value, handleDescription, variable = TEXTAREA_VARIABLE.TRANSPARENT }: TextareaProps) => {
+const Textarea = ({ onFocus, label, value, handleDescription, variable = TEXTAREA_VARIABLE.TRANSPARENT }: TextareaProps) => {
   
   let className = "Textarea__value ";
 
@@ -28,6 +29,7 @@ const Textarea = ({ label, value, handleDescription, variable = TEXTAREA_VARIABL
       {label && <div className="Textarea__label">{label}</div>}
       <div>
         <textarea
+          onFocus={onFocus}
           value={value}
           className={className}
           onChange={(event) => {

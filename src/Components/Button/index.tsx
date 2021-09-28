@@ -23,6 +23,7 @@ export enum BUTTON_TEXT {
 
 interface ButtonProps {
   onClick: () => void;
+  isDisabled?: boolean;
   size?: BUTTON_SIZE;
   fillWidth?: boolean;
   variable?: BUTTON_VARIABLE;
@@ -36,6 +37,7 @@ interface ButtonProps {
 
 const Button = ({
   onClick,
+  isDisabled = false,
   size = BUTTON_SIZE.MEDIUM,
   fillWidth = false,
   variable = BUTTON_VARIABLE.DEFAULT,
@@ -49,6 +51,10 @@ const Button = ({
     text: BUTTON_TEXT
   ): string => {
     let className = "Button ";
+
+    if (isDisabled) {
+      className += "Button_disabled ";
+    }
 
     if (size === BUTTON_SIZE.SMALL) {
       className += "Button_small ";
@@ -86,7 +92,7 @@ const Button = ({
   };
 
   return (
-    <button
+    <button disabled = {isDisabled}
       className={getButtonClass(size, fillWidth, variable, text)}
       onClick={onClick}
     >

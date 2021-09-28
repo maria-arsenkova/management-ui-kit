@@ -1,4 +1,4 @@
 export  type TaskDescriptionType = {
   taskDescription?: string;
-    onChangeDescription: (newDescription: string) => void;
+  onSave: (newDescription: string)=> void;
   }
