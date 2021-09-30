@@ -11,12 +11,14 @@
     width: 100%;
     border-radius: 8px;
     border: none;
-    height: 100px;
-    padding-top: 13px;
+    overflow-y: hidden;
+    // height: 10px;
+    // padding-top: 13px;
+    resize : none;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
-    line-height: 26px;
+    // line-height: 26px;
     color: #131313;
     font-family: inherit;
   }

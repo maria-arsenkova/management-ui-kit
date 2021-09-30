@@ -18,11 +18,8 @@ function TaskDescription({
   useEffect(() => {
     if (taskDescription) {
       setDescription(taskDescription);
-      console.log("useEffect", taskDescription);
     }
   }, [taskDescription]);
-
-  console.log(taskDescription);
 
   return (
     <div className="TaskDescription">
@@ -33,7 +30,6 @@ function TaskDescription({
         value={description}
         variable={TEXTAREA_VARIABLE.TRANSPARENT}
       />
-      
       {isShowActions && (
          <div className="TaskDescription__description-control">
          <Button
