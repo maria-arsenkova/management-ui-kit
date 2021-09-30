@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
 
 export enum TEXTAREA_VARIABLE {
   DEFAULT = "DEFAULT",
-  TRANSPARENT = 'TRANSPARENT',
+  TRANSPARENT = "TRANSPARENT",
 }
 
 interface TextareaProps {
@@ -14,8 +14,22 @@ interface TextareaProps {
   handleDescription: (value: string) => void;
 }
 
-const Textarea = ({ onFocus, label, value, handleDescription, variable = TEXTAREA_VARIABLE.TRANSPARENT }: TextareaProps) => {
-  
+const Textarea = ({
+  onFocus,
+  label,
+  value,
+  handleDescription,
+  variable = TEXTAREA_VARIABLE.TRANSPARENT,
+}: TextareaProps) => {
+  // const [textAreaHeight, setTextAreaHeight] = useState({
+  //   height: "auto",
+  // });
+
+  const handleTextAreaHeight = (event: any) => {
+    event.target.style.height = "auto";
+    event.target.style.height = event.target.scrollHeight + "px";
+  };
+
   let className = "Textarea__value ";
 
   if (variable === TEXTAREA_VARIABLE.TRANSPARENT) {
@@ -31,9 +45,12 @@ const Textarea = ({ onFocus, label, value, handleDescription, variable = TEXTARE
         <textarea
           onFocus={onFocus}
           value={value}
+          rows={8}
+          // style={textAreaHeight}
           className={className}
           onChange={(event) => {
             handleDescription(event.target.value);
+            handleTextAreaHeight(event);
           }}
         ></textarea>
       </div>
