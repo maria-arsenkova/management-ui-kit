@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./style.scss";
 import { TaskHeader } from "../TaskHeader";
 import { TaskInfoBlock } from "../TaskInfoBlock";
@@ -22,6 +22,7 @@ export interface TaskProps {
 }
 
 function Task({ task, onTaskChanged }: TaskProps) {
+  const [test, setTest] = useState<boolean>(true);
   const handleComments = (newComments: CommentProps[]) => {
     const newTask: TaskType = { ...task, discussions: newComments };
     onTaskChanged(newTask);
@@ -67,7 +68,6 @@ function Task({ task, onTaskChanged }: TaskProps) {
     await db.collection("tasks").doc(task.id.toString()).set(newTask);
 
     onTaskChanged(newTask);
-    console.log(newDescription);
   };
 
   const updateFiles = async (
@@ -192,11 +192,50 @@ function Task({ task, onTaskChanged }: TaskProps) {
     }
   };
 
-  // const test = (id:string| number) => {
-  //   console.log(id);
-  // }
+  const wrapperTaskRef = useRef<HTMLDivElement>(null);
+  console.log("актуальный", test);
+
+  useEffect(() => {
+    console.log("useEffect", test);
+    // event: React.MouseEvent<HTMLDivElement, MouseEvent>
+    // Оповещать, если щелкнуть за пределами элемента
+    function handleClickOutsideTask(event:any, test: boolean) {
+      console.log("handleClick", test);
+      if (
+       ( wrapperTaskRef.current &&
+        !wrapperTaskRef.current.contains(event.target)) &&
+       (test === false)
+      ) {
+        // console.log(event)
+        console.log(
+          "щелкнул за пределами + не сохранен текст в описании" + test
+        );
+      }
+    }
+
+    // Привязать прослушиватель событий
+    document.addEventListener(
+      "mousedown",
+      function (event) {
+        handleClickOutsideTask(event, test);
+      },
+      false
+    );
+
+    return () => {
+      // Отключить прослушиватель событий при очистке
+      document.removeEventListener(
+        "mousedown",
+        function (event) {
+          handleClickOutsideTask(event, test);
+        },
+        false
+      );
+    };
+  }, [wrapperTaskRef, test]);
+
   return (
-    <div className="Task">
+    <div className="Task" ref={wrapperTaskRef}>
       <TaskHeader
         isDone={task.isDone}
         data={task.createdAt}
@@ -215,8 +254,8 @@ function Task({ task, onTaskChanged }: TaskProps) {
       <TaskDescription
         taskDescription={task.description}
         onSave={(newDescription) => updateDescription(task, newDescription)}
+        onTest={(test) => setTest(test)}
       />
-
       <label htmlFor={"file-upload"} className="Task__file-upload">
         <img src={upload} className="Task__file-upload-icon" /> File Upload
       </label>
