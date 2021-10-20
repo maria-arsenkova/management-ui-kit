@@ -12,6 +12,7 @@ interface TextareaProps {
   value?: string;
   variable: TEXTAREA_VARIABLE;
   handleDescription: (value: string) => void;
+  test: (test: boolean) => void;
 }
 
 const Textarea = ({
@@ -19,6 +20,7 @@ const Textarea = ({
   label,
   value,
   handleDescription,
+  test,
   variable = TEXTAREA_VARIABLE.TRANSPARENT,
 }: TextareaProps) => {
   // const [textAreaHeight, setTextAreaHeight] = useState({
@@ -51,6 +53,7 @@ const Textarea = ({
           onChange={(event) => {
             handleDescription(event.target.value);
             handleTextAreaHeight(event);
+            test(false);
           }}
         ></textarea>
       </div>

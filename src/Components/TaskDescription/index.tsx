@@ -4,7 +4,11 @@ import { TaskDescriptionType } from "./types";
 import { Textarea, TEXTAREA_VARIABLE } from "../Textarea";
 import { Button, BUTTON_SIZE, BUTTON_VARIABLE, BUTTON_TEXT } from "../Button";
 
-function TaskDescription({ taskDescription, onSave }: TaskDescriptionType) {
+function TaskDescription({
+  taskDescription,
+  onSave,
+  onTest,
+}: TaskDescriptionType) {
   const [isShowActions, setShowActions] = useState<boolean>(false);
   const [description, setDescription] = useState<string>("");
 
@@ -28,6 +32,7 @@ function TaskDescription({ taskDescription, onSave }: TaskDescriptionType) {
         handleDescription={handleDescription}
         value={description}
         variable={TEXTAREA_VARIABLE.TRANSPARENT}
+        test={onTest}
       />
       {isShowActions && (
         <div className="TaskDescription__description-control">
@@ -37,6 +42,7 @@ function TaskDescription({ taskDescription, onSave }: TaskDescriptionType) {
             onClick={() => {
               onSave(description);
               setShowActions(false);
+              onTest(true);
             }}
             isDisabled={description == taskDescription}
           >
@@ -48,7 +54,8 @@ function TaskDescription({ taskDescription, onSave }: TaskDescriptionType) {
             text={BUTTON_TEXT.WHITE}
             onClick={() => {
               setDescription(taskDescription ? taskDescription : "");
-              setShowActions(false);
+              setShowActions(true);
+              onTest(true);
             }}
           >
             Cancel

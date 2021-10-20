@@ -399,6 +399,7 @@ function Tasks() {
               variable={TEXTAREA_VARIABLE.DEFAULT}
               label={"Description"}
               handleDescription={handleDescription}
+              test={() => {}}
             />
           </div>
           <Button
