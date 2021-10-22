@@ -7,12 +7,14 @@ import { Button, BUTTON_SIZE, BUTTON_VARIABLE, BUTTON_TEXT } from "../Button";
 function TaskDescription({
   taskDescription,
   onSave,
+  onChange
 }: TaskDescriptionType) {
   const [isShowActions, setShowActions] = useState<boolean>(false);
   const [description, setDescription] = useState<string>("");
 
   const handleDescription = (newDescription: any) => {
     setDescription(newDescription);
+    onChange(newDescription)
   };
 
   useEffect(() => {
@@ -31,7 +33,7 @@ function TaskDescription({
         handleDescription={handleDescription}
         value={description}
         variable={TEXTAREA_VARIABLE.TRANSPARENT}
-        
+
       />
       {isShowActions && (
         <div className="TaskDescription__description-control">
@@ -53,7 +55,7 @@ function TaskDescription({
             onClick={() => {
               setDescription(taskDescription ? taskDescription : "");
               setShowActions(true);
-              
+
             }}
           >
             Cancel
