@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./style.scss";
-import {useOnClickOutside} from '../../Hooks/useClickOutside'
+import { useOnClickOutside } from "../../Hooks/useClickOutside";
 import { TaskHeader } from "../TaskHeader";
 import { TaskInfoBlock } from "../TaskInfoBlock";
 
@@ -23,16 +23,16 @@ export interface TaskProps {
 }
 
 function Task({ task, onTaskChanged }: TaskProps) {
-  const [newDescription, setDescription] = useState('');
+  const [newDescription, setDescription] = useState("");
 
   const handleComments = (newComments: CommentProps[]) => {
     const newTask: TaskType = { ...task, discussions: newComments };
     onTaskChanged(newTask);
   };
 
-  useEffect(()=>{
-    setDescription(task.description)
-  }, [task])
+  useEffect(() => {
+    setDescription(task.description);
+  }, [task]);
 
   const removeFile = async (task: TaskType, fileId: string): Promise<void> => {
     const newTask: TaskType = {
@@ -200,11 +200,20 @@ function Task({ task, onTaskChanged }: TaskProps) {
 
   const wrapperTaskRef = useRef<HTMLDivElement>(null);
 
-useOnClickOutside(wrapperTaskRef, () => {
-  if(task.description !== newDescription) {
-    alert('У вас не сохранено описание задачи')
-  }
-})
+  useOnClickOutside(wrapperTaskRef, () => {
+    if (task.description !== newDescription) {
+      // alert('У вас не сохранено описание задачи')
+      console.log("У вас не сохранено описание задачи");
+    } else {
+      console.log("У вас все сохранено", newDescription);
+    }
+  });
+
+  useEffect(() => {
+    if (task.description) {
+      setDescription(task.description);
+    }
+  }, [task.description]);
 
   return (
     <div className="Task" ref={wrapperTaskRef}>
@@ -227,7 +236,7 @@ useOnClickOutside(wrapperTaskRef, () => {
         taskDescription={task.description}
         onSave={(newDescription) => updateDescription(task, newDescription)}
         onChange={(newDescription) => {
-          setDescription(newDescription)
+          setDescription(newDescription);
         }}
       />
       <label htmlFor={"file-upload"} className="Task__file-upload">
