@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./style.scss";
+import {useOnClickOutside} from '../../Hooks/useClickOutside'
 import { TaskHeader } from "../TaskHeader";
 import { TaskInfoBlock } from "../TaskInfoBlock";
 
@@ -22,11 +23,16 @@ export interface TaskProps {
 }
 
 function Task({ task, onTaskChanged }: TaskProps) {
-  const [test, setTest] = useState<boolean>(true);
+  const [newDescription, setDescription] = useState('');
+
   const handleComments = (newComments: CommentProps[]) => {
     const newTask: TaskType = { ...task, discussions: newComments };
     onTaskChanged(newTask);
   };
+
+  useEffect(()=>{
+    setDescription(task.description)
+  }, [task])
 
   const removeFile = async (task: TaskType, fileId: string): Promise<void> => {
     const newTask: TaskType = {
@@ -193,46 +199,12 @@ function Task({ task, onTaskChanged }: TaskProps) {
   };
 
   const wrapperTaskRef = useRef<HTMLDivElement>(null);
-  console.log("актуальный", test);
 
-  useEffect(() => {
-    // event: React.MouseEvent<HTMLDivElement, MouseEvent>
-    // Оповещать, если щелкнуть за пределами элемента
-    function handleClickOutsideTask(event:any, test: boolean) {
-      console.log("handleClick", test);
-      if (
-       ( wrapperTaskRef.current &&
-        !wrapperTaskRef.current.contains(event.target)) &&
-       (test === false)
-      ) {
-        // console.log(event)
-        console.log(
-          "щелкнул за пределами + не сохранен текст в описании" + test
-        );
-      }
-    }
-
-    // Привязать прослушиватель событий
-    document.addEventListener(
-      "onmouseout",
-      function (event) {
-        console.log(event)
-        // handleClickOutsideTask(event, test);
-      },
-      // false
-    );
-
-    // return () => {
-    //   // Отключить прослушиватель событий при очистке
-    //   document.removeEventListener(
-    //     "onmouseout",
-    //     function (event) {
-    //       handleClickOutsideTask(event, test);
-    //     },
-    //     false
-    //   );
-    // };
-  }, [wrapperTaskRef, test]);
+useOnClickOutside(wrapperTaskRef, () => {
+  if(task.description !== newDescription) {
+    alert('У вас не сохранено описание задачи')
+  }
+})
 
   return (
     <div className="Task" ref={wrapperTaskRef}>
@@ -254,7 +226,9 @@ function Task({ task, onTaskChanged }: TaskProps) {
       <TaskDescription
         taskDescription={task.description}
         onSave={(newDescription) => updateDescription(task, newDescription)}
-        onTest={(test) => setTest(test)}
+        onChange={(newDescription) => {
+          setDescription(newDescription)
+        }}
       />
       <label htmlFor={"file-upload"} className="Task__file-upload">
         <img src={upload} className="Task__file-upload-icon" /> File Upload
