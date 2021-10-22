@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style.scss";
-import { TaskFilesForClient } from "../TaskFiles/types";
+import { TaskFilesForClient, TaskFilesProps } from "../TaskFiles/types";
+
 import { getTasks } from "../../services/tasks";
 import { Icon } from "../Icon";
 import { Button, BUTTON_SIZE, BUTTON_VARIABLE } from "../Button";
@@ -19,6 +20,8 @@ function Files() {
   const [sort, setSort] = useState(INITIAL_SORT);
   const [files, setFiles] = useState<TaskFilesForClient[]>([]);
 
+  const [filesTest, setFilesTest] = useState<TaskFilesProps[]>([]);
+
   const getFiles = async () => {
     const allTasks = await getTasks();
     const allFiles: TaskFilesForClient[] = allTasks
@@ -27,6 +30,41 @@ function Files() {
       .filter((file) => file);
     setFiles(allFiles);
   };
+
+  //тествая функция
+  const getFilesTest = async () => {
+    const allFiles: TaskFilesProps[] = [];
+    const allTasks = await getTasks();
+    allTasks.map(function (task) {
+      task?.files.forEach((file) => {
+        const fileNew: TaskFilesProps = {
+          department: task.department,
+          id: file.id,
+          preview: file.preview,
+          name: file.name,
+          size: file.size,
+          sizeSign: file.sizeSign,
+          uploadedBy: file.uploadedBy,
+          date: file.date,
+        };
+        allFiles.push(fileNew);
+      });
+    });
+    
+   
+    console.log("allFiles", allFiles);
+    setFilesTest(allFiles)
+  };
+
+ //Почему два раза
+  console.log("filesTest", filesTest);
+
+
+//почему без useEffect уходит функция в бесконечность ???
+  useEffect(() => {
+    getFilesTest();
+  }, []);
+
 
   useEffect(() => {
     getFiles();
@@ -69,6 +107,7 @@ function Files() {
   };
 
   const filteredFiles = handleSorting(files, sort);
+  // const filteredFiles = handleSorting(filesTest, sort);
 
   const updateSortState = (newSort: Sort) => {
     setSort(newSort);
@@ -185,6 +224,7 @@ function Files() {
               </div>
               <div>{item.uploadedBy}</div>
               <div>{item.date}</div>
+              {/* <div>{test[0].department}</div> */}
               <div></div>
               <div>
                 <Button
@@ -194,13 +234,13 @@ function Files() {
                 >
                   Actions
                   <span className="Files__arrow">
-                  <Icon name="arrowDown" />
+                    <Icon name="arrowDown" />
                   </span>
                 </Button>
               </div>
               <div>
                 <a target="_blank" href={item.preview} download>
-                  <Icon name="download"/>
+                  <Icon name="download" />
                 </a>
               </div>
             </div>

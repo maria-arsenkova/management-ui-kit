@@ -1,3 +1,5 @@
+import { DEPARTMENT } from "../Department";
+
 export enum SIZE_SIGN {
     BYTES = "BYTES",
     KB = "KB",
@@ -17,4 +19,8 @@ export type TaskFilesType = {
 
 export interface TaskFilesForClient extends TaskFilesType {
     id: string;
+}
+
+export interface TaskFilesProps extends TaskFilesForClient {
+    department: DEPARTMENT;
 }

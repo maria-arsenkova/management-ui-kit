@@ -196,7 +196,6 @@ function Task({ task, onTaskChanged }: TaskProps) {
   console.log("актуальный", test);
 
   useEffect(() => {
-    console.log("useEffect", test);
     // event: React.MouseEvent<HTMLDivElement, MouseEvent>
     // Оповещать, если щелкнуть за пределами элемента
     function handleClickOutsideTask(event:any, test: boolean) {
@@ -215,23 +214,24 @@ function Task({ task, onTaskChanged }: TaskProps) {
 
     // Привязать прослушиватель событий
     document.addEventListener(
-      "mousedown",
+      "onmouseout",
       function (event) {
-        handleClickOutsideTask(event, test);
+        console.log(event)
+        // handleClickOutsideTask(event, test);
       },
-      false
+      // false
     );
 
-    return () => {
-      // Отключить прослушиватель событий при очистке
-      document.removeEventListener(
-        "mousedown",
-        function (event) {
-          handleClickOutsideTask(event, test);
-        },
-        false
-      );
-    };
+    // return () => {
+    //   // Отключить прослушиватель событий при очистке
+    //   document.removeEventListener(
+    //     "onmouseout",
+    //     function (event) {
+    //       handleClickOutsideTask(event, test);
+    //     },
+    //     false
+    //   );
+    // };
   }, [wrapperTaskRef, test]);
 
   return (

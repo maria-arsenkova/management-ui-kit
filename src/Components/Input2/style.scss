@@ -1,0 +1,78 @@
+.Input {
+  padding-top: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  color: #131313;
+  padding-bottom: 10px;
+
+  &__label {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    color: #131313;
+    padding-bottom: 10px;
+  }
+
+  &__value {
+    width: 100%;
+    background: #eaeaea;
+    border-radius: 8px;
+    border: none;
+    height: 50px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 23px;
+    color: #131313;
+    font-family: inherit;
+  }
+}
+
+///====
+&__file-upload {
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #1d201c;
+  line-height: 21px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 30px
+}
+
+&__file-upload-icon {
+  width: 20px;
+  height: 20px;
+}
+
+&__file-upload-hidden {
+  display: none;
+}
+
+
+&__comment-text {
+  margin-right: 10px;
+  height: 40px;
+  width: 100%;
+  border-radius: 4px 4px 4px 4px;
+  background: #eaeaea;
+  border-color: transparent;
+  padding: 10px 15px;
+}
+
+&__comment-text::-webkit-input-placeholder {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  color: #131313;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+&__selector-hidden {
+  display: none;
+}
+///====
