@@ -1,0 +1,94 @@
+.Button {
+  border-radius: 25px;
+  border: none;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+
+  &_disabled {
+    background: rgb(212, 206, 206) !important;
+    color: darkgray !important;
+  }
+
+  :nth-child(2) {
+    margin-left: 4px;
+  }
+
+  &_small {
+    padding: 4px 15px;
+  }
+
+  &_medium {
+    padding: 10px 20px;
+  }
+
+  &_large {
+    padding: 15px 20px;
+  }
+
+  &_fillWidth {
+    width: 100%;
+  }
+
+  &_success {
+    background: #cef9c6;
+
+    &:hover {
+      background: #caf6bf;
+    }
+
+    &:active {
+      background: #caffbd;
+    }
+  }
+
+  &_default {
+    background: #eaeaea;
+
+    &:hover {
+      background: #e0e0e0;
+    }
+
+    &:active {
+      background: #cfcfcf;
+    }
+  }
+
+  &_warning {
+    color: #ffc200;
+    background: #fff8dd;
+
+    &:hover {
+      background: #fdefc6;
+    }
+
+    &:active {
+      background: #fdedbd;
+    }
+  }
+
+  &_transparent {
+    background: inherit;
+  }
+
+  &_danger {
+    background: #e66054;
+
+    &:hover {
+      background: #db4c3e;
+    }
+  }
+
+  &_text-default {
+    color: #1d201c;
+  }
+
+  &_text-warning {
+    color: #ffc200;
+  }
+
+  &_text-white {
+    color: white;
+  }
+}

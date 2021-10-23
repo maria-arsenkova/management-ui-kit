@@ -1,0 +1,20 @@
+.TaskDescription {
+  margin-bottom: 30px;
+
+  &__title {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 23px;
+    text-transform: uppercase;
+    color: #131313;
+  }
+
+  &__description-control {
+    padding-top: 16px;
+
+    & button:first-child {
+      margin-right: 5px;
+    }
+  }
+}

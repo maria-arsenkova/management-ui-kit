@@ -1,0 +1,16 @@
+.Icon {
+  &_small {
+    width: 16px;
+    height: 16px;
+  }
+
+  &_medium {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__arrowUp {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+  }
+}

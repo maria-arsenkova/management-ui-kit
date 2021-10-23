@@ -1,0 +1,67 @@
+.SidebarMenu {
+  margin-top: 30px;
+
+  &__item {
+    padding-left: 30px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &__item:not(:first-child) {
+    cursor: pointer;
+  }
+
+  &__item:not(:first-child):hover {
+    border-left: 5px solid #ffc200;
+    background: #202020;
+    box-sizing: border-box;
+    padding-left: 25px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &__title {
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #878787;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 22px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  &__avatars {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  &__avatars img:last-child {
+    margin-right: 0px;
+  }
+
+  &__avatar {
+    margin-right: 5px;
+  }
+
+  &__сounter {
+    margin-left: 10px;
+  }
+
+  &__preview {
+    margin-right: 10px;
+  }
+}

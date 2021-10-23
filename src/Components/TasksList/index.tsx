@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { Task } from '../Task';
-import { TaskType } from '../Task/types';
-import './style.css';
+import React from "react";
+import { Button, BUTTON_SIZE, BUTTON_VARIABLE } from "../Button";
+import { Department, DEPARTMENT } from "../Department";
+import { TaskType } from "../Task/types";
+import "./style.scss";
 
 export type TasksListType = {
   name: string;
@@ -25,27 +26,34 @@ function TasksList({
     <div>
       {content.map((list) => {
         return (
-          <ul className='tasks__list' key={list.name}>
-            <li className='tasks__title'>
-              <span className='tasks__title-text'>{list.name}</span>
-              <button
-                type='button'
-                className='tasks__add-task'
+          <ul className="TasksList" key={list.name}>
+            <li className="TasksList__title">
+              <span className="TasksList__title-text">{list.name}</span>
+              <Button
                 onClick={onCreateTaskClick}
+                size={BUTTON_SIZE.MEDIUM}
+                variable={BUTTON_VARIABLE.SUCCESS}
               >
                 + Add Task
-              </button>
+              </Button>
             </li>
             {list?.items &&
               list.items.map((task) => {
                 return (
-                  <li className='tasks__item' key={task.id}>
+                  <li
+                    key={task.id}
+                    className={`TasksList__item ${
+                      task.openedTask
+                        ? "TasksList__item_active"
+                        : "TasksList__item_inactive"
+                    }`}
+                  >
                     <label
                       htmlFor={`checkbox-${task.id}`}
                       className={
                         task.isDone
-                          ? 'tasks__checkbox-new_active'
-                          : 'tasks__checkbox-new'
+                          ? "TasksList__checkbox-new_active"
+                          : "TasksList__checkbox-new"
                       }
                     >
                       <input
@@ -55,9 +63,9 @@ function TasksList({
                             isDone: event.target.checked,
                           });
                         }}
-                        type='checkbox'
+                        type="checkbox"
                         id={`checkbox-${task.id}`}
-                        className='tasks__checkbox-hidden'
+                        className="TasksList__checkbox-hidden"
                         checked={task.isDone}
                       />
                     </label>
@@ -66,30 +74,18 @@ function TasksList({
                         onTaskClick(task);
                       }}
                     >
-                      <div className='tasks__item-name'>{task.title}</div>
-                      <a href='#' className='tasks__item-executor'>
+                      <div className="TasksList__item-name">{task.title}</div>
+                      <span className="TasksList__item-executor">
                         <img
-                          key={`${task.asignTo.name}_${task.asignTo.avatar}`}
+                          key={`${task.asignTo.initials}_${task.asignTo.avatar}`}
                           src={task.asignTo.avatar}
-                          alt={task.asignTo.name}
-                          className='tasks__item-avatar'
+                          alt={task.asignTo.initials}
+                          className="TasksList__item-avatar"
                         />
-                        {task.department == 'Developement' && (
-                          <span className='department department_developement'>
-                            {task.department}
-                          </span>
+                        {task.department && (
+                          <Department department={task.department} />
                         )}
-                        {task.department == 'Marketing' && (
-                          <span className='department department_marketing'>
-                            {task.department}
-                          </span>
-                        )}
-                        {task.department == 'Design' && (
-                          <span className='department department_design'>
-                            {task.department}
-                          </span>
-                        )}
-                      </a>
+                      </span>
                     </div>
                   </li>
                 );

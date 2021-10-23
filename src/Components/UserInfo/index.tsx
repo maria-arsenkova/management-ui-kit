@@ -1,7 +1,8 @@
-import React from 'react';
-import './style.css';
-import { UserType } from './types';
-import circle from './img/circle.svg';
+import React from "react";
+import "./style.scss";
+import { UserType } from "./types";
+import { UserPhoto, AVATAR_SIZE } from "../UserPhoto";
+import { Icon } from "../Icon";
 
 interface UserInfoProps {
   user: UserType;
@@ -9,18 +10,18 @@ interface UserInfoProps {
 
 function UserInfo({ user }: UserInfoProps) {
   return (
-    <div className='userInfo'>
-      <a href='/' className='userInfo__avatar'>
-        <img src={user.avatar} alt={user.initials} />
-      </a>
+    <div className="UserInfo">
+      <span className="UserInfo__avatar">
+        <UserPhoto user={user} size={AVATAR_SIZE.LARGE} />
+      </span>
       <div>
-        <div className='userInfo__initials'>{user.initials}</div>
+        <div className="UserInfo__initials">{user.initials}</div>
         {user?.position && (
-          <div className='userInfo__position'>{user.position}</div>
+          <div className="UserInfo__position">{user.position}</div>
         )}
       </div>
-      <a href='/' className='circleIcon'>
-        <img src={circle} alt='circle' />
+      <a href="/">
+        <Icon name={"circle"} />
       </a>
     </div>
   );

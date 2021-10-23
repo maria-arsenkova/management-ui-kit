@@ -1,44 +1,46 @@
-import React from 'react';
-import './style.css';
-import chat from './img/chat.svg';
-
-export type MembersType = {
-  name: string;
-  avatar: string;
-};
+import React from "react";
+import { Icon } from "../Icon";
+import { UserType } from "../UserInfo/types";
+import { AVATAR_SIZE, UserPhoto } from "../UserPhoto";
+import { Button, BUTTON_SIZE, BUTTON_TEXT, BUTTON_VARIABLE } from "./../Button";
+import "./style.scss";
 
 interface MembersProms {
-  members: MembersType[];
+  members: UserType[];
 }
 
 function Members({ members }: MembersProms) {
   return (
-    <div className='members_wrapper'>
-      <div className='members'>
-        {members.map((member) => {
+    <div className="Members">
+      <div className="Members_wrapper">
+        {members.map((member, index) => {
           return (
             member?.avatar && (
-              <a href='/' className='members__link' key={`${member.name}`}>
-                <img
-                  className='members__avatar'
-                  key={`${member.avatar}_${member.name}`}
-                  src={member.avatar}
-                  alt={member.name}
-                />
-              </a>
+              <span
+                className="Members__member-photo"
+                key={`${members[index].initials}`}
+              >
+                <UserPhoto user={member} size={AVATAR_SIZE.MEDIUM} />
+              </span>
             )
           );
         })}
       </div>
-      <div className='members__share'>
-        <span className='members__share-name'>Share</span>
-      </div>
-      <div className='members__сhat'>
-        <a href='/'>
-          <img src={chat} alt='chat' />
-        </a>
-        <span className='members__сhat-name'>Chat</span>
-      </div>
+      <span className="Members__button-share">
+        <Button size={BUTTON_SIZE.SMALL} onClick={() => {}}>
+          Share
+        </Button>
+      </span>
+      
+      <Button
+        onClick={() => {}}
+        variable={BUTTON_VARIABLE.WARNING}
+        size={BUTTON_SIZE.SMALL}
+        text={BUTTON_TEXT.WARNING}
+      >
+        <Icon name="chat" />
+        <span>Chat</span>
+      </Button>
     </div>
   );
 }

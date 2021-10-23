@@ -1,7 +1,8 @@
-import React from 'react';
-import './style.css';
-import circle from './img/circle.svg';
-import { TaskHeaderType } from './types';
+import React from "react";
+import "./style.scss";
+import { TaskHeaderType } from "./types";
+import { Icon } from "../Icon";
+import { Circle, CIRCLE_SIZE, CIRCLE_VARIABLE } from "../Сircle";
 
 function TaskHeader({
   name,
@@ -12,14 +13,14 @@ function TaskHeader({
   task,
 }: TaskHeaderType) {
   return (
-    <div className='task__header'>
-      <div className="task__group">
-        <div className='task__header-name'>{name}</div>
-        <div className='task__header-creator'>
+    <div className="TaskHeader">
+      <div className="TaskHeader__group">
+        <div className="TaskHeader__name">{name}</div>
+        <div className="TaskHeader__creator">
           Added by {creator} {data}
         </div>
       </div>
-      <div className='task__header-selector'>
+      <div className="TaskHeader__selector">
         <input
           onChange={(event) => {
             onTaskUpdate({
@@ -27,22 +28,22 @@ function TaskHeader({
               isDone: event.target.checked,
             });
           }}
-          type='checkbox'
+          type="checkbox"
           id={`tick-${task.id}`}
           checked={task.isDone}
-          className='task__header-selector-hidden'
+          className="TaskHeader__selector-hidden"
         />
         <label
           htmlFor={`tick-${task.id}`}
           className={
             isDone === true
-              ? 'task__header-selector-tick_active'
-              : 'task__header-selector-tick'
+              ? "TaskHeader__selector-tick_active"
+              : "TaskHeader__selector-tick"
           }
         ></label>
-        <span className='task__header-selector-tick-more'>
-          <img src={circle} alt='circle' />
-        </span>
+        <Circle size={CIRCLE_SIZE.LARGE} variable={CIRCLE_VARIABLE.DEFAULT}>
+          <Icon name={"circle"} />
+        </Circle>
       </div>
     </div>
   );

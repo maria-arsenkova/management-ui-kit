@@ -1,0 +1,37 @@
+.Textarea {
+  &__label {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    color: #131313;
+    padding-bottom: 10px;
+  }
+
+  &__value {
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    overflow-y: hidden;
+    padding-top: 13px;
+    resize : none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+    color: #131313;
+    font-family: inherit;
+  }
+
+  &_transparent {
+    background: transparent;
+    border: 1px solid #e6e6e6;
+
+    &:focus {
+      border: 1px solid #9b9b9b;
+    }
+  }
+
+  &_default {
+    background: #eaeaea;
+  }
+}

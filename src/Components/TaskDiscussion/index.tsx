@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
-import './style.css';
-import { UserType } from '../UserInfo/types';
-import { Comment } from '../Comment';
-import { CommentType } from '../Comment/types';
-import { TaskType } from '../Task/types';
+import React, { useState } from "react";
+import "./style.scss";
+import { UserType } from "../UserInfo/types";
+import { Comment } from "../Comment";
+import { CommentProps } from "../Comment/types";
+import { TaskType } from "../Task/types";
+import { UserPhoto, AVATAR_SIZE } from "../UserPhoto";
+import { Button, BUTTON_SIZE } from "../Button";
 
 export interface TaskDiscussionsProps {
   user: UserType;
   task: TaskType;
-  content: CommentType[];
-  onCommentCreated: (comments: CommentType[]) => void;
+  content: CommentProps[];
+  onCommentCreated: (comments: CommentProps[]) => void;
 }
 
 function TaskDiscussion({
@@ -17,13 +19,11 @@ function TaskDiscussion({
   content,
   onCommentCreated,
 }: TaskDiscussionsProps) {
-  const [comment, setComment] = useState<CommentType>({
-    id: '',
-    text: '',
-    date: '',
-    name: user.initials,
-    photo: user.avatar,
-    position: user.position,
+  const [comment, setComment] = useState<CommentProps>({
+    id: "",
+    text: "",
+    date: "",
+    author: user,
   });
 
   const handleComment = (
@@ -34,57 +34,62 @@ function TaskDiscussion({
     setComment({
       id: newId,
       text: newComment,
-      name: comment.name,
-      photo: comment.photo,
       date: newDate,
-      position: comment.position,
+      author: comment.author,
     });
   };
 
   const createComment = (
-    newComment: CommentType,
-    allComments: CommentType[]
+    newComment: CommentProps,
+    allComments: CommentProps[]
   ): void => {
     const newComments = [newComment, ...allComments];
     onCommentCreated(newComments);
   };
 
+  const handleKeyPress = (event: any) => {
+    if (event.key === "Enter") {
+      createComment(comment, content);
+    }
+  };
+
   return (
     <div>
-      <div className='task__discussion-title'>Discussion</div>
-      <div className='comment__add'>
-        <img
-          src={user.avatar}
-          alt={user.initials}
-          className='comment__add-author-photo'
-        />
+      <div className="TaskDiscussion__title">Discussion</div>
+      <div className="TaskDiscussion__new-comment">
+        <span className="TaskDiscussion__comment-user-photo">
+          <UserPhoto user={user} size={AVATAR_SIZE.LARGE} />
+        </span>
         <input
-          type='text'
-          placeholder='Add a comment…'
-          className='comment__add-text'
+          type="text"
+          placeholder="Add a comment…"
+          className="TaskDiscussion__comment-text"
+          id="pounds"
           onChange={(event) =>
             handleComment(
               event.target.value,
               Date.now().toString(),
-              new Date().toLocaleDateString('en-GB', {
-                weekday: 'short',
-                month: 'long',
-                day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric',
+              new Date().toLocaleDateString("en-GB", {
+                weekday: "short",
+                month: "long",
+                day: "numeric",
+                hour: "numeric",
+                minute: "numeric",
                 // second: 'numeric',
               })
             )
           }
+          onKeyPress={handleKeyPress}
         />
-        <button
-          className='task__discussion-button'
+
+        <Button
+          size={BUTTON_SIZE.MEDIUM}
           onClick={() => {
             createComment(comment, content);
           }}
         >
           Send
-        </button>
+        </Button>
       </div>
       {content && (
         <div>
@@ -92,13 +97,9 @@ function TaskDiscussion({
             return (
               <Comment
                 id={item.id}
-                name={item.name}
-                position={item.position}
-                photo={item.photo}
                 date={item.date}
                 text={item.text}
-                //когда один и тот же текст — сбой с ключами — они дублируются  (к примеру отправить два раза один и тот-же текст)
-                //onChange — когда изменяем форму, обновляет хук, а когда на баттон то публикует, если текст один и тот-же то хук не обновляется (к примеру отправить два раза один и тот-же текст)
+                author={item.author}
                 key={item.id}
               />
             );

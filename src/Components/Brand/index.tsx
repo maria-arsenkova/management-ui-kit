@@ -1,17 +1,16 @@
-import React from 'react';
-import './style.css';
-import list from './img/list.svg';
-import search from './img/search.svg';
+import React from "react";
+import "./style.scss";
+import { Icon } from "../Icon";
 
 function Brand() {
   return (
-    <div className='brand'>
-      <a href='/'>
-        <img src={list} alt='list' className='brand__iconList'></img>
+    <div className="Brand">
+      <a href="/" className='Brand__icon-list'>
+        <Icon name={"list"} />
       </a>
-      <span className='brand__name'>PROJECTUS</span>
-      <a href='/' className='brand__iconSearch'>
-        <img src={search} alt='search'></img>
+      <span className="Brand__name">PROJECTUS</span>
+      <a href="/" className="Brand__icon-search">
+        <Icon name={"search"} />
       </a>
     </div>
   );

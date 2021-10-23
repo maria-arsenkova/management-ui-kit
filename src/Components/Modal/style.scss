@@ -1,0 +1,25 @@
+.Modal {
+  width: 595px;
+  padding: 30px;
+  border-radius: 10px;
+  background: #ffffff;
+  position: fixed;
+  z-index: 2;
+  top: 20%;
+  left: 30%;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ececec;
+    padding-bottom: 30px;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 38px;
+    color: #131313;
+  }
+
+  &__close {
+    cursor: pointer;
+  }
+}

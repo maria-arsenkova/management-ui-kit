@@ -1,14 +1,15 @@
-import React from 'react';
-import './style.css';
-import addIcon from './img/addIcon.svg';
-import { TaskInfoBlockExecutorType, TaskInfoBlockUsersType } from './types';
+import React from "react";
+import "./style.scss";
+import { UserType } from "../UserInfo/types";
+import {Department, DEPARTMENT} from '../Department'
+import { Icon } from "../Icon";
 
 interface TaskInfoBlockProps {
   title?: string;
-  executor?: TaskInfoBlockExecutorType;
+  executor?: UserType;
   date?: string;
-  department?: string;
-  users?: TaskInfoBlockUsersType[];
+  department?: DEPARTMENT;
+  users?: UserType[];
 }
 
 function TaskInfoBlock({
@@ -19,44 +20,34 @@ function TaskInfoBlock({
   users,
 }: TaskInfoBlockProps) {
   return (
-    <div className='task__info-block'>
-      <div className='task__info-block-title'>{title}</div>
-      <div className='task__info-block-content'>
+    <div className="TaskInfoBlock">
+      <div className="TaskInfoBlock__title">{title}</div>
+      <div className="TaskInfoBlock__content">
         {executor && (
-          <a className='executor'>
+          <a className="TaskInfoBlock__executor">
             <img
               src={executor.avatar}
-              alt={executor.name}
-              className='task__info-block_icon'
+              alt={executor.initials}
+              className="TaskInfoBlock__executor-photo"
             />
-            <span className='executor__initials'>{executor.name}</span>
+            <span className="TaskInfoBlock__executor-initials">{executor.initials}</span>
           </a>
         )}
-        {date && <div className='date'>{date}</div>}
-        {department == 'Developement' && (
-          <span className='department department_developement'>
-            {department}
-          </span>
-        )}
-        {department == 'Marketing' && (
-          <span className='department department_marketing'>{department}</span>
-        )}
-        {department == 'Design' && (
-          <span className='department department_design'>{department}</span>
-        )}
+        {date && <div className="TaskInfoBlock__date">{date}</div>}
+        {department &&  <Department department={department} /> }
         {users && (
           <span>
             {users.map((item) => {
               return (
                 <img
-                  className='task__info-block_icon'
-                  key={`${item.name}_${item.avatar}`}
+                  className="TaskInfoBlock__member"
+                  key={`${item.initials}_${item.avatar}`}
                   src={item.avatar}
-                  alt={item.name}
+                  alt={item.initials}
                 />
               );
             })}
-            <img src={addIcon} className='task__info-block_icon' />
+            <Icon name='add' />
           </span>
         )}
       </div>

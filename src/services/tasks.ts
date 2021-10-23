@@ -16,6 +16,7 @@ const getTasks = async (): Promise<TaskType[]> => {
         dueOn: doc.get('dueOn'),
         department: doc.get('department'),
         followers: doc.get('followers'),
+        description: doc.get('description'),
         discussions: doc.get('discussions'),
         files: doc.get('files'),
         isDone: doc.get('isDone'),

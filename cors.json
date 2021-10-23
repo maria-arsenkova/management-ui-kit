@@ -1,0 +1,7 @@
+[
+    {
+      "origin": ["https://management-ui-kit.appspot.com"],
+      "method": ["GET"],
+      "maxAgeSeconds": 3600
+    }
+  ]

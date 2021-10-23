@@ -1,22 +1,21 @@
-import { CommentType } from "../Comment/types";
-import {
-  TaskInfoBlockExecutorType,
-  TaskInfoBlockUsersType,
-} from "../TaskInfoBlock/types";
-import { TaskFilesType } from "../TaskFiles/types";
+import { CommentProps } from "../Comment/types";
+import { DEPARTMENT } from "../Department";
+import { TaskFilesForClient } from "../TaskFiles/types";
+import { TaskDescriptionType } from '../TaskDescription/types';
+import { UserType } from "../UserInfo/types";
 
 export type TaskType = {
   id: number|string;
   title: string;
   createdAt: string;
   assigner: string;
-  asignTo: TaskInfoBlockExecutorType;
+  asignTo: UserType;
   dueOn: string;
-  department: string;
-  followers?: TaskInfoBlockUsersType[];
-  description?: string;
-  files: TaskFilesType[];
-  discussions: CommentType[];
+  department: DEPARTMENT;
+  followers?: UserType[];
+  description: string;
+  files: TaskFilesForClient[];
+  discussions: CommentProps[];
   isDone: boolean;
   category: "todo" | "backlog";
   openedTask?: boolean;

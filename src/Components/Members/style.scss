@@ -1,0 +1,22 @@
+.Members {
+  display: flex;
+
+  &_wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-right: 15px;
+  }
+
+  &__member-photo {
+    margin-right: 5px;
+    text-decoration: none;
+  }
+
+  &__member-photo:last-child {
+    margin: 0px;
+  }
+
+  &__button-share {
+    margin-right: 5px;
+  }
+}

@@ -1,0 +1,107 @@
+.Files {
+  padding: 30px;
+  border-radius: 8px;
+  align-self: start;
+
+  &__list {
+    margin-top: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+  }
+
+  &__list-line {
+    display: grid;
+    grid-template-columns:
+      66px
+      minmax(130px, 3.33fr)
+      minmax(100px, 1fr)
+      minmax(130px, 3.33fr)
+      minmax(130px, 1fr)
+      minmax(130px, 1fr)
+      minmax(130px, 1.2fr)
+      16px;
+    align-items: center;
+    border-top: 1px solid #ececec;
+    cursor: pointer;
+  }
+
+  &__list-line-header {
+    padding: 20px 30px 20px 30px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+    color: #131313;
+    opacity: 0.5;
+  }
+
+  &__list-line-body {
+    word-wrap: break-word;
+    padding: 20px 30px 20px 30px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0px;
+  }
+
+  &__list-line-body div {
+    padding-right: 24px;
+  }
+
+  &__list-line-body:hover {
+    background: #f7f6f3;
+  }
+
+  &__list-line-body div:nth-child(3),
+  &__list-line-body div:nth-child(4),
+  &__list-line-body div:nth-child(5) {
+    opacity: 0.7;
+  }
+
+  &__preview {
+    height: 40px;
+    width: 40px;
+    border-radius: 8px;
+    border-color: transparent;
+  }
+
+  &__search-icon {
+    margin-right: 8px;
+  }
+
+  &__button-actions {
+    height: 40px;
+    width: 99px;
+    border-radius: 20px;
+    border: none;
+    background: #eaeaea;
+    color: #131313;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  &__button-actions:hover {
+    background: #e0e0e0;
+  }
+
+  &__button-actions:active {
+    background: #cfcfcf;
+  }
+
+  &__arrow {
+    margin-left: 5px;
+  }
+
+  &__button-sort {
+    border: none;
+    background: transparent;
+    padding: 0%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+    color: #131313;
+  }
+}

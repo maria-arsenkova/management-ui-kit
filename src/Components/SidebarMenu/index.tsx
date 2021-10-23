@@ -1,59 +1,70 @@
-import React from 'react';
-import './style.css';
-
-type ContentItemType = {
-  name: string;
-  avatar: string;
-};
+import React from "react";
+import "./style.scss";
+import { UserType } from "../UserInfo/types";
+import { UserPhoto, AVATAR_SIZE } from "../UserPhoto";
+import { Icon, ICON_SIZE } from "../Icon";
+import { Circle, CIRCLE_SIZE, CIRCLE_VARIABLE } from "../Сircle";
 
 export type ContentType = {
   name: string;
-  items?: ContentItemType[];
+  items?: UserType[];
   counter?: number;
   preview?: string;
 };
 
 interface SidebarMenuProps {
-  titel: string;
+  title: string;
   content: ContentType[];
 }
 
-function SidebarMenu({ content, titel }: SidebarMenuProps) {
+function SidebarMenu({ content, title }: SidebarMenuProps) {
   return (
-    <div className='sidebar__menu'>
+    <div className="SidebarMenu">
       <ul>
-        <li className='sidebar__menu-item'>
-          <p className='sidebar__menu-title'>{titel}</p>
+        <li className="SidebarMenu__item">
+          <p className="SidebarMenu__title">{title}</p>
         </li>
         {content.map((team) => {
           return (
-            <li className='sidebar__menu-item' key={`${team.name}`}>
-              <a href='/' className='sidebar__menu-link'>
+            <li className="SidebarMenu__item" key={`${team.name}`}>
+              <a href="/" className="SidebarMenu__link">
                 {team?.preview && (
-                  <img
-                    className='sidebar__menu-preview'
+                  <div className="SidebarMenu__preview">
+                    <Icon
+                    name={"previewProject"}
+                    size={ICON_SIZE.MEDIUM}
+                    url={team.preview}
                     key={`${team.preview}_${team.name}`}
-                    src={team.preview}
-                    alt={team.name}
                   />
+                  </div>
+                  
                 )}
                 {team.name}
                 {team?.items && (
-                  <span className='sidebar__menu-avatars'>
+                  <span className="SidebarMenu__avatars">
                     {team.items.map((user) => {
                       return (
-                        <img
-                          className='sidebar__menu-avatar'
-                          key={`${user.name}_${user.avatar}`}
-                          src={user.avatar}
-                          alt={user.name}
-                        />
+                        user?.avatar && (
+                          <span
+                            className="SidebarMenu__avatar"
+                            key={`${user.initials}_${user.avatar}`}
+                          >
+                            <UserPhoto user={user} size={AVATAR_SIZE.SMALL} />
+                          </span>
+                        )
                       );
                     })}
                   </span>
                 )}
                 {team?.counter && (
-                  <span className='sidebar__menu-сounter'>{team.counter}</span>
+                  <span className="SidebarMenu__сounter">
+                    <Circle
+                      size={CIRCLE_SIZE.SMALL}
+                      variable={CIRCLE_VARIABLE.WARNING}
+                    >
+                      {team.counter}
+                    </Circle>
+                  </span>
                 )}
               </a>
             </li>
