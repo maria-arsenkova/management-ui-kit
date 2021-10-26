@@ -14,6 +14,7 @@ interface TasksListProps {
   onTaskClick: (task: TaskType) => void;
   onTaskUpdate: (task: TaskType) => void;
   onCreateTaskClick: () => void;
+  category: (category: "backlog" | "todo") => void;
 }
 
 function TasksList({
@@ -21,6 +22,7 @@ function TasksList({
   onTaskClick,
   onTaskUpdate,
   onCreateTaskClick,
+  category,
 }: TasksListProps) {
   return (
     <div>
@@ -30,7 +32,11 @@ function TasksList({
             <li className="TasksList__title">
               <span className="TasksList__title-text">{list.name}</span>
               <Button
-                onClick={onCreateTaskClick}
+                onClick={() => {
+                  onCreateTaskClick();
+                  // category(list.name as "backlog" | "todo");
+                  category(list.name === "Backlog" ? 'backlog': 'todo');
+                }}
                 size={BUTTON_SIZE.MEDIUM}
                 variable={BUTTON_VARIABLE.SUCCESS}
               >
