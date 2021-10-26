@@ -367,6 +367,13 @@ function Tasks() {
     handleModalClick();
   };
 
+  const removeTask = async (id: any): Promise<void> => {
+    const firestore = firebase.firestore();
+    const res = await firestore.collection('tasks').doc(id).delete();
+    console.log(id)
+    updateTasks();
+  };
+
   const updateTasks = async (): Promise<void> => {
     const allTasks = await getTasks();
     setAllTasks(allTasks);
@@ -388,7 +395,7 @@ function Tasks() {
           onCreateTaskClick={handleModalClick}
         />
       </div>
-      {openedTask && <Task task={openedTask} onTaskChanged={onTaskUpdate} />}
+      {openedTask && <Task task={openedTask} onTaskChanged={onTaskUpdate} removeTask={removeTask}/>}
       {isShowModal && (
         <Modal title="Add a New Task" onClose={handleModalClick}>
           <div className="Modal__title">

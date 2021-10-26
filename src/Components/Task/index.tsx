@@ -20,9 +20,10 @@ import upload from "./img/upload.svg";
 export interface TaskProps {
   task: TaskType;
   onTaskChanged: (task: TaskType) => void;
+  removeTask: (id: string | number) => void;
 }
 
-function Task({ task, onTaskChanged }: TaskProps) {
+function Task({ task, onTaskChanged,removeTask }: TaskProps) {
   const [newDescription, setDescription] = useState("");
 
   const handleComments = (newComments: CommentProps[]) => {
@@ -215,6 +216,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
     }
   }, [task.description]);
 
+  
   return (
     <div className="Task" ref={wrapperTaskRef}>
       <TaskHeader
@@ -225,7 +227,7 @@ function Task({ task, onTaskChanged }: TaskProps) {
         onTaskUpdate={onTaskChanged}
         task={task}
       />
-      {/* <div  onClick={() => test(task.id)}>DELITE</div> */}
+      <button onClick={() => removeTask(task.id)}>DELITE</button>
       <div className="Task__info-blocks">
         <TaskInfoBlock title={"Asign To"} executor={task.asignTo} />
         <TaskInfoBlock title={"Due On"} date={task.dueOn} />

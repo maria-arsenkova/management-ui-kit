@@ -12,8 +12,6 @@ function TaskDescription({
   const [isShowActions, setShowActions] = useState<boolean>(false);
   const [description, setDescription] = useState<string>("");
 
-  console.log(isShowActions);
-
   const handleDescription = (newDescription: any) => {
     setDescription(newDescription);
     onChange(newDescription);
