@@ -13,4 +13,16 @@
     transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
   }
+
+  &_half {
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &:active {
+      opacity: 1;
+    }
+  }
 }

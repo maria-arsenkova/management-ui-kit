@@ -261,7 +261,6 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
         />
         {isShowSlider && <Slider />}
       </div>
-
       {task.files && (
         <div className="Task__files">
           {task.files.map((item) => {

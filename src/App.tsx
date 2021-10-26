@@ -26,11 +26,9 @@ function App() {
             <Route path="/kanban">
               <AvailableSoon />
             </Route>
-
             <Route path="/activity">
               <AvailableSoon />
             </Route>
-
             <Route path="/calendar">
               <AvailableSoon />
             </Route>
