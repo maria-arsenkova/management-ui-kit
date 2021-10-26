@@ -25,7 +25,7 @@ function TasksList({
   category,
 }: TasksListProps) {
   return (
-    <div>
+    <>
       {content.map((list) => {
         return (
           <ul className="TasksList" key={list.name}>
@@ -99,7 +99,7 @@ function TasksList({
           </ul>
         );
       })}
-    </div>
+    </>
   );
 }
 
