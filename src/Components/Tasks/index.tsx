@@ -62,7 +62,7 @@ export const INITIAL_TASKS: TaskType[] = [
         sizeSign: SIZE_SIGN.KB,
         uploadedBy: "Chinmay Sarasvati",
         date: "01 Jan 2019",
-      }
+      },
     ],
     isDone: false,
     category: "todo",
@@ -284,7 +284,7 @@ export const INITIAL_TASKS: TaskType[] = [
 function Tasks() {
   const [allTasks, setAllTasks] = useState<TaskType[]>([]);
   const [isShowModal, setShowModal] = useState<boolean>(false);
-  const [category, setCategory] = useState< "backlog" | "todo">("todo");
+  const [category, setCategory] = useState<"backlog" | "todo">("todo");
 
   useEffect(() => {
     updateTasks();
@@ -350,7 +350,7 @@ function Tasks() {
     ...INITIAL_TASKS[0],
     title: taskTitle,
     description: taskDescription,
-    category: category, 
+    category: category,
   };
 
   const createTask = async (): Promise<void> => {
@@ -358,6 +358,8 @@ function Tasks() {
     const document = await firestore.collection("tasks").add(newTask);
     updateTasks();
     handleModalClick();
+    setTitle("");
+    setDescription("");
   };
 
   const removeTask = async (id: any): Promise<void> => {
@@ -371,8 +373,6 @@ function Tasks() {
     setAllTasks(allTasks);
   };
 
-
-
   return (
     <div className="Tasks">
       <div className="Tasks__list">
@@ -384,7 +384,6 @@ function Tasks() {
           category={(category) => {
             setCategory(category);
           }}
-          
         />
         <TasksList
           content={toDo}
