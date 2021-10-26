@@ -25,6 +25,13 @@
     flex-wrap: wrap;
   }
 
+  &__file-upload-group {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-bottom: 30px;
+  }
+
   &__file-upload {
     border-radius: 25px;
     border: 1px solid #ccc;
@@ -35,7 +42,7 @@
     line-height: 21px;
     font-size: 14px;
     font-weight: bold;
-    margin-bottom: 30px;
+    margin-right: 16px;
   }
 
   &__file-upload-icon {
@@ -47,3 +54,4 @@
     display: none;
   }
 }
+
