@@ -43,6 +43,16 @@
     font-size: 14px;
     font-weight: bold;
     margin-right: 16px;
+
+    &:hover {
+      border: 1px solid #eaeaea;
+      background: #eaeaea;
+    }
+
+    &:active {
+      border: 1px solid #e0e0e0;
+      background: #e0e0e0;
+    }
   }
 
   &__file-upload-icon {
