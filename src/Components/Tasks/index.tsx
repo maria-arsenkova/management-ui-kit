@@ -63,15 +63,6 @@ export const INITIAL_TASKS: TaskType[] = [
         uploadedBy: "Chinmay Sarasvati",
         date: "01 Jan 2019",
       },
-      {
-        id: Date.now().toString(),
-        preview: improvements,
-        name: "Improvements. jpg",
-        size: 290,
-        sizeSign: SIZE_SIGN.KB,
-        uploadedBy: "Jacqueline Asong",
-        date: "17 Dec 2019",
-      },
     ],
     isDone: false,
     category: "todo",
@@ -293,6 +284,7 @@ export const INITIAL_TASKS: TaskType[] = [
 function Tasks() {
   const [allTasks, setAllTasks] = useState<TaskType[]>([]);
   const [isShowModal, setShowModal] = useState<boolean>(false);
+  const [category, setCategory] = useState<"backlog" | "todo">("todo");
 
   useEffect(() => {
     updateTasks();
@@ -358,6 +350,7 @@ function Tasks() {
     ...INITIAL_TASKS[0],
     title: taskTitle,
     description: taskDescription,
+    category: category,
   };
 
   const createTask = async (): Promise<void> => {
@@ -365,6 +358,14 @@ function Tasks() {
     const document = await firestore.collection("tasks").add(newTask);
     updateTasks();
     handleModalClick();
+    setTitle("");
+    setDescription("");
+  };
+
+  const removeTask = async (id: any): Promise<void> => {
+    const firestore = firebase.firestore();
+    const res = await firestore.collection("tasks").doc(id).delete();
+    updateTasks();
   };
 
   const updateTasks = async (): Promise<void> => {
@@ -380,27 +381,35 @@ function Tasks() {
           onTaskClick={openTask}
           onTaskUpdate={onTaskUpdate}
           onCreateTaskClick={handleModalClick}
+          category={(category) => {
+            setCategory(category);
+          }}
         />
         <TasksList
           content={toDo}
           onTaskClick={openTask}
           onTaskUpdate={onTaskUpdate}
           onCreateTaskClick={handleModalClick}
+          category={(category) => {
+            setCategory(category);
+          }}
         />
       </div>
-      {openedTask && <Task task={openedTask} onTaskChanged={onTaskUpdate} />}
+      {openedTask && (
+        <Task
+          task={openedTask}
+          onTaskChanged={onTaskUpdate}
+          removeTask={removeTask}
+        />
+      )}
       {isShowModal && (
         <Modal title="Add a New Task" onClose={handleModalClick}>
-          <div className="Modal__title">
-            <Input label={"Name"} value={taskTitle} onChange={handleTitle} />
-          </div>
-          <div className="Modal__description">
-            <Textarea
-              variable={TEXTAREA_VARIABLE.DEFAULT}
-              label={"Description"}
-              handleDescription={handleDescription}
-            />
-          </div>
+          <Input label={"Name"} value={taskTitle} onChange={handleTitle} />
+          <Textarea
+            variable={TEXTAREA_VARIABLE.DEFAULT}
+            label={"Description"}
+            handleDescription={handleDescription}
+          />
           <Button
             size={BUTTON_SIZE.LARGE}
             fillWidth

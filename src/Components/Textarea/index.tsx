@@ -8,6 +8,7 @@ export enum TEXTAREA_VARIABLE {
 
 interface TextareaProps {
   onFocus?: () => void;
+  onBlur?: () => void;
   label?: string;
   value?: string;
   variable: TEXTAREA_VARIABLE;
@@ -16,6 +17,7 @@ interface TextareaProps {
 
 const Textarea = ({
   onFocus,
+  onBlur,
   label,
   value,
   handleDescription,
@@ -44,6 +46,7 @@ const Textarea = ({
       <div>
         <textarea
           onFocus={onFocus}
+          onBlur={onBlur}
           value={value}
           rows={8}
           // style={textAreaHeight}

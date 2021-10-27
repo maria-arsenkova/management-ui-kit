@@ -3,7 +3,7 @@ import React from "react";
 import "./style.scss";
 import closeIcon from "./img/close.svg";
 
-interface modalProps {
+export interface ModalProps {
   children:
     | React.ReactChildren
     | React.ReactChildren[]
@@ -13,7 +13,7 @@ interface modalProps {
   title: string;
 }
 
-const Modal = ({ children, onClose, title }: modalProps) => {
+const Modal = ({ children, onClose, title }: ModalProps) => {
   return (
     <div className="Modal">
       <div className="Modal__header">

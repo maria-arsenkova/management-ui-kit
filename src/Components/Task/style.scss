@@ -5,12 +5,14 @@
   align-self: start;
 
   &__info-blocks {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding-bottom: 30px;
     border-bottom: #ececec 1px solid;
     margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(max-content, 1fr));
+    grid-auto-rows: auto;
+    justify-items: stretch;
+    align-items: stretch;
   }
 
   &__divider {
@@ -23,6 +25,13 @@
     flex-wrap: wrap;
   }
 
+  &__file-upload-group {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-bottom: 30px;
+  }
+
   &__file-upload {
     border-radius: 25px;
     border: 1px solid #ccc;
@@ -33,7 +42,17 @@
     line-height: 21px;
     font-size: 14px;
     font-weight: bold;
-    margin-bottom: 30px
+    margin-right: 16px;
+
+    &:hover {
+      border: 1px solid #eaeaea;
+      background: #eaeaea;
+    }
+
+    &:active {
+      border: 1px solid #e0e0e0;
+      background: #e0e0e0;
+    }
   }
 
   &__file-upload-icon {

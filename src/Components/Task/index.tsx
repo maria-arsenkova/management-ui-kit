@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./style.scss";
-import {useOnClickOutside} from '../../Hooks/useClickOutside'
+import { useOnClickOutside } from "../../Hooks/useClickOutside";
 import { TaskHeader } from "../TaskHeader";
 import { TaskInfoBlock } from "../TaskInfoBlock";
+import { Slider } from "../Slider";
+import { Modal } from "../Modal";
 
 import { TaskDescription } from "../TaskDescription";
 import { TaskDiscussion } from "../TaskDiscussion";
@@ -20,19 +22,21 @@ import upload from "./img/upload.svg";
 export interface TaskProps {
   task: TaskType;
   onTaskChanged: (task: TaskType) => void;
+  removeTask: (id: string | number) => void;
 }
 
-function Task({ task, onTaskChanged }: TaskProps) {
-  const [newDescription, setDescription] = useState('');
+function Task({ task, onTaskChanged, removeTask }: TaskProps) {
+  const [newDescription, setDescription] = useState("");
+  const [isShowSlider, setShowSlider] = useState<boolean>(false);
 
   const handleComments = (newComments: CommentProps[]) => {
     const newTask: TaskType = { ...task, discussions: newComments };
     onTaskChanged(newTask);
   };
 
-  useEffect(()=>{
-    setDescription(task.description)
-  }, [task])
+  useEffect(() => {
+    setDescription(task.description);
+  }, [task]);
 
   const removeFile = async (task: TaskType, fileId: string): Promise<void> => {
     const newTask: TaskType = {
@@ -74,6 +78,19 @@ function Task({ task, onTaskChanged }: TaskProps) {
     await db.collection("tasks").doc(task.id.toString()).set(newTask);
 
     onTaskChanged(newTask);
+
+    //Удаление из Storage firebase
+    const nameFile = task.files.filter((file) => file.id == fileId)[0].name;
+    const storageRef = firebase.storage().ref();
+    var desertRef = storageRef.child(nameFile);
+    desertRef
+      .delete()
+      .then(() => {
+        console.log("File deleted successfully");
+      })
+      .catch((error) => {
+        console.log("Uh-oh, an error occurred");
+      });
   };
 
   const updateFiles = async (
@@ -90,28 +107,34 @@ function Task({ task, onTaskChanged }: TaskProps) {
     await db.collection("tasks").doc(task.id.toString()).set(newTask);
 
     onTaskChanged(newTask);
+    setShowSlider(false);
   };
 
   const createFile = (event: any): void => {
     var file = event.target.files[0];
     const storageRef = firebase.storage().ref();
     var uploadTask = storageRef.child(file.name).put(file);
+
     uploadTask.on(
       "state_changed",
       (snapshot) => {
+        setShowSlider(true);
         var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         console.log("Upload is " + progress + "% done");
         switch (snapshot.state) {
           case firebase.storage.TaskState.PAUSED: // or 'paused'
             console.log("Upload is paused");
+            setShowSlider(false);
             break;
           case firebase.storage.TaskState.RUNNING: // or 'running'
             console.log("Upload is running");
+
             break;
         }
       },
       (error) => {
         console.error(error);
+        setShowSlider(false);
       },
       () => {
         uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
@@ -141,33 +164,33 @@ function Task({ task, onTaskChanged }: TaskProps) {
             }),
           };
           updateFiles(newFile, task.files);
-          testDownload(file.name);
+          // filesDownload(file.name);
         });
       }
     );
   };
 
-  const testDownload = (name: string) => {
-    const storageRef = firebase.storage().ref();
+  // const filesDownload = (name: string) => {
+  //   const storageRef = firebase.storage().ref();
 
-    storageRef
-      .child(name)
-      .getDownloadURL()
-      .then((url) => {
-        var xhr = new XMLHttpRequest();
-        xhr.responseType = "blob";
-        xhr.onload = (event) => {
-          var blob = xhr.response;
-        };
-        xhr.open("GET", url);
-        xhr.send();
+  //   storageRef
+  //     .child(name)
+  //     .getDownloadURL()
+  //     .then((url) => {
+  //       var xhr = new XMLHttpRequest();
+  //       xhr.responseType = "blob";
+  //       xhr.onload = (event) => {
+  //         var blob = xhr.response;
+  //       };
+  //       xhr.open("GET", url);
+  //       xhr.send();
 
-        console.log("моя ссылка на скачивание", url);
-      })
-      .catch((error) => {
-        // Handle any errors
-      });
-  };
+  //       console.log("моя ссылка на скачивание", url);
+  //     })
+  //     .catch((error) => {
+  //       // Handle any errors
+  //     });
+  // };
 
   const formatSize = (size: number): SIZE_SIGN => {
     const bytes = size;
@@ -206,6 +229,12 @@ useOnClickOutside(wrapperTaskRef, () => {
   }
 })
 
+  useEffect(() => {
+    if (task.description) {
+      setDescription(task.description);
+    }
+  }, [task.description]);
+
   return (
     <div className="Task" ref={wrapperTaskRef}>
       <TaskHeader
@@ -216,7 +245,7 @@ useOnClickOutside(wrapperTaskRef, () => {
         onTaskUpdate={onTaskChanged}
         task={task}
       />
-      {/* <div  onClick={() => test(task.id)}>DELITE</div> */}
+      <button onClick={() => removeTask(task.id)}>DELITE</button>
       <div className="Task__info-blocks">
         <TaskInfoBlock title={"Asign To"} executor={task.asignTo} />
         <TaskInfoBlock title={"Due On"} date={task.dueOn} />
@@ -227,18 +256,21 @@ useOnClickOutside(wrapperTaskRef, () => {
         taskDescription={task.description}
         onSave={(newDescription) => updateDescription(task, newDescription)}
         onChange={(newDescription) => {
-          setDescription(newDescription)
+          setDescription(newDescription);
         }}
       />
-      <label htmlFor={"file-upload"} className="Task__file-upload">
-        <img src={upload} className="Task__file-upload-icon" /> File Upload
-      </label>
-      <input
-        type="file"
-        onChange={createFile}
-        className="Task__file-upload-hidden"
-        id={"file-upload"}
-      />
+      <div className="Task__file-upload-group">
+        <label htmlFor={"file-upload"} className="Task__file-upload">
+          <img src={upload} className="Task__file-upload-icon" /> File Upload
+        </label>
+        <input
+          type="file"
+          onChange={createFile}
+          className="Task__file-upload-hidden"
+          id={"file-upload"}
+        />
+        {isShowSlider && <Slider />}
+      </div>
       {task.files && (
         <div className="Task__files">
           {task.files.map((item) => {
@@ -259,6 +291,7 @@ useOnClickOutside(wrapperTaskRef, () => {
         content={task.discussions}
         onCommentCreated={handleComments}
       />
+
     </div>
   );
 }

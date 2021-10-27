@@ -18,13 +18,18 @@ export enum ICON_SIZE {
   LARGE = "LARGE",
 }
 
+export enum ICON_TRANSPARENCY {
+  HALF = "HALF",
+}
+
 interface IconProps {
   size?: ICON_SIZE;
+  transparency?: ICON_TRANSPARENCY;
   name: string;
   url?: string;
 }
 
-const Icon = ({ name, url, size }: IconProps): JSX.Element => {
+const Icon = ({ name, url, size, transparency }: IconProps): JSX.Element => {
   let className = "Icon ";
   let scr;
 
@@ -34,6 +39,10 @@ const Icon = ({ name, url, size }: IconProps): JSX.Element => {
     className += "Icon_medium ";
   } else if (size === ICON_SIZE.LARGE) {
     className += "Icon_large ";
+  }
+
+  if (transparency === ICON_TRANSPARENCY.HALF) {
+    className += "Icon_half ";
   }
 
   switch (true) {

@@ -5,10 +5,10 @@ import { HeaderTabs, TabsType } from "../HeaderTabs";
 
 const navbar: TabsType[] = [
   { name: "Tasks", path: "/tasks" },
+  { name: "Files", path: "/files" },
   { name: "Kanban", path: "/kanban" },
   { name: "Activity", path: "/activity" },
   { name: "Calendar", path: "/calendar" },
-  { name: "Files", path: "/files" },
 ];
 
 function Header() {
