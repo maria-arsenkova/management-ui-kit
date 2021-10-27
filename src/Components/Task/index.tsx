@@ -4,6 +4,7 @@ import { useOnClickOutside } from "../../Hooks/useClickOutside";
 import { TaskHeader } from "../TaskHeader";
 import { TaskInfoBlock } from "../TaskInfoBlock";
 import { Slider } from "../Slider";
+import { Modal } from "../Modal";
 
 import { TaskDescription } from "../TaskDescription";
 import { TaskDiscussion } from "../TaskDiscussion";
@@ -154,7 +155,6 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
         });
       }
     );
-    
   };
 
   // const filesDownload = (name: string) => {
@@ -210,10 +210,17 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
 
   const wrapperTaskRef = useRef<HTMLDivElement>(null);
 
+  let modal;
+
   useOnClickOutside(wrapperTaskRef, () => {
     if (task.description !== newDescription) {
       // alert('У вас не сохранено описание задачи')
-      console.log("У вас не сохранено описание задачи");
+      // console.log("У вас не сохранено описание задачи");
+     modal = (
+        <Modal title="Удалить изменения?" onClose={() => {}}>
+          <div> Внесенные изменения не будут сохранены.</div>
+        </Modal>
+      );
     } else {
       console.log("У вас все сохранено", newDescription);
     }
@@ -281,6 +288,8 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
         content={task.discussions}
         onCommentCreated={handleComments}
       />
+      {modal}
+
     </div>
   );
 }
