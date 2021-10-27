@@ -1,0 +1,168 @@
+.Slider {
+  display: block;
+  width: 14px;
+  &__loading {
+    width: 12px;
+    height: 12px;
+    text-align: left;
+    animation: cssload-loading-ani1 2.3s ease-in-out infinite;
+    -o-animation: cssload-loading-ani1 2.3s ease-in-out infinite;
+    -ms-animation: cssload-loading-ani1 2.3s ease-in-out infinite;
+    -webkit-animation: cssload-loading-ani1 2.3s ease-in-out infinite;
+    -moz-animation: cssload-loading-ani1 2.3s ease-in-out infinite;
+    & i,
+    & i:before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      position: absolute;
+    }
+    & i {
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    & i:nth-child(1) {
+      background: rgb(255, 0, 0);
+      transform: translate(0, -7px);
+      -o-transform: translate(0, -7px);
+      -ms-transform: translate(0, -7px);
+      -webkit-transform: translate(0, -7px);
+      -moz-transform: translate(0, -7px);
+    }
+    & i:nth-child(1):before {
+      background: rgb(117, 58, 215);
+      bottom: 0;
+      animation: cssload-loading-ani2 2.3s ease-in-out infinite;
+      -o-animation: cssload-loading-ani2 2.3s ease-in-out infinite;
+      -ms-animation: cssload-loading-ani2 2.3s ease-in-out infinite;
+      -webkit-animation: cssload-loading-ani2 2.3s ease-in-out infinite;
+      -moz-animation: cssload-loading-ani2 2.3s ease-in-out infinite;
+    }
+    & i:nth-child(2) {
+      background: rgb(117, 58, 215);
+      transform: translate(0, 7px);
+      -o-transform: translate(0, 7px);
+      -ms-transform: translate(0, 7px);
+      -webkit-transform: translate(0, 7px);
+      -moz-transform: translate(0, 7px);
+    }
+    & i:nth-child(2):before {
+      animation: cssload-loading-ani2 2.3s ease-in-out infinite;
+      -o-animation: cssload-loading-ani2 2.3s ease-in-out infinite;
+      -ms-animation: cssload-loading-ani2 2.3s ease-in-out infinite;
+      -webkit-animation: cssload-loading-ani2 2.3s ease-in-out infinite;
+      -moz-animation: cssload-loading-ani2 2.3s ease-in-out infinite;
+      background: rgb(255, 0, 0);
+    }
+
+    @keyframes cssload-loading-ani1 {
+      40%,
+      50% {
+        transform: rotate(180deg);
+      }
+      90%,
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @-o-keyframes cssload-loading-ani1 {
+      40%,
+      50% {
+        -o-transform: rotate(180deg);
+      }
+      90%,
+      100% {
+        -o-transform: rotate(360deg);
+      }
+    }
+
+    @-ms-keyframes cssload-loading-ani1 {
+      40%,
+      50% {
+        -ms-transform: rotate(180deg);
+      }
+      90%,
+      100% {
+        -ms-transform: rotate(360deg);
+      }
+    }
+
+    @-webkit-keyframes cssload-loading-ani1 {
+      40%,
+      50% {
+        -webkit-transform: rotate(180deg);
+      }
+      90%,
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @-moz-keyframes cssload-loading-ani1 {
+      40%,
+      50% {
+        -moz-transform: rotate(180deg);
+      }
+      90%,
+      100% {
+        -moz-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes cssload-loading-ani2 {
+      40%,
+      100% {
+        height: 100%;
+      }
+      50%,
+      90% {
+        height: 0;
+      }
+    }
+
+    @-o-keyframes cssload-loading-ani2 {
+      40%,
+      100% {
+        height: 100%;
+      }
+      50%,
+      90% {
+        height: 0;
+      }
+    }
+
+    @-ms-keyframes cssload-loading-ani2 {
+      40%,
+      100% {
+        height: 100%;
+      }
+      50%,
+      90% {
+        height: 0;
+      }
+    }
+
+    @-webkit-keyframes cssload-loading-ani2 {
+      40%,
+      100% {
+        height: 100%;
+      }
+      50%,
+      90% {
+        height: 0;
+      }
+    }
+
+    @-moz-keyframes cssload-loading-ani2 {
+      40%,
+      100% {
+        height: 100%;
+      }
+      50%,
+      90% {
+        height: 0;
+      }
+    }
+  }
+}

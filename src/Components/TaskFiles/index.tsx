@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { TaskFilesForClient } from "./types";
-import { Icon, ICON_SIZE } from "../Icon";
+import { Icon, ICON_SIZE, ICON_TRANSPARENCY } from "../Icon";
 
 export interface TaskFilesProps {
   file: TaskFilesForClient;
@@ -46,7 +46,7 @@ function TaskFiles({ file, onRemoveFile }: TaskFilesProps) {
             className="TaskFiles__download"
           >
             <div className="TaskFiles__icon-control">
-              <Icon name={"downloadCloud"} size={ICON_SIZE.SMALL} />
+              <Icon name={"downloadCloud"} size={ICON_SIZE.SMALL} transparency={ICON_TRANSPARENCY.HALF}/>
             </div>
           </a>
         </div>
@@ -58,7 +58,7 @@ function TaskFiles({ file, onRemoveFile }: TaskFilesProps) {
             }}
           >
             <div className="TaskFiles__icon-control">
-              <Icon name={"delete"} size={ICON_SIZE.SMALL} />
+              <Icon name={"delete"} size={ICON_SIZE.SMALL}  transparency={ICON_TRANSPARENCY.HALF}/>
             </div>
             {/* <div className="test">
               <svg

@@ -1,6 +1,4 @@
 .TasksList {
-  margin-bottom: 30px;
-
   &__title {
     display: flex;
     justify-content: space-between;
@@ -38,6 +36,10 @@
     &_active {
       background: #fff8dd;
     }
+  }
+
+  &__item:last-child {
+    margin-bottom: 0px;
   }
 
   &__item-name {
