@@ -78,19 +78,6 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
     await db.collection("tasks").doc(task.id.toString()).set(newTask);
 
     onTaskChanged(newTask);
-
-    //Удаление из Storage firebase
-    const nameFile = task.files.filter((file) => file.id == fileId)[0].name;
-    const storageRef = firebase.storage().ref();
-    var desertRef = storageRef.child(nameFile);
-    desertRef
-      .delete()
-      .then(() => {
-        console.log("File deleted successfully");
-      })
-      .catch((error) => {
-        console.log("Uh-oh, an error occurred");
-      });
   };
 
   const updateFiles = async (
@@ -223,11 +210,11 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
 
   const wrapperTaskRef = useRef<HTMLDivElement>(null);
 
-useOnClickOutside(wrapperTaskRef, () => {
-  if(task.description !== newDescription) {
-    alert('У вас не сохранено описание задачи')
-  }
-})
+  useOnClickOutside(wrapperTaskRef, () => {
+    if (task.description !== newDescription) {
+      alert("У вас не сохранено описание задачи");
+    }
+  });
 
   useEffect(() => {
     if (task.description) {
@@ -291,7 +278,6 @@ useOnClickOutside(wrapperTaskRef, () => {
         content={task.discussions}
         onCommentCreated={handleComments}
       />
-
     </div>
   );
 }
