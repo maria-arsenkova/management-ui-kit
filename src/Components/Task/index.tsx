@@ -25,9 +25,11 @@ export interface TaskProps {
   removeTask: (id: string | number) => void;
 }
 
+
 function Task({ task, onTaskChanged, removeTask }: TaskProps) {
   const [newDescription, setDescription] = useState("");
   const [isShowSlider, setShowSlider] = useState<boolean>(false);
+
 
   const handleComments = (newComments: CommentProps[]) => {
     const newTask: TaskType = { ...task, discussions: newComments };
@@ -212,7 +214,10 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
 
   useOnClickOutside(wrapperTaskRef, () => {
     if (task.description !== newDescription) {
-      alert("У вас не сохранено описание задачи");
+      alert('У вас не сохранено описание задачи')
+      console.log("У вас не сохранено описание задачи");
+    } else {
+      console.log("У вас все сохранено", newDescription);
     }
   });
 

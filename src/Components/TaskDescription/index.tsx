@@ -12,6 +12,8 @@ function TaskDescription({
   const [isShowActions, setShowActions] = useState<boolean>(false);
   const [description, setDescription] = useState<string>("");
 
+  console.log(isShowActions);
+
   const handleDescription = (newDescription: any) => {
     setDescription(newDescription);
     onChange(newDescription);
@@ -38,7 +40,7 @@ function TaskDescription({
         handleDescription={handleDescription}
         value={description}
         variable={TEXTAREA_VARIABLE.TRANSPARENT}
-
+        
       />
       {isShowActions && (
         <div className="TaskDescription__description-control">
