@@ -237,7 +237,7 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
         onTaskUpdate={onTaskChanged}
         task={task}
       />
-      <button onClick={() => removeTask(task.id)}>DELITE</button>
+      <button onClick={() => removeTask(task.id)}>DELETE</button>
       <div className="Task__info-blocks">
         <TaskInfoBlock title={"Asign To"} executor={task.asignTo} />
         <TaskInfoBlock title={"Due On"} date={task.dueOn} />
