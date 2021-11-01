@@ -153,33 +153,10 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
             }),
           };
           updateFiles(newFile, task.files);
-          // filesDownload(file.name);
         });
       }
     );
   };
-
-  // const filesDownload = (name: string) => {
-  //   const storageRef = firebase.storage().ref();
-
-  //   storageRef
-  //     .child(name)
-  //     .getDownloadURL()
-  //     .then((url) => {
-  //       var xhr = new XMLHttpRequest();
-  //       xhr.responseType = "blob";
-  //       xhr.onload = (event) => {
-  //         var blob = xhr.response;
-  //       };
-  //       xhr.open("GET", url);
-  //       xhr.send();
-
-  //       console.log("моя ссылка на скачивание", url);
-  //     })
-  //     .catch((error) => {
-  //       // Handle any errors
-  //     });
-  // };
 
   const formatSize = (size: number): SIZE_SIGN => {
     const bytes = size;
