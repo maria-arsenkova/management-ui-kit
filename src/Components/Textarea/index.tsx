@@ -23,9 +23,6 @@ const Textarea = ({
   handleDescription,
   variable = TEXTAREA_VARIABLE.TRANSPARENT,
 }: TextareaProps) => {
-  // const [textAreaHeight, setTextAreaHeight] = useState({
-  //   height: "auto",
-  // });
 
   const handleTextAreaHeight = (event: any) => {
     event.target.style.height = "auto";
@@ -49,7 +46,6 @@ const Textarea = ({
           onBlur={onBlur}
           value={value}
           rows={8}
-          // style={textAreaHeight}
           className={className}
           onChange={(event) => {
             handleDescription(event.target.value);
