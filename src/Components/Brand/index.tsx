@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-import { Icon } from "../Icon";
+import { Icon } from "Components/Icon";
 
 function Brand() {
   return (

@@ -99,7 +99,7 @@ const Icon = ({ name, url, size, transparency }: IconProps): JSX.Element => {
       scr = arrow;
       break;
   }
-  return <img src={scr} alt={name} className={className}></img>;
+  return <img src={scr} alt={name} className={className}/>;
 };
 
 export { Icon };

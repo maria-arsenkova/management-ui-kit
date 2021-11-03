@@ -28,7 +28,7 @@ const Input = ({ type, id, checked, label, value, onChange }: InputProps) => {
           onChange={(event) => {
             onChange(event.target.value);
           }}
-        ></input>
+        />
       </div>
     </div>
   );
