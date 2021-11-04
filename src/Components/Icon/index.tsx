@@ -33,69 +33,77 @@ const Icon = ({ name, url, size, transparency }: IconProps): JSX.Element => {
   let className = "Icon ";
   let scr;
 
-  if (size === ICON_SIZE.SMALL) {
-    className += "Icon_small ";
-  } else if (size === ICON_SIZE.MEDIUM) {
-    className += "Icon_medium ";
-  } else if (size === ICON_SIZE.LARGE) {
-    className += "Icon_large ";
+  switch (size) {
+    case ICON_SIZE.SMALL:
+      className += "Icon_small ";
+      break;
+
+    case ICON_SIZE.MEDIUM:
+      className += "Icon_medium ";
+      break;
+
+    case ICON_SIZE.LARGE:
+      className += "Icon_large ";
+      break;
   }
 
-  if (transparency === ICON_TRANSPARENCY.HALF) {
-    className += "Icon_half ";
+  switch (transparency) {
+    case ICON_TRANSPARENCY.HALF:
+      className += "Icon_half ";
+      break;
   }
 
-  switch (true) {
-    case name == "list":
+  switch (name) {
+    case "list":
       scr = list;
       break;
 
-    case name == "search":
+    case "search":
       scr = search;
       break;
 
-    case name == "searchBlack":
+    case "searchBlack":
       scr = searchBlack;
       break;
 
-    case name == "circle":
+    case "circle":
       scr = circle;
       break;
 
-    case name == "logoWeb":
+    case "logoWeb":
       scr = logoWeb;
       break;
 
-    case name == "previewProject":
+    case "previewProject":
       scr = url;
       break;
 
-    case name == "chat":
+    case "chat":
       scr = chat;
       break;
 
-    case name == "add":
+    case "add":
       scr = add;
       break;
 
-    case name == "download":
+    case "download":
       scr = download;
       break;
 
-    case name == "delete":
+    case "delete":
       scr = deleteIcon;
       break;
 
-    case name == "downloadCloud":
+    case "downloadCloud":
       scr = downloadCloud;
       break;
 
-    case name == "arrowUp":
+    case "arrowUp":
       scr = arrow;
       className += "Icon__arrowUp ";
       break;
 
-    case name == "arrowDown":
+    case "arrowDown":
       scr = arrow;
       break;
   }
