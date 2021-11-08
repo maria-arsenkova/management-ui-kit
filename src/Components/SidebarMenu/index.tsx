@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.scss";
-import { UserType } from "../UserInfo/types";
-import { UserPhoto, AVATAR_SIZE } from "../UserPhoto";
-import { Icon, ICON_SIZE } from "../Icon";
-import { Circle, CIRCLE_SIZE, CIRCLE_VARIABLE } from "../Сircle";
+import { UserType } from "Components/UserInfo/types";
+import { UserPhoto, AVATAR_SIZE } from "Components/UserPhoto";
+import { Icon, ICON_SIZE } from "Components/Icon";
+import { Circle, CIRCLE_SIZE, CIRCLE_VARIABLE } from "Components/Сircle";
 
 export type ContentType = {
   name: string;

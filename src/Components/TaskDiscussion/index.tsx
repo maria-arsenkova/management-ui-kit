@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./style.scss";
-import { UserType } from "../UserInfo/types";
-import { Comment } from "../Comment";
-import { CommentProps } from "../Comment/types";
-import { TaskType } from "../Task/types";
-import { UserPhoto, AVATAR_SIZE } from "../UserPhoto";
-import { Button, BUTTON_SIZE } from "../Button";
+import { UserType } from "Components/UserInfo/types";
+import { Comment } from "Components/Comment";
+import { CommentProps } from "Components/Comment/types";
+import { TaskType } from "Components/Task/types";
+import { UserPhoto, AVATAR_SIZE } from "Components/UserPhoto";
+import { Button, BUTTON_SIZE } from "Components/Button";
 
 export interface TaskDiscussionsProps {
   user: UserType;

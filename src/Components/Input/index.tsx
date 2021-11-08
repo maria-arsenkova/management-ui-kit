@@ -19,7 +19,7 @@ const Input = ({ label, value, onChange }: InputProps) => {
           onChange={(event) => {
             onChange(event.target.value);
           }}
-        ></input>
+        />
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import React from "react";
-import { Icon } from "../Icon";
-import { UserType } from "../UserInfo/types";
-import { AVATAR_SIZE, UserPhoto } from "../UserPhoto";
-import { Button, BUTTON_SIZE, BUTTON_TEXT, BUTTON_VARIABLE } from "./../Button";
+import { Icon } from "Components/Icon";
+import { UserType } from "Components/UserInfo/types";
+import { AVATAR_SIZE, UserPhoto } from "Components/UserPhoto";
+import { Button, BUTTON_SIZE, BUTTON_TEXT, BUTTON_VARIABLE } from "Components/Button";
 import "./style.scss";
 
 interface MembersProms {

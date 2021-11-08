@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { TaskFilesForClient } from "./types";
-import { Icon, ICON_SIZE, ICON_TRANSPARENCY } from "../Icon";
+import { Icon, ICON_SIZE, ICON_TRANSPARENCY } from "Components/Icon";
 
 export interface TaskFilesProps {
   file: TaskFilesForClient;

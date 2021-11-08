@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.scss";
 import { UserType } from "./types";
-import { UserPhoto, AVATAR_SIZE } from "../UserPhoto";
-import { Icon } from "../Icon";
+import { UserPhoto, AVATAR_SIZE } from "Components/UserPhoto";
+import { Icon } from "Components/Icon";
 
 interface UserInfoProps {
   user: UserType;
