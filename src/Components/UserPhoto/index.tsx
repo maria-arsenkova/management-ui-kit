@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-import { UserType } from "../UserInfo/types";
+import { UserType } from "Components/UserInfo/types";
 
 export enum AVATAR_SIZE {
   SMALL = "SMALL",
@@ -15,11 +15,11 @@ interface UserPhotoProps {
 
 const UserPhoto = ({ user, size }: UserPhotoProps) => {
   let className = "UserPhoto ";
-  if (size == AVATAR_SIZE.SMALL) {
+  if (size === AVATAR_SIZE.SMALL) {
     className += "UserPhoto_small";
-  } else if (size == AVATAR_SIZE.MEDIUM) {
+  } else if (size === AVATAR_SIZE.MEDIUM) {
     className += "UserPhoto_medium";
-  } else if (size == AVATAR_SIZE.LARGE) {
+  } else if (size === AVATAR_SIZE.LARGE) {
     className += "UserPhoto_large";
   }
   return <img src={user.avatar} alt={user.initials} className={className} />;

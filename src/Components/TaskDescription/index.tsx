@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./style.scss";
 import { TaskDescriptionType } from "./types";
-import { Textarea, TEXTAREA_VARIABLE } from "../Textarea";
-import { Button, BUTTON_SIZE, BUTTON_VARIABLE, BUTTON_TEXT } from "../Button";
+import { Textarea, TEXTAREA_VARIABLE } from "Components/Textarea";
+import { Button, BUTTON_SIZE, BUTTON_VARIABLE, BUTTON_TEXT } from "Components/Button";
 
 function TaskDescription({
   taskDescription,

@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.scss";
 import { TaskHeaderType } from "./types";
-import { Icon } from "../Icon";
-import { Circle, CIRCLE_SIZE, CIRCLE_VARIABLE } from "../Сircle";
+import { Icon } from "Components/Icon";
+import { Circle, CIRCLE_SIZE, CIRCLE_VARIABLE } from "Components/Сircle";
 
 function TaskHeader({
   name,
@@ -40,7 +40,7 @@ function TaskHeader({
               ? "TaskHeader__selector-tick_active"
               : "TaskHeader__selector-tick"
           }
-        ></label>
+        />
         <Circle size={CIRCLE_SIZE.LARGE} variable={CIRCLE_VARIABLE.DEFAULT}>
           <Icon name={"circle"} />
         </Circle>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
-import { Icon } from "../Icon";
-import { Circle, CIRCLE_SIZE, CIRCLE_VARIABLE } from "../Сircle";
+import { Icon } from "Components/Icon";
+import { Circle, CIRCLE_SIZE, CIRCLE_VARIABLE } from "Components/Сircle";
 
 function HeaderLogo() {
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.scss";
 
 export enum TEXTAREA_VARIABLE {
@@ -51,7 +51,7 @@ const Textarea = ({
             handleDescription(event.target.value);
             handleTextAreaHeight(event);
           }}
-        ></textarea>
+        />
       </div>
     </div>
   );

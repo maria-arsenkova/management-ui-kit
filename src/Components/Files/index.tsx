@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./style.scss";
-import { TaskFilesForClient, TaskFilesProps } from "../TaskFiles/types";
+import { TaskFilesForClient, TaskFilesProps } from "Components/TaskFiles/types";
 
 import { getTasks } from "../../services/tasks";
-import { Icon } from "../Icon";
-import { Button, BUTTON_SIZE, BUTTON_VARIABLE } from "../Button";
+import { Icon } from "Components/Icon";
+import { Button, BUTTON_SIZE, BUTTON_VARIABLE } from "Components/Button";
 
 interface Sort {
   sortBy: "name" | "size" | "date" | "uploadedBy";

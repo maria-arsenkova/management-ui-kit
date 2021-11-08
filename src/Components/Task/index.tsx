@@ -1,19 +1,17 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./style.scss";
 import { useOnClickOutside } from "../../Hooks/useClickOutside";
-import { TaskHeader } from "../TaskHeader";
-import { TaskInfoBlock } from "../TaskInfoBlock";
-import { Slider } from "../Slider";
-import { Modal } from "../Modal";
+import { TaskHeader } from "Components/TaskHeader";
+import { TaskInfoBlock } from "Components/TaskInfoBlock";
+import { Slider } from "Components/Slider";
+import { TaskDescription } from "Components/TaskDescription";
+import { TaskDiscussion } from "Components/TaskDiscussion";
+import { TaskFiles } from "Components/TaskFiles";
+import { TaskFilesForClient, SIZE_SIGN } from "Components/TaskFiles/types";
 
-import { TaskDescription } from "../TaskDescription";
-import { TaskDiscussion } from "../TaskDiscussion";
-import { TaskFiles } from "../TaskFiles";
-import { TaskFilesForClient, SIZE_SIGN } from "../TaskFiles/types";
-
-import { user } from "../Sidebar";
+import { user } from "Components/Sidebar";
 import { TaskType } from "./types";
-import { CommentProps } from "../Comment/types";
+import { CommentProps } from "Components/Comment/types";
 import firebase from "../../services/firebase";
 import pdf from "./img/pdf.svg";
 import zip from "./img/zip.svg";

@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.scss";
-import { UserType } from "../UserInfo/types";
-import {Department, DEPARTMENT} from '../Department'
-import { Icon } from "../Icon";
+import { UserType } from "Components/UserInfo/types";
+import {Department, DEPARTMENT} from 'Components/Department'
+import { Icon } from "Components/Icon";
 
 interface TaskInfoBlockProps {
   title?: string;

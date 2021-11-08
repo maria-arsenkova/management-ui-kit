@@ -1,8 +1,9 @@
 import React from "react";
-import { Button, BUTTON_SIZE, BUTTON_VARIABLE } from "../Button";
-import { Department, DEPARTMENT } from "../Department";
-import { TaskType } from "../Task/types";
 import "./style.scss";
+import { Button, BUTTON_SIZE, BUTTON_VARIABLE } from "Components/Button";
+import { Department } from "Components/Department";
+import { TaskType } from "Components/Task/types";
+
 
 export type TasksListType = {
   name: string;
