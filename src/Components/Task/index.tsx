@@ -8,11 +8,11 @@ import { TaskDescription } from "Components/TaskDescription";
 import { TaskDiscussion } from "Components/TaskDiscussion";
 import { TaskFiles } from "Components/TaskFiles";
 import { TaskFilesForClient, SIZE_SIGN } from "Components/TaskFiles/types";
-
 import { user } from "Components/Sidebar";
 import { TaskType } from "./types";
 import { CommentProps } from "Components/Comment/types";
 import firebase from "../../services/firebase";
+import {removeFile} from "../../services/removeFile";
 import pdf from "./img/pdf.svg";
 import zip from "./img/zip.svg";
 import upload from "./img/upload.svg";
@@ -38,30 +38,9 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
     setDescription(task.description);
   }, [task]);
 
-  const removeFile = async (task: TaskType, fileId: string): Promise<void> => {
-    const newTask: TaskType = {
-      ...task,
-      files: task.files.filter((file) => file.id !== fileId),
-    };
-
-    const db = firebase.firestore();
-
-    await db.collection("tasks").doc(task.id.toString()).set(newTask);
-
+  const updateTasks = async (task: TaskType, fileId: string): Promise<void> => {
+    const newTask = await removeFile(task, fileId);
     onTaskChanged(newTask);
-
-    //Удаление из Storage firebase
-    const nameFile = task.files.filter((file) => file.id == fileId)[0].name;
-    const storageRef = firebase.storage().ref();
-    var desertRef = storageRef.child(nameFile);
-    desertRef
-      .delete()
-      .then(() => {
-        console.log("File deleted successfully");
-      })
-      .catch((error) => {
-        console.log("Uh-oh, an error occurred");
-      });
   };
 
   const updateDescription = async (
@@ -126,7 +105,7 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
       () => {
         uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
           console.log("File available at", downloadURL);
-          let preview = "";
+          let preview: string;
           if (file.name.includes(".pdf")) {
             preview = pdf;
           } else if (file.name.includes(".zip")) {
@@ -168,16 +147,16 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
       case bytes < kiloBytes:
         return SIZE_SIGN.BYTES;
 
-      case bytes < megaBytes || bytes == kiloBytes:
+      case bytes < megaBytes || bytes === kiloBytes:
         return SIZE_SIGN.KB;
 
-      case bytes < gigaBytes || bytes == megaBytes:
+      case bytes < gigaBytes || bytes === megaBytes:
         return SIZE_SIGN.MB;
 
-      case bytes < tbBytes || bytes == gigaBytes:
+      case bytes < tbBytes || bytes === gigaBytes:
         return SIZE_SIGN.GB;
 
-      case bytes < ptbBytes || bytes == tbBytes:
+      case bytes < ptbBytes || bytes === tbBytes:
         return SIZE_SIGN.TB;
 
       default:
@@ -228,7 +207,7 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
       />
       <div className="Task__file-upload-group">
         <label htmlFor={"file-upload"} className="Task__file-upload">
-          <img src={upload} className="Task__file-upload-icon" /> File Upload
+          <img src={upload} className="Task__file-upload-icon"  alt="File Upload"/> File Upload
         </label>
         <input
           type="file"
@@ -244,7 +223,7 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
             return (
               <TaskFiles
                 file={item}
-                onRemoveFile={() => removeFile(task, item.id)}
+                onRemoveFile={() => updateTasks(task, item.id)}
                 key={item.id}
               />
             );
