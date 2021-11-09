@@ -374,6 +374,7 @@ function Tasks() {
 
   return (
     <div className="Tasks">
+      <div className=''>
       <div className="Tasks__list">
         <TasksList
           content={backlog}
@@ -393,6 +394,7 @@ function Tasks() {
             setCategory(category);
           }}
         />
+      </div>
       </div>
       {openedTask && (
         <Task
