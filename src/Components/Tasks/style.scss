@@ -5,23 +5,19 @@
   justify-items: stretch;
   align-items: stretch;
   padding: 30px;
+  //height: 1300px;
 
   ul:first-child {
     margin-bottom: 30px;
   }
 
-  &__list {
+  &__scrollBar {
     overflow-y: scroll;
-    overflow: auto;
-    padding-right: 12px;
     margin-right: 12px;
-    padding: 30px;
-    background: #ffffff;
-    border-radius: 8px;
-
     &::-webkit-scrollbar {
+      background: #ffffff;
+      border-radius: 8px;
       width: 6px;
-      background-color: #f9f9fd;
       margin: 10px;
     }
 
@@ -29,5 +25,12 @@
       border-radius: 10px;
       background-color: #dcd9d3;
     }
+  }
+
+  &__list {
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 8px;
+    margin-right: 12px;
   }
 }
