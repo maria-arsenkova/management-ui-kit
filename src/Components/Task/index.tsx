@@ -12,7 +12,8 @@ import { user } from "Components/Sidebar";
 import { TaskType } from "./types";
 import { CommentProps } from "Components/Comment/types";
 import firebase from "../../services/firebase";
-import {updateTaskFiles} from "../../services/updateTaskFiles";
+import {removeFileTask} from "../../services/removeFileTask";
+import {updateDescriptionTask} from "../../services/updateDescriptionTask";
 import pdf from "./img/pdf.svg";
 import zip from "./img/zip.svg";
 import upload from "./img/upload.svg";
@@ -28,7 +29,6 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
   const [newDescription, setDescription] = useState("");
   const [isShowSlider, setShowSlider] = useState<boolean>(false);
 
-
   const handleComments = (newComments: CommentProps[]) => {
     const newTask: TaskType = { ...task, discussions: newComments };
     onTaskChanged(newTask);
@@ -38,26 +38,19 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
     setDescription(task.description);
   }, [task]);
 
-  const removeFiles = async (task: TaskType, fileId: string): Promise<void> => {
-    const newTask = await updateTaskFiles(task, fileId);
+  const removeFile = async (task: TaskType, fileId: string): Promise<void> => {
+    const newTask = await removeFileTask(task, fileId);
     onTaskChanged(newTask);
   };
 
-  const updateDescription = async (
-    task: TaskType,
-    newDescription: string
+  const updateDescription =  async (
+      task: TaskType,
+      newDescription: string
   ): Promise<void> => {
-    const newTask: TaskType = {
-      ...task,
-      description: newDescription,
-    };
-
-    const db = firebase.firestore();
-
-    await db.collection("tasks").doc(task.id.toString()).set(newTask);
-
+    const newTask = await updateDescriptionTask(task, newDescription)
     onTaskChanged(newTask);
   };
+
 
   const updateFiles = async (
     newFile: TaskFilesForClient,
@@ -76,16 +69,17 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
     setShowSlider(false);
   };
 
+
   const createFile = (event: any): void => {
-    var file = event.target.files[0];
+    const  file = event.target.files[0];
     const storageRef = firebase.storage().ref();
-    var uploadTask = storageRef.child(file.name).put(file);
+    const uploadTask = storageRef.child(file.name).put(file);
 
     uploadTask.on(
       "state_changed",
       (snapshot) => {
         setShowSlider(true);
-        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         console.log("Upload is " + progress + "% done");
         switch (snapshot.state) {
           case firebase.storage.TaskState.PAUSED: // or 'paused'
@@ -113,7 +107,6 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
           } else {
             preview = downloadURL;
           }
-
           let newFile: TaskFilesForClient = {
             id: Date.now().toString(),
             preview: preview,
@@ -223,7 +216,7 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
             return (
               <TaskFiles
                 file={item}
-                onRemoveFile={() => removeFiles(task, item.id)}
+                onRemoveFile={() => removeFile(task, item.id)}
                 key={item.id}
               />
             );
