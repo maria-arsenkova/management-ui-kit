@@ -12,7 +12,7 @@ import { user } from "Components/Sidebar";
 import { TaskType } from "./types";
 import { CommentProps } from "Components/Comment/types";
 import firebase from "../../services/firebase";
-import {removeFile} from "../../services/removeFile";
+import {updateTaskFiles} from "../../services/updateTaskFiles";
 import pdf from "./img/pdf.svg";
 import zip from "./img/zip.svg";
 import upload from "./img/upload.svg";
@@ -38,8 +38,8 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
     setDescription(task.description);
   }, [task]);
 
-  const updateTasks = async (task: TaskType, fileId: string): Promise<void> => {
-    const newTask = await removeFile(task, fileId);
+  const removeFiles = async (task: TaskType, fileId: string): Promise<void> => {
+    const newTask = await updateTaskFiles(task, fileId);
     onTaskChanged(newTask);
   };
 
@@ -223,7 +223,7 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
             return (
               <TaskFiles
                 file={item}
-                onRemoveFile={() => updateTasks(task, item.id)}
+                onRemoveFile={() => removeFiles(task, item.id)}
                 key={item.id}
               />
             );
