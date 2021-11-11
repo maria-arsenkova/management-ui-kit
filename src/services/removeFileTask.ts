@@ -1,7 +1,7 @@
 import firebase from "./firebase";
 import { TaskType } from '../Components/Task/types';
 
-const removeFile = async (task: TaskType, fileId: string): Promise<TaskType> => {
+const removeFileTask = async (task: TaskType, fileId: string): Promise<TaskType> => {
     const newTask: TaskType = {
         ...task,
         files: task.files.filter((file) => file.id !== fileId),
@@ -20,8 +20,7 @@ const removeFile = async (task: TaskType, fileId: string): Promise<TaskType> => 
         .catch(() => {
             console.log("Uh-oh, an error occurred");
         });
-
     return newTask;
 };
 
-export {removeFile}
+export {removeFileTask}
