@@ -14,6 +14,7 @@ import { CommentProps } from "Components/Comment/types";
 import firebase from "../../services/firebase";
 import {removeFileTask} from "../../services/removeFileTask";
 import {updateDescriptionTask} from "../../services/updateDescriptionTask";
+// import {createFileTask} from "../../services/createFileTask";
 import pdf from "./img/pdf.svg";
 import zip from "./img/zip.svg";
 import upload from "./img/upload.svg";
@@ -51,6 +52,14 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
     onTaskChanged(newTask);
   };
 
+  // const updateFilesTest = async (
+  //     event: any,
+  //     newFile: TaskFilesForClient,
+  //     allFiles: TaskFilesForClient[]
+  // ): Promise<void> => {
+  //   const newTask = await createFileTask(event, newFile, allFiles);
+  //   onTaskChanged(newTask);
+  // };
 
   const updateFiles = async (
     newFile: TaskFilesForClient,
@@ -62,16 +71,14 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
       files: newFiles,
     };
     const db = firebase.firestore();
-
     await db.collection("tasks").doc(task.id.toString()).set(newTask);
 
     onTaskChanged(newTask);
     setShowSlider(false);
   };
 
-
   const createFile = (event: any): void => {
-    const  file = event.target.files[0];
+    const file = event.target.files[0];
     const storageRef = firebase.storage().ref();
     const uploadTask = storageRef.child(file.name).put(file);
 
@@ -128,7 +135,7 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
     );
   };
 
-  const formatSize = (size: number): SIZE_SIGN => {
+   const formatSize = (size: number): SIZE_SIGN => {
     const bytes = size;
     const kiloBytes = Math.pow(1024, 1);
     const megaBytes = Math.pow(1024, 2);
@@ -156,6 +163,8 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
         return SIZE_SIGN.BYTES;
     }
   };
+
+
 
   const wrapperTaskRef = useRef<HTMLDivElement>(null);
 
