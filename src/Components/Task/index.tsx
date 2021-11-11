@@ -14,7 +14,6 @@ import { CommentProps } from "Components/Comment/types";
 import firebase from "../../services/firebase";
 import {removeFileTask} from "../../services/removeFileTask";
 import {updateDescriptionTask} from "../../services/updateDescriptionTask";
-// import {createFileTask} from "../../services/createFileTask";
 import pdf from "./img/pdf.svg";
 import zip from "./img/zip.svg";
 import upload from "./img/upload.svg";
@@ -53,14 +52,6 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
     onTaskChanged(newTask);
   };
 
-  // const updateFilesTest = async (
-  //     event: any,
-  //     newFile: TaskFilesForClient,
-  //     allFiles: TaskFilesForClient[]
-  // ): Promise<void> => {
-  //   const newTask = await createFileTask(event, newFile, allFiles);
-  //   onTaskChanged(newTask);
-  // };
 
   const updateFiles = async (
     newFile: TaskFilesForClient,
@@ -164,8 +155,6 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
         return SIZE_SIGN.BYTES;
     }
   };
-
-
 
   const wrapperTaskRef = useRef<HTMLDivElement>(null);
 
