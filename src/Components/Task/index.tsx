@@ -18,6 +18,7 @@ import {updateDescriptionTask} from "../../services/updateDescriptionTask";
 import pdf from "./img/pdf.svg";
 import zip from "./img/zip.svg";
 import upload from "./img/upload.svg";
+import {TaskFileUpload} from "../TaskFileUpload";
 
 export interface TaskProps {
   task: TaskType;
@@ -207,9 +208,15 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
           setDescription(newDescription);
         }}
       />
+      <div className="">
+          <TaskFileUpload  onChange={createFile}>
+              <Slider />
+          </TaskFileUpload>
+      </div>
+
       <div className="Task__file-upload-group">
         <label htmlFor={"file-upload"} className="Task__file-upload">
-          <img src={upload} className="Task__file-upload-icon"  alt="File Upload"/> File Upload
+          <img src={upload} className="Task__file-upload-icon"  alt="File Upload"/> File Upload1
         </label>
         <input
           type="file"
@@ -219,6 +226,7 @@ function Task({ task, onTaskChanged, removeTask }: TaskProps) {
         />
         {isShowSlider && <Slider />}
       </div>
+
       {task.files && (
         <div className="Task__files">
           {task.files.map((item) => {
