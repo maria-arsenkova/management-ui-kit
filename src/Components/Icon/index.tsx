@@ -11,7 +11,7 @@ import download from "./img/download.svg";
 import downloadCloud from "./img/downloadCloud.svg";
 import deleteIcon from "./img/delete.svg";
 import arrow from "./img/arrow.svg";
-import  trashcanDelete from  './img/trashcanDelete.svg'
+import  trashcanDelete from './img/trashcanDelete.svg';
 
 export enum ICON_SIZE {
   SMALL = "SMALL",

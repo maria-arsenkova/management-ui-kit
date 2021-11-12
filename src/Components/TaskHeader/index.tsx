@@ -21,8 +21,10 @@ function TaskHeader({
                 </div>
             </div>
             <div className="TaskHeader__selector">
+                <span className='TaskHeader__selector-delete'>
                 <Icon name={"trashcanDelete"} size={ICON_SIZE.LARGE} transparency={ICON_TRANSPARENCY.HALF}
                       onClick={() => removeTask(task.id)}/>
+                    </span>
                 <input
                     onChange={(event) => {
                         onTaskUpdate({
@@ -33,7 +35,7 @@ function TaskHeader({
                     type="checkbox"
                     id={`tick-${task.id}`}
                     checked={task.isDone}
-                    className="TaskHeader__selector-hidden"
+                    className="TaskHeader__selector-tick_hidden"
                 />
                 <label
                     htmlFor={`tick-${task.id}`}
