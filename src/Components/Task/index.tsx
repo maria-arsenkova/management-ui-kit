@@ -16,7 +16,6 @@ import {removeFileTask} from "../../services/removeFileTask";
 import {updateDescriptionTask} from "../../services/updateDescriptionTask";
 import pdf from "./img/pdf.svg";
 import zip from "./img/zip.svg";
-import {Icon, ICON_SIZE, ICON_TRANSPARENCY} from "../Icon";
 
 export interface TaskProps {
     task: TaskType;
@@ -181,8 +180,8 @@ function Task({task, onTaskChanged, removeTask}: TaskProps) {
                 name={task.title}
                 onTaskUpdate={onTaskChanged}
                 task={task}
+                removeTask={removeTask}
             />
-            <Icon name={"trashcanDelete"} size={ICON_SIZE.LARGE} transparency={ICON_TRANSPARENCY.HALF} onClick={() => removeTask(task.id)}/>
             <div className="Task__info-blocks">
                 <TaskInfoBlock title={"Asign To"} executor={task.asignTo}/>
                 <TaskInfoBlock title={"Due On"} date={task.dueOn}/>

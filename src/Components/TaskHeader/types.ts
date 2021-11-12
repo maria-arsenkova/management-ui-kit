@@ -7,4 +7,5 @@ export type TaskHeaderType = {
     isDone: boolean;
     task: TaskType;
     onTaskUpdate: (task: TaskType) => void;
+    removeTask: (id: string | number) => void;
   }
