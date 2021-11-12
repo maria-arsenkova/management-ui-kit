@@ -1,21 +1,18 @@
 import React from "react";
 import "./style.scss";
 import upload from "../Task/img/upload.svg";
-// import {Slider} from "../Slider";
-interface  TaskFileUploadProps {
-    onChange: (event:any) => void;
-    children:
-        | React.ReactChildren
-        | React.ReactChildren[]
-        | React.ReactChild
-        | React.ReactChild[];
+import {Slider} from "../Slider";
+
+interface TaskFileUploadProps {
+    onChange: (event: any) => void;
+    isShowSlider: boolean;
 }
 
-const TaskFileUpload = ({onChange, children}: TaskFileUploadProps) =>  {
+const TaskFileUpload = ({onChange, isShowSlider}: TaskFileUploadProps) => {
     return (
         <div className="TaskFileUpload__group">
             <label htmlFor={"file-upload"} className="TaskFileUpload">
-                <img src={upload} className="TaskFileUpload__icon"  alt="File Upload"/> File Upload
+                <img src={upload} className="TaskFileUpload__icon" alt="File Upload"/> File Upload
             </label>
             <input
                 type="file"
@@ -23,9 +20,9 @@ const TaskFileUpload = ({onChange, children}: TaskFileUploadProps) =>  {
                 className="TaskFileUpload__hidden"
                 id={"file-upload"}
             />
-            {children}
+            {isShowSlider && <Slider/>}
         </div>
     )
 }
 
-export  {TaskFileUpload}
+export {TaskFileUpload}
