@@ -11,6 +11,7 @@ import download from "./img/download.svg";
 import downloadCloud from "./img/downloadCloud.svg";
 import deleteIcon from "./img/delete.svg";
 import arrow from "./img/arrow.svg";
+import  trashcanDelete from './img/trashcanDelete.svg';
 
 export enum ICON_SIZE {
   SMALL = "SMALL",
@@ -27,9 +28,10 @@ interface IconProps {
   transparency?: ICON_TRANSPARENCY;
   name: string;
   url?: string;
+  onClick?: () => void;
 }
 
-const Icon = ({ name, url, size, transparency }: IconProps): JSX.Element => {
+const Icon = ({ name, url, size, transparency, onClick }: IconProps): JSX.Element => {
   let className = "Icon ";
   let scr;
 
@@ -106,8 +108,12 @@ const Icon = ({ name, url, size, transparency }: IconProps): JSX.Element => {
     case "arrowDown":
       scr = arrow;
       break;
+
+    case "trashcanDelete":
+      scr = trashcanDelete;
+      break;
   }
-  return <img src={scr} alt={name} className={className}/>;
+  return <img src={scr} alt={name} className={className} onClick={onClick}/>;
 };
 
 export { Icon };
