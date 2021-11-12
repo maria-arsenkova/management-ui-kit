@@ -1,4 +1,5 @@
 .Icon {
+  cursor: pointer;
   &_small {
     width: 16px;
     height: 16px;
@@ -7,6 +8,11 @@
   &_medium {
     width: 20px;
     height: 20px;
+  }
+
+  &_large {
+    width: 40px;
+    height: 40px;
   }
 
   &__arrowUp {

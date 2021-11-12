@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import "./style.scss";
 import {useOnClickOutside} from "../../Hooks/useClickOutside";
 import {TaskHeader} from "Components/TaskHeader";
@@ -7,7 +7,7 @@ import {TaskDescription} from "Components/TaskDescription";
 import {TaskDiscussion} from "Components/TaskDiscussion";
 import {TaskFiles} from "Components/TaskFiles";
 import {TaskFileUpload} from 'Components/TaskFileUpload'
-import {TaskFilesForClient, SIZE_SIGN} from "Components/TaskFiles/types";
+import {SIZE_SIGN, TaskFilesForClient} from "Components/TaskFiles/types";
 import {user} from "Components/Sidebar";
 import {TaskType} from "./types";
 import {CommentProps} from "Components/Comment/types";
@@ -16,6 +16,7 @@ import {removeFileTask} from "../../services/removeFileTask";
 import {updateDescriptionTask} from "../../services/updateDescriptionTask";
 import pdf from "./img/pdf.svg";
 import zip from "./img/zip.svg";
+import {Icon, ICON_SIZE, ICON_TRANSPARENCY} from "../Icon";
 
 export interface TaskProps {
     task: TaskType;
@@ -181,7 +182,7 @@ function Task({task, onTaskChanged, removeTask}: TaskProps) {
                 onTaskUpdate={onTaskChanged}
                 task={task}
             />
-            <button onClick={() => removeTask(task.id)}>DELETE</button>
+            <Icon name={"trashcanDelete"} size={ICON_SIZE.LARGE} transparency={ICON_TRANSPARENCY.HALF} onClick={() => removeTask(task.id)}/>
             <div className="Task__info-blocks">
                 <TaskInfoBlock title={"Asign To"} executor={task.asignTo}/>
                 <TaskInfoBlock title={"Due On"} date={task.dueOn}/>
