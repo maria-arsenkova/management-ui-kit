@@ -24,43 +24,4 @@
     display: flex;
     flex-wrap: wrap;
   }
-
-  &__file-upload-group {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    margin-bottom: 30px;
-  }
-
-  &__file-upload {
-    border-radius: 25px;
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
-    color: #1d201c;
-    line-height: 21px;
-    font-size: 14px;
-    font-weight: bold;
-    margin-right: 16px;
-
-    &:hover {
-      border: 1px solid #eaeaea;
-      background: #eaeaea;
-    }
-
-    &:active {
-      border: 1px solid #e0e0e0;
-      background: #e0e0e0;
-    }
-  }
-
-  &__file-upload-icon {
-    width: 20px;
-    height: 20px;
-  }
-
-  &__file-upload-hidden {
-    display: none;
-  }
 }
