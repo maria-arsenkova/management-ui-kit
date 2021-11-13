@@ -43,8 +43,10 @@ function TaskDiscussion({
     newComment: CommentProps,
     allComments: CommentProps[]
   ): void => {
-    const newComments = [newComment, ...allComments];
-    onCommentCreated(newComments);
+    if (newComment.text.trim() !== "") {
+      const newComments = [newComment, ...allComments];
+      onCommentCreated(newComments);
+    }
   };
 
   const handleKeyPress = (event: any) => {
