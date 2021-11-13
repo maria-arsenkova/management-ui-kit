@@ -43,13 +43,9 @@ function TaskDiscussion({
     newComment: CommentProps,
     allComments: CommentProps[]
   ): void => {
-    const newComments = [newComment, ...allComments];
-    onCommentCreated(newComments);
-  };
-
-  const handleKeyPress = (event: any) => {
-    if (event.key === "Enter") {
-      createComment(comment, content);
+    if (newComment.text.trim() !== "") {
+      const newComments = [newComment, ...allComments];
+      onCommentCreated(newComments);
     }
   };
 
@@ -78,13 +74,18 @@ function TaskDiscussion({
               })
             )
           }
-          onKeyPress={handleKeyPress}
+          onKeyPress={(event) => {
+              if (event.key === "Enter") {
+                  createComment(comment, content);
+              }
+          }}
         />
 
         <Button
           size={BUTTON_SIZE.MEDIUM}
+          isDisabled={comment.text.trim() === ""}
           onClick={() => {
-            createComment(comment, content);
+              createComment(comment, content);
           }}
         >
           Send

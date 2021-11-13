@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.scss";
 import { TaskDescriptionType } from "./types";
 import { Textarea, TEXTAREA_VARIABLE } from "Components/Textarea";
@@ -11,8 +11,6 @@ function TaskDescription({
 }: TaskDescriptionType) {
   const [isShowActions, setShowActions] = useState<boolean>(false);
   const [description, setDescription] = useState<string>("");
-
-  console.log(isShowActions);
 
   const handleDescription = (newDescription: any) => {
     setDescription(newDescription);
@@ -33,7 +31,7 @@ function TaskDescription({
           setShowActions(true);
         }}
         onBlur={() => {
-          description == taskDescription
+          description === taskDescription
             ? setShowActions(!isShowActions)
             : setShowActions(true);
         }}
@@ -51,7 +49,7 @@ function TaskDescription({
               onSave(description);
               setShowActions(!isShowActions);
             }}
-            isDisabled={description == taskDescription}
+            isDisabled={description === taskDescription}
           >
             Save
           </Button>
